@@ -41,7 +41,7 @@ export const sortedEvents = events => {
   const today = new Date();
   const upcomingEvents = events.filter(event =>{
     const eventDate = new Date(event.eventDate);
-    return eventDate >= today;
+    return formatDate(eventDate) >= formatDate(today);
   });
   const sortedEvents = upcomingEvents.sort((a, b) => {
     const dateA = new Date(a.eventDate);
