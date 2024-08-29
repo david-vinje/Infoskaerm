@@ -10,12 +10,12 @@ pr:
   - main
 
 jobs:
-  - job: HelloWorld
+  - job: HelloPipeline
     pool:
       # name: Default
       vmImage: 'ubuntu-latest'
     steps:
-      - script: echo "Hello World"
-        displayName: Hello World
+      - script: echo "Hello Pipeline"
+        displayName: Hello Pipeline
     
   
