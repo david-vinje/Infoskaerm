@@ -26,7 +26,7 @@ jobs:
   - script: docker build -t screen -f screen/Dockerfile .
     displayName: Docker Build
 
-  - script: docker run -d --name screen -p 3000:3000 screen
+  - script: docker run -d --restart-always --name screen -p 3000:3000 screen
     displayName: Docker Run
 
   - script: chromium-browser --kiosk http://localhost:3000 &
