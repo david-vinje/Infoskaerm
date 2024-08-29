@@ -44,15 +44,16 @@ const Countdown = ({ events }) => {
   return (
     <Card>
       <Card.Body className="row p-3">
-        <div className="col-3 d-flex flex-column">
+        <div className="col-4 d-flex flex-column">
           <p className="info-text">Nedtælling</p>
-        </div>
-        <div className="col-9 text-end pe-3">
-          {daysUntil === -1
+          {daysUntil === 0
             ? <img src={giphy} alt="" width={'175px'} height={'150px'} />
-            : <p className="display-1">{daysUntil} </p>
+            : <></>
           }
-          <p className="pb-3 footer-text">Dage til: {event.text}</p>
+        </div>
+        <div className="col-8 text-end align-self-center pe-3">
+            <p className="display-1">{daysUntil} </p>
+          <p className="footer-text">Dage til: {event.text}</p>
         </div>
       </Card.Body>
       {/* <Card.Footer className="d-flex p-2 justify-content-between">
@@ -160,14 +161,14 @@ const Percentage = ({ percentage }) => {
 
 const InfoCard = ({ title, heading, subheading, percentage, bannerText }) => (
   <Card className="h-100">
-    <Card.Body className="row p-3">
-      <div className="col-4 d-flex flex-column">
+    <Card.Body className="row center p-3">
+      <div className="col-4 d-flex flex-column ">
         <p className="info-text pb-2">{title}</p>
         <Percentage percentage={percentage} />
       </div>
       <div className="col-8 text-end">
         <p className="display-1">{heading}</p>
-        <p className="pb-3 footer-text">{subheading}</p>
+        <p className="footer-text">{subheading}</p>
       </div>
     </Card.Body>
     {/* <Card.Footer className="d-flex p-2 justify-content-between">
