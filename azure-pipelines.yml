@@ -12,8 +12,8 @@ pr:
 jobs:
   - job: HelloPipeline
     pool:
-      # name: Default
-      vmImage: 'ubuntu-latest'
+      name: raspberrypi
+      # vmImage: 'ubuntu-latest'
     steps:
       - script: echo "Hello Pipeline"
         displayName: Hello Pipeline
