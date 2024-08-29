@@ -114,7 +114,7 @@ const Calendar = ({ events, headcount }) => {
 }
 
 function formatDate(dateString) {
-  const options = { year: 'numeric', month: 'long', day: 'numeric' };
+  const options = { year: 'numeric', month: 'short', day: 'numeric' };
   const date = new Date(dateString).toLocaleDateString('da-DK', options)
   let [day, monthYear] = date.split('. ')
   if (day.length < 2) day = '0' + day
@@ -126,18 +126,20 @@ const Event = ({ event }) => {
   const [day, monthYear] = formatDate(event.eventDate)
   if (event.newsType !== "INFO") {
     return (
-      <div className="list-group-item p-3 my-2 d-flex align-items-center">
+      <div className="list-group-item py-3 ps-0 pe-3 my-2 d-flex align-items-center">
         <div className="col-1">
-          <p className="display-5">{day}</p>
+          <p className="display-5 text-center">{day}</p>
+          <p className="h4 text-center">{monthYear}</p>
         </div>
         <div className="col-10">
           <div>
             {/* <h3>{monthYear}</h3> */}
-            <h3>{event.text}</h3>
+            <p className="event-text">{event.text}</p>
+            {/* <h3>{event.text}</h3> */}
           </div>
-          <div className="event-text">
+          {/* <div className="event-text">
             <p>{monthYear}</p>
-          </div>
+          </div> */}
         </div>
         <div className="col-1 text-end">
           {getIcon[event.newsType]}
@@ -215,7 +217,8 @@ const Styling = styled.div`
     -webkit-line-clamp: 2; /* Adjust the number of lines to show */
     overflow: hidden;
     text-overflow: ellipsis;
-    font-size: 1.25em;
+    font-weight: 600;
+    font-size: 1.5em;
   }
   .footer-text {
     font-size: 1.25em;
