@@ -9,6 +9,7 @@ import ConfettiIcon from '../Icons/ConfettiIcon';
 import BrainIcon from '../Icons/BrainIcon';
 import CalendarIcon from '../Icons/CalendarIcon';
 import TWIcon from '../Icons/TWIcon';
+import giphy from '../img/giphy.webp'
 
 const ICON_SIZE = '56px'
 const INFO = 'INFO'
@@ -43,12 +44,15 @@ const Countdown = ({ events }) => {
   return (
     <Card>
       <Card.Body className="row p-3">
-        <div className="col-4 d-flex flex-column">
+        <div className="col-3 d-flex flex-column">
           <p className="info-text">Nedtælling</p>
         </div>
-        <div className="col-8 text-end pe-3">
-          <p className="display-1">{daysUntil} </p>
-          <p className="pb-3 footer-text">Dage til {event.text}</p>
+        <div className="col-9 text-end pe-3">
+          {daysUntil === -1
+            ? <img src={giphy} alt="" width={'175px'} height={'150px'} />
+            : <p className="display-1">{daysUntil} </p>
+          }
+          <p className="pb-3 footer-text">Dage til: {event.text}</p>
         </div>
       </Card.Body>
       {/* <Card.Footer className="d-flex p-2 justify-content-between">
@@ -60,12 +64,12 @@ const Countdown = ({ events }) => {
 }
 
 const InfoBox = ({ event }) => {
-    return (
-      <div className="bg-blue rounded w-100 mh-25 text-light m-auto p-4">
-        <p className="display-5">{event.description}</p>
-        <p className="info-text text-ellipsis-6">{event.text}</p>
-      </div>
-    )
+  return (
+    <div className="bg-blue rounded w-100 mh-25 text-light m-auto p-4">
+      <p className="display-5">{event.description}</p>
+      <p className="info-text text-ellipsis-6">{event.text}</p>
+    </div>
+  )
 }
 
 const firstRelevantInfoBox = events => {
@@ -98,7 +102,7 @@ const Calendar = ({ events, headcount }) => {
           <div className="col">
             <Countdown events={events} />
           </div>
-          <div className="col">
+          <div className="col ">
             <InfoCard
               title="Trustworkers"
               heading={headcount[0]}
@@ -155,7 +159,7 @@ const Percentage = ({ percentage }) => {
 }
 
 const InfoCard = ({ title, heading, subheading, percentage, bannerText }) => (
-  <Card>
+  <Card className="h-100">
     <Card.Body className="row p-3">
       <div className="col-4 d-flex flex-column">
         <p className="info-text pb-2">{title}</p>
