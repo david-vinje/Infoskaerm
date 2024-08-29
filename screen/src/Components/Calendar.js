@@ -44,14 +44,15 @@ const Countdown = ({ events }) => {
   return (
     <Card>
       <Card.Body className="row p-3">
-        <div className="col-3 d-flex flex-column">
+        <div className="col-4 d-flex flex-column">
           <p className="info-text">Nedtælling</p>
-        </div>
-        <div className="col-9 text-end pe-3">
-          {daysUntil === -1
+          {daysUntil === 0
             ? <img src={giphy} alt="" width={'175px'} height={'150px'} />
-            : <p className="display-1">{daysUntil} </p>
+            : <></>
           }
+        </div>
+        <div className="col-8 text-end pe-3">
+            <p className="display-1">{daysUntil} </p>
           <p className="pb-3 footer-text">Dage til: {event.text}</p>
         </div>
       </Card.Body>
