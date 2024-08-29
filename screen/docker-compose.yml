@@ -1,0 +1,9 @@
+services:
+  screen:
+    build:
+      context: .
+      dockerfile: screen/Dockerfile
+    container_name: screen
+    ports:
+      - "3000:3000"
+    restart: always
