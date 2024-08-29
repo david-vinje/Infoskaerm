@@ -133,13 +133,8 @@ const Event = ({ event }) => {
         </div>
         <div className="col-10">
           <div>
-            {/* <h3>{monthYear}</h3> */}
             <p className="event-text">{event.text}</p>
-            {/* <h3>{event.text}</h3> */}
           </div>
-          {/* <div className="event-text">
-            <p>{monthYear}</p>
-          </div> */}
         </div>
         <div className="col-1 text-end">
           {getIcon[event.newsType]}
