@@ -7,14 +7,7 @@ import { getProjects, getClientLogoUudid, getEmployeePhotoUuid, getConsultants, 
 import HomeCard from "./HomeCard";
 import Calendar from "../Components/Calendar";
 
-const SECONDS_PER_SLIDE = 2
-const MILLISECONDS_PER_SLIDE = SECONDS_PER_SLIDE * 1000
-
-const MILLISECONDS_PER_DAY = 60 * 60 * 24 * 1000
-const REFRESH_PER_DAY = 4
-const REFRESH_RATE = MILLISECONDS_PER_DAY / REFRESH_PER_DAY
-
-const INTERVAL = 10000 //0000000
+const INTERVAL = 60 * 1000
 
 const Home = () => {
     const navigate = useNavigate();
@@ -28,7 +21,7 @@ const Home = () => {
     const [headcount, setHeadcount] = useState([]);
     const [isPortrait, setOrientation] = useState(window.matchMedia("(orientation: portrait)").matches)
 
-    setInterval(() => navigate(0), 10000000000)
+    setInterval(() => navigate(0), 5 * 60 * 1000)
     window.addEventListener("resize", () => setOrientation(window.matchMedia("(orientation: portrait)").matches))
 
     useEffect(() => {
