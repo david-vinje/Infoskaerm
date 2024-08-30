@@ -7,7 +7,7 @@ import { getProjects, getClientLogoUudid, getEmployeePhotoUuid, getConsultants, 
 import HomeCard from "./HomeCard";
 import Calendar from "../Components/Calendar";
 
-const INTERVAL = 5000
+const INTERVAL = 60 * 1000
 
 const Home = () => {
     const navigate = useNavigate();
