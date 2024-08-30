@@ -3,7 +3,7 @@ import * as React from "react";
 function CalendarIcon(props) {
   return (
     <svg
-      fill="#E3DDD5"
+      // fill="#E3DDD5"
       viewBox="0 0 16 16"
       height="1em"
       width="1em"

@@ -4,7 +4,7 @@ function SlideshowIcon(props) {
   return (
     <svg
       viewBox="0 0 24 24"
-      fill="#E3DDD5"
+      // fill="#E3DDD5"
       height="1em"
       width="1em"
       {...props}

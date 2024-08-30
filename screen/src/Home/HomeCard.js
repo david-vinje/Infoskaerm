@@ -71,7 +71,7 @@ const Vertical = ({ project, onToolButtonClick, getClientLogo, getEmployeePhoto 
           <div className="col-2" key={user.useruuid}>
             <img
               alt=""
-              className="employeephoto"
+              className="employeephoto border border-secondary"
               src={`data:image/jpeg;base64,${getEmployeePhoto(user.useruuid)}`}
             />
           </div>

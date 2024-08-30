@@ -5,7 +5,7 @@ function ConfettiIcon(props) {
   return (
     <svg
       fill="none"
-      stroke="#E3DDD5"
+      // stroke="#E3DDD5"
       strokeLinecap="round"
       strokeLinejoin="round"
       strokeWidth={2}

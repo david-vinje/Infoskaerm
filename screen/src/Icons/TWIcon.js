@@ -5,7 +5,7 @@ function TWIcon (props) {
         <svg
         width="1em"
         height="1em"
-        fill="#E3DDD5"
+        // fill="#E3DDD5"
         viewBox="0 0 299 304"
         version="1.1"
         {...props}

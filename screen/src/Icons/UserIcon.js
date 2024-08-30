@@ -4,7 +4,7 @@ export default function UserIcon(props) {
   return (
     <svg
       viewBox="0 0 1024 1024"
-      fill="#E3DDD5"
+      // fill="#E3DDD5"
       height="1em"
       width="1em"
       {...props}

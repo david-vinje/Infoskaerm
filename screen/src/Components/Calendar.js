@@ -22,13 +22,13 @@ const HQ_BOOKING = 'HQ_BOOKING'
 const CLIENT_EVENT = 'CLIENT_EVENT'
 
 const getIcon = {
-  CLIENT_EVENT: <CalendarIcon height={ICON_SIZE} width={ICON_SIZE} />,
-  CONFERENCE: <TWIcon height={ICON_SIZE} width={ICON_SIZE} />,
-  EXTERNAL_EVENT: <CalendarIcon height={ICON_SIZE} width={ICON_SIZE} />,
-  NEW_EMPLOYEE: <UserIcon height={ICON_SIZE} width={ICON_SIZE} />,
-  INTERNAL_COURSE: <BrainIcon height={ICON_SIZE} width={ICON_SIZE} />,
-  INTERNAL_EVENT: <ConfettiIcon height={ICON_SIZE} width={ICON_SIZE} />,
-  HQ_BOOKING: <ClockIcon height={ICON_SIZE} width={ICON_SIZE} />,
+  CLIENT_EVENT: <CalendarIcon  height={ICON_SIZE} width={ICON_SIZE} fill={"#e9c46a"}/>,
+  EXTERNAL_EVENT: <CalendarIcon height={ICON_SIZE} width={ICON_SIZE} fill={"#e9c46a"}/>,
+  CONFERENCE: <TWIcon height={ICON_SIZE} width={ICON_SIZE} fill={"#2a9d8f"}/>,
+  NEW_EMPLOYEE: <UserIcon height={ICON_SIZE} width={ICON_SIZE} fill={"#f4a261"}/>,
+  INTERNAL_COURSE: <BrainIcon height={ICON_SIZE} width={ICON_SIZE} fill={"#e76f51"}/>,
+  HQ_BOOKING: <ClockIcon height={ICON_SIZE} width={ICON_SIZE} fill={"#eofbfc"}/>,
+  INTERNAL_EVENT: <ConfettiIcon height={ICON_SIZE} width={ICON_SIZE} stroke={"#264653"} />,
 }
 
 // INTERVAL_EVENT OR CONFERENCE
@@ -42,24 +42,20 @@ const Countdown = ({ events }) => {
   const eventDate = new Date(event.eventDate)
   const daysUntil = Math.round((eventDate - today) / (24 * 60 * 60 * 1000))
   return (
-    <Card>
+    <Card className="h-100">
       <Card.Body className="row p-3">
-        <div className="col-4 d-flex flex-column">
+        <div className="col d-flex flex-column">
           <p className="info-text">Nedtælling</p>
           {daysUntil === 0
             ? <img src={giphy} alt="" width={'175px'} height={'150px'} />
             : <></>
           }
         </div>
-        <div className="col-8 text-end align-self-center pe-3">
+        <div className="col text-end align-self-center pe-3">
             <p className="display-1">{daysUntil} </p>
           <p className="footer-text">Dage til: {event.text}</p>
         </div>
       </Card.Body>
-      {/* <Card.Footer className="d-flex p-2 justify-content-between">
-        <p className="ms-3">{event.text}</p>
-        <ClockIcon className="me-3" width='24px' height='24px' />
-      </Card.Footer> */}
     </Card>
   )
 }
@@ -87,19 +83,11 @@ const Calendar = ({ events, headcount }) => {
   const infobox = firstRelevantInfoBox(events)
   return (
     <Styling className="body::before">
-      <div className="container py-5 d-flex flex-column">
-        <h1 className="display-2" style={{ color: "black" }}>
+      <div className="container py- d-flex flex-column">
+        <h1 className="display-1" style={{ color: "black" }}>
           Trustworks Kalender
         </h1>
-        <div className="row mx-auto list-group overflow-hidden pt-5">
-          {events.map((event, index) => (
-            <Event key={index} event={event} />
-          ))}
-        </div>
-        <div className="row mt-auto mb-5 mx-auto">
-          {infobox && <InfoBox event={infobox} />}
-        </div>
-        <div className="row mb-">
+        <div className="row pt-3">
           <div className="col">
             <Countdown events={events} />
           </div>
@@ -112,6 +100,14 @@ const Calendar = ({ events, headcount }) => {
               bannerText="69 % flere end sidste år"
             />
           </div>
+        </div>        
+        <div className="row mt-3 mx-auto">
+          {infobox && <InfoBox event={infobox} />}
+        </div>
+        <div className="row list-group mx-auto overflow-hidden pt-3">
+          {events.map((event, index) => (
+            <Event key={index} event={event} />
+          ))}
         </div>
       </div>
     </Styling>
@@ -131,7 +127,7 @@ const Event = ({ event }) => {
   const [day, month] = formatDate(event.eventDate)
   if (event.newsType !== "INFO") {
     return (
-      <div className="list-group-item py-3 ps-0 pe-3 my-2 d-flex align-items-center">
+      <div className="list-group-item border border-secondary py-3 ps-0 pe-3 my-2 d-flex align-items-center">
         <div className="col-1">
           <p className="display-5 text-center">{day}</p>
           <p className="h4 text-center">{month}</p>
@@ -161,20 +157,16 @@ const Percentage = ({ percentage }) => {
 
 const InfoCard = ({ title, heading, subheading, percentage, bannerText }) => (
   <Card className="h-100">
-    <Card.Body className="row center p-3">
-      <div className="col-4 d-flex flex-column ">
+    <Card.Body className="row p-3">
+      <div className="col d-flex flex-column ">
         <p className="info-text pb-2">{title}</p>
         <Percentage percentage={percentage} />
       </div>
-      <div className="col-8 text-end">
+      <div className="col text-end">
         <p className="display-1">{heading}</p>
         <p className="footer-text">{subheading}</p>
       </div>
     </Card.Body>
-    {/* <Card.Footer className="d-flex p-2 justify-content-between">
-      <p className="ms-3">{bannerText}</p>
-      <ClockIcon className="me-3" width='24px' height='24px' />
-    </Card.Footer> */}
   </Card>
 )
 
