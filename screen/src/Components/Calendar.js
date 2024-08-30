@@ -9,7 +9,7 @@ import ConfettiIcon from '../Icons/ConfettiIcon';
 import BrainIcon from '../Icons/BrainIcon';
 import CalendarIcon from '../Icons/CalendarIcon';
 import TWIcon from '../Icons/TWIcon';
-import giphy from '../img/giphy.webp'
+import giphy from '../img/confetti.gif'
 
 const ICON_SIZE = '56px'
 const INFO = 'INFO'
@@ -22,13 +22,13 @@ const HQ_BOOKING = 'HQ_BOOKING'
 const CLIENT_EVENT = 'CLIENT_EVENT'
 
 const getIcon = {
-  CLIENT_EVENT: <CalendarIcon  height={ICON_SIZE} width={ICON_SIZE} fill={"#e9c46a"}/>,
-  EXTERNAL_EVENT: <CalendarIcon height={ICON_SIZE} width={ICON_SIZE} fill={"#e9c46a"}/>,
-  CONFERENCE: <TWIcon height={ICON_SIZE} width={ICON_SIZE} fill={"#2a9d8f"}/>,
-  NEW_EMPLOYEE: <UserIcon height={ICON_SIZE} width={ICON_SIZE} fill={"#f4a261"}/>,
-  INTERNAL_COURSE: <BrainIcon height={ICON_SIZE} width={ICON_SIZE} fill={"#e76f51"}/>,
-  HQ_BOOKING: <ClockIcon height={ICON_SIZE} width={ICON_SIZE} fill={"#eofbfc"}/>,
-  INTERNAL_EVENT: <ConfettiIcon height={ICON_SIZE} width={ICON_SIZE} stroke={"#264653"} />,
+  CLIENT_EVENT: <CalendarIcon height={ICON_SIZE} width={ICON_SIZE} fill={"#455977"} />,
+  EXTERNAL_EVENT: <CalendarIcon height={ICON_SIZE} width={ICON_SIZE} fill={"#455977"} />,
+  CONFERENCE: <TWIcon height={ICON_SIZE} width={ICON_SIZE} fill={"#455977"} />,
+  NEW_EMPLOYEE: <UserIcon height={ICON_SIZE} width={ICON_SIZE} fill={"#455977"} />,
+  INTERNAL_COURSE: <BrainIcon height={ICON_SIZE} width={ICON_SIZE} fill={"#455977"} />,
+  HQ_BOOKING: <ClockIcon height={ICON_SIZE} width={ICON_SIZE} fill={"#455977"} />,
+  INTERNAL_EVENT: <ConfettiIcon height={ICON_SIZE} width={ICON_SIZE} stroke={"#455977"} />,
 }
 
 // INTERVAL_EVENT OR CONFERENCE
@@ -52,7 +52,7 @@ const Countdown = ({ events }) => {
           }
         </div>
         <div className="col text-end align-self-center pe-3">
-            <p className="display-1">{daysUntil} </p>
+          <p className="display-1">{daysUntil} </p>
           <p className="footer-text">Dage til: {event.text}</p>
         </div>
       </Card.Body>
@@ -83,10 +83,16 @@ const Calendar = ({ events, headcount }) => {
   const infobox = firstRelevantInfoBox(events)
   return (
     <Styling className="body::before">
-      <div className="container py- d-flex flex-column">
-        <h1 className="display-1" style={{ color: "black" }}>
-          Trustworks Kalender
+      <div className="container py-5 d-flex flex-column">
+        {/* <h2 className="display-2" style={{ color: "DimGrey" }}> */}
+        <h1 className="display-1 pt-5" style={{ color: "black" }}>
+
+          TRUSTWORKS NEWS
         </h1>
+
+        <div className="row mt-3 mx-auto">
+          {infobox && <InfoBox event={infobox} />}
+        </div>
         <div className="row pt-3">
           <div className="col">
             <Countdown events={events} />
@@ -97,19 +103,21 @@ const Calendar = ({ events, headcount }) => {
               heading={headcount[0]}
               subheading="Good People"
               percentage={headcount[1]}
-              bannerText="69 % flere end sidste år"
             />
           </div>
-        </div>        
-        <div className="row mt-3 mx-auto">
-          {infobox && <InfoBox event={infobox} />}
         </div>
+        <div className="pt-5">
+            <h2 className="display-3" style={{ color: "grey" }}>
+              KALENDER
+            </h2>
+          </div>
         <div className="row list-group mx-auto overflow-hidden pt-3">
           {events.map((event, index) => (
             <Event key={index} event={event} />
           ))}
         </div>
       </div>
+
     </Styling>
   )
 }
@@ -194,7 +202,7 @@ const Styling = styled.div`
     background-color: transparent;
   }
   .info-text {
-    font-size: 1.5em;
+    font-size: 2em;
   }
   .text-ellipsis-6 {
     display: -webkit-box;
@@ -210,7 +218,7 @@ const Styling = styled.div`
     overflow: hidden;
     text-overflow: ellipsis;
     font-weight: 600;
-    font-size: 1.5em;
+    font-size: 2em;
   }
   .footer-text {
     font-size: 1.25em;

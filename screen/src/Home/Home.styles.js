@@ -25,7 +25,7 @@ export const Wrapper = styled.div`
     ${'' /* line-height: 1.75; */}
 }
 .container, .container-fluid {
-    height: 99vh;
+    height: 98vh;
 }
 
 .list-group-item, .card {
