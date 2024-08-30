@@ -121,20 +121,20 @@ const Calendar = ({ events, headcount }) => {
 function formatDate(dateString) {
   const options = { year: 'numeric', month: 'short', day: 'numeric' };
   const date = new Date(dateString).toLocaleDateString('da-DK', options)
-  let [day, monthYear] = date.split('. ')
+  let [day, month] = date.split('. ')
   if (day.length < 2) day = '0' + day
-  monthYear = monthYear.charAt(0).toUpperCase() + monthYear.slice(1);
-  return [day, monthYear]
+  month = month.toUpperCase()
+  return [day, month]
 }
 
 const Event = ({ event }) => {
-  const [day, monthYear] = formatDate(event.eventDate)
+  const [day, month] = formatDate(event.eventDate)
   if (event.newsType !== "INFO") {
     return (
       <div className="list-group-item py-3 ps-0 pe-3 my-2 d-flex align-items-center">
         <div className="col-1">
           <p className="display-5 text-center">{day}</p>
-          <p className="h4 text-center">{monthYear}</p>
+          <p className="h4 text-center">{month}</p>
         </div>
         <div className="col-10">
           <div>
