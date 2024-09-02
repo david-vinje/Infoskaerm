@@ -1,5 +1,5 @@
 # Use an official Node.js runtime as the base image
-FROM node:lts-alpine
+FROM node:slim
 
 # Set the working directory in the container
 WORKDIR /screen
@@ -8,21 +8,13 @@ WORKDIR /screen
 COPY screen/package*.json ./
 
 # Install project dependencies
-RUN npm install && \
-    npm install -g serve
-
-# RUN npm install
+RUN npm install --production
 
 # Copy the entire project to the container
 COPY screen .
-
-# Build the React app
-RUN npm run build && \
-    rm -fr node_modules
 
 # Expose the port on which the app will run
 EXPOSE 3000
 
 # Run the app
-CMD [ "serve", "-s", "build" ]
-# CMD [ "npm", "start" ]
+CMD [ "npm", "start" ]

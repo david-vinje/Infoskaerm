@@ -194,7 +194,7 @@ const Styling = styled.div`
     background-color: transparent;
   }
   .info-text {
-    font-size: 1.5em;
+    font-size: 2em;
   }
   .text-ellipsis-6 {
     display: -webkit-box;
@@ -210,10 +210,7 @@ const Styling = styled.div`
     overflow: hidden;
     text-overflow: ellipsis;
     font-weight: 600;
-    font-size: 1.5em;
-  }
-  .footer-text {
-    font-size: 1.25em;
+    font-size: 2em;
   }
   span {
     margin-left: auto; 
