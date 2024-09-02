@@ -8,7 +8,7 @@ WORKDIR /screen
 COPY screen/package*.json ./
 
 # Install project dependencies
-RUN npm install --production
+RUN npm install
 
 # Copy the entire project to the container
 COPY screen .

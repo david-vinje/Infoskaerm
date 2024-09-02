@@ -2,8 +2,6 @@ import { useEffect, useState } from "react";
 import { Card, Button, Row, Col, Dropdown, DropdownButton, Carousel, Modal, ButtonGroup } from "react-bootstrap";
 import { Wrapper } from "./FindProject.styles";
 import { useNavigate } from "react-router-dom";
-import { ArrowIosBack } from '@styled-icons/evaicons-solid/ArrowIosBack';
-import { BackInTime } from '@styled-icons/entypo/BackInTime';
 
 //Pt ikke i brug:
 // import { Add } from '@styled-icons/fluentui-system-filled/Add';
@@ -378,7 +376,7 @@ const FindProject = () => {
         <Wrapper>
             <ButtonGroup style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
                 <div style={{ flex: 1, marginRight: '10px' }}>
-                    <Button className="back" onClick={() => navigate('/')}> <ArrowIosBack size="24" /> Tilbage til home </Button>
+                    <Button className="back" onClick={() => navigate('/')}> Tilbage til home </Button>
                 </div>
 
                 {/* <div style={{ flex: 1, marginLeft: '10px' }}>
@@ -386,7 +384,7 @@ const FindProject = () => {
                 </div> */}
 
                 <div style={{ flex: 1, marginLeft: '10px' }}>
-                    <Button className="nulstil" onClick={() => removeFilters()} > < BackInTime size="24" /> Nulstil filtre </Button>
+                    <Button className="nulstil" onClick={() => removeFilters()} > Nulstil filtre </Button>
                 </div>
             </ButtonGroup>
 
