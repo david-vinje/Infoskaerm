@@ -11,31 +11,66 @@ import CalendarIcon from '../Icons/CalendarIcon';
 import TWIcon from '../Icons/TWIcon';
 import giphy from '../img/confetti.gif'
 
-const ICON_SIZE = '64px'
-const INFO = 'INFO'
-const NEW_EMPLOYEE = 'NEW_EMPLOYEE'
-const INTERNAL_EVENT = 'INTERNAL_EVENT'
-const INTERNAL_COURSE = 'INTERNAL_COURSE'
-const EXTERNAL_EVENT = 'EXTERNAL_EVENT'
-const CONFERENCE = 'CONFERENCE'
-const HQ_BOOKING = 'HQ_BOOKING'
-const CLIENT_EVENT = 'CLIENT_EVENT'
+const ICON_SIZE = "60px"
 
 const getIcon = {
-  CLIENT_EVENT: <CalendarIcon height={ICON_SIZE} width={ICON_SIZE} fill={"#455977"} />,
-  EXTERNAL_EVENT: <CalendarIcon height={ICON_SIZE} width={ICON_SIZE} fill={"#455977"} />,
-  CONFERENCE: <TWIcon height={ICON_SIZE} width={ICON_SIZE} fill={"#455977"} />,
-  NEW_EMPLOYEE: <UserIcon height={ICON_SIZE} width={ICON_SIZE} fill={"#455977"} />,
-  INTERNAL_COURSE: <BrainIcon height={ICON_SIZE} width={ICON_SIZE} fill={"#455977"} />,
-  HQ_BOOKING: <ClockIcon height={ICON_SIZE} width={ICON_SIZE} fill={"#455977"} />,
-  INTERNAL_EVENT: <ConfettiIcon height={ICON_SIZE} width={ICON_SIZE} stroke={"#455977"} />,
+  "CLIENT_EVENT": <CalendarIcon height={ICON_SIZE} width={ICON_SIZE} fill={"#455977"} />,
+  "EXTERNAL_EVENT": <CalendarIcon height={ICON_SIZE} width={ICON_SIZE} fill={"#455977"} />,
+  "CONFERENCE": <TWIcon height={ICON_SIZE} width={ICON_SIZE} fill={"#455977"} />,
+  "NEW_EMPLOYEE": <UserIcon height={ICON_SIZE} width={ICON_SIZE} fill={"#455977"} />,
+  "INTERNAL_COURSE": <BrainIcon height={ICON_SIZE} width={ICON_SIZE} fill={"#455977"} />,
+  "HQ_BOOKING": <ClockIcon height={ICON_SIZE} width={ICON_SIZE} fill={"#455977"} />,
+  "INTERNAL_EVENT": <ConfettiIcon height={ICON_SIZE} width={ICON_SIZE} stroke={"#455977"} />,
 }
 
-// INTERVAL_EVENT OR CONFERENCE
+const Calendar = ({ events, headcount }) => {
+  const infobox = firstRelevantInfoBox(events)
+  return (
+    <Styling className="body::before">
+      <div className="container py-5 d-flex flex-column">
+        <Heading text="TRUSTWORKS NEWS" />
+        <Infobox infobox={infobox} />
+        <Infocards events={events} headcount={headcount} />
+        <Subheading text="KALENDER" />
+        <Events events={events} />
+      </div>
+    </Styling>
+  )
+}
+
+const Heading = ({ text }) => (
+  <h1 className="display-1 pt-5" style={{ color: "black" }}>
+    {text}
+  </h1>
+)
+
+const Infobox = ({ infobox }) => {
+  if (!infobox) return
+  return (
+    <div className="row pt-5 mx-auto">
+      <div className="bg-blue rounded w-100 mh-25 text-light m-auto p-4">
+        <p className="display-5">{infobox.description}</p>
+        <p className="info-text text-ellipsis-6">{infobox.text}</p>
+      </div>
+    </div>
+  )
+}
+
+const Infocards = ({ events, headcount }) => (
+  <div className="row pt-5">
+    <div className="col">
+      <Countdown events={events} />
+    </div>
+    <div className="col">
+      <GoodPeople headcount={headcount} />
+    </div>
+  </div>
+)
+
 const Countdown = ({ events }) => {
   if (!events.length) return
   const relevantEvents = events.filter(event => {
-    return event.newsType === CONFERENCE || event.newsType === INTERNAL_EVENT
+    return event.newsType === "CONFERENCE" || event.newsType === "INTERNAL_EVENT"
   })
   const event = relevantEvents[0]
   const today = new Date()
@@ -60,74 +95,39 @@ const Countdown = ({ events }) => {
   )
 }
 
-const InfoBox = ({ event }) => {
-  return (
-    <div className="bg-blue rounded w-100 mh-25 text-light m-auto p-4">
-      <p className="display-5">{event.description}</p>
-      <p className="info-text text-ellipsis-6">{event.text}</p>
-    </div>
-  )
-}
-
-const firstRelevantInfoBox = events => {
-  return events.find((event) => {
-    const today = new Date();
-    const eventDate = new Date(event.eventDate);
-    const isRelevant = eventDate >= today;
-    return event.newsType === INFO && isRelevant;
-  });
-}
-
-const Calendar = ({ events, headcount }) => {
-  // Find the first event that meets the criteria for InfoBox
-  const infobox = firstRelevantInfoBox(events)
-  return (
-    <Styling className="body::before">
-      <div className="container py-5 d-flex flex-column">
-        <h1 className="display-1 pt-5" style={{ color: "black" }}>
-          TRUSTWORKS NEWS
-        </h1>
-
-        <div className="row pt-5 mx-auto">
-          {infobox && <InfoBox event={infobox} />}
-        </div>
-        <div className="row pt-5">
-          <div className="col">
-            <Countdown events={events} />
-          </div>
-          <div className="col">
-            <InfoCard
-              title="Trustworkers"
-              heading={headcount[0]}
-              subheading="Good People"
-              percentage={headcount[1]}
-            />
-          </div>
-        </div>
-        <div className="pt-5">
-            <h2 className="display-3" style={{ color: "grey" }}>
-              KALENDER
-            </h2>
-          </div>
-        <div className="row list-group mx-auto overflow-hidden pt-3">
-          {events.map((event, index) => (
-            <Event key={index} event={event} />
-          ))}
+const GoodPeople = ({ headcount }) => (
+  <Card className="h-100">
+    <Card.Body className="row p-3">
+      <div className="col d-flex flex-column ">
+        <p className="info-text pb-2">Trustworkers</p>
+        <div className="border center py-2 bg-green rounded">
+          <UpArrowIcon height="32px" width="32px" />
+          <p className="display-6 ms-1">+{headcount[1]} %</p>
         </div>
       </div>
+      <div className="col text-end">
+        <p className="display-1">{headcount[0]}</p>
+        <p className="footer-text">Good People</p>
+      </div>
+    </Card.Body>
+  </Card>
+)
 
-    </Styling>
-  )
-}
+const Subheading = ({ text }) => (
+  <div className="pt-5">
+    <h2 className="display-3" style={{ color: "grey" }}>
+      {text}
+    </h2>
+  </div>
+)
 
-function formatDate(dateString) {
-  const options = { year: 'numeric', month: 'short', day: 'numeric' };
-  const date = new Date(dateString).toLocaleDateString('da-DK', options)
-  let [day, month] = date.split('. ')
-  if (day.length < 2) day = '0' + day
-  month = month.toUpperCase()
-  return [day, month]
-}
+const Events = ({ events }) => (
+  <div className="row list-group mx-auto overflow-hidden pt-3">
+    {events.map((event, index) => (
+      <Event key={index} event={event} />
+    ))}
+  </div>
+)
 
 const Event = ({ event }) => {
   const [day, month] = formatDate(event.eventDate)
@@ -151,30 +151,23 @@ const Event = ({ event }) => {
   }
 };
 
-const Percentage = ({ percentage }) => {
-  if (!percentage) return
-  return (
-    <div className="border center py-2 bg-green rounded">
-      <UpArrowIcon height="32px" width="32px" />
-      <p className="display-6 ms-1">+{percentage} %</p>
-    </div>
-  )
+const firstRelevantInfoBox = events => {
+  return events.find((event) => {
+    const today = new Date();
+    const eventDate = new Date(event.eventDate);
+    const isRelevant = eventDate >= today;
+    return event.newsType === "INFO" && isRelevant;
+  });
 }
 
-const InfoCard = ({ title, heading, subheading, percentage, bannerText }) => (
-  <Card className="h-100">
-    <Card.Body className="row p-3">
-      <div className="col d-flex flex-column ">
-        <p className="info-text pb-2">{title}</p>
-        <Percentage percentage={percentage} />
-      </div>
-      <div className="col text-end">
-        <p className="display-1">{heading}</p>
-        <p className="footer-text">{subheading}</p>
-      </div>
-    </Card.Body>
-  </Card>
-)
+function formatDate(dateString) {
+  const options = { year: 'numeric', month: 'short', day: 'numeric' };
+  const date = new Date(dateString).toLocaleDateString('da-DK', options)
+  let [day, month] = date.split('. ')
+  if (day.length < 2) day = '0' + day
+  month = month.toUpperCase()
+  return [day, month]
+}
 
 const Styling = styled.div`
   div, h1 {
