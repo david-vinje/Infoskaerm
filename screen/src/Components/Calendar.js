@@ -11,7 +11,7 @@ import CalendarIcon from '../Icons/CalendarIcon';
 import TWIcon from '../Icons/TWIcon';
 import giphy from '../img/confetti.gif'
 
-const ICON_SIZE = '56px'
+const ICON_SIZE = '64px'
 const INFO = 'INFO'
 const NEW_EMPLOYEE = 'NEW_EMPLOYEE'
 const INTERNAL_EVENT = 'INTERNAL_EVENT'
