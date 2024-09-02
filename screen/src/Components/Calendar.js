@@ -38,6 +38,15 @@ const Calendar = ({ events, headcount }) => {
   )
 }
 
+const firstRelevantInfoBox = events => {
+  return events.find((event) => {
+    const today = new Date();
+    const eventDate = new Date(event.eventDate);
+    const isRelevant = eventDate >= today;
+    return event.newsType === "INFO" && isRelevant;
+  });
+}
+
 const Heading = ({ text }) => (
   <h1 className="display-1 pt-5" style={{ color: "black" }}>
     {text}
@@ -73,26 +82,30 @@ const Countdown = ({ events }) => {
     return event.newsType === "CONFERENCE" || event.newsType === "INTERNAL_EVENT"
   })
   const event = relevantEvents[0]
-  const today = new Date()
-  const eventDate = new Date(event.eventDate)
-  const daysUntil = Math.round((eventDate - today) / (24 * 60 * 60 * 1000))
+  const countdown = daysUntil(event)
   return (
     <Card className="h-100">
       <Card.Body className="row p-3">
         <div className="col d-flex flex-column">
           <p className="info-text">Nedtælling</p>
-          {daysUntil === 0
-            ? <img src={giphy} alt="" width={'175px'} height={'150px'} />
+          {countdown === 0
+            ? <img src={giphy} alt="" width={"175px"} height={"150px"} />
             : <></>
           }
         </div>
         <div className="col text-end align-self-center pe-3">
-          <p className="display-1">{daysUntil} </p>
+          <p className="display-1">{countdown} </p>
           <p className="footer-text">Dage til: {event.text}</p>
         </div>
       </Card.Body>
     </Card>
   )
+}
+
+const daysUntil = event => {
+  const today = new Date()
+  const eventDate = new Date(event.eventDate)
+  return Math.round((eventDate - today) / (24 * 60 * 60 * 1000))
 }
 
 const GoodPeople = ({ headcount }) => (
@@ -150,15 +163,6 @@ const Event = ({ event }) => {
     )
   }
 };
-
-const firstRelevantInfoBox = events => {
-  return events.find((event) => {
-    const today = new Date();
-    const eventDate = new Date(event.eventDate);
-    const isRelevant = eventDate >= today;
-    return event.newsType === "INFO" && isRelevant;
-  });
-}
 
 function formatDate(dateString) {
   const options = { year: 'numeric', month: 'short', day: 'numeric' };
