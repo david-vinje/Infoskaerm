@@ -9,7 +9,7 @@ import ConfettiIcon from '../Icons/ConfettiIcon';
 import BrainIcon from '../Icons/BrainIcon';
 import CalendarIcon from '../Icons/CalendarIcon';
 import TWIcon from '../Icons/TWIcon';
-import giphy from '../img/confetti.gif'
+import giphy from '../img/giphy.webp'
 
 const ICON_SIZE = "60px"
 
