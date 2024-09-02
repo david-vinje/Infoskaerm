@@ -84,20 +84,18 @@ const Calendar = ({ events, headcount }) => {
   return (
     <Styling className="body::before">
       <div className="container py-5 d-flex flex-column">
-        {/* <h2 className="display-2" style={{ color: "DimGrey" }}> */}
         <h1 className="display-1 pt-5" style={{ color: "black" }}>
-
           TRUSTWORKS NEWS
         </h1>
 
-        <div className="row mt-3 mx-auto">
+        <div className="row pt-5 mx-auto">
           {infobox && <InfoBox event={infobox} />}
         </div>
-        <div className="row pt-3">
+        <div className="row pt-5">
           <div className="col">
             <Countdown events={events} />
           </div>
-          <div className="col ">
+          <div className="col">
             <InfoCard
               title="Trustworkers"
               heading={headcount[0]}
