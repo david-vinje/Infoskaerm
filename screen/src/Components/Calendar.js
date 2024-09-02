@@ -220,9 +220,6 @@ const Styling = styled.div`
     font-weight: 600;
     font-size: 2em;
   }
-  .footer-text {
-    font-size: 1.25em;
-  }
   span {
     margin-left: auto; 
   }
