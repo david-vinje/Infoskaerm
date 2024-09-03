@@ -8,6 +8,7 @@ import HomeCard from "./HomeCard";
 import Calendar from "../Components/Calendar";
 
 const INTERVAL = 10000
+const MILLISECONDS_PER_DAY = 24 * 60 * 60 * 1000
 
 const Home = () => {
     const navigate = useNavigate();
@@ -21,7 +22,7 @@ const Home = () => {
     const [headcount, setHeadcount] = useState([]);
     const [isPortrait, setOrientation] = useState(window.matchMedia("(orientation: portrait)").matches)
 
-    setInterval(() => navigate(0), INTERVAL)
+    setInterval(() => navigate(0), MILISECONDS_PER_DAY/12)
     window.addEventListener("resize", () => setOrientation(window.matchMedia("(orientation: portrait)").matches))
 
     useEffect(() => {
