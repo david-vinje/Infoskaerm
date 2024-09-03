@@ -14,13 +14,13 @@ import giphy from '../img/confetti.gif'
 const ICON_SIZE = "60px"
 
 const getIcon = {
-  "CLIENT_EVENT": <CalendarIcon height={ICON_SIZE} width={ICON_SIZE} fill={"#455977"} />,
-  "EXTERNAL_EVENT": <CalendarIcon height={ICON_SIZE} width={ICON_SIZE} fill={"#455977"} />,
-  "CONFERENCE": <TWIcon height={ICON_SIZE} width={ICON_SIZE} fill={"#455977"} />,
-  "NEW_EMPLOYEE": <UserIcon height={ICON_SIZE} width={ICON_SIZE} fill={"#455977"} />,
-  "INTERNAL_COURSE": <BrainIcon height={ICON_SIZE} width={ICON_SIZE} fill={"#455977"} />,
-  "HQ_BOOKING": <ClockIcon height={ICON_SIZE} width={ICON_SIZE} fill={"#455977"} />,
-  "INTERNAL_EVENT": <ConfettiIcon height={ICON_SIZE} width={ICON_SIZE} stroke={"#455977"} />,
+  "CLIENT_EVENT": <CalendarIcon height={ICON_SIZE} width={ICON_SIZE} fill={"#778256"} />,
+  "EXTERNAL_EVENT": <CalendarIcon height={ICON_SIZE} width={ICON_SIZE} fill={"#778256"} />,
+  "NEW_EMPLOYEE": <UserIcon height={ICON_SIZE} width={ICON_SIZE} fill={"#778256"} />,
+  "CONFERENCE": <TWIcon height={ICON_SIZE} width={ICON_SIZE} fill={"#5c6983"} />,
+  "INTERNAL_COURSE": <BrainIcon height={ICON_SIZE} width={ICON_SIZE} fill={"#5c6983"} />,
+  "HQ_BOOKING": <ClockIcon height={ICON_SIZE} width={ICON_SIZE} fill={"#5c6983"} />,
+  "INTERNAL_EVENT": <ConfettiIcon height={ICON_SIZE} width={ICON_SIZE} stroke={"#f09449"} />,
 }
 
 const Calendar = ({ events, headcount }) => {
