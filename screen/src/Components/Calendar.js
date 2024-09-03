@@ -17,9 +17,9 @@ const getIcon = {
   "CLIENT_EVENT": <CalendarIcon height={ICON_SIZE} width={ICON_SIZE} fill={"#89936d"} />,
   "EXTERNAL_EVENT": <CalendarIcon height={ICON_SIZE} width={ICON_SIZE} fill={"#89936d"} />,
   "NEW_EMPLOYEE": <UserIcon height={ICON_SIZE} width={ICON_SIZE} fill={"#89936d"} />,
-  "CONFERENCE": <TWIcon height={ICON_SIZE} width={ICON_SIZE} fill={"#919bab"} />,
-  "INTERNAL_COURSE": <BrainIcon height={ICON_SIZE} width={ICON_SIZE} fill={"#919bab"} />,
-  "HQ_BOOKING": <ClockIcon height={ICON_SIZE} width={ICON_SIZE} fill={"#919bab"} />,
+  "CONFERENCE": <TWIcon height={ICON_SIZE} width={ICON_SIZE} fill={"#5c6983"} />,
+  "INTERNAL_COURSE": <BrainIcon height={ICON_SIZE} width={ICON_SIZE} fill={"#5c6983"} />,
+  "HQ_BOOKING": <ClockIcon height={ICON_SIZE} width={ICON_SIZE} fill={"#5c6983"} />,
   "INTERNAL_EVENT": <ConfettiIcon height={ICON_SIZE} width={ICON_SIZE} stroke={"#f1a25e"} />,
 }
 
@@ -84,7 +84,7 @@ const Countdown = ({ events }) => {
   const event = relevantEvents[0]
   const countdown = getCountdown(event)
   return (
-    <Card className="h-100">
+    <Card className="h-100 border-secondary">
       <Card.Body className="row p-3">
         <div className="col-5 d-flex flex-column">
           <p className="display-5">Nedtælling</p>
@@ -109,7 +109,7 @@ const getCountdown = event => {
 }
 
 const GoodPeople = ({ headcount }) => (
-  <Card className="h-100">
+  <Card className="h-100 border border-secondary">
     <Card.Body className="row p-3">
       <div className="col d-flex flex-column ">
         <p className="display-5 pb-2">Trustworkers</p>
