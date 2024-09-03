@@ -7,7 +7,6 @@ import { getProjects, getClientLogoUudid, getEmployeePhotoUuid, getConsultants, 
 import HomeCard from "./HomeCard";
 import Calendar from "../Components/Calendar";
 
-const INTERVAL = 10000
 const MILLISECONDS_PER_DAY = 24 * 60 * 60 * 1000
 
 const Home = () => {
@@ -127,14 +126,14 @@ const Home = () => {
     return (
         <Wrapper className="body::before">
             <Carousel data-wrap className="">
-                <Carousel.Item key="calendar " interval={INTERVAL}>
+                <Carousel.Item key="calendar " interval={10000}>
                     <Calendar
                         events={events}
                         headcount={headcount}
                     />
                 </Carousel.Item>
                 {activeProjects.map((project, index) => (
-                    <Carousel.Item key={index} interval={INTERVAL}>
+                    <Carousel.Item key={index} interval={10000}>
                         <HomeCard
                             project={project}
                             onToolButtonClick={handleToolButtonClick}
