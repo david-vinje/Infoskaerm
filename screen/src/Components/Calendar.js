@@ -57,7 +57,7 @@ const Infobox = ({ infobox }) => {
   if (!infobox) return
   return (
     <div className="row pt-5 mx-auto">
-      <div className="bg-blue rounded w-100 mh-25 text-light m-auto p-4">
+      <div className="bg-blue border border-secondary rounded w-100 mh-25 text-light m-auto p-4">
         <p className="display-5">{infobox.description}</p>
         <p className="text-description text-ellipsis-6">{infobox.text}</p>
       </div>
@@ -206,8 +206,7 @@ const Styling = styled.div`
     background-color: rgba(55, 75, 5, 0.3);
   }
   .bg-blue{
-    color: #374b05;
-    background-color: rgba(69, 89, 119, 0.7);
+    background-color: #919bab;
   }
   .card-footer {
     background-color: #374b05;
