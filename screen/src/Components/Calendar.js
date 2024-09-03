@@ -147,7 +147,7 @@ const Event = ({ event }) => {
   const [day, month] = formatDate(event.eventDate)
   if (event.newsType !== "INFO") {
     return (
-      <div className="list-group-item border border-secondary py-3 ps-0 pe-3 my-2 d-flex align-items-center">
+      <div className={"list-group-item py-3 ps-0 pe-3 my-2 d-flex align-items-center " + borderColor[event.newsType]}>
         <div className="col-1">
           <p className="display-5 text-center">{day}</p>
           <p className="h4 text-center">{month}</p>
@@ -165,6 +165,16 @@ const Event = ({ event }) => {
   }
 };
 
+const borderColor = {
+  "CLIENT_EVENT": "border-green",
+  "EXTERNAL_EVENT": "border-green",
+  "NEW_EMPLOYEE": "border-green",
+  "HQ_BOOKING": "border-blue",
+  "INTERNAL_COURSE": "border-blue",
+  "CONFERENCE": "border-blue",
+  "INTERNAL_EVENT": "border-orange"
+}
+
 function formatDate(dateString) {
   const options = { year: 'numeric', month: 'short', day: 'numeric' };
   const date = new Date(dateString).toLocaleDateString('da-DK', options)
@@ -180,6 +190,15 @@ const Styling = styled.div`
   }
   h1, p {
     margin: 0;
+  }
+  .border-green {
+    border: 2px solid #778256;
+  }
+  .border-blue {
+    border: 2px solid #5c6983;
+  }
+  .border-orange {
+    border: 2px solid #f09449;
   }
   .bg-green {
     color: #374b05;
