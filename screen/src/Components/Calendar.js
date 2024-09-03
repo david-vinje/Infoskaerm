@@ -113,7 +113,7 @@ const GoodPeople = ({ headcount }) => (
     <Card.Body className="row p-3">
       <div className="col d-flex flex-column ">
         <p className="display-5 pb-2">Trustworkers</p>
-        <div className="border center w-75 py-3 bg-green rounded">
+        <div className="border center w-50 py-3 bg-green rounded">
           <UpArrowIcon height="32px" width="32px" />
           <p className="display-6 ms-1">+{headcount[1]} %</p>
         </div>
