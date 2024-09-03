@@ -27,7 +27,7 @@ const Calendar = ({ events, headcount }) => {
   const infobox = firstRelevantInfoBox(events)
   return (
     <Styling className="body::before">
-      <div className="container py-5 d-flex flex-column">
+      <div className="container-fluid w-75 py-5 d-flex flex-column">
         <Heading text="TRUSTWORKS NEWS" />
         <Infobox infobox={infobox} />
         <Infocards events={events} headcount={headcount} />
@@ -59,7 +59,7 @@ const Infobox = ({ infobox }) => {
     <div className="row pt-5 mx-auto">
       <div className="bg-blue rounded w-100 mh-25 text-light m-auto p-4">
         <p className="display-5">{infobox.description}</p>
-        <p className="info-text text-ellipsis-6">{infobox.text}</p>
+        <p className="text-description text-ellipsis-6">{infobox.text}</p>
       </div>
     </div>
   )
@@ -87,7 +87,7 @@ const Countdown = ({ events }) => {
     <Card className="h-100">
       <Card.Body className="row p-3">
         <div className="col d-flex flex-column">
-          <p className="info-text">Nedtælling</p>
+          <p className="display-5">Nedtælling</p>
           {countdown === 0
             ? <img src={giphy} alt="" width={"175px"} height={"150px"} />
             : <></>
@@ -95,7 +95,7 @@ const Countdown = ({ events }) => {
         </div>
         <div className="col text-end align-self-center pe-3">
           <p className="display-1">{countdown} </p>
-          <p className="footer-text">Dage til: {event.text}</p>
+          <p className="text-description">Dage til: {event.text}</p>
         </div>
       </Card.Body>
     </Card>
@@ -112,16 +112,16 @@ const GoodPeople = ({ headcount }) => (
   <Card className="h-100">
     <Card.Body className="row p-3">
       <div className="col d-flex flex-column ">
-        <p className="info-text pb-2">Trustworkers</p>
+        <p className="display-5 pb-2">Trustworkers</p>
         <div className="border w-75 center py-2 bg-green rounded">
           <UpArrowIcon height="32px" width="32px" />
           <p className="display-6 ms-1">+{headcount[1]} %</p>
         </div>
-        <p>Siden d.d. sidste år</p>
+        <p className="text-description">Siden d.d. sidste år</p>
       </div>
       <div className="col text-end">
         <p className="display-1">{headcount[0]}</p>
-        <p className="footer-text">Good People</p>
+        <p className="text-description">Good People</p>
       </div>
     </Card.Body>
   </Card>
@@ -129,7 +129,7 @@ const GoodPeople = ({ headcount }) => (
 
 const Subheading = ({ text }) => (
   <div className="pt-5">
-    <h2 className="display-3" style={{ color: "grey" }}>
+    <h2 className="display-4" style={{ color: "grey" }}>
       {text}
     </h2>
   </div>
@@ -154,7 +154,7 @@ const Event = ({ event }) => {
         </div>
         <div className="col-10">
           <div>
-            <p className="event-text">{event.text}</p>
+            <p className="event-text display-6">{event.text}</p>
           </div>
         </div>
         <div className="col-1 text-end">
@@ -193,12 +193,12 @@ const Styling = styled.div`
     background-color: #374b05;
     color: #eee; 
   }
+  .text-description {
+    font-size: 2em;
+  }
   .info-section {
     border: 1px solid transparent;
     background-color: transparent;
-  }
-  .info-text {
-    font-size: 2em;
   }
   .text-ellipsis-6 {
     display: -webkit-box;
@@ -213,8 +213,8 @@ const Styling = styled.div`
     -webkit-line-clamp: 2; /* Adjust the number of lines to show */
     overflow: hidden;
     text-overflow: ellipsis;
-    font-weight: 600;
-    font-size: 2em;
+    ${'' /* font-weight: 600; */}
+    ${'' /* font-size: 2em; */}
   }
   span {
     margin-left: auto; 
