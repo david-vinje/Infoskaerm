@@ -14,13 +14,13 @@ import giphy from '../img/confetti.gif'
 const ICON_SIZE = "60px"
 
 const getIcon = {
-  "CLIENT_EVENT": <CalendarIcon height={ICON_SIZE} width={ICON_SIZE} fill={"#778256"} />,
-  "EXTERNAL_EVENT": <CalendarIcon height={ICON_SIZE} width={ICON_SIZE} fill={"#778256"} />,
-  "NEW_EMPLOYEE": <UserIcon height={ICON_SIZE} width={ICON_SIZE} fill={"#778256"} />,
-  "CONFERENCE": <TWIcon height={ICON_SIZE} width={ICON_SIZE} fill={"#5c6983"} />,
-  "INTERNAL_COURSE": <BrainIcon height={ICON_SIZE} width={ICON_SIZE} fill={"#5c6983"} />,
-  "HQ_BOOKING": <ClockIcon height={ICON_SIZE} width={ICON_SIZE} fill={"#5c6983"} />,
-  "INTERNAL_EVENT": <ConfettiIcon height={ICON_SIZE} width={ICON_SIZE} stroke={"#f09449"} />,
+  "CLIENT_EVENT": <CalendarIcon height={ICON_SIZE} width={ICON_SIZE} fill={"#89936d"} />,
+  "EXTERNAL_EVENT": <CalendarIcon height={ICON_SIZE} width={ICON_SIZE} fill={"#89936d"} />,
+  "NEW_EMPLOYEE": <UserIcon height={ICON_SIZE} width={ICON_SIZE} fill={"#89936d"} />,
+  "CONFERENCE": <TWIcon height={ICON_SIZE} width={ICON_SIZE} fill={"#919bab"} />,
+  "INTERNAL_COURSE": <BrainIcon height={ICON_SIZE} width={ICON_SIZE} fill={"#919bab"} />,
+  "HQ_BOOKING": <ClockIcon height={ICON_SIZE} width={ICON_SIZE} fill={"#919bab"} />,
+  "INTERNAL_EVENT": <ConfettiIcon height={ICON_SIZE} width={ICON_SIZE} stroke={"#f1a25e"} />,
 }
 
 const Calendar = ({ events, headcount }) => {
@@ -147,7 +147,8 @@ const Event = ({ event }) => {
   const [day, month] = formatDate(event.eventDate)
   if (event.newsType !== "INFO") {
     return (
-      <div className={"list-group-item py-3 ps-0 pe-3 my-2 d-flex align-items-center " + borderColor[event.newsType]}>
+      // <div className={"list-group-item py-3 ps-0 pe-3 my-2 d-flex align-items-center " + borderColor[event.newsType]}>
+      <div className="list-group-item py-3 ps-0 pe-3 my-2 d-flex align-items-center border border-secondary">
         <div className="col-1">
           <p className="display-5 text-center">{day}</p>
           <p className="h4 text-center">{month}</p>
