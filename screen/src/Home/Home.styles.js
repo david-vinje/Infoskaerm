@@ -28,7 +28,7 @@ export const Wrapper = styled.div`
     height: 98vh;
 }
 
-.list-group-item, .card {
+.list-group-item, .card, .infobox {
     border-radius: 10px; 
 }
 

@@ -58,7 +58,7 @@ const Infobox = ({ infobox }) => {
   console.log(infobox)
   if (!infobox) return
   return (
-    <div className="row bg-blue border border-secondary mt-5 rounded w-100 mh-25 mx-auto p-4">
+    <div className="infobox bg-blue border border-secondary mt-5 w-100 mh-25 mx-auto p-4">
         <p className="display-5">{getIcon[infobox.newsType]} {infobox.description}</p>
         <p className="text-description text-ellipsis-6">{infobox.text}</p>
     </div>
@@ -206,7 +206,7 @@ const Styling = styled.div`
     background-color: rgba(55, 75, 5, 0.3);
   }
   .bg-blue{
-    background-color: #e5f1fa;
+    background-color: #dadde2;
   }
   .card-footer {
     background-color: #374b05;
