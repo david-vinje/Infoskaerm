@@ -58,7 +58,7 @@ const Infobox = ({ infobox }) => {
   console.log(infobox)
   if (!infobox) return
   return (
-    <div className="row  text-light bg-blue mt-5 border border-secondary rounded w-100 mh-25 m-auto p-4">
+    <div className="row text-light bg-blue border border-secondary rounded w-100 mh-25 mx-auto p-4">
         <p className="display-5">{getIcon[infobox.newsType]} {infobox.description}</p>
         <p className="text-description text-ellipsis-6">{infobox.text}</p>
     </div>
