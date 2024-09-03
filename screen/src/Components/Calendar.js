@@ -4,7 +4,7 @@ import styled from "styled-components";
 import ClockIcon from '../Icons/ClockIcon';
 import UpArrowIcon from '../Icons/UpArrowIcon';
 import UserIcon from '../Icons/UserIcon';
-import SlideshowIcon from '../Icons/SlideshowIcon';
+import InfoIcon from '../Icons/InfoIcon';
 import ConfettiIcon from '../Icons/ConfettiIcon';
 import BrainIcon from '../Icons/BrainIcon';
 import CalendarIcon from '../Icons/CalendarIcon';
@@ -21,6 +21,7 @@ const getIcon = {
   "INTERNAL_COURSE": <BrainIcon height={ICON_SIZE} width={ICON_SIZE} fill={"#5c6983"} />,
   "HQ_BOOKING": <ClockIcon height={ICON_SIZE} width={ICON_SIZE} fill={"#5c6983"} />,
   "INTERNAL_EVENT": <ConfettiIcon height={ICON_SIZE} width={ICON_SIZE} stroke={"#f1a25e"} />,
+  "INFO": <InfoIcon height={"44px"} width={"44px"} stroke={"#f1a25e"} />,
 }
 
 const Calendar = ({ events, headcount }) => {
@@ -54,13 +55,12 @@ const Heading = ({ text }) => (
 )
 
 const Infobox = ({ infobox }) => {
+  console.log(infobox)
   if (!infobox) return
   return (
-    <div className="row pt-5 mx-auto">
-      <div className="bg-blue border border-secondary rounded w-100 mh-25 text-light m-auto p-4">
-        <p className="display-5">{infobox.description}</p>
+    <div className="row  text-light bg-blue mt-5 border border-secondary rounded w-100 mh-25 m-auto p-4">
+        <p className="display-5">{getIcon[infobox.newsType]} {infobox.description}</p>
         <p className="text-description text-ellipsis-6">{infobox.text}</p>
-      </div>
     </div>
   )
 }
