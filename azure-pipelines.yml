@@ -11,7 +11,6 @@ jobs:
   steps:
   - checkout: self
   
-  # - script: docker-compose2 down
   - script: docker stop screen || true
     displayName: Stop Docker container
 
@@ -21,11 +20,9 @@ jobs:
   - script: killall chromium-browser || true
     displayName: Kill Chromium process
 
-  # - script: docker-compose build
   - script: docker build -t screen -f screen/Dockerfile .
     displayName: Docker Build
 
-  # - script: docker-compose up -d
   - script: docker run -d --restart=always --name screen -p 3000:3000 screen
     displayName: Docker Run
 

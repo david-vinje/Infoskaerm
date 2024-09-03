@@ -9,7 +9,7 @@ import ConfettiIcon from '../Icons/ConfettiIcon';
 import BrainIcon from '../Icons/BrainIcon';
 import CalendarIcon from '../Icons/CalendarIcon';
 import TWIcon from '../Icons/TWIcon';
-import giphy from '../img/giphy.webp'
+import giphy from '../img/confetti.gif'
 
 const ICON_SIZE = "60px"
 
@@ -82,7 +82,7 @@ const Countdown = ({ events }) => {
     return event.newsType === "CONFERENCE" || event.newsType === "INTERNAL_EVENT"
   })
   const event = relevantEvents[0]
-  const countdown = daysUntil(event)
+  const countdown = getCountdown(event)
   return (
     <Card className="h-100">
       <Card.Body className="row p-3">
@@ -102,7 +102,7 @@ const Countdown = ({ events }) => {
   )
 }
 
-const daysUntil = event => {
+const getCountdown = event => {
   const today = new Date()
   const eventDate = new Date(event.eventDate)
   return Math.round((eventDate - today) / (24 * 60 * 60 * 1000))
@@ -113,10 +113,11 @@ const GoodPeople = ({ headcount }) => (
     <Card.Body className="row p-3">
       <div className="col d-flex flex-column ">
         <p className="info-text pb-2">Trustworkers</p>
-        <div className="border center py-2 bg-green rounded">
+        <div className="border w-75 center py-2 bg-green rounded">
           <UpArrowIcon height="32px" width="32px" />
           <p className="display-6 ms-1">+{headcount[1]} %</p>
         </div>
+        <p>Siden d.d. sidste år</p>
       </div>
       <div className="col text-end">
         <p className="display-1">{headcount[0]}</p>
