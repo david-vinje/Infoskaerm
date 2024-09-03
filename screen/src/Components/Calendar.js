@@ -206,7 +206,7 @@ const Styling = styled.div`
     background-color: rgba(55, 75, 5, 0.3);
   }
   .bg-blue{
-    background-color: #919bab;
+    background-color: #e5f1fa;
   }
   .card-footer {
     background-color: #374b05;
