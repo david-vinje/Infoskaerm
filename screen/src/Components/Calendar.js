@@ -25,12 +25,12 @@ const getIcon = {
 }
 
 const Calendar = ({ events, headcount }) => {
-  const infobox = firstRelevantInfoBox(events)
+  const infoboxes = getInfoboxes(events)
   return (
     <Styling className="body::before px-5">
       <div className="container-fluid px-5 py-5 d-flex flex-column">
         <Heading text="TRUSTWORKS NEWS" />
-        <Infobox infobox={infobox} />
+        <Infoboxes infoboxes={infoboxes} />
         <Infocards events={events} headcount={headcount} />
         <Subheading text="KALENDER" />
         <Events events={events} />
@@ -39,13 +39,13 @@ const Calendar = ({ events, headcount }) => {
   )
 }
 
-const firstRelevantInfoBox = events => {
-  return events.find((event) => {
-    const today = new Date();
-    const eventDate = new Date(event.eventDate);
-    const isRelevant = eventDate >= today;
+const getInfoboxes = events => {
+  const infoboxes = events.filter(event => {
+    const today = formatDate(new Date());
+    const isRelevant = event.eventDate >= today && getCountdown(event) <= 30
     return event.newsType === "INFO" && isRelevant;
   });
+  return infoboxes.slice(0, 2)
 }
 
 const Heading = ({ text }) => (
@@ -54,16 +54,20 @@ const Heading = ({ text }) => (
   </h1>
 )
 
-const Infobox = ({ infobox }) => {
-  console.log(infobox)
-  if (!infobox) return
-  return (
-    <div className="infobox bg-blue border border-secondary mt-5 w-100 mh-25 mx-auto p-4">
-        <p className="display-5">{getIcon[infobox.newsType]} {infobox.description}</p>
-        <p className="text-description text-ellipsis-6">{infobox.text}</p>
-    </div>
+const Infoboxes = ({ infoboxes }) => {
+  if (infoboxes.length > 0) return (
+    infoboxes.map((infobox, index) => {
+      return <Infobox key={index} infobox={infobox} />
+    })
   )
 }
+
+const Infobox = ({ infobox }) => (
+  <div className="infobox bg-blue border border-secondary mt-5 w-100 mh-25 mx-auto p-4">
+    <p className="display-5">{getIcon[infobox.newsType]} {infobox.description}</p>
+    <p className="text-description text-ellipsis-6">{infobox.text}</p>
+  </div>
+)
 
 const Infocards = ({ events, headcount }) => (
   <div className="row pt-5">
@@ -93,7 +97,7 @@ const Countdown = ({ events }) => {
             : <></>
           }
         </div>
-        <div className="col-7 text-end align-self-center pe-3">
+        <div className="col-7 text-end align-self-end pe-3">
           <p className="display-1">{countdown} </p>
           <p className="text-description">Dage til: {event.text}</p>
         </div>
@@ -119,7 +123,7 @@ const GoodPeople = ({ headcount }) => (
         </div>
         <p className="text-description">Siden d.d. sidste år</p>
       </div>
-      <div className="col text-end">
+      <div className="col align-self-end text-end">
         <p className="display-1">{headcount[0]}</p>
         <p className="text-description">Good People</p>
       </div>
@@ -177,10 +181,9 @@ const borderColor = {
 }
 
 function formatDate(dateString) {
-  const options = { year: 'numeric', month: 'short', day: 'numeric' };
+  const options = { year: 'numeric', month: 'short', day: '2-digit' };
   const date = new Date(dateString).toLocaleDateString('da-DK', options)
   let [day, month] = date.split('. ')
-  if (day.length < 2) day = '0' + day
   month = month.toUpperCase()
   return [day, month]
 }
@@ -214,6 +217,11 @@ const Styling = styled.div`
   }
   .text-description {
     font-size: 2em;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1; /* Adjust the number of lines to show */
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
   .info-section {
     border: 1px solid transparent;

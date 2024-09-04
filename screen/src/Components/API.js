@@ -20,37 +20,38 @@ async function fetchHeadcount(date) {
   }
 }
 
-const formatDate = date => {
+const getDateOnly = date => {
   return date.toISOString().split('T')[0]
 }
 
 const yearsAgo = years => {
-  const [_, month, day] = formatDate(new Date()).split('-')
+  const [_, month, day] = getDateOnly(new Date()).split('-')
   const newYear = new Date().getFullYear() - years;
-  return formatDate(new Date(newYear + '-' + month + '-' + day))
+  return getDateOnly(new Date(newYear + '-' + month + '-' + day))
 }
 
 export const getHeadcount = async setEvents => {
   const A = await fetchHeadcount(yearsAgo(0))
   const B = await fetchHeadcount(yearsAgo(1))
-  const percentage = Math.round(B/A*100)
+  const percentage = Math.round(B / A * 100)
   setEvents([A, percentage])
 }
 
 export const sortedEvents = events => {
-  const today = new Date();
-  const upcomingEvents = events.filter(event =>{
-    const eventDate = new Date(event.eventDate);
-    return formatDate(eventDate) >= formatDate(today);
-  });
-  const sortedEvents = upcomingEvents.sort((a, b) => {
+  const sortedEvents = events.sort((a, b) => {
     const dateA = new Date(a.eventDate);
     const dateB = new Date(b.eventDate);
     return dateA - dateB;
   });
+  const today = getDateOnly(new Date());
   return sortedEvents
+    .map(event => {
+      const eventDate = new Date(event.eventDate)
+      return { ...event, eventDate: getDateOnly(eventDate) }
+    })
+    .filter(event => event.eventDate >= today);
 }
- 
+
 export async function getEvents(setEvents) {
   try {
     // const response = await fetch('https://api.trustworks.dk/public/news/office_display', config);
@@ -75,7 +76,7 @@ export async function getProjects(setProjects) {
       throw new Error(`HTTP error! Status: ${response.status}`);
     }
     const data = await response.json()
-    
+
     // const data = require('./projects.json');
 
     const sortedProjects = data.sort((a, b) => {
