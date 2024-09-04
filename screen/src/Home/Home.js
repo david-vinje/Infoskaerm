@@ -7,7 +7,7 @@ import { getProjects, getClientLogoUudid, getEmployeePhotoUuid, getConsultants, 
 import HomeCard from "./HomeCard";
 import Calendar from "../Components/Calendar";
 
-const INTERVAL = 1000 * 1000
+const INTERVAL = 10000 * 1000
 const MILLISECONDS_PER_DAY = 24 * 60 * 60 * 1000
 
 const Home = () => {

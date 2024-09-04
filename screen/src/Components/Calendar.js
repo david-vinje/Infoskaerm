@@ -22,6 +22,8 @@ const getIcon = {
   "HQ_BOOKING": <ClockIcon height={ICON_SIZE} width={ICON_SIZE} fill={"#5c6983"} />,
   "INTERNAL_EVENT": <ConfettiIcon height={ICON_SIZE} width={ICON_SIZE} stroke={"#f1a25e"} />,
   "INFO": <InfoIcon height={"44px"} width={"44px"} stroke={"#eee"} />,
+  "INFOSTORT": <InfoIcon height={"100px"} width={"100px"} stroke={"#f1a25e"} />,
+  "TRUSTWORKSLOGO": <TWIcon height={"150px"} width={"150px"} fill={"#000000"} />,
 }
 
 const Calendar = ({ events, headcount }) => {
@@ -51,9 +53,17 @@ const getInfoboxes = events => {
 }
 
 const Heading = ({ text }) => (
-  <h1 className="display-1 pt-5" style={{ color: "black" }}>
-    {text}
-  </h1>
+  <div className="row">
+    <div className="col-10">
+      <h1 className="display-1 pt-5" style={{ color: "black" }}>{text}</h1>
+    </div>
+    <div className="col-2 align-item-start text-center" >
+      <div className="">
+        {getIcon['TRUSTWORKSLOGO']}
+      </div>
+    </div>
+  </div>
+  
 )
 
 const Infoboxes = ({ infoboxes }) => {
@@ -65,9 +75,16 @@ const Infoboxes = ({ infoboxes }) => {
 }
 
 const Infobox = ({ infobox }) => (
-  <div className="infobox bg-blue text-light border border-secondary mt-5 w-100 mh-25 mx-auto p-4">
-    <p className="display-5">{getIcon[infobox.newsType]} {infobox.description}</p>
-    <p className="text-description text-ellipsis-6">{infobox.text}</p>
+  <div className="row infobox bg-blue border border-secondary mt-5 w-100 mh-25 mx-auto p-4">
+    <div className="col-10 text-light">
+      <p className="display-5">{getIcon[infobox.newsType]} {infobox.description}</p>
+      <p className="text-description text-ellipsis-6">{infobox.text}</p>
+    </div>
+    <div className="col-2 align-self-center text-center" >
+      <div className="">
+        {getIcon['INFOSTORT']}
+      </div>
+    </div>
   </div>
 )
 
@@ -162,8 +179,8 @@ const Event = ({ event }) => {
         <div className="col-1">
           {
             isToday ? 
-            <div>
-              <p className="">TODAY</p>
+            <div className="">
+              <p className="h3 text-center fw-bold today">TODAY</p>
             </div> 
             :
             <div>
@@ -210,6 +227,11 @@ const Styling = styled.div`
   h1, p {
     margin: 0;
   }
+
+  .today{
+    color: #f09449;
+  }
+
   .border-green {
     border: 2px solid #778256;
   }
