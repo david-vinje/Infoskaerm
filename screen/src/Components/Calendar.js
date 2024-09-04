@@ -63,7 +63,7 @@ const Infoboxes = ({ infoboxes }) => {
 }
 
 const Infobox = ({ infobox }) => (
-  <div className="infobox bg-blue border border-secondary mt-5 w-100 mh-25 mx-auto p-4">
+  <div className="infobox bg-blue text-light border border-secondary mt-5 w-100 mh-25 mx-auto p-4">
     <p className="display-5">{getIcon[infobox.newsType]} {infobox.description}</p>
     <p className="text-description text-ellipsis-6">{infobox.text}</p>
   </div>
@@ -209,7 +209,7 @@ const Styling = styled.div`
     background-color: rgba(55, 75, 5, 0.3);
   }
   .bg-blue{
-    background-color: #edeff2;
+    background-color: #4094be;
   }
   .card-footer {
     background-color: #374b05;
