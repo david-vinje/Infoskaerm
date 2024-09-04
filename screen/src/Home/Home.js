@@ -7,7 +7,7 @@ import { getProjects, getClientLogoUudid, getEmployeePhotoUuid, getConsultants, 
 import HomeCard from "./HomeCard";
 import Calendar from "../Components/Calendar";
 
-const INTERVAL = 1000
+const INTERVAL = 1000 * 1000
 const MILLISECONDS_PER_DAY = 24 * 60 * 60 * 1000
 
 const Home = () => {
@@ -123,10 +123,9 @@ const Home = () => {
         setSelectedTool(tool);
     };
 
-    //interval=5000=5sec
     return (
         <Wrapper className="body::before">
-            <Carousel data-wrap className="">
+            <Carousel data-wrap autoFocus>
                 <Carousel.Item key="calendar " interval={INTERVAL}>
                     <Calendar
                         events={events}

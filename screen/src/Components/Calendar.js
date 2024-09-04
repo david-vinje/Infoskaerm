@@ -21,10 +21,11 @@ const getIcon = {
   "INTERNAL_COURSE": <BrainIcon height={ICON_SIZE} width={ICON_SIZE} fill={"#5c6983"} />,
   "HQ_BOOKING": <ClockIcon height={ICON_SIZE} width={ICON_SIZE} fill={"#5c6983"} />,
   "INTERNAL_EVENT": <ConfettiIcon height={ICON_SIZE} width={ICON_SIZE} stroke={"#f1a25e"} />,
-  "INFO": <InfoIcon height={"44px"} width={"44px"} stroke={"#f1a25e"} />,
+  "INFO": <InfoIcon height={"44px"} width={"44px"} stroke={"#eee"} />,
 }
 
 const Calendar = ({ events, headcount }) => {
+  console.log('events', events)
   const infoboxes = getInfoboxes(events)
   return (
     <Styling className="body::before px-5">
@@ -40,6 +41,7 @@ const Calendar = ({ events, headcount }) => {
 }
 
 const getInfoboxes = events => {
+  console.log('events', events)
   const infoboxes = events.filter(event => {
     const today = formatDate(new Date());
     const isRelevant = event.eventDate >= today && getCountdown(event) <= 30
@@ -107,8 +109,10 @@ const Countdown = ({ events }) => {
 }
 
 const getCountdown = event => {
-  const today = new Date()
+  const today = new Date(new Date().toDateString())
   const eventDate = new Date(event.eventDate)
+  console.log('eventDate', eventDate)
+  console.log('today', today)
   return Math.round((eventDate - today) / (24 * 60 * 60 * 1000))
 }
 
@@ -116,12 +120,12 @@ const GoodPeople = ({ headcount }) => (
   <Card className="h-100 border border-secondary">
     <Card.Body className="row p-3">
       <div className="col d-flex flex-column ">
-        <p className="display-5 pb-2">Trustworkers</p>
+        <p className="display-5">Trustworkers</p>
+        <p className="text-description">siden d.d. sidste år</p>
         <div className="border center w-50 py-3 bg-green rounded">
           <UpArrowIcon height="32px" width="32px" />
           <p className="display-6 ms-1">+{headcount[1]} %</p>
         </div>
-        <p className="text-description">Siden d.d. sidste år</p>
       </div>
       <div className="col align-self-end text-end">
         <p className="display-1">{headcount[0]}</p>
@@ -149,13 +153,24 @@ const Events = ({ events }) => (
 
 const Event = ({ event }) => {
   const [day, month] = formatDate(event.eventDate)
+  const isToday = getCountdown(event) === 0
+  console.log('countdown', getCountdown(event))
   if (event.newsType !== "INFO") {
     return (
       // <div className={"list-group-item py-3 ps-0 pe-3 my-2 d-flex align-items-center " + borderColor[event.newsType]}>
       <div className="list-group-item py-3 ps-0 pe-3 my-2 d-flex align-items-center border border-secondary">
         <div className="col-1">
-          <p className="display-5 text-center">{day}</p>
-          <p className="h4 text-center">{month}</p>
+          {
+            isToday ? 
+            <div>
+              <p className="">TODAY</p>
+            </div> 
+            :
+            <div>
+              <p className="display-5 text-center">{day}</p>
+              <p className="h4 text-center">{month}</p>
+            </div>
+          }
         </div>
         <div className="col-10">
           <div>

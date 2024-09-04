@@ -20,14 +20,14 @@ async function fetchHeadcount(date) {
   }
 }
 
-const getDateOnly = date => {
+export const dateOnly = date => {
   return date.toISOString().split('T')[0]
 }
 
 const yearsAgo = years => {
-  const [_, month, day] = getDateOnly(new Date()).split('-')
+  const [_, month, day] = dateOnly(new Date()).split('-')
   const newYear = new Date().getFullYear() - years;
-  return getDateOnly(new Date(newYear + '-' + month + '-' + day))
+  return dateOnly(new Date(newYear + '-' + month + '-' + day))
 }
 
 export const getHeadcount = async setEvents => {
@@ -38,18 +38,19 @@ export const getHeadcount = async setEvents => {
 }
 
 export const sortedEvents = events => {
-  const sortedEvents = events.sort((a, b) => {
-    const dateA = new Date(a.eventDate);
-    const dateB = new Date(b.eventDate);
-    return dateA - dateB;
-  });
-  const today = getDateOnly(new Date());
-  return sortedEvents
+  const today = dateOnly(new Date());
+  console.log(events)
+  return events
     .map(event => {
-      const eventDate = new Date(event.eventDate)
-      return { ...event, eventDate: getDateOnly(eventDate) }
+      const eventDate = event.eventDate.split("T")[0]
+      return { ...event, eventDate }
     })
-    .filter(event => event.eventDate >= today);
+    .sort((a, b) => {
+      const dateA = new Date(a.eventDate);
+      const dateB = new Date(b.eventDate);
+      return dateA - dateB;
+    })
+    .filter(event => event.eventDate >= today)
 }
 
 export async function getEvents(setEvents) {
