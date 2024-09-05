@@ -15,7 +15,6 @@ import Beach from "../Icons/Vacation";
 import Construction from "../Icons/Construction";
 import giphy from '../img/michael.webp'
 
-
 const ICON_SIZE = "60px"
 const INFO_ICON_SIZE = "100px"
 
@@ -28,15 +27,12 @@ const getIcon = {
   "HQ_BOOKING": <ClockIcon height={ICON_SIZE} width={ICON_SIZE} fill={"#5c6983"} />,
   "INTERNAL_EVENT": <ConfettiIcon height={ICON_SIZE} width={ICON_SIZE} stroke={"#f1a25e"} />,
   "INFO": <InfoIcon height={"44px"} width={"44px"} stroke={"#eee"} />,
-
   "TRUSTWORKSLOGO": <TWIcon height={"150px"} width={"150px"} fill={"#000000"} />,
-
   "LUNCH": <LunchIcon height={INFO_ICON_SIZE} width={INFO_ICON_SIZE} stroke={"#fffff"} />,
   "CRAFTSMAN": <Construction height={INFO_ICON_SIZE} width={INFO_ICON_SIZE} stroke={"#fffff"} />,
   "VACATION": <Beach height={INFO_ICON_SIZE} width={INFO_ICON_SIZE} stroke={"#fffff"} />,
   "OTHER": <Rocket height={INFO_ICON_SIZE} width={INFO_ICON_SIZE} stroke={"#fffff"} />
 }
-
 
 const Calendar = ({ events, headcount }) => {
   const infoboxes = getInfoboxes(events)
@@ -182,7 +178,6 @@ const Event = ({ event }) => {
   const isToday = getCountdown(event) === 0
   if (event.newsType !== "INFO") {
     return (
-      // <div className={"list-group-item py-3 ps-0 pe-3 my-2 d-flex align-items-center " + borderColor[event.newsType]}>
       <div className="list-group-item py-3 ps-0 pe-3 my-2 d-flex align-items-center border border-secondary">
         <div className="col-1">
           {
@@ -197,7 +192,7 @@ const Event = ({ event }) => {
         </div>
         <div className="col-10">
           <div>
-            <p className={"event-text display-6"}>{event.text}</p>
+            <p className="event-text display-6">{event.text}</p>
           </div>
         </div>
         <div className="col-1 text-end">
@@ -207,16 +202,6 @@ const Event = ({ event }) => {
     )
   }
 };
-
-const borderColor = {
-  "CLIENT_EVENT": "border-green",
-  "EXTERNAL_EVENT": "border-green",
-  "NEW_EMPLOYEE": "border-green",
-  "HQ_BOOKING": "border-blue",
-  "INTERNAL_COURSE": "border-blue",
-  "CONFERENCE": "border-blue",
-  "INTERNAL_EVENT": "border-orange"
-}
 
 function formatDate(dateString) {
   const options = { year: 'numeric', month: 'short', day: '2-digit' };
@@ -283,8 +268,6 @@ const Styling = styled.div`
     -webkit-line-clamp: 2; /* Adjust the number of lines to show */
     overflow: hidden;
     text-overflow: ellipsis;
-    ${'' /* font-weight: 600; */}
-    ${'' /* font-size: 2em; */}
   }
   span {
     margin-left: auto; 

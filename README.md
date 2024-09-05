@@ -1,20 +1,12 @@
-# Introduction 
-TODO: Give a short introduction of your project. Let this section explain the objectives or the motivation behind this project. 
-
 # Getting Started
-TODO: Guide users through getting your code up and running on their own system. In this section you can talk about:
-1.	Installation process
-2.	Software dependencies
-3.	Latest releases
-4.	API references
+Checkout the [TW intranet API](https://api.trustworks.dk/q/swagger-ui/#/Public%20Resource)
 
-# Build and Test
-TODO: Describe and show how to build your code and run the tests. 
+Clone the [Azure DevOps repoistory](https://dev.azure.com/davidvinje/_git/info-screen)
+Run locally: `cd screen && npm install && npm start`
 
-# Contribute
-TODO: Explain how other users and developers can contribute to make your code better. 
 
-If you want to learn more about creating good readme files then refer the following [guidelines](https://docs.microsoft.com/en-us/azure/devops/repos/git/create-a-readme?view=azure-devops). You can also seek inspiration from the below readme files:
-- [ASP.NET Core](https://github.com/aspnet/Home)
-- [Visual Studio Code](https://github.com/Microsoft/vscode)
-- [Chakra Core](https://github.com/Microsoft/ChakraCore)
+Checkout the [Azure DevOps pipeline status](https://dev.azure.com/davidvinje/info-screen/_build?definitionId=2&_a=summary)
+Edit the [Azure DevOps pipeline script and variables](https://dev.azure.com/davidvinje/info-screen/_apps/hub/ms.vss-build-web.ci-designer-hub?pipelineId=2&branch=main)
+
+SSH into the Raspberry Pi: `ssh trustworks@192.168.1.231`
+Path to Raspberry Pi autostart script: `/etc/xdg/lxsession/LXDE-pi/autostart`
