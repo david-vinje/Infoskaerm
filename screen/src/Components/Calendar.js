@@ -26,12 +26,14 @@ const getIcon = {
   "TRUSTWORKSLOGO": <TWIcon height={"150px"} width={"150px"} fill={"#000000"} />,
 }
 
+
 const Calendar = ({ events, headcount }) => {
-  console.log('events', events)
   const infoboxes = getInfoboxes(events)
   return (
     <Styling className="body::before px-5">
       <div className="container-fluid px-5 py-5 d-flex flex-column">
+        { process.env.NODE_ENV }
+        { process.env.REACT_APP_TOKEN }
         <Heading text="TRUSTWORKS NEWS" />
         <Infoboxes infoboxes={infoboxes} />
         <Infocards events={events} headcount={headcount} />
