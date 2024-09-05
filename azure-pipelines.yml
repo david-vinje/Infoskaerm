@@ -11,13 +11,6 @@ jobs:
   steps:
   - checkout: self
 
-  - script: echo $(HELLO)
-    displayName: hello world
-  
-  - script: echo $(REACT_APP_TOKEN)
-    displayName: hello token
-
-  
   - script: docker stop screen || true
     displayName: Stop Docker container
 
@@ -27,10 +20,10 @@ jobs:
   - script: killall chromium-browser || true
     displayName: Kill Chromium process
 
-  - script: docker build -t screen -f screen/Dockerfile .
+  - script: docker build --build-arg REACT_APP_TOKEN=$(REACT_APP_TOKEN) -t screen -f screen/Dockerfile .
     displayName: Docker Build
 
-  - script: docker run -d --restart=always --name screen -p 3000:3000 screen
+  - script: docker run -e REACT_APP_TOKEN=$(REACT_APP_TOKEN) -d --restart=always --name screen -p 3000:3000 screen
     displayName: Docker Run
 
   - script: chromium-browser --kiosk http://localhost:3000 &
