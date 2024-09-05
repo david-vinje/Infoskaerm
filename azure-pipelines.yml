@@ -11,13 +11,13 @@ jobs:
   steps:
   - checkout: self
 
-  - script: echo ${{ variables['HELLO'] }}
+  - script: echo $(HELLO)
     displayName: hello 1
 
-  - script: echo ${ variables.HELLO }
+  - script: echo ${{ variables.HELLO }}
     displayName: hello 2
 
-  - script: echo $(variables.HELLO)
+  - script: echo $[variables.HELLO]
     displayName: hello 3
   
   - script: docker stop screen || true
