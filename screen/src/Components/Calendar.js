@@ -9,9 +9,17 @@ import ConfettiIcon from '../Icons/ConfettiIcon';
 import BrainIcon from '../Icons/BrainIcon';
 import CalendarIcon from '../Icons/CalendarIcon';
 import TWIcon from '../Icons/TWIcon';
-import giphy from '../img/michael.webp'
+import LunchIcon from '../Icons/LunchIcon';
+import Rocket from "../Icons/Rocket";
+import Beach from "../Icons/Vacation";
+import Construction from "../Icons/Construction";
+
+import giphy from '../img/confetti.gif'
+
+
 
 const ICON_SIZE = "60px"
+const INFO_ICON_SIZE = "100px"
 
 const getIcon = {
   "CLIENT_EVENT": <CalendarIcon height={ICON_SIZE} width={ICON_SIZE} fill={"#89936d"} />,
@@ -22,8 +30,13 @@ const getIcon = {
   "HQ_BOOKING": <ClockIcon height={ICON_SIZE} width={ICON_SIZE} fill={"#5c6983"} />,
   "INTERNAL_EVENT": <ConfettiIcon height={ICON_SIZE} width={ICON_SIZE} stroke={"#f1a25e"} />,
   "INFO": <InfoIcon height={"44px"} width={"44px"} stroke={"#eee"} />,
-  "INFOSTORT": <InfoIcon height={"100px"} width={"100px"} stroke={"#f1a25e"} />,
+
   "TRUSTWORKSLOGO": <TWIcon height={"150px"} width={"150px"} fill={"#000000"} />,
+
+  "LUNCH": <LunchIcon height={INFO_ICON_SIZE} width={INFO_ICON_SIZE} stroke={"#fffff"} />,
+  "CRAFTSMAN": <Construction height={INFO_ICON_SIZE} width={INFO_ICON_SIZE} stroke={"#fffff"} />,
+  "VACATION": <Beach height={INFO_ICON_SIZE} width={INFO_ICON_SIZE} stroke={"#fffff"} />,
+  "OTHER": <Rocket height={INFO_ICON_SIZE} width={INFO_ICON_SIZE} stroke={"#fffff"} />
 }
 
 
@@ -78,7 +91,7 @@ const Infobox = ({ infobox }) => (
   <div className="row infobox bg-blue border border-secondary mt-5 w-100 mh-25 mx-auto p-4">
     <div className="col-1 align-self-center text-center " >
       <div className="text-light">
-        {getIcon['INFOSTORT']}
+        {getIcon[infobox.category]}
       </div>
     </div>
     <div className="col-11 text-light px-3">
