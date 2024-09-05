@@ -32,8 +32,6 @@ const Calendar = ({ events, headcount }) => {
   return (
     <Styling className="body::before px-5">
       <div className="container-fluid px-5 py-5 d-flex flex-column">
-        { process.env.NODE_ENV }
-        { process.env.REACT_APP_TOKEN }
         <Heading text="TRUSTWORKS NEWS" />
         <Infoboxes infoboxes={infoboxes} />
         <Infocards events={events} headcount={headcount} />
