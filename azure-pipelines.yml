@@ -11,8 +11,20 @@ jobs:
   steps:
   - checkout: self
 
-  - script: echo ${{ variables.REACT_APP_TOKEN }}
-    displayName: echo token
+  - script: echo ${{ variables.HELLO }}
+    displayName: hello 1
+
+  - script: echo $(HELLO)
+    displayName: hello 2
+
+  - script: echo ${ variables['HELLO'] }
+    displayName: hello 3
+
+  - script: echo ${{ variables['HELLO'] }}
+    displayName: hello 4
+
+  - script: echo ${ variables.HELLO }
+    displayName: hello 5
   
   - script: docker stop screen || true
     displayName: Stop Docker container
