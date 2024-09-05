@@ -11,7 +11,7 @@ jobs:
   steps:
   - checkout: self
 
-  - script: echo $REACT_APP_TOKEN
+  - script: echo ${{ variables.REACT_APP_TOKEN }}
     displayName: echo token
   
   - script: docker stop screen || true
