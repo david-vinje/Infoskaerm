@@ -86,7 +86,7 @@ const Infoboxes = ({ infoboxes }) => {
 
 const Infobox = ({ infobox }) => (
   <div className="row infobox bg-blue border border-secondary mt-5 w-100 mh-25 mx-auto p-4">
-    <div className="col-1 align-self-center text-center " >
+    <div className="col-1 align-self-center text-center ps-0" >
       <div className="text-light">
         {getIcon[infobox.category]}
       </div>
