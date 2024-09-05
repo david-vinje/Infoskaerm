@@ -13,9 +13,7 @@ import LunchIcon from '../Icons/LunchIcon';
 import Rocket from "../Icons/Rocket";
 import Beach from "../Icons/Vacation";
 import Construction from "../Icons/Construction";
-
-import giphy from '../img/confetti.gif'
-
+import giphy from '../img/michael.webp'
 
 
 const ICON_SIZE = "60px"
@@ -56,7 +54,6 @@ const Calendar = ({ events, headcount }) => {
 }
 
 const getInfoboxes = events => {
-  console.log('events', events)
   const infoboxes = events.filter(event => {
     const today = formatDate(new Date());
     const isRelevant = event.eventDate >= today && getCountdown(event) <= 30
@@ -142,8 +139,6 @@ const Countdown = ({ events }) => {
 const getCountdown = event => {
   const today = new Date(new Date().toDateString())
   const eventDate = new Date(event.eventDate)
-  console.log('eventDate', eventDate)
-  console.log('today', today)
   return Math.round((eventDate - today) / (24 * 60 * 60 * 1000))
 }
 
@@ -185,7 +180,6 @@ const Events = ({ events }) => (
 const Event = ({ event }) => {
   const [day, month] = formatDate(event.eventDate)
   const isToday = getCountdown(event) === 0
-  console.log('countdown', getCountdown(event))
   if (event.newsType !== "INFO") {
     return (
       // <div className={"list-group-item py-3 ps-0 pe-3 my-2 d-flex align-items-center " + borderColor[event.newsType]}>

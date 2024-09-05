@@ -35,7 +35,6 @@ export const getHeadcount = async setEvents => {
 
 export const sortedEvents = events => {
   const today = dateOnly(new Date());
-  console.log(events)
   return events
     .map(event => {
       const eventDate = event.eventDate.split("T")[0]
