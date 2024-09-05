@@ -126,7 +126,7 @@ const Home = () => {
     return (
         <Wrapper className="body::before">
             <Carousel data-wrap pause={false}>
-                <Carousel.Item key="calendar " interval={INTERVAL}>
+                <Carousel.Item key="calendar" interval={INTERVAL}>
                     <Calendar
                         events={events}
                         headcount={headcount}

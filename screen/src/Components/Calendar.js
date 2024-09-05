@@ -73,7 +73,7 @@ const Heading = ({ text }) => (
       </div>
     </div>
   </div>
-  
+
 )
 
 const Infoboxes = ({ infoboxes }) => {
@@ -95,7 +95,7 @@ const Infobox = ({ infobox }) => (
       <p className="display-5">{getIcon[infobox.newsType]} {infobox.description}</p>
       <p className="text-description text-ellipsis-6">{infobox.text}</p>
     </div>
-    
+
   </div>
 )
 
@@ -186,20 +186,18 @@ const Event = ({ event }) => {
       <div className="list-group-item py-3 ps-0 pe-3 my-2 d-flex align-items-center border border-secondary">
         <div className="col-1">
           {
-            isToday ? 
-            <div className="">
+            isToday ?
               <p className="h3 text-center fw-bold today">TODAY</p>
-            </div> 
-            :
-            <div>
-              <p className="display-5 text-center">{day}</p>
-              <p className="h4 text-center">{month}</p>
-            </div>
+              :
+              <div>
+                <p className="display-5 text-center">{day}</p>
+                <p className="h4 text-center">{month}</p>
+              </div>
           }
         </div>
         <div className="col-10">
           <div>
-            <p className="event-text display-6">{event.text}</p>
+            <p className={"event-text display-6"}>{event.text}</p>
           </div>
         </div>
         <div className="col-1 text-end">
