@@ -12,13 +12,11 @@ jobs:
   - checkout: self
 
   - script: echo $(HELLO)
-    displayName: hello 1
+    displayName: hello world
+  
+  - script: echo $(REACT_APP_TOKEN)
+    displayName: hello token
 
-  - script: echo ${{ variables.HELLO }}
-    displayName: hello 2
-
-  - script: echo $[variables.HELLO]
-    displayName: hello 3
   
   - script: docker stop screen || true
     displayName: Stop Docker container
