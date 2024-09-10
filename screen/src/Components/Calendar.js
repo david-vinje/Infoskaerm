@@ -49,40 +49,48 @@ const Calendar = ({ events, headcount }) => {
   )
 }
 
-const getInfoboxes = events => {
-  const infoboxes = events.filter(event => {
-    const today = formatDate(new Date());
-    const isRelevant = event.eventDate >= today && getCountdown(event) <= 30
-    return event.newsType === "INFO" && isRelevant;
-  });
-  return infoboxes.slice(0, 2)
-}
-
+/* 
+  The "heading is the title of the page with a TW logo next to it
+*/
 const Heading = ({ text }) => (
   <div className="row">
     <div className="col-10">
       <h1 className="display-1 pt-5" style={{ color: "black" }}>{text}</h1>
     </div>
-    <div className="col-2 align-item-start text-center" >
-      <div className="">
-        {getIcon['TRUSTWORKSLOGO']}
-      </div>
+    <div className="col-2 text-center" >
+      {getIcon["CLIENT_EVENT"]}
     </div>
   </div>
 
 )
 
-const Infoboxes = ({ infoboxes }) => {
-  if (infoboxes.length > 0) return (
-    infoboxes.map((infobox, index) => {
-      return <Infobox key={index} infobox={infobox} />
-    })
-  )
+/* 
+  The event of type "info" are shown separately in a box on top
+  The event date has to be upcoming, but no later than 30 days into the future
+  At most two infoboxes are shown at any given time
+*/
+const getInfoboxes = events => {
+  const maximumNumberOfBoxesShown = 2
+  const infoboxes = events.filter(event => {
+    const today = formatDate(new Date());
+    const isRelevant = event.eventDate >= today && getCountdown(event) <= 30
+    return event.newsType === "INFO" && isRelevant;
+  });
+  return infoboxes.slice(0, maximumNumberOfBoxesShown)
 }
 
+const Infoboxes = ({ infoboxes }) => (
+  infoboxes.map((infobox, index) => {
+    return <Infobox key={index} infobox={infobox} />
+  })
+)
+
+/* 
+  An infobox is not allowed have more than six lines of text
+*/
 const Infobox = ({ infobox }) => (
   <div className="row infobox bg-blue border border-secondary mt-5 w-100 mh-25 mx-auto p-4">
-    <div className="col-1 align-self-center text-center ps-0" >
+    <div className="col-1 align-self-center text-center ps-0">
       <div className="text-light">
         {getIcon[infobox.category]}
       </div>
@@ -91,10 +99,14 @@ const Infobox = ({ infobox }) => (
       <p className="display-5">{getIcon[infobox.newsType]} {infobox.description}</p>
       <p className="text-description text-ellipsis-6">{infobox.text}</p>
     </div>
-
   </div>
 )
 
+/* 
+  "Infocards" are different from "infoboxes"
+  being the countdown to the next conference or internal event
+  and the increased number of "good people" over the last year
+*/
 const Infocards = ({ events, headcount }) => (
   <div className="row pt-5">
     <div className="col">
@@ -106,6 +118,9 @@ const Infocards = ({ events, headcount }) => (
   </div>
 )
 
+/* 
+  The "countdown" is only for the next conference of internal event
+*/
 const Countdown = ({ events }) => {
   if (!events.length) return
   const relevantEvents = events.filter(event => {
