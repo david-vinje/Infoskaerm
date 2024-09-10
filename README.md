@@ -3,6 +3,8 @@
 
 Checkout the [TW intranet API](https://api.trustworks.dk/q/swagger-ui/#/Public%20Resource)
 
+Generate a token, and put it in a `REACT_APP_TOKEN` variable in an `.env` file in the root folder /screen: `REACT_APP_TOKEN=[your-token]`
+
 Run locally: `cd screen && npm install && npm start`
 
 Checkout the [Azure DevOps pipeline status](https://dev.azure.com/davidvinje/info-screen/_build?definitionId=2&_a=summary)

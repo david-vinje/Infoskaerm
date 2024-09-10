@@ -15,23 +15,23 @@ import Beach from "../Icons/Vacation";
 import Construction from "../Icons/Construction";
 import giphy from '../img/michael.webp'
 
-const ICON_SIZE = "60px"
-const INFO_ICON_SIZE = "100px"
+const SMALL_ICON = "60px"
+const BIG_ICON = "100px"
 const BLUE = "#5c6a83"
 
 const getIcon = {
-  "CLIENT_EVENT": <CalendarIcon height={ICON_SIZE} width={ICON_SIZE} fill={BLUE} />,
-  "EXTERNAL_EVENT": <CalendarIcon height={ICON_SIZE} width={ICON_SIZE} fill={BLUE} />,
-  "NEW_EMPLOYEE": <UserIcon height={ICON_SIZE} width={ICON_SIZE} fill={BLUE} />,
-  "CONFERENCE": <TWIcon height={ICON_SIZE} width={ICON_SIZE} fill={BLUE} />,
-  "INTERNAL_COURSE": <BrainIcon height={ICON_SIZE} width={ICON_SIZE} fill={BLUE} />,
-  "HQ_BOOKING": <ClockIcon height={ICON_SIZE} width={ICON_SIZE} fill={BLUE} />,
-  "INTERNAL_EVENT": <ConfettiIcon height={ICON_SIZE} width={ICON_SIZE} stroke={BLUE} />,
-  "INFO": <InfoIcon height={"44px"} width={"44px"} stroke={BLUE} />,
-  "LUNCH": <LunchIcon height={INFO_ICON_SIZE} width={INFO_ICON_SIZE} stroke={BLUE} />,
-  "CRAFTSMAN": <Construction height={INFO_ICON_SIZE} width={INFO_ICON_SIZE} stroke={BLUE} />,
-  "VACATION": <Beach height={INFO_ICON_SIZE} width={INFO_ICON_SIZE} stroke={BLUE} />,
-  "OTHER": <Rocket height={INFO_ICON_SIZE} width={INFO_ICON_SIZE} stroke={BLUE} />
+  "CLIENT_EVENT": <CalendarIcon height={SMALL_ICON} width={SMALL_ICON} fill={BLUE} />,
+  "EXTERNAL_EVENT": <CalendarIcon height={SMALL_ICON} width={SMALL_ICON} fill={BLUE} />,
+  "NEW_EMPLOYEE": <UserIcon height={SMALL_ICON} width={SMALL_ICON} fill={BLUE} />,
+  "CONFERENCE": <TWIcon height={SMALL_ICON} width={SMALL_ICON} fill={BLUE} />,
+  "INTERNAL_COURSE": <BrainIcon height={SMALL_ICON} width={SMALL_ICON} fill={BLUE} />,
+  "HQ_BOOKING": <ClockIcon height={SMALL_ICON} width={SMALL_ICON} fill={BLUE} />,
+  "INTERNAL_EVENT": <ConfettiIcon height={SMALL_ICON} width={SMALL_ICON} stroke={BLUE} />,
+  "INFO": <InfoIcon height={BIG_ICON} width={BIG_ICON} stroke={BLUE} />,
+  "LUNCH": <LunchIcon height={BIG_ICON} width={BIG_ICON} stroke={BLUE} />,
+  "CRAFTSMAN": <Construction height={BIG_ICON} width={BIG_ICON} stroke={BLUE} />,
+  "VACATION": <Beach height={BIG_ICON} width={BIG_ICON} stroke={BLUE} />,
+  "OTHER": <Rocket height={BIG_ICON} width={BIG_ICON} stroke={BLUE} />
 }
 
 const Calendar = ({ events, headcount }) => {
@@ -58,7 +58,7 @@ const Heading = ({ text }) => (
     <div className="col-10">
       <h1 className="display-1 pt-5" style={{ color: "black" }}>{text}</h1>
     </div>
-    <div className="col-2 text-center" >
+    <div className="col-2 text-center " >
       <TWIcon height={"150px"} width={"150px"} fill={BLUE} />
     </div>
   </div>
@@ -71,6 +71,7 @@ const Heading = ({ text }) => (
   At most two infoboxes are shown at any given time
 */
 const getInfoboxes = events => {
+  console.log(process.env)
   const maximumNumberOfBoxesShown = 2
   const infoboxes = events.filter(event => {
     const today = formatDate(new Date());
@@ -93,11 +94,11 @@ const Infobox = ({ infobox }) => (
   <div className="row infobox bg-blue border border-secondary mt-5 w-100 mh-25 mx-auto p-4">
     <div className="col-1 align-self-center text-center ps-0">
       <div className="text-light">
-        {getIcon[infobox.category]}
+        {getIcon[infobox.newsType]}
       </div>
     </div>
     <div className="col-11 text-light px-3">
-      <p className="display-5">{getIcon[infobox.newsType]} {infobox.description}</p>
+      <p className="display-5"> {infobox.description}</p>
       <p className="text-description text-ellipsis-6">{infobox.text}</p>
     </div>
   </div>
