@@ -27,7 +27,6 @@ const getIcon = {
   "HQ_BOOKING": <ClockIcon height={ICON_SIZE} width={ICON_SIZE} fill={"#5c6983"} />,
   "INTERNAL_EVENT": <ConfettiIcon height={ICON_SIZE} width={ICON_SIZE} stroke={"#f1a25e"} />,
   "INFO": <InfoIcon height={"44px"} width={"44px"} stroke={"#eee"} />,
-  "TRUSTWORKSLOGO": <TWIcon height={"150px"} width={"150px"} fill={"#000000"} />,
   "LUNCH": <LunchIcon height={INFO_ICON_SIZE} width={INFO_ICON_SIZE} stroke={"#fffff"} />,
   "CRAFTSMAN": <Construction height={INFO_ICON_SIZE} width={INFO_ICON_SIZE} stroke={"#fffff"} />,
   "VACATION": <Beach height={INFO_ICON_SIZE} width={INFO_ICON_SIZE} stroke={"#fffff"} />,
@@ -40,6 +39,7 @@ const Calendar = ({ events, headcount }) => {
     <Styling className="body::before px-5">
       <div className="container-fluid px-5 py-5 d-flex flex-column">
         <Heading text="TRUSTWORKS NEWS" />
+        
         <Infoboxes infoboxes={infoboxes} />
         <Infocards events={events} headcount={headcount} />
         <Subheading text="KALENDER" />
@@ -58,7 +58,7 @@ const Heading = ({ text }) => (
       <h1 className="display-1 pt-5" style={{ color: "black" }}>{text}</h1>
     </div>
     <div className="col-2 text-center" >
-      {getIcon["CLIENT_EVENT"]}
+      <TWIcon height={"150px"} width={"150px"} fill={"#000000"} />
     </div>
   </div>
 

@@ -7,8 +7,7 @@ import { getProjects, getClientLogoUudid, getEmployeePhotoUuid, getConsultants, 
 import HomeCard from "./HomeCard";
 import Calendar from "../Components/Calendar";
 
-const INTERVAL = 10000
-const REFRESH = 1000 * 60 * 60
+const INTERVAL = 1000 * 60
 
 const Home = () => {
     const navigate = useNavigate();
@@ -22,7 +21,7 @@ const Home = () => {
     const [headcount, setHeadcount] = useState([]);
     const [isPortrait, setOrientation] = useState(window.matchMedia("(orientation: portrait)").matches)
 
-    setInterval(() => navigate(0), REFRESH)
+    setInterval(() => navigate(0), INTERVAL * 60)
     window.addEventListener("resize", () => setOrientation(window.matchMedia("(orientation: portrait)").matches))
 
     useEffect(() => {
@@ -126,7 +125,7 @@ const Home = () => {
     return (
         <Wrapper className="body::before">
             <Carousel data-wrap pause={false}>
-                <Carousel.Item key="calendar" interval={INTERVAL}>
+                <Carousel.Item key="calendar" interval={INTERVAL * 2}>
                     <Calendar
                         events={events}
                         headcount={headcount}
