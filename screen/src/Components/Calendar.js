@@ -17,20 +17,21 @@ import giphy from '../img/michael.webp'
 
 const ICON_SIZE = "60px"
 const INFO_ICON_SIZE = "100px"
+const BLUE = "#5c6a83"
 
 const getIcon = {
-  "CLIENT_EVENT": <CalendarIcon height={ICON_SIZE} width={ICON_SIZE} fill={"#89936d"} />,
-  "EXTERNAL_EVENT": <CalendarIcon height={ICON_SIZE} width={ICON_SIZE} fill={"#89936d"} />,
-  "NEW_EMPLOYEE": <UserIcon height={ICON_SIZE} width={ICON_SIZE} fill={"#89936d"} />,
-  "CONFERENCE": <TWIcon height={ICON_SIZE} width={ICON_SIZE} fill={"#5c6983"} />,
-  "INTERNAL_COURSE": <BrainIcon height={ICON_SIZE} width={ICON_SIZE} fill={"#5c6983"} />,
-  "HQ_BOOKING": <ClockIcon height={ICON_SIZE} width={ICON_SIZE} fill={"#5c6983"} />,
-  "INTERNAL_EVENT": <ConfettiIcon height={ICON_SIZE} width={ICON_SIZE} stroke={"#f1a25e"} />,
-  "INFO": <InfoIcon height={"44px"} width={"44px"} stroke={"#eee"} />,
-  "LUNCH": <LunchIcon height={INFO_ICON_SIZE} width={INFO_ICON_SIZE} stroke={"#fffff"} />,
-  "CRAFTSMAN": <Construction height={INFO_ICON_SIZE} width={INFO_ICON_SIZE} stroke={"#fffff"} />,
-  "VACATION": <Beach height={INFO_ICON_SIZE} width={INFO_ICON_SIZE} stroke={"#fffff"} />,
-  "OTHER": <Rocket height={INFO_ICON_SIZE} width={INFO_ICON_SIZE} stroke={"#fffff"} />
+  "CLIENT_EVENT": <CalendarIcon height={ICON_SIZE} width={ICON_SIZE} fill={BLUE} />,
+  "EXTERNAL_EVENT": <CalendarIcon height={ICON_SIZE} width={ICON_SIZE} fill={BLUE} />,
+  "NEW_EMPLOYEE": <UserIcon height={ICON_SIZE} width={ICON_SIZE} fill={BLUE} />,
+  "CONFERENCE": <TWIcon height={ICON_SIZE} width={ICON_SIZE} fill={BLUE} />,
+  "INTERNAL_COURSE": <BrainIcon height={ICON_SIZE} width={ICON_SIZE} fill={BLUE} />,
+  "HQ_BOOKING": <ClockIcon height={ICON_SIZE} width={ICON_SIZE} fill={BLUE} />,
+  "INTERNAL_EVENT": <ConfettiIcon height={ICON_SIZE} width={ICON_SIZE} stroke={BLUE} />,
+  "INFO": <InfoIcon height={"44px"} width={"44px"} stroke={BLUE} />,
+  "LUNCH": <LunchIcon height={INFO_ICON_SIZE} width={INFO_ICON_SIZE} stroke={BLUE} />,
+  "CRAFTSMAN": <Construction height={INFO_ICON_SIZE} width={INFO_ICON_SIZE} stroke={BLUE} />,
+  "VACATION": <Beach height={INFO_ICON_SIZE} width={INFO_ICON_SIZE} stroke={BLUE} />,
+  "OTHER": <Rocket height={INFO_ICON_SIZE} width={INFO_ICON_SIZE} stroke={BLUE} />
 }
 
 const Calendar = ({ events, headcount }) => {
@@ -39,7 +40,7 @@ const Calendar = ({ events, headcount }) => {
     <Styling className="body::before px-5">
       <div className="container-fluid px-5 py-5 d-flex flex-column">
         <Heading text="TRUSTWORKS NEWS" />
-        
+
         <Infoboxes infoboxes={infoboxes} />
         <Infocards events={events} headcount={headcount} />
         <Subheading text="KALENDER" />
@@ -58,7 +59,7 @@ const Heading = ({ text }) => (
       <h1 className="display-1 pt-5" style={{ color: "black" }}>{text}</h1>
     </div>
     <div className="col-2 text-center" >
-      <TWIcon height={"150px"} width={"150px"} fill={"#000000"} />
+      <TWIcon height={"150px"} width={"150px"} fill={BLUE} />
     </div>
   </div>
 
@@ -230,14 +231,12 @@ const Styling = styled.div`
   div, h1 {
     color: gray;
   }
+  .today {
+    color: #f09449;
+  }
   h1, p {
     margin: 0;
   }
-
-  .today{
-    color: #f09449;
-  }
-
   .border-green {
     border: 2px solid #778256;
   }
