@@ -40,7 +40,6 @@ const Calendar = ({ events, headcount }) => {
     <Styling className="body::before px-5">
       <div className="container-fluid px-5 py-5 d-flex flex-column">
         <Heading text="TRUSTWORKS NEWS" />
-
         <Infoboxes infoboxes={infoboxes} />
         <Infocards events={events} headcount={headcount} />
         <Subheading text="KALENDER" />
@@ -71,7 +70,6 @@ const Heading = ({ text }) => (
   At most two infoboxes are shown at any given time
 */
 const getInfoboxes = events => {
-  console.log(process.env)
   const maximumNumberOfBoxesShown = 2
   const infoboxes = events.filter(event => {
     const today = formatDate(new Date());
@@ -142,7 +140,12 @@ const Countdown = ({ events }) => {
         </div>
         <div className="col-7 text-end align-self-end pe-3">
           <p className="display-1">{countdown} </p>
-          <p className="text-description">Dage til: {event.text}</p>
+          {
+            event?.text 
+            ? <p className="text-description">Dage til: {event}</p> 
+            : <div></div>
+          
+          }
         </div>
       </Card.Body>
     </Card>
@@ -150,6 +153,7 @@ const Countdown = ({ events }) => {
 }
 
 const getCountdown = event => {
+  if (!event) return "Ingen begivenhed"
   const today = new Date(new Date().toDateString())
   const eventDate = new Date(event.eventDate)
   return Math.round((eventDate - today) / (24 * 60 * 60 * 1000))
@@ -183,7 +187,7 @@ const Subheading = ({ text }) => (
 )
 
 const Events = ({ events }) => (
-  <div className="row list-group mx-auto overflow-hidden pt-3">
+  <div className="row list-group overflow-hidden pt-3">
     {events.map((event, index) => (
       <Event key={index} event={event} />
     ))}

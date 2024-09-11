@@ -23,14 +23,14 @@ const HomeCard = ({ project, onToolButtonClick, getClientLogo, getEmployeePhoto,
 
 const Vertical = ({ project, onToolButtonClick, getClientLogo, getEmployeePhoto }) => {
   return (
-    <div className="container pt d-flex flex-column justify-content-between">
-      <div className="row mt-5 mx-auto w-75 clientlogoborder rounded">
+    <div className="container d-flex flex-column justify-content-around">
+      <div className="row mx-auto w-75 clientlogoborder rounded">
         <img
           className="p-0 rounded"
           src={`data:image/jpeg;base64,${getClientLogo(project.clientuuid)}`}
         />
       </div>
-      <div className="row mh-50 my-auto pt- overflow-hidden">
+      <div className="row mh-50 overflow-hidden">
         <h1 className="lh-sm project-name display-4">
           {project.name}
         </h1>
@@ -66,7 +66,7 @@ const Vertical = ({ project, onToolButtonClick, getClientLogo, getEmployeePhoto 
           </div>
         </div>
       </div>
-      <div className="row my-auto">
+      <div className="row">
         {project.projectDescriptionUserList.slice(0, PEOPLE_LIMIT).map(user => (
           <div className="col-2" key={user.useruuid}>
             <img
@@ -165,7 +165,7 @@ const Tilgang = ({ project, onToolButtonClick }) => (
   <Card className="py-5 tilgang bg-transparent border-0">
     <Card.Body>
       <Card.Title>
-        <h2 style={{color: "#374B05"}}>Tilgang</h2>
+        <h2 style={{ color: "#374B05" }}>Tilgang</h2>
       </Card.Title>
       <Card.Text>
         {project.toolsList.map((tilgang, index) => (
