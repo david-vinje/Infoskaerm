@@ -51,7 +51,7 @@ h1 {
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: normal;
-    font-size: 2em;
+    font-size: 2.5em;
 }
 
 .project-name {
@@ -72,7 +72,7 @@ h1 {
     ${'' /* border-radius: 1em; */}
     border: 1px solid lightgray;
     margin-top: 1em;
-    font-size: 2em;
+    font-size: 2.5em;
     font-weight: 300;
 }
 
@@ -86,8 +86,6 @@ h1 {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 10em;
-    width: 10em;
 }
 .roller, .tilgang {
     background-color: #eaf3ff;
@@ -103,8 +101,8 @@ h1 {
 
 .employeephoto {
     object-fit: cover;
-    height: 10em;
-    width: 10em;
+    height: 15em;
+    width: 15em;
     border-radius: 50%;
 }
 
