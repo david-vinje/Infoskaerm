@@ -182,7 +182,7 @@ const GoodPeople = ({ headcount }) => (
 
 const Subheading = ({ text }) => (
   <div className="pt-5">
-    <h2 className="display-4" style={{ color: "grey" }}>
+    <h2 className="display-4">
       {text}
     </h2>
   </div>
@@ -235,9 +235,7 @@ function formatDate(dateString) {
 }
 
 const Styling = styled.div`
-  div, h1 {
-    color: gray;
-  }
+
   .today {
     color: #f09449;
   }
