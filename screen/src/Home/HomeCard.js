@@ -31,17 +31,16 @@ const Vertical = ({ project, onToolButtonClick, getClientLogo, getEmployeePhoto 
         />
       </div>
       <div className="row mh-50 overflow-hidden">
-        <h1 className="lh-sm project-name display-4">
+        <h1 className="lh-sm project-name display-1">
           {project.name}
         </h1>
-        <h2 className="lh-lg pb-">
+        <h2 className="lh-lg display-5">
           {formatDate(project.from)} - {formatDate(project.to)}
         </h2>
         <div className="col-8 right-border lh-lg project-description">
           {project.description}
         </div>
         <div className="col-4">
-          <div className="">
             <h1>Roller</h1>
             {project.offeringList.map((rolle, index) => (
               <button
@@ -51,9 +50,8 @@ const Vertical = ({ project, onToolButtonClick, getClientLogo, getEmployeePhoto 
                 {rolle}
               </button>
             ))}
-          </div>
           <div className="pt-5">
-            <h1>Tilgang</h1>
+            <h1>Tilgang</h1>  
             {project.toolsList.map((tilgang, index) => (
               <button
                 key={index}
@@ -205,7 +203,7 @@ const Counter = ({ project }) => {
   if (project.projectDescriptionUserList.length > PEOPLE_LIMIT) {
     return (
       <div className="col-2 my-2">
-        <div className="counter rounded-circle bg-light">
+        <div className="counter border border-secondary rounded-circle bg-light">
           <h3>+{project.projectDescriptionUserList.length - PEOPLE_LIMIT}</h3>
         </div>
       </div>
