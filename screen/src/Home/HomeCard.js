@@ -31,10 +31,10 @@ const Vertical = ({ project, onToolButtonClick, getClientLogo, getEmployeePhoto 
         />
       </div>
       <div className="row pt-5 mh-50 overflow-hidden">
-        <h1 className="lh-sm project-name display-1">
+        <h1 className="project-name display-1">
           {project.name}
         </h1>
-        <h2 className="lh-lg display-4">
+        <h2 className="lh-lg mb-5 display-4">
           {formatDate(project.from)} - {formatDate(project.to)}
         </h2>
         <div className="col-8 right-border lh-lg project-description">
