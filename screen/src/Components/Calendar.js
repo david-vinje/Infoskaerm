@@ -143,10 +143,9 @@ const Countdown = ({ events }) => {
             event?.text
               ? <div>
                   <p className="display-1">{countdown} </p>
-                  <p className="text-description">Dage til: {event}</p>
+                  <p className="text-description">Dage til: {event.text}</p>
                 </div>
               : <p className="display-5">{countdown}</p>
-
           }
         </div>
       </Card.Body>
