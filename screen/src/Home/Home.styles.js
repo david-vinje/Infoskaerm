@@ -26,6 +26,7 @@ export const Wrapper = styled.div`
 }
 .container, .container-fluid {
     height: 98vh;
+    padding: 10rem;
 }
 
 .list-group-item, .card, .infobox {
@@ -101,8 +102,8 @@ h1 {
 
 .employeephoto {
     object-fit: cover;
-    height: 15em;
-    width: 15em;
+    height: 12.5em;
+    width: 12.5em;
     border-radius: 50%;
 }
 

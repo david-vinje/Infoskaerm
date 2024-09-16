@@ -37,8 +37,8 @@ const getIcon = {
 const Calendar = ({ events, headcount }) => {
   const infoboxes = getInfoboxes(events)
   return (
-    <Styling className="body::before px-5">
-      <div className="container-fluid px-5 py-5 d-flex flex-column">
+    <Styling className="body::before">
+      <div className="container-fluid d-flex flex-column">
         <Heading text="TRUSTWORKS NEWS" />
         <Infoboxes infoboxes={infoboxes} />
         <Infocards events={events} headcount={headcount} />

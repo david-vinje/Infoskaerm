@@ -23,9 +23,8 @@ const HomeCard = ({ project, onToolButtonClick, getClientLogo, getEmployeePhoto,
 
 const Vertical = ({ project, onToolButtonClick, getClientLogo, getEmployeePhoto }) => {
   return (
-    <div className="container-fluid px-5 d-flex flex-column justify-content-around">
-      <div className="px-5">
-      <div className="row mx-auto w-100 clientlogoborder rounded">
+    <div className="container-fluid d-flex flex-column justify-content-between">
+      <div className="row mx-auto w-75 clientlogoborder rounded">
         <img
           className="p-0 rounded"
           src={`data:image/jpeg;base64,${getClientLogo(project.clientuuid)}`}
@@ -76,7 +75,6 @@ const Vertical = ({ project, onToolButtonClick, getClientLogo, getEmployeePhoto 
           </div>
         ))}
         <Counter project={project} />
-      </div>
       </div>
     </div>
   )
