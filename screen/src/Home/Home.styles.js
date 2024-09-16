@@ -47,7 +47,7 @@ h1 {
 .project-description {
     display: -webkit-box;
     -webkit-box-orient: vertical;
-    -webkit-line-clamp: 15; /* Adjust the number of lines to show */
+    -webkit-line-clamp: 20; /* Adjust the number of lines to show */
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: normal;

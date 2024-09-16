@@ -46,7 +46,7 @@ const Vertical = ({ project, onToolButtonClick, getClientLogo, getEmployeePhoto 
           {project.offeringList.map((rolle, index) => (
             <button
               key={index}
-              className="roller mx-1 roller-og-tilgang-knap"
+              className="roller px-3 mx-1 roller-og-tilgang-knap"
             >
               {rolle}
             </button>
@@ -56,7 +56,7 @@ const Vertical = ({ project, onToolButtonClick, getClientLogo, getEmployeePhoto 
             {project.toolsList.map((tilgang, index) => (
               <button
                 key={index}
-                className="tilgang mx-1 roller-og-tilgang-knap rounded"
+                className="tilgang px-3 mx-1 roller-og-tilgang-knap rounded"
                 onClick={() => onToolButtonClick(tilgang)}
               >
                 {tilgang}
