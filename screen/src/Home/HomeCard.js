@@ -23,14 +23,14 @@ const HomeCard = ({ project, onToolButtonClick, getClientLogo, getEmployeePhoto,
 
 const Vertical = ({ project, onToolButtonClick, getClientLogo, getEmployeePhoto }) => {
   return (
-    <div className="container-fluid d-flex flex-column justify-content-between">
+    <div className="container-fluid d-flex flex-column">
       <div className="row mx-auto w-75 clientlogoborder rounded">
         <img
-          className="p-0 rounded"
+          className="rounded p-0 "
           src={`data:image/jpeg;base64,${getClientLogo(project.clientuuid)}`}
         />
       </div>
-      <div className="row mh-50 overflow-hidden">
+      <div className="row pt-5 mh-50 overflow-hidden">
         <h1 className="lh-sm project-name display-1">
           {project.name}
         </h1>
@@ -64,7 +64,7 @@ const Vertical = ({ project, onToolButtonClick, getClientLogo, getEmployeePhoto 
           </div>
         </div>
       </div>
-      <div className="row ">
+      <div className="row mt-auto">
         {project.projectDescriptionUserList.slice(0, PEOPLE_LIMIT).map(user => (
           <div className="col-2" key={user.useruuid}>
             <img
