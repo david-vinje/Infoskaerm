@@ -5,7 +5,10 @@ Checkout the [TW intranet API](https://api.trustworks.dk/q/swagger-ui/#/Public%2
 
 Generate a token, and put it in a `REACT_APP_TOKEN` variable in an `.env` file in the root folder /screen: `REACT_APP_TOKEN=[your-token]`
 
-Run locally: `cd screen && npm install && npm start`
+Run locally:
+  1. `cd screen`
+  2. `npm install`
+  3. `npm start`
 
 Checkout the [Azure DevOps pipeline status](https://dev.azure.com/davidvinje/info-screen/_build?definitionId=2&_a=summary)
 
@@ -14,3 +17,7 @@ Edit the [Azure DevOps pipeline script and variables](https://dev.azure.com/davi
 SSH into the Raspberry Pi: `ssh trustworks@192.168.1.231`
 
 Path to Raspberry Pi autostart script: `/etc/xdg/lxsession/LXDE-pi/autostart`
+
+In case token expires, ask Hans for a new system token, and put it in .bash_profile:
+  1. `nano ~/.bash_profile`
+  2. `source ~/.bash_profile`
