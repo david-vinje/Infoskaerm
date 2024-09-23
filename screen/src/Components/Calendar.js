@@ -14,6 +14,7 @@ import Rocket from "../Icons/Rocket";
 import Beach from "../Icons/Vacation";
 import Construction from "../Icons/Construction";
 import giphy from '../img/michael.webp'
+import { dateOnly } from "../Components/API";
 
 const SMALL_ICON = "60px"
 const BIG_ICON = "100px"
@@ -72,8 +73,9 @@ const Heading = ({ text }) => (
 const getInfoboxes = events => {
   const maximumNumberOfBoxesShown = 2
   const infoboxes = events.filter(event => {
-    const today = formatDate(new Date());
+    const today = dateOnly(new Date());
     const isRelevant = event.eventDate >= today && getCountdown(event) <= 30
+    console.log(event.newsType, `${event.eventDate} >= ${today}`, event.eventDate >= today)
     return event.newsType === "INFO" && isRelevant;
   });
   return infoboxes.slice(0, maximumNumberOfBoxesShown)
