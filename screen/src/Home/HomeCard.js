@@ -1,5 +1,6 @@
 import React from "react";
 import { Card } from "react-bootstrap";
+import { dateOnly } from "../Components/API";
 import { formatDate } from "../Components/utils";
 
 const PEOPLE_LIMIT = 11
@@ -34,9 +35,7 @@ const Vertical = ({ project, onToolButtonClick, getClientLogo, getEmployeePhoto 
         <h1 className="project-name display-1">
           {project.name}
         </h1>
-        <h2 className="lh-lg mb-5 display-4">
-          {formatDate(project.from)} - {formatDate(project.to)}
-        </h2>
+        <ProjectStatus project={project}></ProjectStatus>
         <div className="col-8 right-border lh-lg project-description">
           {project.description}
         </div>
@@ -69,7 +68,7 @@ const Vertical = ({ project, onToolButtonClick, getClientLogo, getEmployeePhoto 
           <div className="col-2" key={user.useruuid}>
             <img
               alt=""
-              className="employeephoto my-2 border border-secondary"
+              className="employeephoto my-2 border"
               src={`data:image/jpeg;base64,${getEmployeePhoto(user.useruuid)}`}
             />
           </div>
@@ -80,11 +79,28 @@ const Vertical = ({ project, onToolButtonClick, getClientLogo, getEmployeePhoto 
   )
 }
 
+const ProjectStatus = ({ project }) => {
+  const today = dateOnly(new Date());
+  if(project.to < today){
+    return (
+      <h2 className="lh-lg mb-5 display-4">
+        Afsluttet
+      </h2>
+    )
+  }
+  return (
+    <h2 className="lh-lg mb-5 display-4">
+      Aktiv
+    </h2>
+  )
+}
+
+
 const Counter = ({ project }) => {
   if (project.projectDescriptionUserList.length > PEOPLE_LIMIT) {
     return (
       <div className="col-2 my-2">
-        <div className="counter employeephoto border border-secondary rounded-circle bg-light">
+        <div className="counter employeephoto border rounded-circle bg-light">
           <h1>+{project.projectDescriptionUserList.length - PEOPLE_LIMIT}</h1>
         </div>
       </div>
