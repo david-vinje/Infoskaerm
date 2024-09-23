@@ -3,17 +3,16 @@ trigger:
     include:
       - main
   paths:
-    exclude:
-      - README.md
+    include:
+      - screen/**
 
 pr:
   branches:
     include:
       - main
   paths:
-    exclude:
-      - README.md
-
+    include:
+      - scren/**
 
 jobs:
 - job: DockerBuildRun
