@@ -1,8 +1,19 @@
 trigger:
-  - main
+  branches:
+    include:
+      - main
+  paths:
+    exclude:
+      - README.md
 
 pr:
-  - main
+  branches:
+    include:
+      - main
+  paths:
+    exclude:
+      - README.md
+
 
 jobs:
 - job: DockerBuildRun
