@@ -264,7 +264,7 @@ const Styling = styled.div`
     color: #eee; 
   }
   .text-description {
-    font-size: 2em;
+    font-size: 2.5em;
     display: -webkit-box;
     -webkit-box-orient: vertical;
     -webkit-line-clamp: 1; /* Adjust the number of lines to show */
