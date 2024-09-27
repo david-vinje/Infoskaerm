@@ -1,5 +1,37 @@
 [
   {
+    "clientuuid": "bf4108c5-5264-4c5f-b05e-67438ffe1f93",
+    "name": "Arba Platformen",
+    "description": "Arba-platformen har til formål at styrke virksomheders cybersikkerhed ved at tilbyde en struktureret, risikobaseret tilgang til sikkerheds- og complianceadministration. Platformen gør det muligt for virksomheder at vurdere deres nuværende cybersikkerhedsmodenhed i forhold til standarder som ISO 27001 og NIS2 samt hjælper dem til at sætte den rette modenshedsambition udfra deres risikoappetit. Med stigende trusler og skærpede krav til compliance er det afgørende at virksomheder har en effektiv løsning nu. Arba leverer et bredt udvalg af funktionaliteter, herunder risikoprofilering, cyber modenhedsstyring og sporing, nedbrydelse af målsætninger til konkrete opgaver, projektstyring, compliance-sporing og rapportering. Værdien ligger i platformens evne til at forenkle komplekse sikkerhedsprocesser og sikre compliance. Målgruppen for Arba er CISO’er og CIO’er, som har brug for en skalerbar platform til at overvåge og forbedre deres cybersikkerhedsstrategier samt sikre løbende overholdelse af lovgivning og standarder.",
+    "from": "2024-05-13",
+    "to": "2025-03-10",
+    "offering": "#Tester #Full-stack udvikler #Projektleder #Sikkerhedskonsulent #Cyber SME #UX Specialist #Proceskonsulent #Løsningsarkitekt",
+    "tools": "#Risikostyrring #GRC #Business resilience #CISO service #Modenhedsstyring",
+    "projectDescriptionUserList": [
+      {
+        "useruuid": "64e6ee60-06e6-4826-a65b-dc8af29df583",
+        "description": "string"
+      },
+      {
+        "useruuid": "71421343-1129-445a-bd8a-1fe02ff4a768",
+        "description": "string"
+      },
+      {
+        "useruuid": "ab4ebf52-2203-4be6-a621-e0b4af847d88",
+        "description": "string"
+      }
+    ],
+    "offeringList": [
+      "Forretningsanalyse",
+      "Behovsafdækning"
+    ],
+    "toolsList": [
+      "Process Mapping",
+      "Kravspecifikation",
+      "Tilstandsdiagram"
+    ]
+  },
+  {
     "clientuuid": "7d34db42-9d11-4fe2-84df-449a46cdfcc9",
     "name": "Fedt Fedt",
     "description": "Marie og Regitze har lavet behovsafklaring og kravspecificering, så politiet kan anskaffe nyt system til håndtering og analyse af fingeraftryk (AFIS) - evt. udvidet med håndtering af anden biometrisk information også (ABIS). Behov er dokumenteret i proces- og tilstandsdiagrammer samt kravspecifikationen. Elvi har bistået med sikring af erfaringsopsamling ift. non-funktionelle krav inden politiets hidtidige SME stoppede - samt dokumentering af den ønskede informationsmodel",
