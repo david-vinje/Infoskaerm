@@ -1,100 +1,73 @@
 import React from "react";
-import { Card } from "react-bootstrap";
 import { dateOnly } from "../Components/API";
-import { formatDate } from "../Components/utils";
 
-const PEOPLE_LIMIT = 11
+const PEOPLE_LIMIT = 11;
 
-const HomeCard = ({ project, onToolButtonClick, getClientLogo, getEmployeePhoto, isPortrait }) => {
-  // if (isPortrait) {
-  return <Vertical
-    project={project}
-    onToolButtonClick={onToolButtonClick}
-    getClientLogo={getClientLogo}
-    getEmployeePhoto={getEmployeePhoto}
-  />
-  // }
-  // return <Horizontal
-  //   project={project}
-  //   onToolButtonClick={onToolButtonClick}
-  //   getClientLogo={getClientLogo}
-  //   getEmployeePhoto={getEmployeePhoto}
-  // />
-}
-
-const Vertical = ({ project, onToolButtonClick, getClientLogo, getEmployeePhoto }) => {
-  return (
-    <div className="container-fluid d-flex flex-column">
-      <div className="row mx-auto mb-5 w-75 clientlogoborder rounded">
-        <img
-          className="rounded p-0"
-          src={`data:image/jpeg;base64,${getClientLogo(project.clientuuid)}`}
-        />
+const HomeCard = ({
+  project,
+  onToolButtonClick,
+  getClientLogo,
+  getEmployeePhoto,
+}) => (
+  <div className="container-fluid d-flex flex-column">
+    <div className="row mx-auto mb-5 w-75 clientlogoborder rounded">
+      <img
+        className="rounded p-0"
+        src={`data:image/jpeg;base64,${getClientLogo(project.clientuuid)}`}
+      />
+    </div>
+    <div className="row pt-5 mh-50 overflow-hidden">
+      <h1 className="project-name pt-5 display-1">{project.name}</h1>
+      <ProjectStatus project={project}></ProjectStatus>
+      <div className="col-8 right-border lh-lg project-description">
+        {project.description}
       </div>
-      <div className="row pt-5 mh-50 overflow-hidden">
-        <h1 className="project-name display-1">
-          {project.name}
-        </h1>
-        <ProjectStatus project={project}></ProjectStatus>
-        <div className="col-8 right-border lh-lg project-description">
-          {project.description}
-        </div>
-        <div className="col-4 ps-4">
-          <h1 className="display-4">Roller</h1>
-          {project.offeringList.map((rolle, index) => (
+      <div className="col-4 ps-4">
+        <h1 className="display-4">Roller</h1>
+        {project.offeringList.map((rolle, index) => (
+          <button
+            key={index}
+            className="roller px-3 mx-1 roller-og-tilgang-knap"
+          >
+            {rolle}
+          </button>
+        ))}
+        <div className="pt-5">
+          <h1 className="display-4">Tilgang</h1>
+          {project.toolsList.map((tilgang, index) => (
             <button
               key={index}
-              className="roller px-3 mx-1 roller-og-tilgang-knap"
+              className="tilgang px-3 mx-1 roller-og-tilgang-knap rounded"
+              onClick={() => onToolButtonClick(tilgang)}
             >
-              {rolle}
+              {tilgang}
             </button>
           ))}
-          <div className="pt-5">
-            <h1 className="display-4">Tilgang</h1>
-            {project.toolsList.map((tilgang, index) => (
-              <button
-                key={index}
-                className="tilgang px-3 mx-1 roller-og-tilgang-knap rounded"
-                onClick={() => onToolButtonClick(tilgang)}
-              >
-                {tilgang}
-              </button>
-            ))}
-          </div>
         </div>
       </div>
-      <div className="row mt-auto">
-        {project.projectDescriptionUserList.slice(0, PEOPLE_LIMIT).map(user => (
-          <div className="col-2" key={user.useruuid}>
-            <img
-              alt=""
-              className="employeephoto my-2 border"
-              src={`data:image/jpeg;base64,${getEmployeePhoto(user.useruuid)}`}
-            />
-          </div>
-        ))}
-        <Counter project={project} />
-      </div>
     </div>
-  )
-}
+    <div className="row pb-5 mt-auto">
+      {project.projectDescriptionUserList.slice(0, PEOPLE_LIMIT).map((user) => (
+        <div className="col-2" key={user.useruuid}>
+          <img
+            alt=""
+            className="employeephoto my-2 border"
+            src={`data:image/jpeg;base64,${getEmployeePhoto(user.useruuid)}`}
+          />
+        </div>
+      ))}
+      <Counter project={project} />
+    </div>
+  </div>
+);
 
 const ProjectStatus = ({ project }) => {
   const today = dateOnly(new Date());
-  if(project.to < today){
-    return (
-      <h2 className="lh-lg mb-5 display-4">
-        Afsluttet
-      </h2>
-    )
+  if (project.to < today) {
+    return <h2 className="lh-lg mb-5 display-4">Afsluttet</h2>;
   }
-  return (
-    <h2 className="lh-lg mb-5 display-4">
-      Aktiv
-    </h2>
-  )
-}
-
+  return <h2 className="lh-lg mb-5 display-4">Aktiv</h2>;
+};
 
 const Counter = ({ project }) => {
   if (project.projectDescriptionUserList.length > PEOPLE_LIMIT) {
@@ -104,127 +77,8 @@ const Counter = ({ project }) => {
           <h1>+{project.projectDescriptionUserList.length - PEOPLE_LIMIT}</h1>
         </div>
       </div>
-    )
+    );
   }
-}
+};
 
-// const Horizontal = ({ project, onToolButtonClick, getClientLogo, getEmployeePhoto }) => (
-//   <div className="container">
-//     <div className="row h-100 align-items-center">
-//       <div className="col-4 right-border pe-4 roller-og-tilgang">
-//         <ClientPhoto
-//           project={project}
-//           getClientLogo={getClientLogo}
-//         />
-//         <Roller
-//           project={project}
-//           onToolButtonClick={onToolButtonClick}
-//         />
-//         <Tilgang project={project} />
-//       </div>
-//       <div className="col-8">
-//         <ProjectTitle project={project} />
-//         <ProjectDate project={project} />
-//         <ProjectDescription project={project} />
-//         <EmployeePhotos
-//           project={project}
-//           getEmployeePhoto={getEmployeePhoto}
-//         />
-//       </div>
-//     </div>
-//   </div>
-// )
-
-// const ClientPhoto = ({ project, getClientLogo }) => (
-//   <Card className="bg-transpaent mx-auto border border-secondary center">
-//     <Card.Img
-//       className=" mx-auto"
-//       src={`data:image/jpeg;base64,${getClientLogo(project.clientuuid)}`}
-//     />
-//   </Card>
-// )
-
-// const ProjectTitle = ({ project }) => (
-//   <Card className="bg-transparent border-0 project-name">
-//     <Card.Body>
-//       <h1>{project.name}</h1>
-//     </Card.Body>
-//   </Card>
-// )
-
-// const ProjectDate = ({ project }) => (
-//   <Card className="bg-transparent border-0">
-//     <Card.Body>
-//       <h2 >{formatDate(project.from)} - {formatDate(project.to)}</h2>
-//     </Card.Body>
-//   </Card>
-// )
-
-// const ProjectDescription = ({ project }) => (
-//   <Card className="py-5 bg-transparent border-0 lh-lg">
-//     <Card.Body>
-//       <p className="project-description">{project.description}</p>
-//     </Card.Body>
-//   </Card>
-// )
-
-// const Roller = ({ project }) => (
-//   <Card className="py-5 roller bg-transparent border-0 ">
-//     <Card.Body>
-//       <Card.Title>
-//         <h2>Roller</h2>
-//       </Card.Title>
-//       <Card.Text>
-//         {project.offeringList.map((rolle, index) => (
-//           <button
-//             key={index}
-//             className="roller mx-1 roller-og-tilgang-knap"
-//           >
-//             {rolle}
-//           </button>
-//         ))}
-//       </Card.Text>
-//     </Card.Body>
-//   </Card>
-// )
-// const Tilgang = ({ project, onToolButtonClick }) => (
-//   <Card className="py-5 tilgang bg-transparent border-0">
-//     <Card.Body>
-//       <Card.Title>
-//         <h2 style={{ color: "#374B05" }}>Tilgang</h2>
-//       </Card.Title>
-//       <Card.Text>
-//         {project.toolsList.map((tilgang, index) => (
-//           <button
-//             key={index}
-//             className="tilgang mx-1 roller-og-tilgang-knap"
-//             onClick={() => onToolButtonClick(tilgang)}
-//           >
-//             {tilgang}
-//           </button>
-//         ))}
-//       </Card.Text>
-//     </Card.Body>
-//   </Card>
-// )
-
-// const EmployeePhotos = ({ project, getEmployeePhoto }) => (
-//   <Card className="bg-transparent border-0">
-//     <Card.Body>
-//       <div className="row">
-//         {project.projectDescriptionUserList.slice(0, PEOPLE_LIMIT).map(user => (
-//           <div className="col-2" key={user.useruuid}>
-//             <img
-//               alt=""
-//               className="employeephoto"
-//               src={`data:image/jpeg;base64,${getEmployeePhoto(user.useruuid)}`}
-//             />
-//           </div>
-//         ))}
-//         <Counter project={project} />
-//       </div>
-//     </Card.Body>
-//   </Card>
-// )
-
-export default HomeCard; 
+export default HomeCard;

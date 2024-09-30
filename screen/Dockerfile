@@ -8,13 +8,18 @@ WORKDIR /screen
 COPY screen/package*.json ./
 
 # Install project dependencies
-RUN npm install
+RUN npm install && \
+  npm install -g serve
 
 # Copy the entire project to the container
 COPY screen .
+
+# Build the React app
+RUN npm run build && \
+    rm -fr node_modules
 
 # Expose the port on which the app will run
 EXPOSE 3000
 
 # Run the app
-CMD [ "npm", "start" ]
+CMD [ "serve", "-s", "build" ]

@@ -75,7 +75,6 @@ const getInfoboxes = events => {
   const infoboxes = events.filter(event => {
     const today = dateOnly(new Date());
     const isRelevant = event.eventDate >= today && getCountdown(event) <= 30
-    console.log(event.newsType, `${event.eventDate} >= ${today}`, event.eventDate >= today)
     return event.newsType === "INFO" && isRelevant;
   });
   return infoboxes.slice(0, maximumNumberOfBoxesShown)
