@@ -24,3 +24,16 @@ Path to Raspberry Pi autostart script: `/etc/xdg/lxsession/LXDE-pi/autostart`
 In case token expires, ask Hans for a new system token, and put it in .bash_profile:
   1. `nano ~/.bash_profile`
   2. `source ~/.bash_profile`
+
+To update the agent:
+  1. `cd TWagent && ./config.sh`
+  2. Enter `Y` to accept Team Explorer Everywhere license agreement
+  3. Enter server URL `https://dev.azure.com/trustworks/`
+  4. Enter PAT 
+
+To generate a new PAT
+  1. Follow guide https://learn.microsoft.com/en-us/azure/devops/pipelines/agents/personal-access-token-agent-registration?view=azure-devops
+  2. Set the following rules:
+    a. Expiration: 90 days
+    b. Scope: Custom defined
+    c. Only select rights to read. 
