@@ -31,11 +31,11 @@ In case token is needed for the project, create a system variable. For MAC users
   2. Write `export REACT_APP_TOKEN="[token value from Hans/what is in the RPi]"`
   3. `source ~/.zprofile`
 
-To update the agent:
+To update the agent in RPi:
   1. `cd TWagent && ./config.sh`
   2. Enter `Y` to accept Team Explorer Everywhere license agreement
   3. Enter server URL `https://dev.azure.com/trustworks/`
-  4. Enter PAT 
+  4. Enter PAT (might need to contact Henrik/tech support)
 
 To generate a new PAT
   1. Follow guide https://learn.microsoft.com/en-us/azure/devops/pipelines/agents/personal-access-token-agent-registration?view=azure-devops
