@@ -17,7 +17,7 @@ pr:
 jobs:
 - job: DockerBuildRun
   pool:
-    name: Default
+    name: ScreenAgent
   steps:
   - checkout: self
 
