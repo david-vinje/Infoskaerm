@@ -69,10 +69,10 @@ const Home = () => {
         return inputDate > oneYearAgo;
       });
 
-      // let nSlides = projectsActiveLastYear.length;
-      // nSlides += Math.ceil(nSlides / CALENDAR_INTERVAL) + 1;
-      // const interval = INTERVAL * nSlides + 500 * nSlides
-      // setInterval(() => navigate(0), interval * 2);
+      let nSlides = projectsActiveLastYear.length;
+      nSlides += Math.ceil(nSlides / CALENDAR_INTERVAL) + 1;
+      const round = INTERVAL * nSlides + 500 * nSlides
+      setInterval(() => navigate(0), round * 2);
 
       setActiveProjects(projectsActiveLastYear);
     }
@@ -162,17 +162,6 @@ const Home = () => {
       </Carousel.Item>
     ));
   };
-
-  // let everyOther = false;
-  // const onSelect = (count) => {
-  //   console.log(count);
-  //   if (count === 0) {
-  //     everyOther = !everyOther;
-  //     if (everyOther) {
-  //       setTimeout(() => navigate(0), INTERVAL + 500);
-  //     }
-  //   }
-  // };
 
   return (
     <Wrapper className="body::before">
