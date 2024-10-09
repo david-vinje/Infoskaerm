@@ -21,10 +21,12 @@ Edit the [Azure DevOps pipeline script and variables](https://dev.azure.com/davi
 
 Path to Raspberry Pi autostart script: `/etc/xdg/lxsession/LXDE-pi/autostart`
 
-In case token expires, ask Hans for a new system token, and put it in .bash_profile in the Raspberry Pi:
-  1. `nano ~/.bash_profile`
-  2. Edit token value 
-  2. `source ~/.bash_profile`
+In case token expires, ask Hans for a new system token, and put it in a secret in the DevOps pipeline:
+  1. Open pipeline `project-screen`
+  2. Select `Edit`
+  3. Select `Variables`
+  4. Select `REACT_APP_TOKEN`
+  5. Update the value of the secret with the new system token 
 
 In case token is needed for the project, create a system variable. For MAC users: 
   1. `nano ~/.zprofile`
