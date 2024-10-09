@@ -21,9 +21,15 @@ Edit the [Azure DevOps pipeline script and variables](https://dev.azure.com/davi
 
 Path to Raspberry Pi autostart script: `/etc/xdg/lxsession/LXDE-pi/autostart`
 
-In case token expires, ask Hans for a new system token, and put it in .bash_profile:
+In case token expires, ask Hans for a new system token, and put it in .bash_profile in the Raspberry Pi:
   1. `nano ~/.bash_profile`
+  2. Edit token value 
   2. `source ~/.bash_profile`
+
+In case token is needed for the project, create a system variable. For MAC users: 
+  1. `nano ~/.zprofile`
+  2. Write `export REACT_APP_TOKEN="[token value from Hans/what is in the RPi]"`
+  3. `source ~/.zprofile`
 
 To update the agent:
   1. `cd TWagent && ./config.sh`
