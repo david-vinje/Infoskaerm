@@ -1,5 +1,4 @@
 const token = process.env.REACT_APP_TOKEN
-console.log('token', process.env)
 
 export const config = { headers: { Authorization: `Bearer ${token}` } };
 
