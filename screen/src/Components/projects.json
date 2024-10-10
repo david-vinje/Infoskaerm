@@ -51,7 +51,7 @@
     ]
   },
   {
-    "clientuuid": "d1de778e-eb1e-495a-8b57-0659c99fd488",
+    "clientuuid": "6e30a6d6-9542-417f-9b5e-234d4c3e3931",
     "name": "Integrationsprojekt",
     "description": "Kunden ønskede at forbinde deres systemer, forbedre samarbejde, effektivisere processer og optimere drift, samtidig med at de overholdt de strenge regulatoriske krav i medicinalindustrien og forbedrede datakvaliteten på tværs af afdelinger.",
     "from": "2022-03-10",
@@ -259,36 +259,6 @@
       }
     ],
     "offeringList": [
-      "Back-End udvikler",
-      "Behovsafdækning",
-      "Forretningsanalyse",
-      "Scrum Master"
-    ],
-    "toolsList": [
-      "Process Mapping",
-      "Kravspecifikation",
-      "Tilstandsdiagram",
-      "Scrum"
-    ]
-  },
-  {
-    "clientuuid": "4734ff94-48eb-4362-9b7f-53b30466c4ec",
-    "name": "Rådgivning ifbm. og projektledelse af NemKonto-tilbuddet",
-    "description": "Som led i e-nettets strategi om at udnytte sin kapacitet kommercielt til gavn for sine ejere (Finansdanmark), ønskede e-nettet at kvalificere og gennemføre et begrænset EU-udbud på en udviklings- og driftsaftale af det nye NemKonto-system. Kontrakten havde en værdi på 384 mDKK, og kan havde etableret et samarbejde med Systematik og Aeven. Projektet skulle realiserer en løbende profit til e-nettet, som kunne løfte innovation og/eller sænke omkostninger for sine egne kunder.",
-    "from": "2022-03-10",
-    "to": "2022-03-10",
-    "offering": "#Projektleder #Strategikonsulent #Udbudsspecialist",
-    "tools": "#Kravspecifikation #Kvalitetssikring #Leverandørstyrring #Projektstyrring #Stakeholder management #Strategiimplementering #Strategisk analyse #Strategisk rådgivning #Udbudsassistance #Forretningsudvikling",
-    "purpose": "Som led i e-nettets strategi om at udnytte sin kapacitet kommercielt til gavn for sine ejere (Finansdanmark), ønskede e-nettet at kvalificere og gennemføre et begrænset EU-udbud på en udviklings- og driftsaftale af det nye NemKonto-system. Kontrakten havde en værdi på 384 mDKK, og kan havde etableret et samarbejde med Systematik og Aeven. Projektet skulle realiserer en løbende profit til e-nettet, som kunne løfte innovation og/eller sænke omkostninger for sine egne kunder.",
-    "tw_role": "Vores rolle gik primært i kommerciel og strategisk rådgivning, herunder sparring omkring juridiske spørgsmål og bistand til udfyldelsen af tilbud/kontraktdokumenter. Hertil leverede Trustworks projektledelse (bid management) og rådgivning ifbm. salgs- og prisstrategi.",
-    "learnings": "Afstem og afgræns Trustworks' rolle tidligt i projektet. Bring flere kompetencer i spil i disse komplekse projekter. Sørg for, at væsentlige dokumenter som fx RACI og samarbejdsbilag prioriteres tidligt.",
-    "projectDescriptionUserList": [
-      {
-        "useruuid": "b3544e89-e1ae-4b8e-b964-d795518b9663",
-        "description": "string"
-      }
-    ],
-    "offeringList": [
       "Projektleder",
       "Dataarkitekt",
       "Database udvikler",
@@ -319,6 +289,41 @@
       "UX design",
       "UI design",
       "Workshop Facilitering"
+    ]
+  },
+  {
+    "clientuuid": "4734ff94-48eb-4362-9b7f-53b30466c4ec",
+    "name": "Rådgivning ifbm. og projektledelse af NemKonto-tilbuddet",
+    "description": "Som led i e-nettets strategi om at udnytte sin kapacitet kommercielt til gavn for sine ejere (Finansdanmark), ønskede e-nettet at kvalificere og gennemføre et begrænset EU-udbud på en udviklings- og driftsaftale af det nye NemKonto-system. Kontrakten havde en værdi på 384 mDKK, og kan havde etableret et samarbejde med Systematik og Aeven. Projektet skulle realiserer en løbende profit til e-nettet, som kunne løfte innovation og/eller sænke omkostninger for sine egne kunder.",
+    "from": "2022-03-10",
+    "to": "2022-03-10",
+    "offering": "#Projektleder #Strategikonsulent #Udbudsspecialist",
+    "tools": "#Kravspecifikation #Kvalitetssikring #Leverandørstyrring #Projektstyrring #Stakeholder management #Strategiimplementering #Strategisk analyse #Strategisk rådgivning #Udbudsassistance #Forretningsudvikling",
+    "purpose": "Som led i e-nettets strategi om at udnytte sin kapacitet kommercielt til gavn for sine ejere (Finansdanmark), ønskede e-nettet at kvalificere og gennemføre et begrænset EU-udbud på en udviklings- og driftsaftale af det nye NemKonto-system. Kontrakten havde en værdi på 384 mDKK, og kan havde etableret et samarbejde med Systematik og Aeven. Projektet skulle realiserer en løbende profit til e-nettet, som kunne løfte innovation og/eller sænke omkostninger for sine egne kunder.",
+    "tw_role": "Vores rolle gik primært i kommerciel og strategisk rådgivning, herunder sparring omkring juridiske spørgsmål og bistand til udfyldelsen af tilbud/kontraktdokumenter. Hertil leverede Trustworks projektledelse (bid management) og rådgivning ifbm. salgs- og prisstrategi.",
+    "learnings": "Afstem og afgræns Trustworks' rolle tidligt i projektet. Bring flere kompetencer i spil i disse komplekse projekter. Sørg for, at væsentlige dokumenter som fx RACI og samarbejdsbilag prioriteres tidligt.",
+    "projectDescriptionUserList": [
+      {
+        "useruuid": "cdc04391-cf46-4bbc-a20d-6fa54fae8674",
+        "description": "string"
+      }
+    ],
+    "offeringList": [
+      "Projektleder",
+      "Strategikonsulent",
+      "Udbudsspecialist"
+    ],
+    "toolsList": [
+      "Kravspecifikation",
+      "Kvalitetssikring",
+      "Leverandørstyrring",
+      "Projektstyrring",
+      "Stakeholder management",
+      "Strategiimplementering",
+      "Strategisk analyse",
+      "Strategisk rådgivning",
+      "Udbudsassistance",
+      "Forretningsudvikling"
     ]
   },
   {
