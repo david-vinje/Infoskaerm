@@ -5,11 +5,18 @@
     "description": "Arba-platformen har til formål at styrke virksomheders cybersikkerhed ved at tilbyde en struktureret, risikobaseret tilgang til sikkerheds- og complianceadministration. Platformen gør det muligt for virksomheder at vurdere deres nuværende cybersikkerhedsmodenhed i forhold til standarder som ISO 27001 og NIS2 samt hjælper dem til at sætte den rette modenshedsambition udfra deres risikoappetit. Med stigende trusler og skærpede krav til compliance er det afgørende at virksomheder har en effektiv løsning nu. Arba leverer et bredt udvalg af funktionaliteter, herunder risikoprofilering, cyber modenhedsstyring og sporing, nedbrydelse af målsætninger til konkrete opgaver, projektstyring, compliance-sporing og rapportering. Værdien ligger i platformens evne til at forenkle komplekse sikkerhedsprocesser og sikre compliance. Målgruppen for Arba er CISO’er og CIO’er, som har brug for en skalerbar platform til at overvåge og forbedre deres cybersikkerhedsstrategier samt sikre løbende overholdelse af lovgivning og standarder.",
     "from": "2024-05-13",
     "to": "2025-03-10",
-    "offering": "#Tester #Full-stack udvikler #Projektleder #Sikkerhedskonsulent #Cyber SME #UX Specialist #Proceskonsulent #Løsningsarkitekt",
-    "tools": "#Risikostyrring #GRC #Business resilience #CISO service #Modenhedsstyring",
+    "offering": "#Tester #Full-stack udvikler #Projektleder #Sikkerhedsspecialist #UX Specialist #Proceskonsulent #Løsningsarkitekt",
+    "tools": "#Risikostyrring #Sikkerhedsanalyse",
+    "purpose": "Arba-platformen styrker virksomheders cybersikkerhed med en risikobaseret tilgang til sikkerhed og compliance. Den hjælper med at vurdere cybersikkerhedsmodenhed i forhold til ISO 27001 og NIS2 samt tilpasse ambitionsniveauet.",
+    "tw_role": "Trustworks har udviklet Arba for at tilbyde CISO'er og CIO'er en skalerbar platform med funktioner som risikoprofilering, projektstyring og compliance-sporing, der hjælper med at forenkle sikkerhedsprocesser og sikre løbende compliance.",
+    "learnings":"Arba gør det muligt for virksomheder at nedbryde komplekse cybersikkerhedsudfordringer, sikre compliance og justere modenhedsniveauer efter risiko. Virksomheder lærer at tilpasse strategier til dynamiske trussels- og compliancekrav.",
     "projectDescriptionUserList": [
       {
         "useruuid": "64e6ee60-06e6-4826-a65b-dc8af29df583",
+        "description": "string"
+      },
+      {
+        "useruuid": "ab4ebf52-2203-4be6-a621-e0b4af847d88",
         "description": "string"
       },
       {
@@ -17,50 +24,94 @@
         "description": "string"
       },
       {
-        "useruuid": "ab4ebf52-2203-4be6-a621-e0b4af847d88",
+        "useruuid": "2a199fd3-a569-43e9-96fd-e068c18a1a43",
+        "description": "string"
+      },
+      {
+        "useruuid": "d0efe516-651e-4755-b98f-f8ff0209a8d4",
+        "description": "string"
+      },
+      {
+        "useruuid": "06c2d1f5-b73c-4299-824f-1efe5ff625ae",
         "description": "string"
       }
     ],
     "offeringList": [
-      "Forretningsanalyse",
-      "Behovsafdækning"
+      "Tester",
+      "Full-stack udvikler",
+      "Projektleder",
+      "Sikkerhedsspecialist",
+      "UX Specialist",
+      "Proceskonsulent",
+      "Løsningsarkitekt"
     ],
     "toolsList": [
-      "Process Mapping",
-      "Kravspecifikation",
-      "Tilstandsdiagram"
+      "Risikostyrring",
+      "Sikkerhedsanalyse"
     ]
   },
   {
-    "clientuuid": "7d34db42-9d11-4fe2-84df-449a46cdfcc9",
-    "name": "Fedt Fedt",
-    "description": "Marie og Regitze har lavet behovsafklaring og kravspecificering, så politiet kan anskaffe nyt system til håndtering og analyse af fingeraftryk (AFIS) - evt. udvidet med håndtering af anden biometrisk information også (ABIS). Behov er dokumenteret i proces- og tilstandsdiagrammer samt kravspecifikationen. Elvi har bistået med sikring af erfaringsopsamling ift. non-funktionelle krav inden politiets hidtidige SME stoppede - samt dokumentering af den ønskede informationsmodel",
+    "clientuuid": "d1de778e-eb1e-495a-8b57-0659c99fd488",
+    "name": "Integrationsprojekt",
+    "description": "Kunden ønskede at forbinde deres systemer, forbedre samarbejde, effektivisere processer og optimere drift, samtidig med at de overholdt de strenge regulatoriske krav i medicinalindustrien og forbedrede datakvaliteten på tværs af afdelinger.",
     "from": "2022-03-10",
     "to": "2025-03-10",
-    "offering": "#Forretningsanalyse #Behovsafdækning",
-    "tools": "#Process Mapping #Kravspecifikation #Tilstandsdiagram",
+    "offering": "#Forretningsanalytiker #Løsningsarkitekt #Produktejer #Projektleder #SCRUM Master #Team leder #Teknisk leder",
+    "tools": "#Agile metoder #Behovsanalyse #Cloud infrastruktur #Dataanalyse #Datamodellering #DevOps #IT-Governance #Kravspecifikation #Krise håndtering #Kvalitetssikring #Leverandørstyrring #Markedsanalyse #Proces implementering #Procesmodellering #Projektstyrring #Regelmodellering #Stakeholder management #Strategiimplementering #Strategisk analyse #Strategisk rådgivning #Systemimplementering #Teknisk rådgivning #Workshop facilitering",
+    "purpose":"Kunden ønskede at forbinde deres systemer, forbedre samarbejde, effektivisere processer og optimere drift, samtidig med at de overholdt de strenge regulatoriske krav i medicinalindustrien og forbedrede datakvaliteten på tværs af afdelinger.",
+    "tw_role": "Vi har i tæt samarbejde med kunden udvalgt en passende integrationsplatform og drevet flere integrationsprojekter. Vi har bidraget med forretningsanalyse, arkitekturdesign, leverandørudvælgelse og projektledelse fra start til slut.",
+    "learnings": "Integrationsprojekterne har styrket kundens IT-infrastruktur, hvilket har ført til bedre systemintegration og optimeret drift. Kunden har opnået øget datakvalitet og sammenhæng mellem afdelinger, trods strenge regulatoriske krav.",
     "projectDescriptionUserList": [
       {
-        "useruuid": "b3544e89-e1ae-4b8e-b964-d795518b9663",
+        "useruuid": "8caba3a2-5a3f-4caa-a345-bac187220338",
         "description": "string"
       },
       {
-        "useruuid": "fcfe998f-b38a-421a-899b-2d8dd32029ee",
+        "useruuid": "d7a1061b-8de5-44f6-8bc2-ee52ed32a149",
         "description": "string"
       },
       {
-        "useruuid": "55567dc6-f7d4-4fd5-8240-96787e492818",
+        "useruuid": "7948c5e8-162c-4053-b905-0f59a21d7746",
+        "description": "string"
+      },
+      {
+        "useruuid": "f6626f6c-e7c8-11e6-bf01-fe55135034f3",
         "description": "string"
       }
     ],
     "offeringList": [
-      "Forretningsanalyse",
-      "Behovsafdækning"
+      "Forretningsanalytiker",
+      "Løsningsarkitekt",
+      "Produktejer",
+      "Projektleder",
+      "SCRUM Master",
+      "Teamleder",
+      "Teknisk leder"
     ],
     "toolsList": [
-      "Process Mapping",
+      "Agile metoder",
+      "Behovsanalyse",
+      "Cloud infrastruktur",
+      "Dataanalyse",
+      "Datamodellering",
+      "DevOps",
+      "IT-Governance",
       "Kravspecifikation",
-      "Tilstandsdiagram"
+      "Krisehåndtering",
+      "Kvalitetssikring",
+      "Leverandørstyrring",
+      "Markedsanalyse",
+      "Proces implementering",
+      "Procesmodellering",
+      "Projektstyrring",
+      "Regelmodellering",
+      "Stakeholder management",
+      "Strategiimplementering",
+      "Strategisk analyse",
+      "Strategisk rådgivning",
+      "Systemimplementering",
+      "Teknisk rådgivning",
+      "Workshop facilitering"
     ]
   },
   {
@@ -123,113 +174,92 @@
     ]
   },
   {
-    "clientuuid": "99636db6-b2cd-4f3b-863c-6d578f922563",
-    "name": "24 Konsulenter",
-    "description": "Formålet med projektet er at udvikle et ind- og udrejsesystem til registrering af ind- og udrejseoplysninger for rejsende i Schengen-området. Trustworks har understøttet Rigspolitiet som har fået til opgave at udvikle system, som skal anvendes til grænsekontrol, immigrationskontrol, retshåndhævelse og midlertidig grænsekontrol. Løsningen består både af software og hardware, samt integrationer på tværs af EU systemer og danske registre. Projektet er aktuelt, da det vil forbedre sikkerheden og effektiviteten ved grænserne samt sikre overholdelse af europæiske lovgivninger. Trustworks' hovedopgave i projektet er at sikre sammenhængen mellem forretningen og IT-udviklingen gennem flere leverancer: Afholdelse af workshops for behovsafklaring, dokumentation af behov og krav, bindeled mellem IT-leverandøren og Rigspolitiet for afklaringer, rådgivning inden for arkitektur, leverandørstyring, test og projektledelse. Projektet er forankret hos Rigspolitiet, som er projektejer, mens IT-leverandøren står for den tekniske udvikling. Derudover er der et tæt europæisk samarbejde med EU-Lisa samt danske myndigheder og virksomheder som UIM og Københavns Lufthavn. Formålet med projektet er at udvikle et ind- og udrejsesystem til registrering af ind- og udrejseoplysninger for rejsende i Schengen-området. Trustworks har understøttet Rigspolitiet som har fået til opgave at udvikle system, som skal anvendes til grænsekontrol, immigrationskontrol, retshåndhævelse og midlertidig grænsekontrol. Løsningen består både af software og hardware, samt integrationer på tværs af EU systemer og danske registre. Projektet er aktuelt, da det vil forbedre sikkerheden og effektiviteten ved grænserne samt sikre overholdelse af europæiske lovgivninger. Trustworks' hovedopgave i projektet er at sikre sammenhængen mellem forretningen og IT-udviklingen gennem flere leverancer: Afholdelse af workshops for behovsafklaring, dokumentation af behov og krav, bindeled mellem IT-leverandøren og Rigspolitiet for afklaringer, rådgivning inden for arkitektur, leverandørstyring, test og projektledelse. Projektet er forankret hos Rigspolitiet, som er projektejer, mens IT-leverandøren står for den tekniske udvikling. Derudover er der et tæt europæisk samarbejde med EU-Lisa samt danske myndigheder og virksomheder som UIM og Københavns Lufthavn.",
+    "clientuuid": "7055edb1-abe9-4f67-a195-859437e8188b",
+    "name": "RBM portal",
+    "description": "Formålet med projektet er at optimere Nordisk Ministerråds (NMR) tilskudsprocesser ved at forbedre mål- og resultatstyring. Dette vil skabe større transparens, automatisere manuelle processer og samle data til mere effektiv rapportering og datastyring.",
     "from": "2022-03-10",
-    "to": "2022-03-10",
-    "offering": "#Forretningsanalyse #Behovsafdækning",
-    "tools": "#Process Mapping #Kravspecifikation #Tilstandsdiagram",
+    "to": "2025-03-10",
+    "offering": "#Back-End udvikler #Dataarkitekt #Database udvikler #Forandringsleder #Forretningsanalytiker #Front-End udvikler #Full-stack udvikler #Infrastruktur udvikler #Proceskonsulent #Produktejer #Projektleder #SCRUM Master #Strategikonsulent #Team leder #Tester #UX Specialist",
+    "tools": "#Agile metoder #Behovsanalyse #DevOps #Grafisk facilitering #IT-Governance #Kravspecifikation #Markedsanalyse #Procesmodellering #Stakeholder management #UX design #UI design #Workshop facilitering",
+    "purpose": "Formålet med projektet er at optimere Nordisk Ministerråds (NMR) tilskudsprocesser ved at forbedre mål- og resultatstyring. Dette vil skabe større transparens, automatisere manuelle processer og samle data til mere effektiv rapportering og datastyring.",
+    "tw_role": "Trustworks Management og Technology samarbejder om at udvikle en end-to-end portalløsning i delleverancer. Vi inddrager NMR's rådgivere og tilskudsadministratorer løbende gennem møder og brugervenlighedstest for at sikre, at løsningen opfylder deres behov.",
+    "learnings": "Læringen er, at inddragelse af brugere og referencegrupper tidligt i processen sikrer, at løsningen imødekommer reelle behov. Automatisering og datastyring kan markant forbedre effektiviteten i NMR’s tilskudsprocesser.",
     "projectDescriptionUserList": [
       {
-        "useruuid": "fcfe998f-b38a-421a-899b-2d8dd32029ee",
-        "description": "string"
+        "useruuid": "d0efe516-651e-4755-b98f-f8ff0209a8d4",
+        "description": "Anders T"
       },
       {
-        "useruuid": "55567dc6-f7d4-4fd5-8240-96787e492818",
-        "description": "string"
-      },
-      {
-        "useruuid": "b3544e89-e1ae-4b8e-b964-d795518b9663",
-        "description": "string"
-      },
-      {
-        "useruuid": "f6a36952-c2e8-4e9a-b9ec-1deaa2b2ccfe",
-        "description": "string"
+        "useruuid": "f70bf53b-72df-4253-b7c0-dbcebe07da89",
+        "description": "Caroline T"
       },
       {
         "useruuid": "7948c5e8-162c-4053-b905-0f59a21d7746",
-        "description": "string"
+        "description": "Hans"
       },
       {
-        "useruuid": "d2878586-800e-4ba2-ac3c-93e5ac69834c",
-        "description": "string"
+        "useruuid": "70dbb7c4-6731-4b9c-a43d-d75e6b872c32",
+        "description": "Laura"
       },
       {
-        "useruuid": "8e15d9c8-1df5-4c32-8e98-001cfabc54b8",
-        "description": "string"
+        "useruuid": "2d2dea17-8773-400c-9db5-e22b4d766f98",
+        "description": "Daugaard"
       },
       {
-        "useruuid": "ff117b85-51a2-4955-8612-c612ba011b91",
-        "description": "string"
+        "useruuid": "f6e816a7-fe88-4243-9cbe-005db604c9ec",
+        "description": "Mathias R"
       },
       {
-        "useruuid": "f6626f6c-e7c8-11e6-bf01-fe55135034f3",
-        "description": "string"
+        "useruuid": "8789fff1-5968-4e36-a5a0-a3c30ba68f57",
+        "description": "Nathalie"
       },
       {
-        "useruuid": "9750fd10-d6f2-4e18-ac58-c5924ceb279a",
-        "description": "string"
+        "useruuid": "2a199fd3-a569-43e9-96fd-e068c18a1a43",
+        "description": "Nickals R"
       },
       {
-        "useruuid": "4072707e-21b5-482e-9fa7-413a60ca5d37",
-        "description": "string"
+        "useruuid": "4bf5fcdb-767f-488d-9df2-a71cc9cef2a6",
+        "description": "Nur"
       },
       {
-        "useruuid": "e32fdbc2-ac8d-4a4c-b0b6-c096090ebf4c",
-        "description": "string"
+        "useruuid": "61e2ceeb-ed9c-479c-9cd8-0efc2f7a3138",
+        "description": "Rask"
       },
       {
-        "useruuid": "20c830e1-707c-4df9-9f00-624d18b62bad",
-        "description": "string"
+        "useruuid": "46e1816c-8131-4061-969e-0822c75c7a23",
+        "description": "Sofie"
       },
       {
-        "useruuid": "38e7829b-d5c5-4cbb-a1e5-5e4e39ca31d7",
-        "description": "string"
+        "useruuid": "d27d8975-bc1e-4fde-830b-d2ecf926b302",
+        "description": "Thomas Bi"
       },
       {
-        "useruuid": "657919ae-3bd6-4954-8909-6f4c9bc565ca",
-        "description": "string"
-      },
-      {
-        "useruuid": "dd185429-a11d-452d-8faf-2087f95a85f2",
-        "description": "string"
-      },
-      {
-        "useruuid": "ff117b85-51a2-4955-8612-c612ba011b91",
-        "description": "string"
-      },
-      {
-        "useruuid": "47d71d0c-0ce3-4c67-a20f-0b162815bf38",
-        "description": "string"
+        "useruuid": "30e31001-b770-4911-9484-f5d14c01fa69",
+        "description": "Jens"
       },
       {
         "useruuid": "19c6d923-d5b0-4505-a450-34848da13861",
-        "description": "string"
+        "description": "Anette"
       },
       {
-        "useruuid": "64e6ee60-06e6-4826-a65b-dc8af29df583",
-        "description": "string"
+        "useruuid": "aedab4c3-d7c8-4379-998b-1593484db7af",
+        "description": "Kasper"
       },
       {
-        "useruuid": "ccbfeef2-4326-4bc8-8faf-ab6044d1a760",
-        "description": "string"
+        "useruuid": "4072707e-21b5-482e-9fa7-413a60ca5d37",
+        "description": "Seb"
       },
       {
-        "useruuid": "577bf6de-552d-4e66-8600-dc91cab6b80c",
-        "description": "string"
+        "useruuid": "e4c7dfd4-63fd-4d6b-b5fa-124a77161cad",
+        "description": "Jeppe"
       },
       {
-        "useruuid": "d0efe516-651e-4755-b98f-f8ff0209a8d4",
-        "description": "string"
-      },
-      {
-        "useruuid": "b01bfaa0-364b-4ef2-8286-86ea1ecc97b1",
-        "description": "string"
+        "useruuid": "06c2d1f5-b73c-4299-824f-1efe5ff625ae",
+        "description": "David"
       }
     ],
     "offeringList": [
-      "UX/UI",
+      "Back-End udvikler",
       "Behovsafdækning",
       "Forretningsanalyse",
       "Scrum Master"
@@ -242,35 +272,99 @@
     ]
   },
   {
-    "clientuuid": "99636db6-b2cd-4f3b-863c-6d578f922563",
-    "name": "3 konsulenter",
-    "description": "Formålet med projektet er at udvikle et ind- og udrejsesystem til registrering af ind- og udrejseoplysninger for rejsende i Schengen-området. Trustworks har understøttet Rigspolitiet som har fået til opgave at udvikle system, som skal anvendes til grænsekontrol, immigrationskontrol, retshåndhævelse og midlertidig grænsekontrol. Løsningen består både af software og hardware, samt integrationer på tværs af EU systemer og danske registre. Projektet er aktuelt, da det vil forbedre sikkerheden og effektiviteten ved grænserne samt sikre overholdelse af europæiske lovgivninger. Trustworks' hovedopgave i projektet er at sikre sammenhængen mellem forretningen og IT-udviklingen gennem flere leverancer: Afholdelse af workshops for behovsafklaring, dokumentation af behov og krav, bindeled mellem IT-leverandøren og Rigspolitiet for afklaringer, rådgivning inden for arkitektur, leverandørstyring, test og projektledelse. Projektet er forankret hos Rigspolitiet, som er projektejer, mens IT-leverandøren står for den tekniske udvikling. Derudover er der et tæt europæisk samarbejde med EU-Lisa samt danske myndigheder og virksomheder som UIM og Københavns Lufthavn.",
+    "clientuuid": "4734ff94-48eb-4362-9b7f-53b30466c4ec",
+    "name": "Rådgivning ifbm. og projektledelse af NemKonto-tilbuddet",
+    "description": "Som led i e-nettets strategi om at udnytte sin kapacitet kommercielt til gavn for sine ejere (Finansdanmark), ønskede e-nettet at kvalificere og gennemføre et begrænset EU-udbud på en udviklings- og driftsaftale af det nye NemKonto-system. Kontrakten havde en værdi på 384 mDKK, og kan havde etableret et samarbejde med Systematik og Aeven. Projektet skulle realiserer en løbende profit til e-nettet, som kunne løfte innovation og/eller sænke omkostninger for sine egne kunder.",
     "from": "2022-03-10",
     "to": "2022-03-10",
-    "offering": "#Forretningsanalyse #Behovsafdækning",
-    "tools": "#Process Mapping #Kravspecifikation #Tilstandsdiagram",
+    "offering": "#Projektleder #Strategikonsulent #Udbudsspecialist",
+    "tools": "#Kravspecifikation #Kvalitetssikring #Leverandørstyrring #Projektstyrring #Stakeholder management #Strategiimplementering #Strategisk analyse #Strategisk rådgivning #Udbudsassistance #Forretningsudvikling",
+    "purpose": "Som led i e-nettets strategi om at udnytte sin kapacitet kommercielt til gavn for sine ejere (Finansdanmark), ønskede e-nettet at kvalificere og gennemføre et begrænset EU-udbud på en udviklings- og driftsaftale af det nye NemKonto-system. Kontrakten havde en værdi på 384 mDKK, og kan havde etableret et samarbejde med Systematik og Aeven. Projektet skulle realiserer en løbende profit til e-nettet, som kunne løfte innovation og/eller sænke omkostninger for sine egne kunder.",
+    "tw_role": "Vores rolle gik primært i kommerciel og strategisk rådgivning, herunder sparring omkring juridiske spørgsmål og bistand til udfyldelsen af tilbud/kontraktdokumenter. Hertil leverede Trustworks projektledelse (bid management) og rådgivning ifbm. salgs- og prisstrategi.",
+    "learnings": "Afstem og afgræns Trustworks' rolle tidligt i projektet. Bring flere kompetencer i spil i disse komplekse projekter. Sørg for, at væsentlige dokumenter som fx RACI og samarbejdsbilag prioriteres tidligt.",
     "projectDescriptionUserList": [
       {
         "useruuid": "b3544e89-e1ae-4b8e-b964-d795518b9663",
         "description": "string"
-      },
-      {
-        "useruuid": "fcfe998f-b38a-421a-899b-2d8dd32029ee",
-        "description": "string"
-      },
-      {
-        "useruuid": "55567dc6-f7d4-4fd5-8240-96787e492818",
-        "description": "string"
       }
     ],
     "offeringList": [
-      "Forretningsanalyse",
-      "Behovsafdækning"
+      "Projektleder",
+      "Dataarkitekt",
+      "Database udvikler",
+      "Forandringsleder",
+      "Forretningsanalytiker",
+      "Front-End udvikler",
+      "Full-stack udvikler",
+      "Infrastruktur udvikler",
+      "Proceskonsulent",
+      "Produktejer",
+      "Projektleder",
+      "SCRUM Master",
+      "Strategikonsulent",
+      "Teamleder",
+      "Tester",
+      "UX Specialist"
     ],
     "toolsList": [
-      "Process Mapping",
+      "Agile metoder",
+      "Behovsanalyse",
+      "DevOps",
+      "Grafisk facilitering",
+      "IT-Governance",
       "Kravspecifikation",
-      "Tilstandsdiagram"
+      "Markedsanalyse",
+      "Procesmodellering",
+      "Stakeholder management",
+      "UX design",
+      "UI design",
+      "Workshop Facilitering"
+    ]
+  },
+  {
+    "clientuuid": "4734ff94-48eb-4362-9b7f-53b30466c4ec",
+    "name": "Smart Borders (EES + ETIAS)",
+    "description": "Rigspolitiet udvikler et nyt kontrolsystem, der skal bistå politibetjente i hele Rigsfællesskabet med grænsekontrol, udlændingekontrol og retshåndhævelse. Systemet skal leve op til gældende national- og EU-lovgivning, heri med fokus på EES og ETIAS-forordningerne.",
+    "from": "2022-03-10",
+    "to": "2025-03-10",
+    "offering": "#Projektleder #Forretningsanalytiker #Løsningsarkitekt #Tester #Subject Matter Expert",
+    "tools": "#Behovsanalyse #Kravspecifikation #Leverandørstyrring #Procesmodellering #Stakeholder Management #Teknisk rådgivning #Workshop Facilitering",
+    "purpose": "Rigspolitiet udvikler et nyt kontrolsystem, der skal bistå politibetjente i hele Rigsfællesskabet med grænsekontrol, udlændingekontrol og retshåndhævelse. Systemet skal leve op til gældende national- og EU-lovgivning, heri med fokus på EES og ETIAS-forordningerne.",
+    "tw_role": "Vores rolle har været at sikre samarbejdet ml. forretning og udvikling. Det har bl.a. bestået i rådgivning indenfor arkitektur, leverandørstyring, test og projektledelse, facilitering af workshops samt review og sikring af dokumentation for behov og krav.",
+    "learnings": "En stor læring er arbejdet med relationer. Med gode relationer skaber vi de bedste løsninger. En anden læring er, at opgaver som regel kommer hen, hvor de bliver løst, og vigtigheden af at vi er med til at afgrænse opgaver, vi tager ind.",
+    "projectDescriptionUserList": [
+      {
+        "useruuid": "b01bfaa0-364b-4ef2-8286-86ea1ecc97b1",
+        "description": "Alberte"
+      },
+      {
+        "useruuid": "dbfe842c-e241-43b6-8c29-e8e944aecd77",
+        "description": "Rasnys møl"
+      },
+      {
+        "useruuid": "83c3ef3f-45b7-492d-8ca0-8fd24576d73c",
+        "description": "Nikolah"
+      },
+      {
+        "useruuid": "70b19352-b7db-4a55-abb7-a84259cf9d64",
+        "description": "Nciole"
+      }
+    ],
+    "offeringList": [
+      "Projektleder",
+      "Forretningsanalytiker",
+      "Løsningsarkitekt",
+      "Tester",
+      "Subject Matter Expert"
+    ],
+    "toolsList": [
+      "Behovsanalyse",
+      "Kravspecifikation",
+      "Leverandørstyrring",
+      "Procesmodellering",
+      "Stakeholder management",
+      "Teknisk rådgivning",
+      "Workshop Facilitering"
     ]
   }
 ]

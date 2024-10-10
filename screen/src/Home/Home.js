@@ -15,7 +15,7 @@ import HomeCard from "./HomeCard";
 import Calendar from "../Components/Calendar";
 import { act } from "react";
 
-const INTERVAL = 1000 * 60; // 60 seconds
+const INTERVAL = 1000 * 30; // 30 seconds
 const CALENDAR_INTERVAL = 10; // every 10 slides
 
 const Home = () => {
@@ -169,7 +169,7 @@ const Home = () => {
         {activeProjects.map((project, index) => {
           if (index % CALENDAR_INTERVAL === 0)
             return (
-              <Carousel.Item key={index} interval={INTERVAL * 2}>
+              <Carousel.Item key={index} interval={INTERVAL * 3}>
                 <Calendar events={events} headcount={headcount} />
               </Carousel.Item>
             );
