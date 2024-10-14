@@ -41,19 +41,24 @@ export const Wrapper = styled.div`
     border-left: 0.5em solid lightgray;
 }
 
-h1 {
+h1{
     font-weight: 500;
 }
 
-.project-description {
+.project-description, .project-description-title {
     display: -webkit-box;
     -webkit-box-orient: vertical;
     -webkit-line-clamp: 20; /* Adjust the number of lines to show */
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: normal;
-    font-size: 3em;
+    font-size: 3em; 
 }
+
+.project-description-title {
+    font-weight: 700;
+}
+
 
 .project-name {
     display: -webkit-box;

@@ -2,6 +2,7 @@ import React from "react";
 import { dateOnly } from "../Components/API";
 
 const PEOPLE_LIMIT = 11;
+const ROLES_TOOLS_LIMIT = 8;
 
 const HomeCard = ({
   project,
@@ -20,11 +21,20 @@ const HomeCard = ({
       <h1 className="project-name pt-5 display-1">{project.name}</h1>
       <ProjectStatus project={project}></ProjectStatus>
       <div className="col-8 right-border lh-lg project-description">
+        {/* <h1 className="project-description-title">1. Formål</h1>
+        <p>{project.purpose}</p>
+        <br></br>
+        <h1 className="project-description-title">2. Trustworks' rolle</h1>
+        <p>{project.purpose}</p>
+        <br></br>
+        <h1 className="project-description-title">3. Læringer</h1>
+        {project.purpose} */}
         {project.description}
       </div>
       <div className="col-4 ps-4">
         <h1 className="display-4">Roller</h1>
-        {project.offeringList.map((rolle, index) => (
+        {project.offeringList.slice(0, ROLES_TOOLS_LIMIT).map((rolle, index) => (
+          
           <button
             key={index}
             className="roller px-3 mx-1 roller-og-tilgang-knap"
@@ -34,7 +44,7 @@ const HomeCard = ({
         ))}
         <div className="pt-5">
           <h1 className="display-4">Tilgang</h1>
-          {project.toolsList.map((tilgang, index) => (
+          {project.toolsList.slice(0, ROLES_TOOLS_LIMIT).map((tilgang, index) => (
             <button
               key={index}
               className="tilgang px-3 mx-1 roller-og-tilgang-knap rounded"
