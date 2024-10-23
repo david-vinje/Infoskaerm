@@ -26,6 +26,7 @@ jobs:
 
   # - script: docker system prune -a -f
   #   displayName: Prune Docker system
+  
 
   - script: killall chromium-browser || true
     displayName: Kill Chromium process

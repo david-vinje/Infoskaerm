@@ -55,7 +55,7 @@ export async function getEvents(setEvents) {
     //   throw new Error(`HTTP error! Status: ${response.status}`);
     // }
     // const events = await response.json()
-
+    // 
     const events = require('./events.json');
 
     setEvents(sortedEvents(events))
