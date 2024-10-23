@@ -6,7 +6,7 @@ Checkout the [TW intranet API](https://api.trustworks.dk/q/swagger-ui/#/Public%2
 Get token from the raspi, and put it in a `REACT_APP_TOKEN` variable in an `.env` file in the root folder /screen: `REACT_APP_TOKEN=[your-token]`
 
 To find the token, SSH into the Raspberry Pi: 
-  1. `ssh trustworks@192.168.1.231`
+  1. `ssh screen-project@192.168.1.237`
   2. `cat ~/.bash_profile`
 
 To run locally:
