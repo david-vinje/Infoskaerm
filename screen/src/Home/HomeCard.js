@@ -25,10 +25,10 @@ const HomeCard = ({
         <p className="display-5">{project.purpose}</p>
         <br></br>
         <h1 className="display-5">2. Trustworks' rolle</h1>
-        <p>{project.purpose}</p>
+        <p className="display-5">{project.purpose}</p>
         <br></br>
         <h1 className="display-5">3. Vores læringer</h1>
-        {project.purpose}
+        <p className="display-5">{project.purpose}</p>
         {/* {project.description} */}
       </div>
       <div className="col-4 ps-4">
