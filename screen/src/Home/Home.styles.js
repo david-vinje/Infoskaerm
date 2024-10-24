@@ -52,7 +52,7 @@ h1 {
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: normal;
-    // font-size: 2em;
+    font-size: 1.5em;
 }
 
 .project-name {
