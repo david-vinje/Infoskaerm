@@ -50,15 +50,16 @@ export const sortedEvents = events => {
 
 export async function getEvents(setEvents) {
   try {
-    // const response = await fetch('https://api.trustworks.dk/public/news/office_display', config);
-    // if (!response.ok) {
-    //   throw new Error(`HTTP error! Status: ${response.status}`);
-    // }
-    // const events = await response.json()
-    // 
-    const events = require('./events.json');
+    const response = await fetch('https://api.trustworks.dk/public/news/office_display', config);
+    if (!response.ok) {
+      throw new Error(`HTTP error! Status: ${response.status}`);
+    }
+    const events = await response.json()
+    
+    // const events = require('./events.json');
 
     setEvents(sortedEvents(events))
+    
   } catch (error) {
     console.error('Error fetching events:', error.message);
     throw error;
@@ -71,7 +72,8 @@ export async function getProjects(setProjects) {
     // if (!response.ok) {
     //   throw new Error(`HTTP error! Status: ${response.status}`);
     // }
-    // const data = await response.json()
+    // const projectData = await response.json()
+    // console.log("Project data: ", projectData);
 
     const data = require('./projects.json');
 
