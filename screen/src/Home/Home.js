@@ -15,7 +15,7 @@ import HomeCard from "./HomeCard";
 import Calendar from "../Components/Calendar";
 import { act } from "react";
 
-const INTERVAL = 1000 * 300; // 30 seconds
+const INTERVAL = 1000 * 30; // 30 seconds
 const CALENDAR_INTERVAL = 10; // every 10 slides
 
 const Home = () => {

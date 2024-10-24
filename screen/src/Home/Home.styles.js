@@ -52,7 +52,7 @@ h1 {
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: normal;
-    font-size: 3em;
+    font-size: 2em;
 }
 
 .project-name {
@@ -73,7 +73,7 @@ h1 {
     ${'' /* border-radius: 1em; */}
     border: 1px solid lightgray;
     margin-top: 1em;
-    font-size: 2.5em;
+    font-size: 2em;
     font-weight: 300;
 }
 
