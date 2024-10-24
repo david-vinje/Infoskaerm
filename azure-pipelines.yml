@@ -24,9 +24,9 @@ jobs:
   - script: docker stop screen || true
     displayName: Stop Docker container
 
-  # - script: docker system prune -a -f
-  #   displayName: Prune Docker system
-  
+  - script: docker system prune -a -f
+    displayName: Prune Docker system
+
 
   - script: killall chromium-browser || true
     displayName: Kill Chromium process

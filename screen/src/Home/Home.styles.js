@@ -26,7 +26,7 @@ export const Wrapper = styled.div`
 }
 .container, .container-fluid {
     height: 98vh;
-    padding: 10rem;
+    padding: 8rem;
 }
 
 .list-group-item, .card, .infobox {
