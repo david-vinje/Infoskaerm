@@ -2,7 +2,7 @@ import React from "react";
 import { dateOnly } from "../Components/API";
 
 const PEOPLE_LIMIT = 11;
-const ROLES_TOOLS_LIMIT = 8;
+const ROLES_TOOLS_LIMIT = 7;
 
 const HomeCard = ({
   project,
