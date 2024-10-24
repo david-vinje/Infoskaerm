@@ -56,7 +56,7 @@ const HomeCard = ({
         </div>
       </div>
     </div>
-    <div className="row row-3 pb-5 mt-auto">
+    <div className="row row-3 mt-auto">
       {project.projectDescriptionUserList.slice(0, PEOPLE_LIMIT).map((user) => (
         <div className="col-2" key={user.useruuid}>
           <img
