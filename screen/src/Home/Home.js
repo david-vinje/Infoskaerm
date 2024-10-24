@@ -169,7 +169,7 @@ const Home = () => {
         {activeProjects.map((project, index) => {
           if (index % CALENDAR_INTERVAL === 0)
             return (
-              <Carousel.Item key={index} interval={INTERVAL * 3}>
+              <Carousel.Item key={index} interval={INTERVAL * 2}>
                 <Calendar events={events} headcount={headcount} />
               </Carousel.Item>
             );

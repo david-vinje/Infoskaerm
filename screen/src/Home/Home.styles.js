@@ -42,7 +42,7 @@ export const Wrapper = styled.div`
 }
 
 h1 {
-    font-weight: 500;
+    font-weight: 700;
 }
 
 .project-description {
@@ -52,7 +52,7 @@ h1 {
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: normal;
-    font-size: 2em;
+    // font-size: 2em;
 }
 
 .project-name {

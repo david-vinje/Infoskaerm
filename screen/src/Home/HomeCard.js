@@ -22,7 +22,7 @@ const HomeCard = ({
       <ProjectStatus project={project}></ProjectStatus>
       <div className="col-8 right-border lh-lg project-description">
         <h1 className="display-5">1. Formål</h1>
-        <p>{project.purpose}</p>
+        <p className="display-5">{project.purpose}</p>
         <br></br>
         <h1 className="display-5">2. Trustworks' rolle</h1>
         <p>{project.purpose}</p>
@@ -32,7 +32,7 @@ const HomeCard = ({
         {/* {project.description} */}
       </div>
       <div className="col-4 ps-4">
-        <h1 className="display-4">Roller</h1>
+        <h1 className="display-5">Roller</h1>
         {project.offeringList.slice(0, ROLES_TOOLS_LIMIT).map((rolle, index) => (
           
           <button
@@ -43,7 +43,7 @@ const HomeCard = ({
           </button>
         ))}
         <div className="pt-5">
-          <h1 className="display-4">Tilgang</h1>
+          <h1 className="display-5">Tilgang</h1>
           {project.toolsList.slice(0, ROLES_TOOLS_LIMIT).map((tilgang, index) => (
             <button
               key={index}
