@@ -21,13 +21,13 @@ const HomeCard = ({
       <h1 className="project-name pt-5 display-1">{project.name}</h1>
       <ProjectStatus project={project}></ProjectStatus>
       <div className="col-8 right-border lh-lg project-description">
-        <h1 className="project-description-title">1. Formål</h1>
+        <h1 className="display-5">1. Formål</h1>
         <p>{project.purpose}</p>
         <br></br>
-        <h1 className="project-description-title">2. Trustworks' rolle i projektet</h1>
+        <h1 className="display-5">2. Trustworks' rolle</h1>
         <p>{project.purpose}</p>
         <br></br>
-        <h1 className="project-description-title">3. Vores læringer fra projektet</h1>
+        <h1 className="display-5">3. Vores læringer</h1>
         {project.purpose}
         {/* {project.description} */}
       </div>
