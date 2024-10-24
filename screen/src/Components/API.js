@@ -68,16 +68,16 @@ export async function getEvents(setEvents) {
 
 export async function getProjects(setProjects) {
   try {
-    // const response = await fetch('https://api.trustworks.dk/public/knowledge/projects', config);
-    // if (!response.ok) {
-    //   throw new Error(`HTTP error! Status: ${response.status}`);
-    // }
-    // const projectData = await response.json()
-    // console.log("Project data: ", projectData);
+    const response = await fetch('https://api.trustworks.dk/public/knowledge/projects', config);
+    if (!response.ok) {
+      throw new Error(`HTTP error! Status: ${response.status}`);
+    }
+    const projectData = await response.json()
+    console.log("Project data: ", projectData);
 
-    const data = require('./projects.json');
+    // const data = require('./projects.json');
 
-    const sortedProjects = data.sort((a, b) => {
+    const sortedProjects = projectData.sort((a, b) => {
       // Convert the "from" values to Date objects for comparison
       const dateA = new Date(a.to);
       const dateB = new Date(b.to);

@@ -61,10 +61,14 @@ const Home = () => {
       }));
 
       const today = new Date();
-      const oneYearAgo = new Date(today.setFullYear(today.getFullYear() - 3));
+      const oneYearAgo = new Date(today.setFullYear(today.getFullYear() - 1));
 
       const projectsActiveLastYear = filteredProjects.filter((project) => {
-        const inputDate = new Date(project.to);
+        if (project.toDate == null) {
+          return true;
+        }
+        const inputDate = new Date(project.toDate);
+        console.log("input date ", inputDate );
         return inputDate > oneYearAgo;
       });
 

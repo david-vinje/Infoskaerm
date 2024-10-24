@@ -33,26 +33,26 @@ const HomeCard = ({
       </div>
       <div className="col-4 ps-4">
         <h1 className="display-5">Roller</h1>
-        {project.offeringList.slice(0, ROLES_TOOLS_LIMIT).map((rolle, index) => (
+        {project.rolesList.slice(0, ROLES_TOOLS_LIMIT).map((role, index) => (
           
           <button
             key={index}
             className="roller px-3 mx-1 roller-og-tilgang-knap"
           >
-            {rolle}
+            {role}
           </button>
         ))}
         <div className="pt-5">
           <h1 className="display-5">Tilgang</h1>
-          {project.toolsList.slice(0, ROLES_TOOLS_LIMIT).map((tilgang, index) => (
+          {project.methodsList.slice(0, ROLES_TOOLS_LIMIT).map((method, index) => (
             <button
               key={index}
               className="tilgang px-3 mx-1 roller-og-tilgang-knap rounded"
-              onClick={() => onToolButtonClick(tilgang)}
+              onClick={() => onToolButtonClick(method)}
             >
-              {tilgang}
+              {method}
             </button>
-          ))}
+          ))} 
         </div>
       </div>
     </div>
@@ -73,10 +73,10 @@ const HomeCard = ({
 
 const ProjectStatus = ({ project }) => {
   const today = dateOnly(new Date());
-  if (project.to < today) {
-    return <h2 className="lh-lg mb-5 display-4">Afsluttet</h2>;
+  if (project.toDate > today || project.toDate == null) {
+    return <h2 className="lh-lg mb-5 display-4">Aktivt</h2>;
   }
-  return <h2 className="lh-lg mb-5 display-4">Aktiv</h2>;
+  return <h2 className="lh-lg mb-5 display-4">Afsluttet</h2>;
 };
 
 const Counter = ({ project }) => {
