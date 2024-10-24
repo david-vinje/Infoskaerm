@@ -29,6 +29,11 @@ export const Wrapper = styled.div`
     padding: 8rem;
 }
 
+.row{
+    height: 33vh;
+    overflow: hidden;
+}
+
 .list-group-item, .card, .infobox {
     border-radius: 10px; 
 }
@@ -52,7 +57,7 @@ h1{
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: normal;
-    font-size: 3em; 
+    font-size: 1em; 
 }
 
 .project-description-title {

@@ -10,7 +10,7 @@ const HomeCard = ({
   getClientLogo,
   getEmployeePhoto,
 }) => (
-  <div className="container-fluid d-flex flex-column">
+  <div className="container-fluid d-flex flex-column"> {/*container-fluid = which is width: 100% at all breakpoints, d-flex = display flex container, flex-colum = set a vertical direction */}
     <div className="row mx-auto mb-5 w-75 clientlogoborder rounded">
       <img
         className="rounded p-0"
