@@ -2,6 +2,7 @@ import styled from "styled-components"
 
 
 export const Wrapper = styled.div`
+
 @media screen and (orientation: portrait) {
     .card-body > .row {
         height: auto;
@@ -11,107 +12,47 @@ export const Wrapper = styled.div`
         width: 66%;
     }
 
+    .row {
+        ${'' /* height: 33vh;  */}
+    }
 }
-
-@media (max-width: 1100px) {
-    .list-group-item, .card, .infobox {
-        border-radius: 10px; 
-    }
-    
-    .right-border {
-        border-right: 0.5em solid #eee;
-    }
-    
-    .left-border {
-        border-left: 0.5em solid lightgray;
-    }
-
-    .clientlogoborder {
-        border: 2px solid rgba(69, 89, 119, 0.5);
-    }
-
-    .roller-og-tilgang-knap{
-        margin-top: 1em;
-        font-size: 1em;
-    }
-    
-    .project-description, .project-description-title {
-        font-size: 0.5em; 
-    }
-
-    .employeephoto {
-        height: 6em;
-        width: 6em;
-    }
-
-}
-
-@media (min-width: 1200px) {
-    .list-group-item, .card, .infobox {
-        border-radius: 10px; 
-    }
-    
-    .right-border {
-        border-right: 0.5em solid #eee;
-    }
-    
-    .left-border {
-        border-left: 0.5em solid lightgray;
-    }
-
-    .clientlogoborder {
-        border: 2px solid rgba(69, 89, 119, 0.5);
-    }
-
-    .roller-og-tilgang-knap{
-        margin-top: 1em;
-        font-size: 2.5em;
-    }
-    
-    .project-description, .project-description-title {
-        font-size: 2em; //before 3em 
-    }
-    
-    .employeephoto {
-        height: 12.5em;
-        width: 12.5em;
-    }
-
-}
-
-//FOR ALL 
 
 * {
     margin-top: 0;
     margin-bottom: 0;
     padding-top: 0;
     padding-bottom: 0;
+    ${'' /* line-height: 1.75; */}
 }
-
 .container, .container-fluid {
     height: 98vh;
-    padding: 8rem;
+    padding: 10rem;
 }
 
-.clientLogo {
-    height: auto;
-    max-width: auto;
+.list-group-item, .card, .infobox {
+    border-radius: 10px; 
 }
 
-.row-1{
-    height: 20vh; 
+.right-border {
+    border-right: 0.5em solid #eee;
 }
 
-.row-2{
-    height: 50vh;
+.left-border {
+    border-left: 0.5em solid lightgray;
 }
 
-.row-3{
-    height: 20vh;
-}
-
-h1{
+h1 {
     font-weight: 500;
+}
+
+.project-description {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 20; /* Adjust the number of lines to show */
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: normal;
+    font-size: 3em;
 }
 
 .project-name {
@@ -123,39 +64,17 @@ h1{
     white-space: normal;
 }
 
-.project-description-title {
-    font-weight: 700;
-}
-
-.project-description, .project-description-title {
-    display: -webkit-box;
-    -webkit-box-orient: vertical;
-    -webkit-line-clamp: 20; /* Adjust the number of lines to show */
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: normal;
-}
-
 .roller-og-tilgang{
-    overflow: hidden;   
+    overflow: hidden;
+    ${'' /* height: 100%; */}
 }
 
 .roller-og-tilgang-knap{
+    ${'' /* border-radius: 1em; */}
     border: 1px solid lightgray;
+    margin-top: 1em;
+    font-size: 2.5em;
     font-weight: 300;
-}
-
-.roller, .tilgang {
-    background-color: #eaf3ff;
-    border-radius: 0.3em;
-}
-
-.roller{
-    color: #374B05;
-}
-
-.tilgang{
-    color: #FF7201;
 }
 
 .center {
@@ -169,13 +88,28 @@ h1{
     justify-content: center;
     align-items: center;
 }
+.roller, .tilgang {
+    background-color: #eaf3ff;
+    border-radius: 0.3em;
+}
+.roller{
+    color: #374B05;
+}
+
+.tilgang{
+    color: #FF7201;
+}
 
 .employeephoto {
     object-fit: cover;
+    height: 12.5em;
+    width: 12.5em;
     border-radius: 50%;
 }
 
-
+.clientlogoborder {
+    border: 2px solid rgba(69, 89, 119, 0.5);
+}
 .carousel-control-prev-icon,
 .carousel-control-next-icon {
     display: none; /* Hide the default icons */
@@ -199,6 +133,4 @@ h1{
     border-radius: 10px;
     padding: 0.1em 5vw;
 }
-
-
 `
