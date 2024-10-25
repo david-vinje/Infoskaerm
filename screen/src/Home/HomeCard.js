@@ -22,14 +22,10 @@ const HomeCard = ({
       <ProjectStatus project={project}></ProjectStatus>
       <div className="col-8 right-border lh-lg project-description">
         <h1 className="display-5">1. Formål</h1>
-        <p>{project.purpose}</p>
-        <br></br>
+        <p className="mb-1">{project.purpose}</p>
         <h1 className="display-5">2. Trustworks' rolle</h1>
-        <p>{project.role}</p>
-        <br></br>
-        <h1 className="display-5">3. Vores læringer</h1>
-        <p>{project.learnings}</p>
-        {/* {project.description} */}
+        <p className="mb-2">{project.role}</p>
+        <Learnings learnings={project.learnings}></Learnings>
       </div>
       <div className="col-4 ps-4">
         <h1 className="display-5">Roller</h1>
@@ -90,5 +86,14 @@ const Counter = ({ project }) => {
     );
   }
 };
+
+const Learnings = ({ learnings }) => {
+  if (learnings != null) {
+    return (
+      <><h1 className="display-5">3. Vores læringer</h1><p>{learnings}</p></>
+    );
+  }
+};
+
 
 export default HomeCard;
