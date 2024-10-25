@@ -29,6 +29,10 @@ export const Wrapper = styled.div`
     padding: 5rem;
 }
 
+.row-2 {
+    height: 50vh;
+}
+
 .row-3 {
     height: 20vh;
 }
