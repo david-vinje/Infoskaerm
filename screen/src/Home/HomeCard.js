@@ -22,9 +22,9 @@ const HomeCard = ({
       <ProjectStatus project={project}></ProjectStatus>
       <div className="col-8 right-border lh-lg project-description">
         <h1 className="display-5">1. Formål</h1>
-        <p className="mb-1">{project.purpose}</p>
+        <p className="mb-3">{project.purpose}</p>
         <h1 className="display-5">2. Trustworks' rolle</h1>
-        <p className="mb-2">{project.role}</p>
+        <p className="mb-3">{project.role}</p>
         <Learnings learnings={project.learnings}></Learnings>
       </div>
       <div className="col-4 ps-4">
