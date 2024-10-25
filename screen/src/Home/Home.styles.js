@@ -30,7 +30,7 @@ export const Wrapper = styled.div`
 }
 
 .row-1 {
-    height: 30vh;
+    height: 20vh;
 }
 
 .row-2 {
