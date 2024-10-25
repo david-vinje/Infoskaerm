@@ -36,7 +36,7 @@
         "description": "string"
       }
     ],
-    "offeringList": [
+    "rolesList": [
       "Tester",
       "Full-stack udvikler",
       "Projektleder",
@@ -45,7 +45,7 @@
       "Proceskonsulent",
       "Løsningsarkitekt"
     ],
-    "toolsList": [
+    "methodsList": [
       "Risikostyrring",
       "Sikkerhedsanalyse"
     ]
@@ -79,7 +79,7 @@
         "description": "string"
       }
     ],
-    "offeringList": [
+    "rolesList": [
       "Forretningsanalytiker",
       "Løsningsarkitekt",
       "Produktejer",
@@ -88,7 +88,7 @@
       "Teamleder",
       "Teknisk leder"
     ],
-    "toolsList": [
+    "methodsList": [
       "Agile metoder",
       "Behovsanalyse",
       "Cloud infrastruktur",
@@ -163,12 +163,12 @@
         "description": "Helene - UX"
       }
     ],
-    "offeringList": [
+    "rolesList": [
       "Udvikling",
       "UX",
       "Projektledelse"
     ],
-    "toolsList": [
+    "methodsList": [
       "NodeJs",
       "React",
       "Figma",
@@ -261,7 +261,7 @@
         "description": "David"
       }
     ],
-    "offeringList": [
+    "rolesList": [
       "Projektleder",
       "Dataarkitekt",
       "Database udvikler",
@@ -279,7 +279,7 @@
       "Tester",
       "UX Specialist"
     ],
-    "toolsList": [
+    "methodsList": [
       "Agile metoder",
       "Behovsanalyse",
       "DevOps",
@@ -311,12 +311,12 @@
         "description": "string"
       }
     ],
-    "offeringList": [
+    "rolesList": [
       "Projektleder",
       "Strategikonsulent",
       "Udbudsspecialist"
     ],
-    "toolsList": [
+    "methodsList": [
       "Kravspecifikation",
       "Kvalitetssikring",
       "Leverandørstyrring",
@@ -358,14 +358,14 @@
         "description": "Nciole"
       }
     ],
-    "offeringList": [
+    "rolesList": [
       "Projektleder",
       "Forretningsanalytiker",
       "Løsningsarkitekt",
       "Tester",
       "Subject Matter Expert"
     ],
-    "toolsList": [
+    "methodsList": [
       "Behovsanalyse",
       "Kravspecifikation",
       "Leverandørstyrring",
