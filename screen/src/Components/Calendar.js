@@ -143,7 +143,7 @@ const Countdown = ({ events }) => {
           {
             event?.text
               ? <div>
-                  <p className="display-1">{countdown} dage til</p>
+                  <p className="display-1">{`${countdown} ${countdown === 1 ? "dag" : "dage"} til`}</p>
                   <p className="text-description">{event.text}</p>
                 </div>
               : <p className="display-5">{countdown}</p>

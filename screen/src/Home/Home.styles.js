@@ -30,16 +30,12 @@ export const Wrapper = styled.div`
 }
 
 
-// .row-3 {
-//     height: 20vh;
-// }
-
 .list-group-item, .card, .infobox {
     border-radius: 10px; 
 }
 
 .right-border {
-    border-right: 0.5em solid #eee;
+    border-right: 0.5em solid #455977;
 }
 
 .left-border {
@@ -57,7 +53,7 @@ h1 {
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: normal;
-    font-size: 2.5em;
+    font-size: 2em;
 }
 
 .project-name {
