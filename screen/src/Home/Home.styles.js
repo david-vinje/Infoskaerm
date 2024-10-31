@@ -35,7 +35,7 @@ export const Wrapper = styled.div`
 }
 
 .right-border {
-    border-right: 0.5em solid #999999;
+    border-right: 0.25em solid #999999;
 }
 
 .left-border {
