@@ -1,0 +1,21 @@
+#!/bin/bash
+
+# Set resolution to 1920x1080 at 60Hz
+
+# Create the new mode using gtf
+MODELINE=$(gtf 1920 1080 60 | grep Modeline)
+
+# Extract the name and parameters from the modeline
+MODE_NAME=$(echo $MODELINE | awk '{print $1}')
+PARAMETERS=$(echo $MODELINE | cut -d ' ' -f 3-)
+
+# Add the new mode
+xrandr --newmode "$MODE_NAME" $PARAMETERS
+
+# Add the mode to HDMI-1
+xrandr --addmode HDMI-1 "$MODE_NAME"
+
+# Set the mode for HDMI-1
+xrandr --output HDMI-1 --mode "$MODE_NAME"
+
+echo "Resolution set to 1920x1080 at 60Hz."

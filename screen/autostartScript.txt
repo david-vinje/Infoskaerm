@@ -1,0 +1,10 @@
+@lxpanel --profile LXDE-pi
+@pcmanfm --desktop --profile LXDE-pi
+@lxterminal -e bash /home/screen-project/rotate-screen.sh &
+@lxterminal -e bash /home/screen-project/screen-resolution.sh &
+@lxterminal -e bash /home/screen-project/screen-agent/run.sh &
+@chromium-browser http://localhost:3000 --kiosk  &
+unclutter -idle 0
+@xset s off          # Disables screen saver
+@xset -dpms          # Disables display power management
+@xset s noblank      # Prevents the screen from blanking
