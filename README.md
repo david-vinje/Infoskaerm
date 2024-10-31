@@ -20,6 +20,9 @@ Edit the [Azure DevOps pipeline script and variables](https://dev.azure.com/davi
 
 
 Path to Raspberry Pi autostart script: `/etc/xdg/lxsession/LXDE-pi/autostart`
+Find script for autostart in autostartScript.txt
+
+Find script for rotating screen in rotateScreenScript.txt
 
 In case token expires, ask Hans for a new system token, and put it in a secret in the DevOps pipeline:
   1. Open pipeline `project-screen`
@@ -45,3 +48,34 @@ To generate a new PAT
     a. Expiration: 90 days
     b. Scope: Custom defined
     c. Only select rights to read. 
+
+Install Docker: 
+  1. `sudo apt install docker.io`
+	2. `sudo systemctl enable docker`
+	3. `sudo systemctl status docker`
+	4. `sudo systemctl start docker`
+	5. `sudo docker run hello-world`
+  6. Good YouTube video: https://www.youtube.com/watch?v=cqbh-RneBlk
+  
+In case resolution on screen is bad: 
+  1. Go to raspi-config file `sudo raspi-config`
+  2. Select `Advanced Options`
+  3. Select `Wayland`
+  4. Seelct `X11`
+  5. Reboot raspi
+  6. See also script for screen-resolution in screenResolutionScript.txt
+
+In case of error code `Bash exited with code '1'` or `Got permission denied while trying to connect to the Docker daemon socket at unix:///var/run/docker.sock` when building docker:
+  1. Check user rights in Docker: `ls -l /var/run/docker.sock`. Expected output: `srwxrwxrwx`
+  2. If user rights are not right then
+      a. Create docker group if not exist : `sudo groupadd docker`
+	    b. Add user to docker group : `sudo usermod -aG docker ${USER}`
+	    c. Change docker.sock to new permission : `sudo chmod 777 /var/run/docker.sock`
+	    d. Check user rights: `ls -l /var/run/docker.sock`
+	    e. Finally restart docker daemon service : `sudo systemctl restart docker`
+
+In case of emergency and raspi needs to be reinstalled, then these are some of the steps:
+  1. Trustworks-wpa2 til SSH
+	2. SSH skal aktiveres i Raspberry Pi configuration
+	3. `[username]@[ip]`
+	4. ip kan findes ved command i RPi terminal: `hostname -I`
