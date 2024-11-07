@@ -1,5 +1,5 @@
 # Use an official Node.js runtime as the base image
-FROM alpine:3.9
+FROM node:12.18-alpine
 
 # Set the working directory in the container
 WORKDIR /screen
