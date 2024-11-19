@@ -142,16 +142,13 @@ const Countdown = ({ events }) => {
         <div className="col-10 text-end pe-3">
           {
             event?.text
-              ? 
-              <div>
-                <p className="display-5">Nedtælling</p>
-                <div class="text-end pe-3">
+              ? <div>
                   <p className="display-1">{`${countdown} ${countdown === 1 ? "dag" : "dage"} til`}</p>
                   <p className="text-description">{event.text}</p>
                 </div>
-              </div>
-              : <p className="display-5 text-end mt-auto pe-3">{countdown}</p>
+              : <p className="display-5">{countdown}</p>
           }
+        </div>
       </Card.Body>
     </Card>
   )
