@@ -132,14 +132,14 @@ const Countdown = ({ events }) => {
   return (
     <Card className="h-100 border-secondary">
       <Card.Body className="row p-3">
-        <div className="col-5 d-flex flex-column">
-          <p className="display-5">Nedtælling</p>
-          {countdown === 0
+      <p className="display-5">Nedtælling</p>
+        <div className="col-2 d-flex flex-column">
+          {countdown === 1
             ? <img src={giphy} alt="" width={"175px"} height={"150px"} />
             : <></>
           }
         </div>
-        <div className="col-7 text-end align-self-end pe-3">
+        <div className="col-10 text-end pe-3">
           {
             event?.text
               ? <div>
