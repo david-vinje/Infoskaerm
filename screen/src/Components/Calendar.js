@@ -135,7 +135,7 @@ const Countdown = ({ events }) => {
       <p className="display-5">Nedtælling</p>
         <div className="col-3 pe-0 d-flex flex-column">
           {countdown === 0
-            ? <img src={giphy} alt="" width={""} height={""} />
+            ? <img src={giphy} alt="" width={"175px"} height={"150px"}/>
             : <></>
           }
         </div>
@@ -143,7 +143,7 @@ const Countdown = ({ events }) => {
           {
             event?.text
               ? <div>
-                  <p className="display-1">{`${countdown} ${countdown === 1 ? "dag" : "dage"} til`}</p>
+                  <p className="display-1 mt-auto">{`${countdown} ${countdown === 1 ? "dag" : "dage"} til`}</p>
                   <p className="text-description">{event.text}</p>
                 </div>
               : <p className="display-5">{countdown}</p>
