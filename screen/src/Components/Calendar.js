@@ -143,8 +143,12 @@ const Countdown = ({ events }) => {
           {
             event?.text
               ? <div>
-                  <p className="display-1 mt-auto">{`${countdown} ${countdown === 1 ? "dag" : "dage"} til`}</p>
-                  <p className="text-description">{event.text}</p>
+                {
+                  countdown === 0
+                  ? <p className="display-1 mt-auto">I dag</p>
+                  : <p className="display-1 mt-auto">{`${countdown} dage til`}</p>
+                } 
+                <p className="text-description">{event.text}</p>
                 </div>
               : <p className="display-5">{countdown}</p>
           }
