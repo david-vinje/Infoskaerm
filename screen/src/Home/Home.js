@@ -13,9 +13,11 @@ import {
 } from "../Components/API";
 import HomeCard from "./HomeCard";
 import Calendar from "../Components/Calendar";
+import Flyer from "../Components/Flyer";
 
 const INTERVAL = 1000 * 30; // 30 seconds
-const CALENDAR_INTERVAL = 10; // every 10 slides
+const CALENDAR_INTERVAL = 5; // every 5 slides
+const EVENT_INTERVAL = CALENDAR_INTERVAL+2; 
 
 const Home = () => {
   const navigate = useNavigate();
@@ -176,6 +178,13 @@ const Home = () => {
                 <Calendar events={events} headcount={headcount} />
               </Carousel.Item>
             );
+          if (index % EVENT_INTERVAL === 0)
+            return (
+              <Carousel.Item key={index} interval={INTERVAL * 2}>
+                <Flyer />
+              </Carousel.Item>
+            );
+          
           return (
             <Carousel.Item key={index} interval={INTERVAL}>
               <HomeCard
