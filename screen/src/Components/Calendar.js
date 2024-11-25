@@ -26,7 +26,7 @@ const getIcon = {
   "NEW_EMPLOYEE": <UserIcon height={SMALL_ICON} width={SMALL_ICON} fill={BLUE} />,
   "CONFERENCE": <TWIcon height={SMALL_ICON} width={SMALL_ICON} fill={BLUE} />,
   "INTERNAL_COURSE": <BrainIcon height={SMALL_ICON} width={SMALL_ICON} fill={BLUE} />,
-  "HQ_BOOKING": <ClockIcon height={SMALL_ICON} width={SMALL_ICON} fill={BLUE} />,
+  "HQ": <TWIcon height={SMALL_ICON} width={SMALL_ICON} fill={BLUE} />,
   "INTERNAL_EVENT": <ConfettiIcon height={SMALL_ICON} width={SMALL_ICON} stroke={BLUE} />,
   "INFO": <InfoIcon height={BIG_ICON} width={BIG_ICON} stroke={BLUE} />,
   "LUNCH": <LunchIcon height={BIG_ICON} width={BIG_ICON} stroke={BLUE} />,
