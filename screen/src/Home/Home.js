@@ -14,6 +14,8 @@ import {
 import HomeCard from "./HomeCard";
 import Calendar from "../Components/Calendar";
 import Flyer from "../Components/Flyer";
+import HackerEventFlyer from '../img/HackerEventFlyer.png';
+import ChristmasSweater from '../img/ChristmasSweater.jpg';
 
 const INTERVAL = 1000 * 30; // 30 seconds
 const CALENDAR_INTERVAL = 5; // every 5 slides
@@ -172,16 +174,22 @@ const Home = () => {
     <Wrapper className="body::before">
       <Carousel data-wrap pause={false}>
         {activeProjects.map((project, index) => {
-          if (index % CALENDAR_INTERVAL === 0)
+          if (index === 2)
             return (
               <Carousel.Item key={index} interval={INTERVAL * 2}>
                 <Calendar events={events} headcount={headcount} />
               </Carousel.Item>
             );
-          if (index % EVENT_INTERVAL === 0)
+          if (index === 0)
             return (
               <Carousel.Item key={index} interval={INTERVAL * 2}>
-                <Flyer />
+                <Flyer content={HackerEventFlyer} />
+              </Carousel.Item>
+            );
+          if (index === 1)
+            return (
+              <Carousel.Item key={index} interval={INTERVAL * 2}>
+                <Flyer content={ChristmasSweater} />
               </Carousel.Item>
             );
           

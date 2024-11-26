@@ -1,32 +1,19 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Card } from "react-bootstrap";
 import styled from "styled-components";
-import HackerEventFlyer from '../img/HackerEventFlyer.png';
 
-const HEIGHT_ICON = "300px"
-const WIDTH_ICON = "100px"
-
-const getFlyer = {
-  "HackerEventFlyer": <HackerEventFlyer height={HEIGHT_ICON} width={WIDTH_ICON}/>
-}
-
-const Flyer = ({ }) => {
+const Flyer = ({ content }) => {
   return (
     <Styling className="body::before">
-      <div className="container-fluid d-flex flex-column">
-        <div className="">
+      <div className="container-fluid center ">
         <img
-        className="rounded p-0 h-75"
-        src={HackerEventFlyer}
+        className="rounded h-75"
+        src={content}
         />
-        </div>
       </div>
     </Styling>
   )
 }
-
-
-
 
 const Styling = styled.div`
 
