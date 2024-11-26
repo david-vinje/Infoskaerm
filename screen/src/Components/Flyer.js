@@ -14,10 +14,12 @@ const Flyer = ({ }) => {
   return (
     <Styling className="body::before">
       <div className="container-fluid d-flex flex-column">
+        <div className="">
         <img
-        className=" rounded p-0"
+        className="rounded p-0 h-75"
         src={HackerEventFlyer}
         />
+        </div>
       </div>
     </Styling>
   )
