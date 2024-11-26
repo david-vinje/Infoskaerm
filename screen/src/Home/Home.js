@@ -15,11 +15,16 @@ import HomeCard from "./HomeCard";
 import Calendar from "../Components/Calendar";
 import Flyer from "../Components/Flyer";
 import HackerEventFlyer from '../img/HackerEventFlyer.png';
-import ChristmasSweater from '../img/ChristmasSweater.jpg';
+import ChristmasSweater from '../img/CS.png';
+
+let counter = 0
+const flyers = [
+  HackerEventFlyer,
+  ChristmasSweater
+]
 
 const INTERVAL = 1000 * 30; // 30 seconds
 const CALENDAR_INTERVAL = 5; // every 5 slides
-const EVENT_INTERVAL = CALENDAR_INTERVAL+2; 
 
 const Home = () => {
   const navigate = useNavigate();
@@ -169,30 +174,26 @@ const Home = () => {
       </Carousel.Item>
     ));
   };
-
   return (
     <Wrapper className="body::before">
-      <Carousel data-wrap pause={false}>
+      <Carousel id="carousel" data-wrap pause={false}>
         {activeProjects.map((project, index) => {
-          if (index === 2)
+          if (index % CALENDAR_INTERVAL === 0 && index % 2 === 0) {
             return (
               <Carousel.Item key={index} interval={INTERVAL * 2}>
                 <Calendar events={events} headcount={headcount} />
               </Carousel.Item>
             );
-          if (index === 0)
+          }
+          if (index % CALENDAR_INTERVAL === 0 && index % 2 === 1) {
+            const flyerIndex = counter++ % flyers.length
+            const flyer = flyers[flyerIndex]
             return (
               <Carousel.Item key={index} interval={INTERVAL * 2}>
-                <Flyer content={HackerEventFlyer} />
+                <Flyer content={flyer} />
               </Carousel.Item>
             );
-          if (index === 1)
-            return (
-              <Carousel.Item key={index} interval={INTERVAL * 2}>
-                <Flyer content={ChristmasSweater} />
-              </Carousel.Item>
-            );
-          
+          }
           return (
             <Carousel.Item key={index} interval={INTERVAL}>
               <HomeCard
