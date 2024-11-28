@@ -14,12 +14,12 @@ import {
 import HomeCard from "./HomeCard";
 import Calendar from "../Components/Calendar";
 import Flyer from "../Components/Flyer";
-import IndustryInsight from '../FlyerImg/IndInsTest.png';
+// import IndustryInsight from '../FlyerImg/IndInsTest.png';
 import ChristmasSweater from '../img/CS.png';
 
 let counter = 0
 const flyers = [
-  IndustryInsight,
+  // IndustryInsight,
   ChristmasSweater
 ]
 
