@@ -174,14 +174,19 @@ const Home = () => {
     ));
   };
 
-  window.addEventListener("load", () => {
-    console.log('LOADED')
-
-  });
+  const keyDown = evt => {
+    if (evt.key === 'PageUp') {
+      const elem = document.getElementsByClassName('carousel-control-next')[0]
+      elem.click()
+    } else if (evt.key === 'PageDown') {
+      const elem = document.getElementsByClassName('carousel-control-prev')[0]
+      elem.click()
+    }
+  }
   
   return (
     <Wrapper className="body::before">
-      <Carousel onKeyDown={evt => console.log(evt.key)} id="carousel" data-wrap pause={false}>
+      <Carousel onKeyDown={keyDown} id="carousel" data-wrap pause={false}>
         {activeProjects.map((project, index) => {
           if (index % CALENDAR_INTERVAL === 0 && index % 2 === 0) {
             return (
