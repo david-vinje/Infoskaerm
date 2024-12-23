@@ -37,6 +37,7 @@ const getIcon = {
 
 const Calendar = ({ events, headcount }) => {
   const infoboxes = getInfoboxes(events)
+  
   return (
     <Styling className="body::before">
       <div className="container-fluid d-flex flex-column">

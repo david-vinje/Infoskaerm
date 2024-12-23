@@ -55,7 +55,6 @@ export async function getEvents(setEvents) {
       throw new Error(`HTTP error! Status: ${response.status}`);
     }
     const events = await response.json()
-    console.log("evemt: ", events);
     
     // const events = require('./events.json');
 
@@ -74,7 +73,6 @@ export async function getProjects(setProjects) {
       throw new Error(`HTTP error! Status: ${response.status}`);
     }
     const data = await response.json()
-    console.log("Project data: ", data);
 
     // const data = require('./projects.json');
 

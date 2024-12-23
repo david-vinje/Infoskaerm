@@ -77,7 +77,6 @@ const Home = () => {
           return true;
         }
         const inputDate = new Date(project.toDate);
-        console.log("input date ", inputDate );
         return inputDate > oneYearAgo;
       });
 
@@ -174,6 +173,18 @@ const Home = () => {
       </Carousel.Item>
     ));
   };
+
+  window.addEventListener("load", (event) => {
+    // const elem = document.getElementById("")
+    // const elem = document.getElementsByClassName("carousel-control-next")[0]
+    // elem.addEventListener("keypress", evt => {
+    //   console.log()
+    // })
+    window.addEventListener("keypress", evt => {
+      console.log(evt.keyCode, evt.key)
+    })
+  });
+  
   return (
     <Wrapper className="body::before">
       <Carousel id="carousel" data-wrap pause={false}>
@@ -195,7 +206,7 @@ const Home = () => {
             );
           }
           return (
-            <Carousel.Item key={index} interval={INTERVAL}>
+            <Carousel.Item key={index} autoFocus interval={INTERVAL}>
               <HomeCard
                 project={project}
                 onToolButtonClick={handleToolButtonClick}
