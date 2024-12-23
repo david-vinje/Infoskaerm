@@ -174,20 +174,14 @@ const Home = () => {
     ));
   };
 
-  window.addEventListener("load", (event) => {
-    // const elem = document.getElementById("")
-    // const elem = document.getElementsByClassName("carousel-control-next")[0]
-    // elem.addEventListener("keypress", evt => {
-    //   console.log()
-    // })
-    window.addEventListener("keypress", evt => {
-      console.log(evt.keyCode, evt.key)
-    })
+  window.addEventListener("load", () => {
+    console.log('LOADED')
+
   });
   
   return (
     <Wrapper className="body::before">
-      <Carousel id="carousel" data-wrap pause={false}>
+      <Carousel onKeyDown={evt => console.log(evt.key)} id="carousel" data-wrap pause={false}>
         {activeProjects.map((project, index) => {
           if (index % CALENDAR_INTERVAL === 0 && index % 2 === 0) {
             return (
