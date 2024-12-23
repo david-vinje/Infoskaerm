@@ -175,10 +175,10 @@ const Home = () => {
   };
 
   const keyDown = evt => {
-    if (evt.key === 'PageUp') {
+    if (evt.key === 'PageDown') {
       const elem = document.getElementsByClassName('carousel-control-next')[0]
       elem.click()
-    } else if (evt.key === 'PageDown') {
+    } else if (evt.key === 'PageUp') {
       const elem = document.getElementsByClassName('carousel-control-prev')[0]
       elem.click()
     }
