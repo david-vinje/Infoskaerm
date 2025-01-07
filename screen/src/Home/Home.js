@@ -15,12 +15,12 @@ import HomeCard from "./HomeCard";
 import Calendar from "../Components/Calendar";
 import Flyer from "../Components/Flyer";
 // import IndustryInsight from '../FlyerImg/IndInsTest.png';
-import ChristmasSweater from '../img/CS.png';
+// import ChristmasSweater from '../img/CS.png';
 
 let counter = 0
 const flyers = [
   // IndustryInsight,
-  ChristmasSweater
+  // ChristmasSweater
 ]
 
 const INTERVAL = 1000 * 30; // 30 seconds
@@ -195,15 +195,15 @@ const Home = () => {
               </Carousel.Item>
             );
           }
-          if (index % CALENDAR_INTERVAL === 0 && index % 2 === 1) {
-            const flyerIndex = counter++ % flyers.length
-            const flyer = flyers[flyerIndex]
-            return (
-              <Carousel.Item key={index} interval={INTERVAL * 2}>
-                <Flyer content={flyer} />
-              </Carousel.Item>
-            );
-          }
+          // if (index % CALENDAR_INTERVAL === 0 && index % 2 === 1) {
+          //   const flyerIndex = counter++ % flyers.length
+          //   const flyer = flyers[flyerIndex]
+          //   return (
+          //     <Carousel.Item key={index} interval={INTERVAL * 2}>
+          //       <Flyer content={flyer} />
+          //     </Carousel.Item>
+          //   );
+          // }
           return (
             <Carousel.Item key={index} autoFocus interval={INTERVAL}>
               <HomeCard
