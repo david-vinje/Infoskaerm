@@ -80,11 +80,6 @@ const Home = () => {
         return inputDate > oneYearAgo;
       });
 
-      let nSlides = projectsActiveLastYear.length;
-      nSlides += Math.ceil(nSlides / CALENDAR_INTERVAL) + 1;
-      const round = INTERVAL * nSlides + 500 * nSlides
-      setInterval(() => navigate(0), round * 2);
-
       setActiveProjects(projectsActiveLastYear);
     }
   }, [projects, consultants, events]);
@@ -175,6 +170,7 @@ const Home = () => {
   };
 
   const keyDown = evt => {
+    console.log(evt.key)
     if (evt.key === 'PageDown') {
       const elem = document.getElementsByClassName('carousel-control-next')[0]
       elem.click()
