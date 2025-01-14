@@ -3,6 +3,7 @@ import { Card } from "react-bootstrap";
 import styled from "styled-components";
 import ClockIcon from '../Icons/ClockIcon';
 import UpArrowIcon from '../Icons/UpArrowIcon';
+import DownArrowIcon from '../Icons/DownArrowIcon';
 import UserIcon from '../Icons/UserIcon';
 import InfoIcon from '../Icons/InfoIcon';
 import ConfettiIcon from '../Icons/ConfettiIcon';
@@ -172,10 +173,7 @@ const GoodPeople = ({ headcount }) => (
       <div className="col d-flex flex-column ">
         <p className="display-5">Trustworkers</p>
         <p className="text-description">siden d.d. sidste år</p>
-        <div className="border center w-50 py-3 bg-green rounded">
-          <UpArrowIcon height="32px" width="32px" />
-          <p className="display-6 ms-1">+{headcount[1]} %</p>
-        </div>
+        <GoodPeopleStatus headcount={headcount[1]}/>
       </div>
       <div className="col align-self-end text-end">
         <p className="display-1">{headcount[0]}</p>
@@ -184,6 +182,23 @@ const GoodPeople = ({ headcount }) => (
     </Card.Body>
   </Card>
 )
+
+const GoodPeopleStatus = ({ headcount }) => {
+  if (headcount >= 0) {
+    return (
+      <div className="border center w-50 py-3 bg-green rounded">
+          <UpArrowIcon height="32px" width="32px" />
+          <p className="display-6 ms-1">{headcount} %</p>
+        </div>
+    )
+  } 
+  return ( 
+    <div className="border center w-50 py-3 bg-red rounded">
+        <DownArrowIcon height="32px" width="32px" />
+        <p className="display-6 ms-1">{headcount} %</p>
+      </div>
+  )
+}
 
 const Subheading = ({ text }) => (
   <div className="pt-5">
@@ -259,6 +274,10 @@ const Styling = styled.div`
   .bg-green {
     color: #374b05;
     background-color: rgba(55, 75, 5, 0.3);
+  }
+  .bg-red{
+    color: rgb(255, 0, 0);
+    background-color:rgba(255, 1, 1, 0.3);
   }
   .bg-blue{
     background-color: #5c6a83;
