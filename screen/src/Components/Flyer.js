@@ -1,5 +1,4 @@
-import React, { useEffect, useState } from "react";
-import { Card } from "react-bootstrap";
+import React from "react";
 import styled from "styled-components";
 
 const Flyer = ({ content }) => {
@@ -7,8 +6,8 @@ const Flyer = ({ content }) => {
     <Styling className="body::before">
       <div className="container-fluid center ">
         <img
-        className="rounded h-75"
-        src={content}
+          className="rounded h-75"
+          src={content}
         />
       </div>
     </Styling>
