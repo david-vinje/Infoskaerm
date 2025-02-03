@@ -3,7 +3,6 @@ import { Card } from "react-bootstrap";
 import styled from "styled-components";
 import ClockIcon from '../Icons/ClockIcon';
 import UpArrowIcon from '../Icons/UpArrowIcon';
-import DownArrowIcon from '../Icons/DownArrowIcon';
 import UserIcon from '../Icons/UserIcon';
 import InfoIcon from '../Icons/InfoIcon';
 import ConfettiIcon from '../Icons/ConfettiIcon';
@@ -38,7 +37,7 @@ const getIcon = {
 
 const Calendar = ({ events, headcount }) => {
   const infoboxes = getInfoboxes(events)
-  
+
   return (
     <Styling className="body::before">
       <div className="container-fluid d-flex flex-column">
@@ -134,7 +133,7 @@ const Countdown = ({ events }) => {
   return (
     <Card className="h-100 border-secondary">
       <Card.Body className="row p-3">
-      <p className="display-5">Nedtælling</p>
+        <p className="display-5">Nedtælling</p>
         <div className="col-3 pe-0 d-flex flex-column">
           {countdown === 0
             ? <img src={giphy} alt="" width={"175px"} height={"150px"}/>
@@ -147,11 +146,11 @@ const Countdown = ({ events }) => {
               ? <div>
                 {
                   countdown === 0
-                  ? <p className="display-1 mt-auto">I dag</p>
-                  : <p className="display-1 mt-auto">{`${countdown} ${countdown === 1 ? "dag" : "dage"} til`}</p>
-                } 
+                    ? <p className="display-1 mt-auto">I dag</p>
+                    : <p className="display-1 mt-auto">{`${countdown} ${countdown === 1 ? "dag" : "dage"} til`}</p>
+                }
                 <p className="text-description">{event.text}</p>
-                </div>
+              </div>
               : <p className="display-5">{countdown}</p>
           }
         </div>
@@ -184,19 +183,11 @@ const GoodPeople = ({ headcount }) => (
 )
 
 const GoodPeopleStatus = ({ headcount }) => {
-  if (headcount >= 0) {
-    return (
-      <div className="border center w-50 py-3 bg-green rounded">
-          <UpArrowIcon height="32px" width="32px" />
-          <p className="display-6 ms-1">{headcount} %</p>
-        </div>
-    )
-  } 
-  return ( 
-    <div className="border center w-50 py-3 bg-red rounded">
-        <DownArrowIcon height="32px" width="32px" />
+  return (
+    <div className={'border center w-50 py-3 rounded ' + (headcount < 0 ? 'bg-red' : 'bg-green')} >
+        <UpArrowIcon className={headcount < 0 ? 'down-turned' : ''} height="32px" width="32px" />
         <p className="display-6 ms-1">{headcount} %</p>
-      </div>
+    </div>
   )
 }
 
@@ -255,7 +246,9 @@ function formatDate(dateString) {
 }
 
 const Styling = styled.div`
-
+  .down-turned {
+    transform: rotate(180deg);
+  }
   .today {
     color: #f09449;
   }

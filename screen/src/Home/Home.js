@@ -55,11 +55,12 @@ const Home = () => {
     if (projects.length > 0 && consultants.length > 0 && events.length > 0) {
       // Create a Set of active consultant IDs
       const activeConsultantIds = new Set(
-        consultants.map((consultant) => consultant.uuid)
+        consultants.map(consultant => consultant.uuid)
       );
-      events.forEach((event) => {
+      events.forEach(event => {
         activeConsultantIds.add(event.createdBy);
       });
+
 
       // Filter projects to only include active consultants in projectDescriptionUserList
       const filteredProjects = projects.map((project) => ({
@@ -191,15 +192,15 @@ const Home = () => {
               </Carousel.Item>
             );
           }
-          // if (index % CALENDAR_INTERVAL === 0 && index % 2 === 1) {
-          //   const flyerIndex = counter++ % flyers.length
-          //   const flyer = flyers[flyerIndex]
-          //   return (
-          //     <Carousel.Item key={index} interval={INTERVAL * 2}>
-          //       <Flyer content={flyer} />
-          //     </Carousel.Item>
-          //   );
-          // }
+          if (index % CALENDAR_INTERVAL === 0 && index % 2 === 1) {
+            const flyerIndex = counter++ % flyers.length
+            const flyer = flyers[flyerIndex]
+            return (
+              <Carousel.Item key={index} interval={INTERVAL * 2}>
+                <Flyer content={flyer} />
+              </Carousel.Item>
+            );
+          }
           return (
             <Carousel.Item key={index} autoFocus interval={INTERVAL}>
               <HomeCard
