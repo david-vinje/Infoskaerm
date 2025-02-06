@@ -55,11 +55,11 @@ export async function getEvents(setEvents) {
       throw new Error(`HTTP error! Status: ${response.status}`);
     }
     const events = await response.json()
-    
+
     // const events = require('./events.json');
 
     setEvents(sortedEvents(events))
-    
+
   } catch (error) {
     console.error('Error fetching events:', error.message);
     throw error;
@@ -216,4 +216,20 @@ export async function updateClientListWithIdPhoto(projects, setClients) {
   }
 }
 
+
+export const getCoffeeMeetings = async (setCoffeeMeetings) => {
+  // try {
+  //   const response = await fetch('https://api.trustworks.dk/public/foo/bar/coffeemeetings/' + date, config);
+  //   if (!response.ok) {
+  //     throw new Error(`HTTP error! Status: ${response.status}`);
+  //   }
+  //   const meetings = await response.json()
+  //   setCoffeeMeetings(meetings)
+  // } catch (error) {
+  //   console.error('Error fetching headcount:', error.message);
+  //   throw error;
+  // }
+  const data = require('./meetings.json');
+  setCoffeeMeetings(data)
+}
 

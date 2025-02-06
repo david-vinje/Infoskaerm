@@ -1,21 +1,63 @@
 import React from "react";
 import styled from "styled-components";
+import UserIcon from '../Icons/UserIcon';
+import TWIcon from '../Icons/TWIcon';
 
 const Flyer = ({ content }) => {
   return (
     <Styling className="body::before">
-      <div className="container-fluid center ">
-        <img
-          className="rounded h-75"
-          src={content}
-        />
+      <div className="container-fluid border">
+        <div className="row border">
+          <h1>Prop pr kop</h1>
+        </div>
+        <div className="row border bg-primary">
+          <h1>Industry Insight</h1>
+          <p>Prop per kop er en del af strategi ... Lorem, ipsum dolor sit amet consectetur adipisicing elit. Cupiditate unde doloribus a provident. Laudantium adipisci pariatur minus minima dolorum quas voluptatem veniam rem ullam. Molestiae accusamus atque harum suscipit commodi!</p>
+        </div>
+        <div className="row border bg-success">
+          <Sectors sectors={content} />
+        </div>
       </div>
     </Styling>
   )
 }
 
-const Styling = styled.div`
+const Sectors = ({ sectors }) => (
+  sectors.map((sector, index) => {
+    return <Sector key={index} sector={sector} />
+  })
+)
 
+const Sector = ({ sector }) => (
+  <div>
+    <div>
+      <TWIcon height={SMALL_ICON} width={SMALL_ICON} fill={BLUE} />
+      <h1>{sector.sectorName}</h1>
+    </div>
+    <Employees employees={employees}/>
+  </div>
+)
+
+const Employees = ({ employees }) => ( 
+  employees.map(employee => {
+    return (
+      <Employee employee={employee}/>
+    )
+  })
+)
+
+const Employee = ({ employee }) => (
+  <div>
+    <img
+      alt=""
+      className="employeephoto my-2 border"
+      src={`data:image/jpeg;base64,${getEmployeePhoto(employee.useruuid)}`}
+    />
+    <UserIcon height={SMALL_ICON} width={SMALL_ICON} fill={BLUE} />
+  </div>
+)
+
+const Styling = styled.div`
   .today {
     color: #f09449;
   }

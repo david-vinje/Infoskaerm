@@ -10,6 +10,7 @@ import {
   getConsultants,
   getEvents,
   getHeadcount,
+  getCoffeeMeetings
 } from "../Components/API";
 import HomeCard from "./HomeCard";
 import Calendar from "../Components/Calendar";
@@ -35,6 +36,7 @@ const Home = () => {
   const [consultants, setConsultants] = useState([]);
   const [clientList, setClientList] = useState([]);
   const [events, setEvents] = useState([]);
+  const [coffeeMeetings, setCoffeeMeetings] = useState([]);
   const [headcount, setHeadcount] = useState([]);
   const [isPortrait, setOrientation] = useState(
     window.matchMedia("(orientation: portrait)").matches
@@ -49,6 +51,7 @@ const Home = () => {
     getConsultants(setConsultants);
     getEvents(setEvents);
     getHeadcount(setHeadcount);
+    getCoffeeMeetings(setCoffeeMeetings)
   }, []);
 
   useEffect(() => {
@@ -156,20 +159,6 @@ const Home = () => {
     setSelectedTool(tool);
   };
 
-  const ProjectsSlice = ({}) => {
-    activeProjects.map((project, index) => (
-      <Carousel.Item key={index} interval={INTERVAL}>
-        <HomeCard
-          project={project}
-          onToolButtonClick={handleToolButtonClick}
-          getClientLogo={getClientLogo}
-          getEmployeePhoto={getEmployeePhoto}
-          isPortrait={isPortrait}
-        />
-      </Carousel.Item>
-    ));
-  };
-
   const keyDown = evt => {
     console.log(evt.key)
     if (evt.key === 'PageDown') {
@@ -185,22 +174,20 @@ const Home = () => {
     <Wrapper className="body::before">
       <Carousel onKeyDown={keyDown} id="carousel" data-wrap pause={false}>
         {activeProjects.map((project, index) => {
-          if (index % CALENDAR_INTERVAL === 0 && index % 2 === 0) {
+          if (index % CALENDAR_INTERVAL === 0 && index % 2 === 1) {
             return (
               <Carousel.Item key={index} interval={INTERVAL * 2}>
                 <Calendar events={events} headcount={headcount} />
               </Carousel.Item>
             );
           }
-          {/* if (index % CALENDAR_INTERVAL === 0 && index % 2 === 1) {
-            const flyerIndex = counter++ % flyers.length
-            const flyer = flyers[flyerIndex]
+          if (index % CALENDAR_INTERVAL === 0 && index % 2 === 0) {
             return (
               <Carousel.Item key={index} interval={INTERVAL * 2}>
-                <Flyer content={flyer} />
+                <Flyer content={coffeeMeetings} />
               </Carousel.Item>
             );
-          } */}
+          }
           return (
             <Carousel.Item key={index} autoFocus interval={INTERVAL}>
               <HomeCard

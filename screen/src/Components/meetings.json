@@ -1,0 +1,87 @@
+[
+  {
+    "sectorName": "Pharma",
+    "consultants": [
+      {
+        "useruuid": "64e6ee60-06e6-4826-a65b-dc8af29df583",
+        "count": 6
+      },  
+      {
+        "useruuid": "8caba3a2-5a3f-4caa-a345-bac187220338",
+        "count": 5
+      },
+      {
+        "useruuid": "7948c5e8-162c-4053-b905-0f59a21d7746",
+        "count": 2
+      }
+    ]
+  },
+  {
+    "sectorName": "Den Offentlig Sektor",
+    "consultants": [
+      {
+        "useruuid": "64e6ee60-06e6-4826-a65b-dc8af29df583",
+        "count": 7
+      },  
+      {
+        "useruuid": "8caba3a2-5a3f-4caa-a345-bac187220338",
+        "count": 3
+      },
+      {
+        "useruuid": "7948c5e8-162c-4053-b905-0f59a21d7746",
+        "count": 1
+      }
+    ]
+  },
+  {
+    "sectorName": "Grøn Omstilling",
+    "consultants": [
+      {
+        "useruuid": "64e6ee60-06e6-4826-a65b-dc8af29df583",
+        "count": 5
+      },  
+      {
+        "useruuid": "8caba3a2-5a3f-4caa-a345-bac187220338",
+        "count": 4
+      },
+      {
+        "useruuid": "7948c5e8-162c-4053-b905-0f59a21d7746",
+        "count": 2
+      }
+    ]
+  },
+  {
+    "sectorName": "Finans",
+    "consultants": [
+      {
+        "useruuid": "64e6ee60-06e6-4826-a65b-dc8af29df583",
+        "count": 5
+      },  
+      {
+        "useruuid": "8caba3a2-5a3f-4caa-a345-bac187220338",
+        "count": 4
+      },
+      {
+        "useruuid": "7948c5e8-162c-4053-b905-0f59a21d7746",
+        "count": 2
+      }
+    ]
+  },
+  {
+    "sectorName": "Andre Industrier",
+    "consultants": [
+      {
+        "useruuid": "64e6ee60-06e6-4826-a65b-dc8af29df583",
+        "count": 5
+      },  
+      {
+        "useruuid": "8caba3a2-5a3f-4caa-a345-bac187220338",
+        "count": 4
+      },
+      {
+        "useruuid": "7948c5e8-162c-4053-b905-0f59a21d7746",
+        "count": 2
+      }
+    ]
+  }
+]
