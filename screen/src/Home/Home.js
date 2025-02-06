@@ -15,14 +15,6 @@ import {
 import HomeCard from "./HomeCard";
 import Calendar from "../Components/Calendar";
 import Flyer from "../Components/Flyer";
-import IndustryInsight from '../FlyerImg/IndInsTest.png';
-// import ChristmasSweater from '../img/CS.png';
-
-let counter = 0
-const flyers = [
-  IndustryInsight,
-  // ChristmasSweater
-]
 
 const INTERVAL = 1000 * 30; // 30 seconds
 const CALENDAR_INTERVAL = 5; // every 5 slides
@@ -51,7 +43,6 @@ const Home = () => {
     getConsultants(setConsultants);
     getEvents(setEvents);
     getHeadcount(setHeadcount);
-    getCoffeeMeetings(setCoffeeMeetings)
   }, []);
 
   useEffect(() => {
@@ -63,7 +54,6 @@ const Home = () => {
       events.forEach(event => {
         activeConsultantIds.add(event.createdBy);
       });
-
 
       // Filter projects to only include active consultants in projectDescriptionUserList
       const filteredProjects = projects.map((project) => ({
@@ -111,18 +101,12 @@ const Home = () => {
           Boolean
         );
         setEmployeeList(newEmployeeList);
+        getCoffeeMeetings(setCoffeeMeetings)
       };
 
       fetchPhotosForActiveConsultants();
     }
   }, [activeProjects]);
-
-  //Function to get the employee photo
-  function getEmployeePhoto(props) {
-    const foundItem = employees.find((item) => item.id === props);
-    const photo = foundItem ? foundItem.file : null;
-    return photo;
-  }
 
   // Making list of clients consisting of id and photo file
   useEffect(() => {
@@ -147,6 +131,13 @@ const Home = () => {
       fetchClientPhotos();
     }
   }, [activeProjects]);
+  
+  //Function to get the employee photo
+  function getEmployeePhoto(id) {
+    const employee = employees.find(employee => employee.id === id);
+    const photo = employee ? employee.file : null;
+    return photo;
+  }
 
   // Function to get the client logo
   function getClientLogo(props) {
@@ -160,7 +151,6 @@ const Home = () => {
   };
 
   const keyDown = evt => {
-    console.log(evt.key)
     if (evt.key === 'PageDown') {
       const elem = document.getElementsByClassName('carousel-control-next')[0]
       elem.click()
@@ -184,21 +174,21 @@ const Home = () => {
           if (index % CALENDAR_INTERVAL === 0 && index % 2 === 0) {
             return (
               <Carousel.Item key={index} interval={INTERVAL * 2}>
-                <Flyer content={coffeeMeetings} />
+                <Flyer content={coffeeMeetings} getEmployeePhoto={getEmployeePhoto} />
               </Carousel.Item>
             );
           }
-          return (
-            <Carousel.Item key={index} autoFocus interval={INTERVAL}>
-              <HomeCard
-                project={project}
-                onToolButtonClick={handleToolButtonClick}
-                getClientLogo={getClientLogo}
-                getEmployeePhoto={getEmployeePhoto}
-                isPortrait={isPortrait}
-              />
-            </Carousel.Item>
-          );
+          // return (
+          //   <Carousel.Item key={index} autoFocus interval={INTERVAL}>
+          //     <HomeCard
+          //       project={project}
+          //       onToolButtonClick={handleToolButtonClick}
+          //       getClientLogo={getClientLogo}
+          //       getEmployeePhoto={getEmployeePhoto}
+          //       isPortrait={isPortrait}
+          //     />
+          //   </Carousel.Item>
+          // );
         })}
       </Carousel>
     </Wrapper>

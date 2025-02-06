@@ -3,15 +3,15 @@
     "sectorName": "Pharma",
     "consultants": [
       {
-        "useruuid": "64e6ee60-06e6-4826-a65b-dc8af29df583",
+        "useruuid": "e4c7dfd4-63fd-4d6b-b5fa-124a77161cad",
         "count": 6
       },  
       {
-        "useruuid": "8caba3a2-5a3f-4caa-a345-bac187220338",
+        "useruuid": "4b8d9890-5bc7-496f-9f3d-bfba1e5453d1",
         "count": 5
       },
       {
-        "useruuid": "7948c5e8-162c-4053-b905-0f59a21d7746",
+        "useruuid": "f6626f6c-e7c8-11e6-bf01-fe55135034f3",
         "count": 2
       }
     ]
@@ -20,15 +20,15 @@
     "sectorName": "Den Offentlig Sektor",
     "consultants": [
       {
-        "useruuid": "64e6ee60-06e6-4826-a65b-dc8af29df583",
+        "useruuid": "e4c7dfd4-63fd-4d6b-b5fa-124a77161cad",
         "count": 7
       },  
       {
-        "useruuid": "8caba3a2-5a3f-4caa-a345-bac187220338",
+        "useruuid": "4b8d9890-5bc7-496f-9f3d-bfba1e5453d1",
         "count": 3
       },
       {
-        "useruuid": "7948c5e8-162c-4053-b905-0f59a21d7746",
+        "useruuid": "f6626f6c-e7c8-11e6-bf01-fe55135034f3",
         "count": 1
       }
     ]
@@ -37,15 +37,15 @@
     "sectorName": "Grøn Omstilling",
     "consultants": [
       {
-        "useruuid": "64e6ee60-06e6-4826-a65b-dc8af29df583",
+        "useruuid": "e4c7dfd4-63fd-4d6b-b5fa-124a77161cad",
         "count": 5
       },  
       {
-        "useruuid": "8caba3a2-5a3f-4caa-a345-bac187220338",
+        "useruuid": "4b8d9890-5bc7-496f-9f3d-bfba1e5453d1",
         "count": 4
       },
       {
-        "useruuid": "7948c5e8-162c-4053-b905-0f59a21d7746",
+        "useruuid": "f6626f6c-e7c8-11e6-bf01-fe55135034f3",
         "count": 2
       }
     ]
@@ -54,15 +54,15 @@
     "sectorName": "Finans",
     "consultants": [
       {
-        "useruuid": "64e6ee60-06e6-4826-a65b-dc8af29df583",
+        "useruuid": "e4c7dfd4-63fd-4d6b-b5fa-124a77161cad",
         "count": 5
       },  
       {
-        "useruuid": "8caba3a2-5a3f-4caa-a345-bac187220338",
+        "useruuid": "4b8d9890-5bc7-496f-9f3d-bfba1e5453d1",
         "count": 4
       },
       {
-        "useruuid": "7948c5e8-162c-4053-b905-0f59a21d7746",
+        "useruuid": "f6626f6c-e7c8-11e6-bf01-fe55135034f3",
         "count": 2
       }
     ]
@@ -71,15 +71,15 @@
     "sectorName": "Andre Industrier",
     "consultants": [
       {
-        "useruuid": "64e6ee60-06e6-4826-a65b-dc8af29df583",
+        "useruuid": "e4c7dfd4-63fd-4d6b-b5fa-124a77161cad",
         "count": 5
       },  
       {
-        "useruuid": "8caba3a2-5a3f-4caa-a345-bac187220338",
+        "useruuid": "4b8d9890-5bc7-496f-9f3d-bfba1e5453d1",
         "count": 4
       },
       {
-        "useruuid": "7948c5e8-162c-4053-b905-0f59a21d7746",
+        "useruuid": "f6626f6c-e7c8-11e6-bf01-fe55135034f3",
         "count": 2
       }
     ]

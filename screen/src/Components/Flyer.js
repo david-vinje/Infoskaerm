@@ -3,53 +3,64 @@ import styled from "styled-components";
 import UserIcon from '../Icons/UserIcon';
 import TWIcon from '../Icons/TWIcon';
 
-const Flyer = ({ content }) => {
+const SMALL_ICON = "60px"
+const BIG_ICON = "100px"
+const BLUE = "#5c6a83"
+
+const Flyer = ({ content, getEmployeePhoto, employees }) => {
+  if (content.length > 0){
+    return (
+      <Styling className="body::before">
+        <div className="container-fluid border">
+          <div className="row border">
+            <h1>Prop pr kop</h1>
+          </div>
+          <div className="row border bg-primary">
+            <h1>Industry Insight</h1>
+            <p>Prop per kop er en del af strategi ... Lorem, ipsum dolor sit amet consectetur adipisicing elit. Cupiditate unde doloribus a provident. Laudantium adipisci pariatur minus minima dolorum quas voluptatem veniam rem ullam. Molestiae accusamus atque harum suscipit commodi!</p>
+          </div>
+          <Sectors sectors={content} getEmployeePhoto={getEmployeePhoto} />
+        </div>
+      </Styling>
+    )
+  }
+}
+
+const Sectors = ({ sectors, getEmployeePhoto }) => {
   return (
-    <Styling className="body::before">
-      <div className="container-fluid border">
-        <div className="row border">
-          <h1>Prop pr kop</h1>
-        </div>
-        <div className="row border bg-primary">
-          <h1>Industry Insight</h1>
-          <p>Prop per kop er en del af strategi ... Lorem, ipsum dolor sit amet consectetur adipisicing elit. Cupiditate unde doloribus a provident. Laudantium adipisci pariatur minus minima dolorum quas voluptatem veniam rem ullam. Molestiae accusamus atque harum suscipit commodi!</p>
-        </div>
-        <div className="row border bg-success">
-          <Sectors sectors={content} />
-        </div>
+    <div className="row border bg-success">
+      {sectors.map((sector, index) => (
+        <Sector key={index} sector={sector} getEmployeePhoto={getEmployeePhoto} />
+      ))}
+    </div>
+  )
+  }
+
+const Sector = ({ sector, getEmployeePhoto}) => {
+  return (
+    <div className="row ">
+      <div className="col-2">
+        <TWIcon height={SMALL_ICON} width={SMALL_ICON} fill={BLUE} />
+        <h1>{sector.sectorName}</h1>
       </div>
-    </Styling>
+      <Employees employees={sector.consultants} getEmployeePhoto={getEmployeePhoto}/>
+    </div>
   )
 }
 
-const Sectors = ({ sectors }) => (
-  sectors.map((sector, index) => {
-    return <Sector key={index} sector={sector} />
-  })
-)
-
-const Sector = ({ sector }) => (
-  <div>
-    <div>
-      <TWIcon height={SMALL_ICON} width={SMALL_ICON} fill={BLUE} />
-      <h1>{sector.sectorName}</h1>
-    </div>
-    <Employees employees={employees}/>
+const Employees = ({ employees, getEmployeePhoto }) => ( 
+  <div className="col-10 d-flex">
+    {employees.map((employee, index) => (
+      <Employee key={index} employee={employee} getEmployeePhoto={getEmployeePhoto}/>
+    ))}
   </div>
 )
 
-const Employees = ({ employees }) => ( 
-  employees.map(employee => {
-    return (
-      <Employee employee={employee}/>
-    )
-  })
-)
-
-const Employee = ({ employee }) => (
-  <div>
+const Employee = ({ employee, getEmployeePhoto }) => (
+  <div className="col-2">
     <img
       alt=""
+      height="12px" width="12px"
       className="employeephoto my-2 border"
       src={`data:image/jpeg;base64,${getEmployeePhoto(employee.useruuid)}`}
     />
@@ -58,6 +69,7 @@ const Employee = ({ employee }) => (
 )
 
 const Styling = styled.div`
+  
   .today {
     color: #f09449;
   }
