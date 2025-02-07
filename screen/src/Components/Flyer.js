@@ -2,6 +2,8 @@ import React from "react";
 import styled from "styled-components";
 import UserIcon from '../Icons/UserIcon';
 import TWIcon from '../Icons/TWIcon';
+import InfoIcon from '../Icons/InfoIcon';
+
 
 const SMALL_ICON = "60px"
 const BIG_ICON = "100px"
@@ -15,20 +17,26 @@ const Flyer = ({ content, getEmployeePhoto, employees }) => {
           <div className="row border">
             <h1>Prop pr kop</h1>
           </div>
-          <div className="row border bg-primary">
-            <h1>Industry Insight</h1>
-            <p>Prop per kop er en del af strategi ... Lorem, ipsum dolor sit amet consectetur adipisicing elit. Cupiditate unde doloribus a provident. Laudantium adipisci pariatur minus minima dolorum quas voluptatem veniam rem ullam. Molestiae accusamus atque harum suscipit commodi!</p>
-          </div>
+         <Infobox/>
           <Sectors sectors={content} getEmployeePhoto={getEmployeePhoto} />
         </div>
       </Styling>
     )
   }
 }
+const Infobox = ({ infobox }) => (
+  <div className="row infobox bg-blue border border-secondary mt-5 w-100 mh-25 mx-auto p-4">
+    
+    <div className="col-11 text-light px-3">
+      <p className="display-2 mb-3"> Industry Insight</p>
+      <p className="text-description text-ellipsis-6">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius voluptatibus beatae officiis molestiae dolorum obcaecati repudiandae odio iure laborum voluptatem doloremque neque facere unde, rem sequi est! Consequuntur, corporis cupiditate voluptates quisquam libero repudiandae tempora laboriosam accusantium esse maxime amet hic architecto voluptas sunt quam minus eius! Ea, commodi maiores temporibus natus laboriosam, et aspernatur harum deleniti quibusdam inventore consequuntur iusto voluptate ipsam aliquam dolorum ipsum rem, architecto id quidem in iure. Temporibus, veritatis ipsum officia nisi suscipit deserunt mollitia doloribus excepturi itaque animi voluptas qui consequatur fugiat assumenda optio reiciendis molestiae maiores architecto, sapiente natus voluptatum dignissimos. Maxime, mollitia?</p>
+    </div>
+  </div>
+)
 
 const Sectors = ({ sectors, getEmployeePhoto }) => {
   return (
-    <div className="row border bg-success">
+    <div className="row border ">
       {sectors.map((sector, index) => (
         <Sector key={index} sector={sector} getEmployeePhoto={getEmployeePhoto} />
       ))}
@@ -38,8 +46,8 @@ const Sectors = ({ sectors, getEmployeePhoto }) => {
 
 const Sector = ({ sector, getEmployeePhoto}) => {
   return (
-    <div className="row ">
-      <div className="col-2">
+    <div className="row bg-success m-2">
+      <div className="col-2 center flex-column">
         <TWIcon height={SMALL_ICON} width={SMALL_ICON} fill={BLUE} />
         <h1>{sector.sectorName}</h1>
       </div>
@@ -67,6 +75,7 @@ const Employee = ({ employee, getEmployeePhoto }) => (
     <UserIcon height={SMALL_ICON} width={SMALL_ICON} fill={BLUE} />
   </div>
 )
+
 
 const Styling = styled.div`
   
