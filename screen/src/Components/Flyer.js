@@ -1,34 +1,41 @@
 import React from "react";
 import styled from "styled-components";
-import UserIcon from '../Icons/UserIcon';
-import TWIcon from '../Icons/TWIcon';
-import InfoIcon from '../Icons/InfoIcon';
-
+import CoffeeIcon from '../Icons/CoffeeIcon';
+import CalendarIcon from '../Icons/CalendarIcon';
+import LunchIcon from '../Icons/LunchIcon';
+import Rocket from "../Icons/Rocket";
+import Beach from "../Icons/Vacation";
+import Construction from "../Icons/Construction";
 
 const SMALL_ICON = "60px"
 const BIG_ICON = "100px"
 const BLUE = "#5c6a83"
 
+const icons = [
+  <LunchIcon height={SMALL_ICON} width={SMALL_ICON} fill={BLUE} />,
+  <CalendarIcon height={SMALL_ICON} width={SMALL_ICON} fill={BLUE} />,
+  <Rocket height={SMALL_ICON} width={SMALL_ICON} fill={BLUE} />,
+  <Beach height={SMALL_ICON} width={SMALL_ICON} fill={BLUE} />,
+  <Construction height={SMALL_ICON} width={SMALL_ICON} fill={BLUE} />
+]
+
 const Flyer = ({ content, getEmployeePhoto, employees }) => {
-  if (content.length > 0){
+  if (content.length > 0) {
     return (
       <Styling className="body::before">
         <div className="container-fluid border">
-          <div className="row border">
-            <h1>Prop pr kop</h1>
-          </div>
-         <Infobox/>
+          <h1 className="display-1">Prop pr kop</h1>
+          <Infobox />
           <Sectors sectors={content} getEmployeePhoto={getEmployeePhoto} />
         </div>
       </Styling>
     )
   }
 }
-const Infobox = ({ infobox }) => (
-  <div className="row infobox bg-blue border border-secondary mt-5 w-100 mh-25 mx-auto p-4">
-    
-    <div className="col-11 text-light px-3">
-      <p className="display-2 mb-3"> Industry Insight</p>
+const Infobox = () => (
+  <div className="row bg-grey my-5 w-100 mh-25 p-5">
+    <div className="col-11 px-3 ps-5 pe-0 ">
+      <p className="display-3 mb-4"> Industry Insight</p>
       <p className="text-description text-ellipsis-6">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius voluptatibus beatae officiis molestiae dolorum obcaecati repudiandae odio iure laborum voluptatem doloremque neque facere unde, rem sequi est! Consequuntur, corporis cupiditate voluptates quisquam libero repudiandae tempora laboriosam accusantium esse maxime amet hic architecto voluptas sunt quam minus eius! Ea, commodi maiores temporibus natus laboriosam, et aspernatur harum deleniti quibusdam inventore consequuntur iusto voluptate ipsam aliquam dolorum ipsum rem, architecto id quidem in iure. Temporibus, veritatis ipsum officia nisi suscipit deserunt mollitia doloribus excepturi itaque animi voluptas qui consequatur fugiat assumenda optio reiciendis molestiae maiores architecto, sapiente natus voluptatum dignissimos. Maxime, mollitia?</p>
     </div>
   </div>
@@ -36,49 +43,62 @@ const Infobox = ({ infobox }) => (
 
 const Sectors = ({ sectors, getEmployeePhoto }) => {
   return (
-    <div className="row border ">
+    <div className="row  ">
       {sectors.map((sector, index) => (
-        <Sector key={index} sector={sector} getEmployeePhoto={getEmployeePhoto} />
+        <Sector key={index} index={index} sector={sector} getEmployeePhoto={getEmployeePhoto} />
       ))}
-    </div>
-  )
-  }
-
-const Sector = ({ sector, getEmployeePhoto}) => {
-  return (
-    <div className="row bg-success m-2">
-      <div className="col-2 center flex-column">
-        <TWIcon height={SMALL_ICON} width={SMALL_ICON} fill={BLUE} />
-        <h1>{sector.sectorName}</h1>
-      </div>
-      <Employees employees={sector.consultants} getEmployeePhoto={getEmployeePhoto}/>
     </div>
   )
 }
 
-const Employees = ({ employees, getEmployeePhoto }) => ( 
-  <div className="col-10 d-flex">
+const Sector = ({ sector, getEmployeePhoto, index }) => {
+  return (
+    <div className="row my-3 sector border-secondary ">
+      <div className="col-2 center flex-column">
+        { icons[index] }
+        <h1>{sector.sectorName}</h1>
+      </div>
+      <Employees employees={sector.consultants} getEmployeePhoto={getEmployeePhoto} />
+    </div>
+  )
+}
+
+const Employees = ({ employees, getEmployeePhoto }) => (
+  <div className="col-10 d-flex ">
     {employees.map((employee, index) => (
-      <Employee key={index} employee={employee} getEmployeePhoto={getEmployeePhoto}/>
+      <Employee key={index} employee={employee} getEmployeePhoto={getEmployeePhoto} />
     ))}
   </div>
 )
 
 const Employee = ({ employee, getEmployeePhoto }) => (
-  <div className="col-2">
+  <div className="col position-relative ">
     <img
       alt=""
       height="12px" width="12px"
-      className="employeephoto my-2 border"
+      className="employeephoto my-2 "
       src={`data:image/jpeg;base64,${getEmployeePhoto(employee.useruuid)}`}
     />
-    <UserIcon height={SMALL_ICON} width={SMALL_ICON} fill={BLUE} />
+    <div className="cup-with-number d-inline-flex ">
+      <CoffeeIcon height={"100px"} width={"100px"} className="ms-3"  />
+      <span className="number">{employee.count}</span>
+    </div>
   </div>
 )
 
 
 const Styling = styled.div`
-  
+  .cup-with-number {
+    position: absolute;
+    top: 25%;
+  } 
+  .number {
+    position: absolute;
+    top: 45%;
+    left: 45%;
+    font-weight: bold;
+    font-size: 1.75em;
+  }
   .today {
     color: #f09449;
   }
@@ -98,8 +118,8 @@ const Styling = styled.div`
     color: #374b05;
     background-color: rgba(55, 75, 5, 0.3);
   }
-  .bg-blue{
-    background-color: #5c6a83;
+  .bg-grey {
+    background-color: #e4e6e9
   }
   .card-footer {
     background-color: #374b05;
@@ -112,6 +132,7 @@ const Styling = styled.div`
     -webkit-line-clamp: 1; /* Adjust the number of lines to show */
     overflow: hidden;
     text-overflow: ellipsis;
+    text-align: justify;
   }
   .info-section {
     border: 1px solid transparent;
@@ -133,6 +154,12 @@ const Styling = styled.div`
   }
   span {
     margin-left: auto; 
+  }
+  .sector {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0px 0px 30px 15px rgba(0,0,0,0.1);
+    
   }
 `
 

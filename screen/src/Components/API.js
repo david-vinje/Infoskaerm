@@ -229,8 +229,13 @@ export const getCoffeeMeetings = async (setCoffeeMeetings) => {
   //   console.error('Error fetching headcount:', error.message);
   //   throw error;
   // }
-  const data = require('./meetings.json');
-  console.log('data', data)
+  const data = require('./meetings.json').map(sector => {
+    return {
+      ...sector,
+      consultants: sector.consultants.sort((a, b) => b.count - a.count)
+    }
+  })
   setCoffeeMeetings(data)
+
 }
 
