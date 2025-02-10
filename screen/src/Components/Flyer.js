@@ -7,7 +7,7 @@ import Rocket from "../Icons/Rocket";
 import Beach from "../Icons/Vacation";
 import Construction from "../Icons/Construction";
 
-const SMALL_ICON = "60px"
+const SMALL_ICON = "5px"
 const BIG_ICON = "100px"
 const BLUE = "#5c6a83"
 
@@ -75,12 +75,13 @@ const Employee = ({ employee, getEmployeePhoto }) => (
   <div className="col position-relative ">
     <img
       alt=""
-      height="12px" width="12px"
-      className="employeephoto my-2 "
+      height="0" 
+      width="0"
+      className="employee-photo my-2 "
       src={`data:image/jpeg;base64,${getEmployeePhoto(employee.useruuid)}`}
     />
     <div className="cup-with-number d-inline-flex ">
-      <CoffeeIcon height={"100px"} width={"100px"} className="ms-3"  />
+      <CoffeeIcon height={"75px"} width={"75px"} className="ms-3"  />
       <span className="number">{employee.count}</span>
     </div>
   </div>
@@ -88,13 +89,19 @@ const Employee = ({ employee, getEmployeePhoto }) => (
 
 
 const Styling = styled.div`
+  .employee-photo {
+      object-fit: cover;
+      height: 10em;
+      width: 10em;
+      border-radius: 50%;
+  }
   .cup-with-number {
     position: absolute;
-    top: 25%;
+    top: 30%;
   } 
   .number {
     position: absolute;
-    top: 45%;
+    top: 38%;
     left: 45%;
     font-weight: bold;
     font-size: 1.75em;
