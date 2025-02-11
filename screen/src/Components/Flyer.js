@@ -15,25 +15,27 @@ import Rocket from "../Icons/Rocket";
 import Beach from "../Icons/Vacation";
 import Construction from "../Icons/Construction";
 import CoffeeIcon from "../Icons/CoffeeIcon";
+import Champagne from "../Icons/Champagne";
 
-const SMALL_ICON = "100px"
-const BIG_ICON = "100px"
+
+const SECTOR_ICON_SIZE = "6em"
+const COFFEE_ICON_SIZE = "4em"
 const BLUE = "#5c6a83"
 
 const icons = [
-  <TWIcon height={SMALL_ICON} width={SMALL_ICON} fill={BLUE} />,
-  <CalendarIcon height={SMALL_ICON} width={SMALL_ICON} fill={BLUE} />,
-  <Rocket height={SMALL_ICON} width={SMALL_ICON} fill={BLUE} />,
-  <LunchIcon height={SMALL_ICON} width={SMALL_ICON} fill={BLUE} />,
-  <LunchIcon height={SMALL_ICON} width={SMALL_ICON} fill={BLUE} />
+  <TWIcon height={SECTOR_ICON_SIZE} width={SECTOR_ICON_SIZE} fill={BLUE} />,
+  <CalendarIcon height={SECTOR_ICON_SIZE} width={SECTOR_ICON_SIZE} fill={BLUE} />,
+  <Rocket height={SECTOR_ICON_SIZE} width={SECTOR_ICON_SIZE} fill={BLUE} />,
+  <LunchIcon height={SECTOR_ICON_SIZE} width={SECTOR_ICON_SIZE} fill={BLUE} />,
+  <ConfettiIcon height={SECTOR_ICON_SIZE} width={SECTOR_ICON_SIZE} fill={BLUE} />
 ]
 
 const Flyer = ({ content, getEmployeePhoto, employees }) => {
   if (content.length > 0) {
     return (
       <Styling className="body::before">
-        <div className="container-fluid">
-          <Title />
+        <div className="container-fluid overflow-auto">
+          <Title content="PROP PR. KOP" />
           <Infobox />
           <Sectors sectors={content} getEmployeePhoto={getEmployeePhoto} />
         </div>
@@ -42,22 +44,27 @@ const Flyer = ({ content, getEmployeePhoto, employees }) => {
   }
 }
 
-const Title = () => (
-  <h1 className="row mt-5 display-1">Prop pr kop</h1>
+const Title = ({ content }) => (
+  <div className="row">
+    <div className="col-10">
+      <h1 className="display-1 pt-5" style={{ color: "black" }}>{content}</h1>
+    </div>
+    <div className="col-2 text-center " >
+      <Champagne height={"150px"} width={"150px"} fill={BLUE} />
+    </div>
+  </div>
 )
 
 const Infobox = () => (
   <div className="row bg-blue text-light my-5 p-5">
-    <div className="px-3 pe-5 pe-0 ">
-      <p className="display-3 mb-4"> Industry Insight</p>
-      <p className="text-description text-ellipsis-6">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius voluptatibus beatae officiis molestiae dolorum obcaecati repudiandae odio iure laborum voluptatem doloremque neque facere unde, rem sequi est! Consequuntur, corporis cupiditate voluptates quisquam libero repudiandae tempora laboriosam accusantium esse maxime amet hic architecto voluptas sunt quam minus eius! Ea, commodi maiores temporibus natus laboriosam, et aspernatur harum deleniti quibusdam inventore consequuntur iusto voluptate ipsam aliquam dolorum ipsum rem, architecto id quidem in iure. Temporibus, veritatis ipsum officia nisi suscipit deserunt mollitia doloribus excepturi itaque animi voluptas qui consequatur fugiat assumenda optio reiciendis molestiae maiores architecto, sapiente natus voluptatum dignissimos. Maxime, mollitia?</p>
-    </div>
+    <p className="display-3 mb-4"> Industry Insight</p>
+    <p className="text-description text-ellipsis-6">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius voluptatibus beatae officiis molestiae dolorum obcaecati repudiandae odio iure laborum voluptatem doloremque neque facere unde, rem sequi est! Consequuntur, corporis cupiditate voluptates quisquam libero repudiandae tempora laboriosam accusantium esse maxime amet hic architecto voluptas sunt quam minus eius! Ea, commodi maiores temporibus natus laboriosam, et aspernatur harum deleniti quibusdam inventore consequuntur iusto voluptate ipsam aliquam dolorum ipsum rem, architecto id quidem in iure. Temporibus, veritatis ipsum officia nisi suscipit deserunt mollitia doloribus excepturi itaque animi voluptas qui consequatur fugiat assumenda optio reiciendis molestiae maiores architecto, sapiente natus voluptatum dignissimos. Maxime, mollitia?</p>
   </div>
 )
 
 const Sectors = ({ sectors, getEmployeePhoto }) => {
   return (
-    <div className="row justify-content-between">
+    <div className="justify-content-between">
       {sectors.map((sector, index) => (
         <Sector key={index} index={index} sector={sector} getEmployeePhoto={getEmployeePhoto} />
       ))}
@@ -67,12 +74,10 @@ const Sectors = ({ sectors, getEmployeePhoto }) => {
 
 const Sector = ({ sector, getEmployeePhoto, index }) => {
   return (
-    <div className="row mb-5 border py-5 sector">
-      <div className="col-1 align-items-center d-flex justify-content-around ">
-        {icons[index]}
-      </div>
-      <div className="col-1 align-items-center d-flex justify-content-around ">
-        <h1>{sector.sectorName}</h1>
+    <div className="row center mb-5 py-5 sector">
+      <div className="col-2 d-flex align-items-center flex-column">
+        <div className="mt-1 mb-2">{icons[index]}</div>
+        <h1 className="mb-1 mt-2">{sector.sectorName}</h1>
       </div>
       <div className="col-10 ">
         <Employees employees={sector.consultants} getEmployeePhoto={getEmployeePhoto} />
@@ -96,7 +101,7 @@ const Employee = ({ employee, getEmployeePhoto }) => (
       src={`data:image/jpeg;base64,${getEmployeePhoto(employee.useruuid)}`}
     />
     <div className="position-relative">
-      <CoffeeIcon height={"65px"} width={"65px"} className="ms-3" fill={BLUE} strokeWidth={"10px"} />
+      <CoffeeIcon height={COFFEE_ICON_SIZE} width={COFFEE_ICON_SIZE} className="ms-3" fill={BLUE} strokeWidth={"10px"} />
       <span className="number">{employee.count}</span>
     </div>
   </div>
@@ -112,8 +117,8 @@ const Styling = styled.div`
   }
   .number {
     position: absolute;
-    top: 35%;
-    left: 43%;
+    top: 40%;
+    left: 45%;
     font-weight: bold;
     font-size: 1.75em;
   }

@@ -179,17 +179,17 @@ const Home = () => {
               </Carousel.Item>
             );
           }
-          // return (
-          //   <Carousel.Item key={index} autoFocus interval={INTERVAL}>
-          //     <HomeCard
-          //       project={project}
-          //       onToolButtonClick={handleToolButtonClick}
-          //       getClientLogo={getClientLogo}
-          //       getEmployeePhoto={getEmployeePhoto}
-          //       isPortrait={isPortrait}
-          //     />
-          //   </Carousel.Item>
-          // );
+          return (
+            <Carousel.Item key={index} autoFocus interval={INTERVAL}>
+              <HomeCard
+                project={project}
+                onToolButtonClick={handleToolButtonClick}
+                getClientLogo={getClientLogo}
+                getEmployeePhoto={getEmployeePhoto}
+                isPortrait={isPortrait}
+              />
+            </Carousel.Item>
+          );
         })}
       </Carousel>
     </Wrapper>
