@@ -67,18 +67,20 @@ const Sectors = ({ sectors, getEmployeePhoto }) => {
 
 const Sector = ({ sector, getEmployeePhoto, index }) => {
   return (
-    <div className="col-2 sector">
-      <div className="center mb-4">
+    <div className="row mb-4 border py-5 sector">
+      <div className="col-2  align-items-center d-flex justify-content-around ">
         { icons[index] }
-        <h1 className="mx-auto">{sector.sectorName}</h1>
+        <h1>{sector.sectorName}</h1>
       </div>
-      <Employees employees={sector.consultants} getEmployeePhoto={getEmployeePhoto} />
+      <div className="col-10 ">
+        <Employees employees={sector.consultants} getEmployeePhoto={getEmployeePhoto} />
+      </div>
     </div>
   )
 }
 
 const Employees = ({ employees, getEmployeePhoto }) => (
-  <div className="">
+  <div className="row">
     {employees.map((employee, index) => (
       <Employee key={index} employee={employee} getEmployeePhoto={getEmployeePhoto} />
     ))}
@@ -86,9 +88,9 @@ const Employees = ({ employees, getEmployeePhoto }) => (
 )
 
 const Employee = ({ employee, getEmployeePhoto }) => (
-  <div className="justify-content-center align-items-center d-flex">
+  <div className="col align-items-center d-flex">
     <img
-      className="employee-photo my-2 "
+      className="employee-photo "
       src={`data:image/jpeg;base64,${getEmployeePhoto(employee.useruuid)}`}
     />
     <div className="position-relative">
@@ -102,8 +104,8 @@ const Employee = ({ employee, getEmployeePhoto }) => (
 const Styling = styled.div`
   .employee-photo {
       object-fit: cover;
-      height: 6em;
-      width: 6em;
+      height: 8em;
+      width: 8em;
       border-radius: 50%;
   }
   .number {
@@ -177,4 +179,4 @@ const Styling = styled.div`
   }
 `
 
-export default Flyer
+export default Flyer  
