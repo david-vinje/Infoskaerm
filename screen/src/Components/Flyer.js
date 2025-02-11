@@ -43,12 +43,12 @@ const Flyer = ({ content, getEmployeePhoto, employees }) => {
 }
 
 const Title = () => (
-  <h1 className="mt-5 display-1">Prop pr kop</h1>
+  <h1 className="row mt-5 display-1">Prop pr kop</h1>
 )
 
 const Infobox = () => (
-  <div className="bg-grey my-5 p-5">
-    <div className="px-3 ps-5 pe-0 ">
+  <div className="row bg-grey my-5 p-5">
+    <div className="px-3 pe-5 pe-0 ">
       <p className="display-3 mb-4"> Industry Insight</p>
       <p className="text-description text-ellipsis-6">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius voluptatibus beatae officiis molestiae dolorum obcaecati repudiandae odio iure laborum voluptatem doloremque neque facere unde, rem sequi est! Consequuntur, corporis cupiditate voluptates quisquam libero repudiandae tempora laboriosam accusantium esse maxime amet hic architecto voluptas sunt quam minus eius! Ea, commodi maiores temporibus natus laboriosam, et aspernatur harum deleniti quibusdam inventore consequuntur iusto voluptate ipsam aliquam dolorum ipsum rem, architecto id quidem in iure. Temporibus, veritatis ipsum officia nisi suscipit deserunt mollitia doloribus excepturi itaque animi voluptas qui consequatur fugiat assumenda optio reiciendis molestiae maiores architecto, sapiente natus voluptatum dignissimos. Maxime, mollitia?</p>
     </div>
@@ -67,9 +67,11 @@ const Sectors = ({ sectors, getEmployeePhoto }) => {
 
 const Sector = ({ sector, getEmployeePhoto, index }) => {
   return (
-    <div className="row mb-4 border py-5 sector">
-      <div className="col-2  align-items-center d-flex justify-content-around ">
-        { icons[index] }
+    <div className="row mb-5 border py-5 sector">
+      <div className="col-1 align-items-center d-flex justify-content-around ">
+        {icons[index]}
+      </div>
+      <div className="col-1 align-items-center d-flex justify-content-around ">
         <h1>{sector.sectorName}</h1>
       </div>
       <div className="col-10 ">
@@ -94,7 +96,7 @@ const Employee = ({ employee, getEmployeePhoto }) => (
       src={`data:image/jpeg;base64,${getEmployeePhoto(employee.useruuid)}`}
     />
     <div className="position-relative">
-      <CoffeeIcon height={"65px"} width={"65px"} className="ms-3" fill={BLUE} strokeWidth={"10px"}  />
+      <CoffeeIcon height={"65px"} width={"65px"} className="ms-3" fill={BLUE} strokeWidth={"10px"} />
       <span className="number">{employee.count}</span>
     </div>
   </div>
