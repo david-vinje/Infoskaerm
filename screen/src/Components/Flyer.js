@@ -1,34 +1,33 @@
 import React from "react";
 import styled from "styled-components";
 
-import ClockIcon from '../Icons/ClockIcon';
-import UpArrowIcon from '../Icons/UpArrowIcon';
-import UserIcon from '../Icons/UserIcon';
-import InfoIcon from '../Icons/InfoIcon';
-import ConfettiIcon from '../Icons/ConfettiIcon';
-import BrainIcon from '../Icons/BrainIcon';
-import CalendarIcon from '../Icons/CalendarIcon';
-import TWIcon from '../Icons/TWIcon';
-import LunchIcon from '../Icons/LunchIcon';
-
-import Rocket from "../Icons/Rocket";
-import Beach from "../Icons/Vacation";
-import Construction from "../Icons/Construction";
-import CoffeeIcon from "../Icons/CoffeeIcon";
-import Champagne from "../Icons/Champagne";
-
+import Andet from "../Icons/Andet"
+import Pharma from "../Icons/Pharma"
+import Finance from "../Icons/Finance"
+import Energy from "../Icons/Energy"
+import Public from "../Icons/Public"
+import Champagne from "../Icons/Champagne"
+import Coffee from "../Icons/Coffee";
 
 const SECTOR_ICON_SIZE = "6em"
-const COFFEE_ICON_SIZE = "4em"
+const COFFEE_ICON_SIZE = "5em"
 const BLUE = "#5c6a83"
 
-const icons = [
-  <TWIcon height={SECTOR_ICON_SIZE} width={SECTOR_ICON_SIZE} fill={BLUE} />,
-  <CalendarIcon height={SECTOR_ICON_SIZE} width={SECTOR_ICON_SIZE} fill={BLUE} />,
-  <Rocket height={SECTOR_ICON_SIZE} width={SECTOR_ICON_SIZE} fill={BLUE} />,
-  <LunchIcon height={SECTOR_ICON_SIZE} width={SECTOR_ICON_SIZE} fill={BLUE} />,
-  <ConfettiIcon height={SECTOR_ICON_SIZE} width={SECTOR_ICON_SIZE} fill={BLUE} />
-]
+const icons = {
+  "finans": <Finance height={SECTOR_ICON_SIZE} width={SECTOR_ICON_SIZE} fill={BLUE} />,
+  "offentlig": <Public height={SECTOR_ICON_SIZE} width={SECTOR_ICON_SIZE} fill={BLUE} />,
+  "pharma": <Pharma height={SECTOR_ICON_SIZE} width={SECTOR_ICON_SIZE} fill={BLUE} />,
+  "energi": <Energy height={SECTOR_ICON_SIZE} width={SECTOR_ICON_SIZE} fill={BLUE} />,
+  "andet": <Andet height={SECTOR_ICON_SIZE} width={SECTOR_ICON_SIZE} fill={BLUE} />,
+}
+
+const names = {
+  "finans": "Finans",
+  "offentlig": "Det Offentlige",
+  "pharma": "Pharma",
+  "energi": "Grøn Omstilling",
+  "andet": "Andet",
+}
 
 const Flyer = ({ content, getEmployeePhoto, employees }) => {
   if (content.length > 0) {
@@ -50,7 +49,7 @@ const Title = ({ content }) => (
       <h1 className="display-1 pt-5" style={{ color: "black" }}>{content}</h1>
     </div>
     <div className="col-2 text-center " >
-      <Champagne height={"150px"} width={"150px"} fill={BLUE} />
+      <Champagne height={"10px"} width={"15px"} fill={BLUE} />
     </div>
   </div>
 )
@@ -72,12 +71,12 @@ const Sectors = ({ sectors, getEmployeePhoto }) => {
   )
 }
 
-const Sector = ({ sector, getEmployeePhoto, index }) => {
+const Sector = ({ sector, getEmployeePhoto }) => {
   return (
     <div className="row center mb-5 py-5 sector">
       <div className="col-2 d-flex align-items-center flex-column">
-        <div className="mt-1 mb-2">{icons[index]}</div>
-        <h1 className="mb-1 mt-2">{sector.sectorName}</h1>
+        <div className="mt-1 mb-2">{icons[sector.sectorName]}</div>
+        <h1 className="mb-1 mt-2">{names[sector.sectorName]}</h1>
       </div>
       <div className="col-10 ">
         <Employees employees={sector.consultants} getEmployeePhoto={getEmployeePhoto} />
@@ -97,11 +96,11 @@ const Employees = ({ employees, getEmployeePhoto }) => (
 const Employee = ({ employee, getEmployeePhoto }) => (
   <div className="col align-items-center d-flex">
     <img
-      className="employee-photo "
+      className="employeephoto "
       src={`data:image/jpeg;base64,${getEmployeePhoto(employee.useruuid)}`}
     />
     <div className="position-relative">
-      <CoffeeIcon height={COFFEE_ICON_SIZE} width={COFFEE_ICON_SIZE} className="ms-3" fill={BLUE} strokeWidth={"10px"} />
+      <Coffee height={COFFEE_ICON_SIZE} width={COFFEE_ICON_SIZE} fill={BLUE} strokeWidth={"1px"} />
       <span className="number">{employee.count}</span>
     </div>
   </div>
@@ -109,16 +108,10 @@ const Employee = ({ employee, getEmployeePhoto }) => (
 
 
 const Styling = styled.div`
-  .employee-photo {
-      object-fit: cover;
-      height: 8em;
-      width: 8em;
-      border-radius: 50%;
-  }
   .number {
     position: absolute;
-    top: 40%;
-    left: 45%;
+    top: 43%;
+    left: 33%;
     font-weight: bold;
     font-size: 1.75em;
   }

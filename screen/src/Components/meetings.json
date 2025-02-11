@@ -1,6 +1,6 @@
 [
   {
-    "sectorName": "Pharma",
+    "sectorName": "pharma",
     "consultants": [
       {
         "useruuid": "e4c7dfd4-63fd-4d6b-b5fa-124a77161cad",
@@ -27,7 +27,7 @@
     ]
   },
   {
-    "sectorName": "Det Offentlige",
+    "sectorName": "offentlig",
     "consultants": [
       {
         "useruuid": "e4c7dfd4-63fd-4d6b-b5fa-124a77161cad",
@@ -44,7 +44,7 @@
     ]
   },
   {
-    "sectorName": "Grøn Omstilling",
+    "sectorName": "energi",
     "consultants": [
       {
         "useruuid": "e4c7dfd4-63fd-4d6b-b5fa-124a77161cad",
@@ -61,7 +61,7 @@
     ]
   },
   {
-    "sectorName": "Finans",
+    "sectorName": "finans",
     "consultants": [
       {
         "useruuid": "e4c7dfd4-63fd-4d6b-b5fa-124a77161cad",
@@ -78,7 +78,7 @@
     ]
   },
   {
-    "sectorName": "Andre Industrier",
+    "sectorName": "andet",
     "consultants": [
       {
         "useruuid": "e4c7dfd4-63fd-4d6b-b5fa-124a77161cad",
