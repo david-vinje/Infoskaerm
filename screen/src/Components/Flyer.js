@@ -47,7 +47,7 @@ const Title = () => (
 )
 
 const Infobox = () => (
-  <div className="row bg-grey my-5 p-5">
+  <div className="row bg-blue text-light my-5 p-5">
     <div className="px-3 pe-5 pe-0 ">
       <p className="display-3 mb-4"> Industry Insight</p>
       <p className="text-description text-ellipsis-6">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius voluptatibus beatae officiis molestiae dolorum obcaecati repudiandae odio iure laborum voluptatem doloremque neque facere unde, rem sequi est! Consequuntur, corporis cupiditate voluptates quisquam libero repudiandae tempora laboriosam accusantium esse maxime amet hic architecto voluptas sunt quam minus eius! Ea, commodi maiores temporibus natus laboriosam, et aspernatur harum deleniti quibusdam inventore consequuntur iusto voluptate ipsam aliquam dolorum ipsum rem, architecto id quidem in iure. Temporibus, veritatis ipsum officia nisi suscipit deserunt mollitia doloribus excepturi itaque animi voluptas qui consequatur fugiat assumenda optio reiciendis molestiae maiores architecto, sapiente natus voluptatum dignissimos. Maxime, mollitia?</p>
@@ -136,8 +136,11 @@ const Styling = styled.div`
     color: #374b05;
     background-color: rgba(55, 75, 5, 0.3);
   }
+  .bg-blue {
+    background-color: #5c6983;
+  }
   .bg-grey {
-    background-color: #e4e6e9
+    background-color: #e4e6e9;
   }
   .card-footer {
     background-color: #374b05;
