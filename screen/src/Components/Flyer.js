@@ -1,30 +1,39 @@
 import React from "react";
 import styled from "styled-components";
-import CoffeeIcon from '../Icons/CoffeeIcon';
+
+import ClockIcon from '../Icons/ClockIcon';
+import UpArrowIcon from '../Icons/UpArrowIcon';
+import UserIcon from '../Icons/UserIcon';
+import InfoIcon from '../Icons/InfoIcon';
+import ConfettiIcon from '../Icons/ConfettiIcon';
+import BrainIcon from '../Icons/BrainIcon';
 import CalendarIcon from '../Icons/CalendarIcon';
+import TWIcon from '../Icons/TWIcon';
 import LunchIcon from '../Icons/LunchIcon';
+
 import Rocket from "../Icons/Rocket";
 import Beach from "../Icons/Vacation";
 import Construction from "../Icons/Construction";
+import CoffeeIcon from "../Icons/CoffeeIcon";
 
-const SMALL_ICON = "5px"
+const SMALL_ICON = "100px"
 const BIG_ICON = "100px"
 const BLUE = "#5c6a83"
 
 const icons = [
-  <LunchIcon height={SMALL_ICON} width={SMALL_ICON} fill={BLUE} />,
+  <TWIcon height={SMALL_ICON} width={SMALL_ICON} fill={BLUE} />,
   <CalendarIcon height={SMALL_ICON} width={SMALL_ICON} fill={BLUE} />,
   <Rocket height={SMALL_ICON} width={SMALL_ICON} fill={BLUE} />,
-  <Beach height={SMALL_ICON} width={SMALL_ICON} fill={BLUE} />,
-  <Construction height={SMALL_ICON} width={SMALL_ICON} fill={BLUE} />
+  <LunchIcon height={SMALL_ICON} width={SMALL_ICON} fill={BLUE} />,
+  <LunchIcon height={SMALL_ICON} width={SMALL_ICON} fill={BLUE} />
 ]
 
 const Flyer = ({ content, getEmployeePhoto, employees }) => {
   if (content.length > 0) {
     return (
       <Styling className="body::before">
-        <div className="container-fluid border">
-          <h1 className="display-1">Prop pr kop</h1>
+        <div className="container-fluid">
+          <Title />
           <Infobox />
           <Sectors sectors={content} getEmployeePhoto={getEmployeePhoto} />
         </div>
@@ -32,9 +41,14 @@ const Flyer = ({ content, getEmployeePhoto, employees }) => {
     )
   }
 }
+
+const Title = () => (
+  <h1 className="mt-5 display-1">Prop pr kop</h1>
+)
+
 const Infobox = () => (
-  <div className="row bg-grey my-5 w-100 mh-25 p-5">
-    <div className="col-11 px-3 ps-5 pe-0 ">
+  <div className="bg-grey my-5 p-5">
+    <div className="px-3 ps-5 pe-0 ">
       <p className="display-3 mb-4"> Industry Insight</p>
       <p className="text-description text-ellipsis-6">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius voluptatibus beatae officiis molestiae dolorum obcaecati repudiandae odio iure laborum voluptatem doloremque neque facere unde, rem sequi est! Consequuntur, corporis cupiditate voluptates quisquam libero repudiandae tempora laboriosam accusantium esse maxime amet hic architecto voluptas sunt quam minus eius! Ea, commodi maiores temporibus natus laboriosam, et aspernatur harum deleniti quibusdam inventore consequuntur iusto voluptate ipsam aliquam dolorum ipsum rem, architecto id quidem in iure. Temporibus, veritatis ipsum officia nisi suscipit deserunt mollitia doloribus excepturi itaque animi voluptas qui consequatur fugiat assumenda optio reiciendis molestiae maiores architecto, sapiente natus voluptatum dignissimos. Maxime, mollitia?</p>
     </div>
@@ -43,7 +57,7 @@ const Infobox = () => (
 
 const Sectors = ({ sectors, getEmployeePhoto }) => {
   return (
-    <div className="row  ">
+    <div className="row justify-content-between">
       {sectors.map((sector, index) => (
         <Sector key={index} index={index} sector={sector} getEmployeePhoto={getEmployeePhoto} />
       ))}
@@ -53,10 +67,10 @@ const Sectors = ({ sectors, getEmployeePhoto }) => {
 
 const Sector = ({ sector, getEmployeePhoto, index }) => {
   return (
-    <div className="row my-3 sector border-secondary ">
-      <div className="col-2 center flex-column">
+    <div className="col-2 sector">
+      <div className="center mb-4">
         { icons[index] }
-        <h1>{sector.sectorName}</h1>
+        <h1 className="mx-auto">{sector.sectorName}</h1>
       </div>
       <Employees employees={sector.consultants} getEmployeePhoto={getEmployeePhoto} />
     </div>
@@ -64,7 +78,7 @@ const Sector = ({ sector, getEmployeePhoto, index }) => {
 }
 
 const Employees = ({ employees, getEmployeePhoto }) => (
-  <div className="col-10 d-flex ">
+  <div className="">
     {employees.map((employee, index) => (
       <Employee key={index} employee={employee} getEmployeePhoto={getEmployeePhoto} />
     ))}
@@ -72,16 +86,13 @@ const Employees = ({ employees, getEmployeePhoto }) => (
 )
 
 const Employee = ({ employee, getEmployeePhoto }) => (
-  <div className="col position-relative ">
+  <div className="justify-content-center align-items-center d-flex">
     <img
-      alt=""
-      height="0" 
-      width="0"
       className="employee-photo my-2 "
       src={`data:image/jpeg;base64,${getEmployeePhoto(employee.useruuid)}`}
     />
-    <div className="cup-with-number d-inline-flex ">
-      <CoffeeIcon height={"75px"} width={"75px"} className="ms-3"  />
+    <div className="position-relative">
+      <CoffeeIcon height={"65px"} width={"65px"} className="ms-3" fill={BLUE} strokeWidth={"10px"}  />
       <span className="number">{employee.count}</span>
     </div>
   </div>
@@ -91,18 +102,14 @@ const Employee = ({ employee, getEmployeePhoto }) => (
 const Styling = styled.div`
   .employee-photo {
       object-fit: cover;
-      height: 10em;
-      width: 10em;
+      height: 6em;
+      width: 6em;
       border-radius: 50%;
   }
-  .cup-with-number {
-    position: absolute;
-    top: 30%;
-  } 
   .number {
     position: absolute;
-    top: 38%;
-    left: 45%;
+    top: 35%;
+    left: 43%;
     font-weight: bold;
     font-size: 1.75em;
   }

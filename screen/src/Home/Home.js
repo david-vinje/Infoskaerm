@@ -16,7 +16,7 @@ import HomeCard from "./HomeCard";
 import Calendar from "../Components/Calendar";
 import Flyer from "../Components/Flyer";
 
-const INTERVAL = 1000 * 30; // 30 seconds
+const INTERVAL = 1000 * 1000 * 30; // 30 seconds
 const CALENDAR_INTERVAL = 5; // every 5 slides
 
 const Home = () => {
