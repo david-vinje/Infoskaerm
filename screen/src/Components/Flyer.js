@@ -7,7 +7,8 @@ import Finance from "../Icons/Finance"
 import Energy from "../Icons/Energy"
 import Public from "../Icons/Public"
 import Champagne from "../Icons/Champagne"
-import Coffee from "../Icons/CoffeeBlue";
+import CoffeeGreen from "../Icons/CoffeeGreen";
+import CoffeeOrange from "../Icons/CoffeeOrange";
 import TWIcon from "../Icons/TWIcon";
 
 const SECTOR_ICON_SIZE = "8em"
@@ -90,18 +91,24 @@ const Consultants = ({ consultants, getEmployeePhoto }) => (
           className="employeephoto"
           src={`data:image/jpeg;base64,${getEmployeePhoto(consultant.useruuid)}`}
         />
-        <CoffeeCup count={consultant.count} />
+        <CoffeeCup count={consultant.count} index={index} />
       </div>
     ))}
   </div>
 )
 
-const CoffeeCup = ({ count }) => (
-  <div className="coffee-cup">
-    <span className="text-light number">{count}</span>
-    <Coffee  />
-  </div>
-)
+const CoffeeCup = ({ count, index }) => {
+  return index % 2 === 0 ?
+    <div className="coffee-cup">
+      <span className="text-light number">{count}</span>
+      <CoffeeOrange />
+    </div>
+    :
+    <div className="coffee-cup">
+      <span className="text-light number">{count}</span>
+      <CoffeeGreen />
+    </div>
+}
 
 const Styling = styled.div`
   .employee-photo {
@@ -135,10 +142,6 @@ const Styling = styled.div`
   }
   .border-orange {
     border: 2px solid #f09449;
-  }
-  .bg-green {
-    color: #374b05;
-    background-color: rgba(55, 75, 5, 0.3);
   }
   .bg-blue {
     background-color: #5c6983;
@@ -181,7 +184,7 @@ const Styling = styled.div`
     margin-left: auto; 
   }
   .sector {
-    background-color: #dad6ca;
+    background-color: #d2cbbc;
     border-radius: 10px;
     box-shadow: 0px 0px 30px 15px rgba(75, 61, 61, 0.1);
 
