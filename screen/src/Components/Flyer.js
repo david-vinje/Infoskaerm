@@ -19,7 +19,7 @@ const icons = {
   "offentlig": <Public height={SECTOR_ICON_SIZE} width={SECTOR_ICON_SIZE} fill={BLUE} />,
   "pharma": <Pharma height={SECTOR_ICON_SIZE} width={SECTOR_ICON_SIZE} fill={BLUE} />,
   "energi": <Energy height={SECTOR_ICON_SIZE} width={SECTOR_ICON_SIZE} fill={BLUE} />,
-  "andet": <TWIcon height={SECTOR_ICON_SIZE} width={SECTOR_ICON_SIZE} fill={"none"} stroke="black" strokeWidth="12px" />,
+  "andet": <TWIcon height={SECTOR_ICON_SIZE} width={SECTOR_ICON_SIZE} fill={"none"} stroke="black" strokeWidth="10px" />,
 }
 
 const names = {
@@ -85,7 +85,7 @@ const SectorTitle = ({ sectorName }) => (
 const Consultants = ({ consultants, getEmployeePhoto }) => (
   <div className="row col-10 mx-0 px-0">
     {consultants.map((consultant, index) => (
-      <div key={index} className="col mx-0 px-0 align-items-center d-flex">
+      <div key={index} className="col-2 mx-0 px-0 align-items-center d-flex">
         <img
           className="employeephoto"
           src={`data:image/jpeg;base64,${getEmployeePhoto(consultant.useruuid)}`}
