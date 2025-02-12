@@ -48,7 +48,7 @@ const Title = ({ content }) => (
     <div className="col-10">
       <h1 className="display-1" style={{ color: "black" }}>{content}</h1>
     </div>
-    <div className="col-2 text-center " >
+    <div className="col-2" >
       <Champagne height={"10px"} width={"15px"} fill={BLUE} />
     </div>
   </div>
@@ -74,11 +74,11 @@ const Sectors = ({ sectors, getEmployeePhoto }) => {
 const Sector = ({ sector, getEmployeePhoto }) => {
   return (
     <div className="row center mb-5 py-3 sector">
-      <div className="col-2 d-flex align-items-center flex-column">
+      <div className="col-2 mx-0 px-0 d-flex align-items-center te flex-column">
         <div className="">{icons[sector.sectorName]}</div>
         <h1 className="">{names[sector.sectorName]}</h1>
       </div>
-      <div className="col-10 ">
+      <div className="col-10 mx-0 px-0">
         <Employees employees={sector.consultants} getEmployeePhoto={getEmployeePhoto} />
       </div>
     </div>
@@ -94,7 +94,7 @@ const Employees = ({ employees, getEmployeePhoto }) => (
 )
 
 const Employee = ({ employee, getEmployeePhoto }) => (
-  <div className="col align-items-center d-flex">
+  <div className="col mx-0 px-0 align-items-center d-flex">
     <img
       className="employeephoto "
       src={`data:image/jpeg;base64,${getEmployeePhoto(employee.useruuid)}`}
@@ -175,7 +175,7 @@ const Styling = styled.div`
     margin-left: auto; 
   }
   .sector {
-    background-color: #fff;
+    background-color: #eaf3ff;
     border-radius: 10px;
     box-shadow: 0px 0px 30px 15px rgba(0,0,0,0.1);
     
