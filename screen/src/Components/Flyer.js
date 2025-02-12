@@ -9,8 +9,8 @@ import Public from "../Icons/Public"
 import Champagne from "../Icons/Champagne"
 import Coffee from "../Icons/Coffee";
 
-const SECTOR_ICON_SIZE = "6em"
-const COFFEE_ICON_SIZE = "5em"
+const SECTOR_ICON_SIZE = "0em"
+const COFFEE_ICON_SIZE = "0em"
 const BLUE = "#5c6a83"
 
 const icons = {
