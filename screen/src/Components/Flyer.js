@@ -11,15 +11,15 @@ import Coffee from "../Icons/Coffee";
 import TWIcon from "../Icons/TWIcon";
 
 const SECTOR_ICON_SIZE = "8em"
-const COFFEE_ICON_SIZE = "0em"
+const COFFEE_ICON_SIZE = "1em"
 const BLUE = "#5c6a83"
 
 const icons = {
-  "finans": <Finance height={SECTOR_ICON_SIZE} width={SECTOR_ICON_SIZE} fill={BLUE} />,
-  "offentlig": <Public height={SECTOR_ICON_SIZE} width={SECTOR_ICON_SIZE} fill={BLUE} />,
-  "pharma": <Pharma height={SECTOR_ICON_SIZE} width={SECTOR_ICON_SIZE} fill={BLUE} />,
-  "energi": <Energy height={SECTOR_ICON_SIZE} width={SECTOR_ICON_SIZE} fill={BLUE} />,
-  "andet": <TWIcon height={SECTOR_ICON_SIZE} width={SECTOR_ICON_SIZE} fill={"none"} stroke="black" strokeWidth="10px" />,
+  "finans": <Finance />,
+  "offentlig": <Public />,
+  "pharma": <Pharma />,
+  "energi": <Energy />,
+  "andet": <TWIcon height={SECTOR_ICON_SIZE} width={SECTOR_ICON_SIZE} fill={"none"} stroke="black" strokeWidth="8px" />,
 }
 
 const names = {
@@ -85,7 +85,7 @@ const SectorTitle = ({ sectorName }) => (
 const Consultants = ({ consultants, getEmployeePhoto }) => (
   <div className="row col-10 mx-0 px-0">
     {consultants.map((consultant, index) => (
-      <div key={index} className="col-2 mx-0 px-0 align-items-center d-flex">
+      <div key={index} className="border border-secondary col mx-0 px-0 align-items-center d-flex">
         <img
           className="employeephoto"
           src={`data:image/jpeg;base64,${getEmployeePhoto(consultant.useruuid)}`}
@@ -107,7 +107,7 @@ const Styling = styled.div`
   .number {
     position: absolute;
     top: 43%;
-    left: 33%;
+    left: 29%;
     font-weight: bold;
     font-size: 1.75em;
   }
