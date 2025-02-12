@@ -8,8 +8,9 @@ import Energy from "../Icons/Energy"
 import Public from "../Icons/Public"
 import Champagne from "../Icons/Champagne"
 import Coffee from "../Icons/Coffee";
+import TWIcon from "../Icons/TWIcon";
 
-const SECTOR_ICON_SIZE = "0em"
+const SECTOR_ICON_SIZE = "8em"
 const COFFEE_ICON_SIZE = "0em"
 const BLUE = "#5c6a83"
 
@@ -18,7 +19,7 @@ const icons = {
   "offentlig": <Public height={SECTOR_ICON_SIZE} width={SECTOR_ICON_SIZE} fill={BLUE} />,
   "pharma": <Pharma height={SECTOR_ICON_SIZE} width={SECTOR_ICON_SIZE} fill={BLUE} />,
   "energi": <Energy height={SECTOR_ICON_SIZE} width={SECTOR_ICON_SIZE} fill={BLUE} />,
-  "andet": <Andet height={SECTOR_ICON_SIZE} width={SECTOR_ICON_SIZE} fill={BLUE} />,
+  "andet": <TWIcon height={SECTOR_ICON_SIZE} width={SECTOR_ICON_SIZE} fill={"none"} stroke="black" strokeWidth="12px" />,
 }
 
 const names = {
@@ -26,15 +27,15 @@ const names = {
   "offentlig": "Det Offentlige",
   "pharma": "Pharma",
   "energi": "Grøn Omstilling",
-  "andet": "Andet",
+  "andet": "Andre Industrier",
 }
 
-const Flyer = ({ content, getEmployeePhoto, employees }) => {
+const Flyer = ({ content, getEmployeePhoto }) => {
   if (content.length > 0) {
     return (
       <Styling className="body::before">
         <div className="container-fluid overflow-auto">
-          <Title content="PROP PR. KOP" />
+          <Title />
           <Infobox />
           <Sectors sectors={content} getEmployeePhoto={getEmployeePhoto} />
         </div>
@@ -43,10 +44,10 @@ const Flyer = ({ content, getEmployeePhoto, employees }) => {
   }
 }
 
-const Title = ({ content }) => (
+const Title = () => (
   <div className="row center">
     <div className="col-10">
-      <h1 className="display-1" style={{ color: "black" }}>{content}</h1>
+      <h1 className="display-1">PROP PR. KOP</h1>
     </div>
     <div className="col-2" >
       <Champagne height={"10px"} width={"15px"} fill={BLUE} />
@@ -65,47 +66,42 @@ const Sectors = ({ sectors, getEmployeePhoto }) => {
   return (
     <div className="justify-content-between">
       {sectors.map((sector, index) => (
-        <Sector key={index} index={index} sector={sector} getEmployeePhoto={getEmployeePhoto} />
+        <div key={index} className="row center mb-5 py-3 sector">
+          <SectorTitle sectorName={sector.sectorName} />
+          <Consultants consultants={sector.consultants} getEmployeePhoto={getEmployeePhoto} />
+        </div>
       ))}
     </div>
   )
 }
 
-const Sector = ({ sector, getEmployeePhoto }) => {
-  return (
-    <div className="row center mb-5 py-3 sector">
-      <div className="col-2 mx-0 px-0 d-flex align-items-center te flex-column">
-        <div className="">{icons[sector.sectorName]}</div>
-        <h1 className="">{names[sector.sectorName]}</h1>
-      </div>
-      <div className="col-10 mx-0 px-0">
-        <Employees employees={sector.consultants} getEmployeePhoto={getEmployeePhoto} />
-      </div>
-    </div>
-  )
-}
+const SectorTitle = ({ sectorName }) => (
+  <div className="col-2 mx-0 px-0 d-flex align-items-center flex-column">
+    <div className="">{icons[sectorName]}</div>
+    <h1 className="text-center">{names[sectorName]}</h1>
+  </div>
+)
 
-const Employees = ({ employees, getEmployeePhoto }) => (
-  <div className="row">
-    {employees.map((employee, index) => (
-      <Employee key={index} employee={employee} getEmployeePhoto={getEmployeePhoto} />
+const Consultants = ({ consultants, getEmployeePhoto }) => (
+  <div className="row col-10 mx-0 px-0">
+    {consultants.map((consultant, index) => (
+      <div key={index} className="col mx-0 px-0 align-items-center d-flex">
+        <img
+          className="employeephoto"
+          src={`data:image/jpeg;base64,${getEmployeePhoto(consultant.useruuid)}`}
+        />
+        <CoffeeCup count={consultant.count} />
+      </div>
     ))}
   </div>
 )
 
-const Employee = ({ employee, getEmployeePhoto }) => (
-  <div className="col mx-0 px-0 align-items-center d-flex">
-    <img
-      className="employeephoto "
-      src={`data:image/jpeg;base64,${getEmployeePhoto(employee.useruuid)}`}
-    />
-    <div className="position-relative">
-      <Coffee height={COFFEE_ICON_SIZE} width={COFFEE_ICON_SIZE} fill={BLUE} strokeWidth={"1px"} />
-      <span className="number">{employee.count}</span>
-    </div>
+const CoffeeCup = ({ count }) => (
+  <div className="position-relative">
+    <Coffee height={COFFEE_ICON_SIZE} width={COFFEE_ICON_SIZE} fill={BLUE} strokeWidth={"1px"} />
+    <span className="number">{count}</span>
   </div>
 )
-
 
 const Styling = styled.div`
   .number {
@@ -175,10 +171,10 @@ const Styling = styled.div`
     margin-left: auto; 
   }
   .sector {
-    background-color: #eaf3ff;
+    background-color: #dad6ca;
     border-radius: 10px;
-    box-shadow: 0px 0px 30px 15px rgba(0,0,0,0.1);
-    
+    box-shadow: 0px 0px 30px 15px rgba(75, 61, 61, 0.1);
+
   }
 `
 
