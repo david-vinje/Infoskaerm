@@ -3,7 +3,7 @@ import * as React from "react";
 function Champagne(props) {
   return (
 
-    <svg xmlns="http://www.w3.org/2000/svg" width="192" height="192" overflow="hidden"><g transform="translate(-592 -312)">
+    <svg xmlns="http://www.w3.org/2000/svg" width="192" height="192" overflow="hidden"><g transform="translate(-560 -340)">
       <g><path d="M654 426C654 428.209 652.209 430 650 430 647.791 430 646 428.209 646 426 646 423.791 647.791 422 650 422 652.209 422 654 423.791 654 426Z" fill="#000000" fill-rule="nonzero" fill-opacity="1" />
         <path d="M662 393C662 394.657 660.657 396 659 396 657.343 396 656 394.657 656 393 656 391.343 657.343 390 659 390 660.657 390 662 391.343 662 393Z" fill="#000000" fill-rule="nonzero" fill-opacity="1" />
         <path d="M672 411C672 412.657 670.657 414 669 414 667.343 414 666 412.657 666 411 666 409.343 667.343 408 669 408 670.657 408 672 409.343 672 411Z" fill="#000000" fill-rule="nonzero" fill-opacity="1" />

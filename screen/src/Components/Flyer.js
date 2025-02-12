@@ -44,9 +44,9 @@ const Flyer = ({ content, getEmployeePhoto, employees }) => {
 }
 
 const Title = ({ content }) => (
-  <div className="row">
+  <div className="row center">
     <div className="col-10">
-      <h1 className="display-1 pt-5" style={{ color: "black" }}>{content}</h1>
+      <h1 className="display-1" style={{ color: "black" }}>{content}</h1>
     </div>
     <div className="col-2 text-center " >
       <Champagne height={"10px"} width={"15px"} fill={BLUE} />
@@ -55,8 +55,8 @@ const Title = ({ content }) => (
 )
 
 const Infobox = () => (
-  <div className="row bg-blue text-light my-5 p-5">
-    <p className="display-3 mb-4"> Industry Insight</p>
+  <div className="row bg-blue mb-5 text-light p-5">
+    <p className="display-3"> Industry Insight</p>
     <p className="text-description text-ellipsis-6">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius voluptatibus beatae officiis molestiae dolorum obcaecati repudiandae odio iure laborum voluptatem doloremque neque facere unde, rem sequi est! Consequuntur, corporis cupiditate voluptates quisquam libero repudiandae tempora laboriosam accusantium esse maxime amet hic architecto voluptas sunt quam minus eius! Ea, commodi maiores temporibus natus laboriosam, et aspernatur harum deleniti quibusdam inventore consequuntur iusto voluptate ipsam aliquam dolorum ipsum rem, architecto id quidem in iure. Temporibus, veritatis ipsum officia nisi suscipit deserunt mollitia doloribus excepturi itaque animi voluptas qui consequatur fugiat assumenda optio reiciendis molestiae maiores architecto, sapiente natus voluptatum dignissimos. Maxime, mollitia?</p>
   </div>
 )
@@ -73,10 +73,10 @@ const Sectors = ({ sectors, getEmployeePhoto }) => {
 
 const Sector = ({ sector, getEmployeePhoto }) => {
   return (
-    <div className="row center mb-5 py-5 sector">
+    <div className="row center mb-5 py-3 sector">
       <div className="col-2 d-flex align-items-center flex-column">
-        <div className="mt-1 mb-2">{icons[sector.sectorName]}</div>
-        <h1 className="mb-1 mt-2">{names[sector.sectorName]}</h1>
+        <div className="">{icons[sector.sectorName]}</div>
+        <h1 className="">{names[sector.sectorName]}</h1>
       </div>
       <div className="col-10 ">
         <Employees employees={sector.consultants} getEmployeePhoto={getEmployeePhoto} />
