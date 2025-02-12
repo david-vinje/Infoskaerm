@@ -7,7 +7,7 @@ import Finance from "../Icons/Finance"
 import Energy from "../Icons/Energy"
 import Public from "../Icons/Public"
 import Champagne from "../Icons/Champagne"
-import Coffee from "../Icons/Coffee";
+import Coffee from "../Icons/CoffeeBlue";
 import TWIcon from "../Icons/TWIcon";
 
 const SECTOR_ICON_SIZE = "8em"
@@ -85,7 +85,7 @@ const SectorTitle = ({ sectorName }) => (
 const Consultants = ({ consultants, getEmployeePhoto }) => (
   <div className="row col-10 mx-0 px-0">
     {consultants.map((consultant, index) => (
-      <div key={index} className="border border-secondary col mx-0 px-0 align-items-center d-flex">
+      <div key={index} className="position-relative col-2 mx-0 px-0 align-items-center d-flex">
         <img
           className="employeephoto"
           src={`data:image/jpeg;base64,${getEmployeePhoto(consultant.useruuid)}`}
@@ -97,17 +97,27 @@ const Consultants = ({ consultants, getEmployeePhoto }) => (
 )
 
 const CoffeeCup = ({ count }) => (
-  <div className="position-relative">
-    <Coffee height={COFFEE_ICON_SIZE} width={COFFEE_ICON_SIZE} fill={BLUE} strokeWidth={"1px"} />
-    <span className="number">{count}</span>
+  <div className="coffee-cup">
+    <span className="text-light number">{count}</span>
+    <Coffee  />
   </div>
 )
 
 const Styling = styled.div`
+  .employee-photo {
+      object-fit: cover;
+      height: 12.5em;
+      width: 12.5em;
+  }
+  .coffee-cup {
+    position: absolute;
+    bottom: -0%;
+    left: -0%;
+  }
   .number {
     position: absolute;
     top: 43%;
-    left: 29%;
+    left: 33%;
     font-weight: bold;
     font-size: 1.75em;
   }
