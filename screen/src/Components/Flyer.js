@@ -114,7 +114,7 @@ const EmployeePhoto = ({uuid, getEmployeePhoto}) => {
   if (uuid === '91f0b20d-66ab-4f17-93e8-d3907b1a5a63')
     return <img
       className="employeephoto"
-      src={august}
+      src={nigel}
     />
   return <img
     className="employeephoto"
