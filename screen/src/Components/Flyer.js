@@ -9,6 +9,7 @@ import Champagne from "../Icons/Champagne"
 import Coffee from "../Icons/Coffee";
 import TWIcon from "../Icons/TWIcon";
 import nigust from '../img/nigust.png'
+import augel from '../img/augel.png'
 import jeppe from '../img/jeppe.jpg'
 
 const SECTOR_ICON_SIZE = "8em"
@@ -113,7 +114,7 @@ const EmployeePhoto = ({uuid, getEmployeePhoto}) => {
   if (uuid === '91f0b20d-66ab-4f17-93e8-d3907b1a5a63')
     return <img
       className="employeephoto"
-      src={nigust}
+      src={augel}
     />
   return <img
     className="employeephoto"
