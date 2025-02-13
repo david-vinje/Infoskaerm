@@ -3,24 +3,10 @@
     "sectorName": "pharma",
     "consultants": [
       {
-        "useruuid": "e4c7dfd4-63fd-4d6b-b5fa-124a77161cad",
-        "count": 6
-      },  
-      {
-        "useruuid": "4b8d9890-5bc7-496f-9f3d-bfba1e5453d1",
-        "count": 5
-      },
-      {
-        "useruuid": "f6626f6c-e7c8-11e6-bf01-fe55135034f3",
-        "count": 2
-      },
-      {
-        "useruuid":"1762ea0d-e368-4598-8161-cc0773512b7a",
-        "count": 4
-      },
-      {
-        "useruuid":"1796d48d-1fa4-4238-bbc8-cc4f4ec058fb",
-        "count": 7
+        "count": 1,
+        "firstName": "Birger",
+        "lastName": "Püschl",
+        "uuid": "1762ea0d-e368-4598-8161-cc0773512b7a"
       }
     ]
   },
@@ -28,99 +14,58 @@
     "sectorName": "offentlig",
     "consultants": [
       {
-        "useruuid": "e4c7dfd4-63fd-4d6b-b5fa-124a77161cad",
-        "count": 6
-      },  
-      {
-        "useruuid": "4b8d9890-5bc7-496f-9f3d-bfba1e5453d1",
-        "count": 5
+        "count": 1,
+        "firstName": "August",
+        "lastName": "Semrau Andersen",
+        "uuid": "91f0b20d-66ab-4f17-93e8-d3907b1a5a63"
       },
       {
-        "useruuid": "f6626f6c-e7c8-11e6-bf01-fe55135034f3",
-        "count": 2
-      },
-      {
-        "useruuid":"1762ea0d-e368-4598-8161-cc0773512b7a",
-        "count": 4
-      },
-      {
-        "useruuid":"1796d48d-1fa4-4238-bbc8-cc4f4ec058fb",
-        "count": 7
+        "firstName": "Signe Stoholm",
+        "lastName": "Sørensen",
+        "type": "CONSULTANT",
+        "uuid": "ec152c5b-6b9b-49be-ac84-27a0ffc1c0b2",
+        "count": 1
       }
     ]
   },
   {
     "sectorName": "energi",
     "consultants": [
-      {
-        "useruuid": "e4c7dfd4-63fd-4d6b-b5fa-124a77161cad",
-        "count": 6
-      },  
-      {
-        "useruuid": "4b8d9890-5bc7-496f-9f3d-bfba1e5453d1",
-        "count": 5
-      },
-      {
-        "useruuid": "f6626f6c-e7c8-11e6-bf01-fe55135034f3",
-        "count": 2
-      },
-      {
-        "useruuid":"1762ea0d-e368-4598-8161-cc0773512b7a",
-        "count": 4
-      },
-      {
-        "useruuid":"1796d48d-1fa4-4238-bbc8-cc4f4ec058fb",
-        "count": 7
-      }
+      
     ]
   },
   {
     "sectorName": "finans",
     "consultants": [
-      {
-        "useruuid": "e4c7dfd4-63fd-4d6b-b5fa-124a77161cad",
-        "count": 6
-      },  
-      {
-        "useruuid": "4b8d9890-5bc7-496f-9f3d-bfba1e5453d1",
-        "count": 5
-      },
-      {
-        "useruuid": "f6626f6c-e7c8-11e6-bf01-fe55135034f3",
-        "count": 2
-      },
-      {
-        "useruuid":"1762ea0d-e368-4598-8161-cc0773512b7a",
-        "count": 4
-      },
-      {
-        "useruuid":"1796d48d-1fa4-4238-bbc8-cc4f4ec058fb",
-        "count": 7
-      }
     ]
   },
   {
     "sectorName": "andet",
     "consultants": [
       {
-        "useruuid": "e4c7dfd4-63fd-4d6b-b5fa-124a77161cad",
-        "count": 6
-      },  
-      {
-        "useruuid": "4b8d9890-5bc7-496f-9f3d-bfba1e5453d1",
-        "count": 5
+        "count": 5,
+        "firstName": "Lars ",
+        "lastName": "Østergaard",
+        "type": "CONSULTANT",
+        "uuid": "e706c588-ecd3-4c93-9937-565c3f35f304"
       },
       {
-        "useruuid": "f6626f6c-e7c8-11e6-bf01-fe55135034f3",
-        "count": 2
+        "firstName": "Jeppe",
+        "lastName": "Nikolajsen",
+        "uuid": "86ffcaa4-5587-47f6-b0a5-3ce56cadcabc",
+        "count": 1
       },
       {
-        "useruuid":"1762ea0d-e368-4598-8161-cc0773512b7a",
-        "count": 4
+        "firstName": "Deni",
+        "lastName": "Klinac",
+        "uuid": "ab4ebf52-2203-4be6-a621-e0b4af847d88",
+        "count": 1
       },
       {
-        "useruuid":"1796d48d-1fa4-4238-bbc8-cc4f4ec058fb",
-        "count": 7
+        "firstName": "Lukas",
+        "lastName": "Højland",
+        "uuid": "ecf198c6-a3cf-479a-b595-7a994db01883",
+        "count": 1
       }
     ]
   }

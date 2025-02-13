@@ -8,6 +8,8 @@ import Public from "../Icons/Public"
 import Champagne from "../Icons/Champagne"
 import Coffee from "../Icons/Coffee";
 import TWIcon from "../Icons/TWIcon";
+import nigust from '../img/nigust.png'
+import jeppe from '../img/jeppe.jpg'
 
 const SECTOR_ICON_SIZE = "8em"
 const COFFEE_ICON_SIZE = "1em"
@@ -23,7 +25,7 @@ const icons = {
 
 const names = {
   "finans": "Finans",
-  "offentlig": "Det Offentlige",
+  "offentlig": "Offentlig Digitalisering",
   "pharma": "Pharma",
   "energi": "Grøn Omstilling",
   "andet": "Andre Industrier",
@@ -89,18 +91,34 @@ const Consultants = ({ sectorIndex, consultants, getEmployeePhoto }) => {
   const PINK = '#f24663'
   const fill = [ORANGE, GREY, GREEN, PINK, BLUE]
   return (
-    <div className="row col-10 justify-content-around mx-0 px-0">
-      {consultants.map((consultant, index) => (
-        <div key={index} className="position-relative col-2 mx-0 px-0  d-flex">
-          <img
-            className="employeephoto"
-            src={`data:image/jpeg;base64,${getEmployeePhoto(consultant.useruuid)}`}
-          />
-          <CoffeeCup count={consultant.count} fill={fill[sectorIndex]} />
-        </div>
-      ))}
+    <div className="row col-10 justify-content-start mx-0 px-0">
+      {consultants.map((consultant, index) => {
+        return (
+          <div key={index} className="position-relative col-3 mx-0 px-0  d-flex">
+            <EmployeePhoto uuid={consultant.uuid} getEmployeePhoto={getEmployeePhoto} />
+            <CoffeeCup count={consultant.count} fill={fill[sectorIndex]} />
+          </div>
+        )
+      })}
     </div>
   )
+}
+
+const EmployeePhoto = ({uuid, getEmployeePhoto}) => {
+  if (uuid === '86ffcaa4-5587-47f6-b0a5-3ce56cadcabc')
+    return <img
+      className="employeephoto"
+      src={jeppe}
+    />
+  if (uuid === '91f0b20d-66ab-4f17-93e8-d3907b1a5a63')
+    return <img
+      className="employeephoto"
+      src={nigust}
+    />
+  return <img
+    className="employeephoto"
+    src={`data:image/jpeg;base64,${getEmployeePhoto(uuid)}`}
+  />
 }
 
 const CoffeeCup = ({ count, fill }) => (

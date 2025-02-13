@@ -86,7 +86,6 @@ const Home = () => {
           project.projectDescriptionUserList.map(async (user) => {
             try {
               const photo = await getEmployeePhotoUuid(user.useruuid);
-              console.log(user.useruuid)
               return { id: user.useruuid, file: photo };
             } catch (error) {
               console.error(
