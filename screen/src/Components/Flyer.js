@@ -1,14 +1,12 @@
 import React from "react";
 import styled from "styled-components";
 
-import Andet from "../Icons/Andet"
 import Pharma from "../Icons/Pharma"
 import Finance from "../Icons/Finance"
 import Energy from "../Icons/Energy"
 import Public from "../Icons/Public"
 import Champagne from "../Icons/Champagne"
-import CoffeeGreen from "../Icons/CoffeeGreen";
-import CoffeeOrange from "../Icons/CoffeeOrange";
+import Coffee from "../Icons/Coffee";
 import TWIcon from "../Icons/TWIcon";
 
 const SECTOR_ICON_SIZE = "8em"
@@ -69,7 +67,7 @@ const Sectors = ({ sectors, getEmployeePhoto }) => {
       {sectors.map((sector, index) => (
         <div key={index} className="row center mb-5 py-3 sector">
           <SectorTitle sectorName={sector.sectorName} />
-          <Consultants consultants={sector.consultants} getEmployeePhoto={getEmployeePhoto} />
+          <Consultants sectorIndex={index} consultants={sector.consultants} getEmployeePhoto={getEmployeePhoto} />
         </div>
       ))}
     </div>
@@ -83,32 +81,34 @@ const SectorTitle = ({ sectorName }) => (
   </div>
 )
 
-const Consultants = ({ consultants, getEmployeePhoto }) => (
-  <div className="row col-10 mx-0 px-0">
-    {consultants.map((consultant, index) => (
-      <div key={index} className="position-relative col-2 mx-0 px-0 align-items-center d-flex">
-        <img
-          className="employeephoto"
-          src={`data:image/jpeg;base64,${getEmployeePhoto(consultant.useruuid)}`}
-        />
-        <CoffeeCup count={consultant.count} index={index} />
-      </div>
-    ))}
+const Consultants = ({ sectorIndex, consultants, getEmployeePhoto }) => {
+  const fill = sectorIndex % 3 === 0 
+    ? ['#374b05', '#4c5e20', '#5f6e37', '#758151', '#879369' ]
+    : (sectorIndex % 3 === 1 
+      ? ['#455977',  '#596a84', '#596a84', '#7d8ba0', '#8f9bad']
+      : ["#ff7200", '#fe801b', '#fe8e34', '#ff9d4f', '#ffa966']
+    ) 
+  return (
+    <div className="row col-10 justify-content-around mx-0 px-0">
+      {consultants.map((consultant, index) => (
+        <div key={index} className="position-relative col-2 mx-0 px-0  d-flex">
+          <img
+            className="employeephoto"
+            src={`data:image/jpeg;base64,${getEmployeePhoto(consultant.useruuid)}`}
+          />
+          <CoffeeCup count={consultant.count} fill={fill[index]} />
+        </div>
+      ))}
+    </div>
+  )
+}
+
+const CoffeeCup = ({ count, fill }) => (
+  <div className="coffee-cup">
+    <span className="text-light number">{count}</span>
+    <Coffee fill={fill} />
   </div>
 )
-
-const CoffeeCup = ({ count, index }) => {
-  return index % 2 === 0 ?
-    <div className="coffee-cup">
-      <span className="text-light number">{count}</span>
-      <CoffeeOrange />
-    </div>
-    :
-    <div className="coffee-cup">
-      <span className="text-light number">{count}</span>
-      <CoffeeGreen />
-    </div>
-}
 
 const Styling = styled.div`
   .employee-photo {
@@ -133,6 +133,7 @@ const Styling = styled.div`
   }
   h1, p {
     margin: 0;
+    color:;
   }
   .border-green {
     border: 2px solid #778256;
@@ -152,6 +153,9 @@ const Styling = styled.div`
   .card-footer {
     background-color: #374b05;
     color: #eee; 
+  }
+  .bg-orange {
+    background-color:#ff7300;
   }
   .text-description {
     font-size: 2.5em;
@@ -186,7 +190,7 @@ const Styling = styled.div`
   .sector {
     background-color: #d2cbbc;
     border-radius: 10px;
-    box-shadow: 0px 0px 30px 15px rgba(75, 61, 61, 0.1);
+    box-shadow: 0px 0px 30px 15px rgba(75, 61, 61, 0.3);
 
   }
 `

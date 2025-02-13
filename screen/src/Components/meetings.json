@@ -22,8 +22,6 @@
         "useruuid":"1796d48d-1fa4-4238-bbc8-cc4f4ec058fb",
         "count": 7
       }
-
-
     ]
   },
   {
@@ -31,15 +29,23 @@
     "consultants": [
       {
         "useruuid": "e4c7dfd4-63fd-4d6b-b5fa-124a77161cad",
-        "count": 7
+        "count": 6
       },  
       {
         "useruuid": "4b8d9890-5bc7-496f-9f3d-bfba1e5453d1",
-        "count": 3
+        "count": 5
       },
       {
         "useruuid": "f6626f6c-e7c8-11e6-bf01-fe55135034f3",
-        "count": 1
+        "count": 2
+      },
+      {
+        "useruuid":"1762ea0d-e368-4598-8161-cc0773512b7a",
+        "count": 4
+      },
+      {
+        "useruuid":"1796d48d-1fa4-4238-bbc8-cc4f4ec058fb",
+        "count": 7
       }
     ]
   },
@@ -48,15 +54,23 @@
     "consultants": [
       {
         "useruuid": "e4c7dfd4-63fd-4d6b-b5fa-124a77161cad",
-        "count": 5
+        "count": 6
       },  
       {
         "useruuid": "4b8d9890-5bc7-496f-9f3d-bfba1e5453d1",
-        "count": 4
+        "count": 5
       },
       {
         "useruuid": "f6626f6c-e7c8-11e6-bf01-fe55135034f3",
         "count": 2
+      },
+      {
+        "useruuid":"1762ea0d-e368-4598-8161-cc0773512b7a",
+        "count": 4
+      },
+      {
+        "useruuid":"1796d48d-1fa4-4238-bbc8-cc4f4ec058fb",
+        "count": 7
       }
     ]
   },
@@ -65,15 +79,23 @@
     "consultants": [
       {
         "useruuid": "e4c7dfd4-63fd-4d6b-b5fa-124a77161cad",
-        "count": 5
+        "count": 6
       },  
       {
         "useruuid": "4b8d9890-5bc7-496f-9f3d-bfba1e5453d1",
-        "count": 4
+        "count": 5
       },
       {
         "useruuid": "f6626f6c-e7c8-11e6-bf01-fe55135034f3",
         "count": 2
+      },
+      {
+        "useruuid":"1762ea0d-e368-4598-8161-cc0773512b7a",
+        "count": 4
+      },
+      {
+        "useruuid":"1796d48d-1fa4-4238-bbc8-cc4f4ec058fb",
+        "count": 7
       }
     ]
   },
@@ -82,15 +104,23 @@
     "consultants": [
       {
         "useruuid": "e4c7dfd4-63fd-4d6b-b5fa-124a77161cad",
-        "count": 5
+        "count": 6
       },  
       {
         "useruuid": "4b8d9890-5bc7-496f-9f3d-bfba1e5453d1",
-        "count": 4
+        "count": 5
       },
       {
         "useruuid": "f6626f6c-e7c8-11e6-bf01-fe55135034f3",
         "count": 2
+      },
+      {
+        "useruuid":"1762ea0d-e368-4598-8161-cc0773512b7a",
+        "count": 4
+      },
+      {
+        "useruuid":"1796d48d-1fa4-4238-bbc8-cc4f4ec058fb",
+        "count": 7
       }
     ]
   }
