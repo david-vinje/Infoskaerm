@@ -82,12 +82,6 @@ const SectorTitle = ({ sectorName }) => (
 )
 
 const Consultants = ({ sectorIndex, consultants, getEmployeePhoto }) => {
-  // const fill = sectorIndex % 3 === 0 
-  //   ? ['#374b05', '#4c5e20', '#5f6e37', '#758151', '#879369' ]
-  //   : (sectorIndex % 3 === 1 
-  //     ? ['#455977',  '#596a84', '#596a84', '#7d8ba0', '#8f9bad']
-  //     : ["#ff7200", '#fe801b', '#fe8e34', '#ff9d4f', '#ffa966']
-  //   ) 
   const BLUE = '#596a84'
   const GREEN = '#5f6e37'
   const ORANGE = '#fe8e34'
