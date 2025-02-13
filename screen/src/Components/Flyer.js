@@ -82,12 +82,18 @@ const SectorTitle = ({ sectorName }) => (
 )
 
 const Consultants = ({ sectorIndex, consultants, getEmployeePhoto }) => {
-  const fill = sectorIndex % 3 === 0 
-    ? ['#374b05', '#4c5e20', '#5f6e37', '#758151', '#879369' ]
-    : (sectorIndex % 3 === 1 
-      ? ['#455977',  '#596a84', '#596a84', '#7d8ba0', '#8f9bad']
-      : ["#ff7200", '#fe801b', '#fe8e34', '#ff9d4f', '#ffa966']
-    ) 
+  // const fill = sectorIndex % 3 === 0 
+  //   ? ['#374b05', '#4c5e20', '#5f6e37', '#758151', '#879369' ]
+  //   : (sectorIndex % 3 === 1 
+  //     ? ['#455977',  '#596a84', '#596a84', '#7d8ba0', '#8f9bad']
+  //     : ["#ff7200", '#fe801b', '#fe8e34', '#ff9d4f', '#ffa966']
+  //   ) 
+  const BLUE = '#596a84'
+  const GREEN = '#5f6e37'
+  const ORANGE = '#fe8e34'
+  const GREY = '#696969'
+  const PINK = '#f24663'
+  const fill = [ORANGE, GREY, GREEN, PINK, BLUE]
   return (
     <div className="row col-10 justify-content-around mx-0 px-0">
       {consultants.map((consultant, index) => (
@@ -96,7 +102,7 @@ const Consultants = ({ sectorIndex, consultants, getEmployeePhoto }) => {
             className="employeephoto"
             src={`data:image/jpeg;base64,${getEmployeePhoto(consultant.useruuid)}`}
           />
-          <CoffeeCup count={consultant.count} fill={fill[index]} />
+          <CoffeeCup count={consultant.count} fill={fill[sectorIndex]} />
         </div>
       ))}
     </div>
@@ -191,7 +197,6 @@ const Styling = styled.div`
     background-color: #d2cbbc;
     border-radius: 10px;
     box-shadow: 0px 0px 30px 15px rgba(75, 61, 61, 0.3);
-
   }
 `
 
