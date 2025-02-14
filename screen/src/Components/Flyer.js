@@ -52,9 +52,9 @@ const Title = () => (
     <div className="col-10">
       <h1 className="display-1">PROP PR. KOP</h1>
     </div>
-    <div className="col-2 mb-3" >
+    <div className="col-2" >
       <img
-        className="employeephoto  border border-secondary"
+        className="brinkmann-photo  border border-secondary"
         src={brinkmann}
       />
     </div>
@@ -134,10 +134,11 @@ const CoffeeCup = ({ count, fill }) => (
 )
 
 const Styling = styled.div`
-  .employee-photo {
+  .brinkmann-photo {
       object-fit: cover;
-      height: 12.5em;
-      width: 12.5em;
+      height: 15em;
+      width: 15em;
+      border-radius: 50%;
   }
   .coffee-cup {
     position: absolute;
