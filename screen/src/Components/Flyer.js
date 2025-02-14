@@ -10,6 +10,7 @@ import Coffee from "../Icons/Coffee";
 import TWIcon from "../Icons/TWIcon";
 import nigel from '../img/nigel.png'
 import august from '../img/august.png'
+import brinkmann from '../img/brinkmann.png'
 import jeppe from '../img/jeppe.jpg'
 
 const SECTOR_ICON_SIZE = "8em"
@@ -51,8 +52,11 @@ const Title = () => (
     <div className="col-10">
       <h1 className="display-1">PROP PR. KOP</h1>
     </div>
-    <div className="col-2" >
-      <Champagne height={"10px"} width={"15px"} fill={BLUE} />
+    <div className="col-2 mb-3" >
+      <img
+        className="employeephoto  border border-secondary"
+        src={brinkmann}
+      />
     </div>
   </div>
 )
@@ -90,7 +94,7 @@ const Consultants = ({ sectorIndex, consultants, getEmployeePhoto }) => {
   const ORANGE = '#fe8e34'
   const GREY = '#696969'
   const PINK = '#f24663'
-  const fill = [ORANGE, GREY, GREEN, PINK, BLUE]
+  const fill = [ORANGE, GREEN, GREY, PINK, BLUE]
   return (
     <div className="row col-10 justify-content-start mx-0 px-0">
       {consultants.map((consultant, index) => {
