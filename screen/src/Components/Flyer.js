@@ -11,6 +11,7 @@ import TWIcon from "../Icons/TWIcon";
 import nigel from '../img/nigel.png'
 import august from '../img/august.png'
 import brinkmann from '../img/brinkmann.png'
+import nej from '../img/nej.png'
 import jeppe from '../img/jeppe.jpg'
 
 const SECTOR_ICON_SIZE = "8em"
@@ -52,9 +53,13 @@ const Title = () => (
     <div className="col-10">
       <h1 className="display-1">PROP PR. KOP</h1>
     </div>
-    <div className="col-2" >
+    <div className="col-2 position-relative" >
       <img
-        className="brinkmann-photo  border border-secondary"
+        className="nej"
+        src={nej}
+      />
+      <img
+        className="brinkmann-photo border border-secondary"
         src={brinkmann}
       />
     </div>
@@ -139,6 +144,16 @@ const Styling = styled.div`
       height: 15em;
       width: 15em;
       border-radius: 50%;
+  }
+  .nej {
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    transform: rotate(0deg);
+    object-fit: cover;
+    height: 15em;
+    width: 15em;
+    border-radius: 50%;
   }
   .coffee-cup {
     position: absolute;
