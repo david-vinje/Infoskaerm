@@ -17,6 +17,7 @@ import Calendar from "../Components/Calendar";
 import IndustryInsights from "../Components/IndustryInsights";
 import Flyer from "../Components/Flyer"
 import ENPS from "../img/ENPS.png"
+import ENPS2 from "../img/ENPS2.png"
 const INTERVAL = 1000 * 30; // 30 seconds
 const CALENDAR_INTERVAL = 5; // every 5 slides
 
@@ -182,7 +183,7 @@ const Home = () => {
               } else {
                 return (
                   <Carousel.Item key={index} interval={INTERVAL * 2}>
-                    <Flyer content={ENPS} />
+                    <Flyer content={ENPS2} />
                   </Carousel.Item>
                 );
               }
