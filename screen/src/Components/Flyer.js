@@ -8,7 +8,19 @@ const Flyer = ({ content }) => {
 
             <img
                 className="rounded p-0 h-100"
-                src={content}
+                src={content[0]}
+            />
+            <img
+                className="rounded p-0 h-100"
+                src={content[1]}
+            />
+            <img
+                className="rounded p-0 h-100"
+                src={content[2]}
+            />
+            <img
+                className="rounded p-0 h-100"
+                src={content[3]}
             />
 
         </div>

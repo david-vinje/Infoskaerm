@@ -14,10 +14,9 @@ import {
 } from "../Components/API";
 import HomeCard from "./HomeCard";
 import Calendar from "../Components/Calendar";
+import Flyer from "../Components/Flyer";
 import IndustryInsights from "../Components/IndustryInsights";
-import Flyer from "../Components/Flyer"
-import ENPS from "../img/ENPS.png"
-import ENPS2 from "../img/ENPS2.png"
+
 const INTERVAL = 1000 * 30; // 30 seconds
 const CALENDAR_INTERVAL = 5; // every 5 slides
 
@@ -133,7 +132,7 @@ const Home = () => {
       fetchClientPhotos();
     }
   }, [activeProjects]);
-
+  
   //Function to get the employee photo
   function getEmployeePhoto(id) {
     const employee = employees.find(employee => employee.id === id);
@@ -161,33 +160,24 @@ const Home = () => {
       elem.click()
     }
   }
-  let flyerCounter = 0;
+  
   return (
     <Wrapper className="body::before">
       <Carousel onKeyDown={keyDown} id="carousel" data-wrap pause={false}>
         {activeProjects.map((project, index) => {
-          if (index % CALENDAR_INTERVAL === 0) {
-            if (index % 2 === 1) {
-              return (
-                <Carousel.Item key={index} interval={INTERVAL * 2}>
-                  <Calendar events={events} headcount={headcount} />
-                </Carousel.Item>
-              );
-            } else {
-              if (flyerCounter++ % 2 === 0) {
-                return (
-                  <Carousel.Item key={index} interval={INTERVAL * 2}>
-                    <IndustryInsights content={coffeeMeetings} getEmployeePhoto={getEmployeePhoto} />
-                  </Carousel.Item>
-                );
-              } else {
-                return (
-                  <Carousel.Item key={index} interval={INTERVAL * 2}>
-                    <Flyer content={ENPS2} />
-                  </Carousel.Item>
-                );
-              }
-            }
+          if (index % CALENDAR_INTERVAL === 0 && index % 2 === 1) {
+            return (
+              <Carousel.Item key={index} interval={INTERVAL * 2}>
+                <Calendar events={events} headcount={headcount} />
+              </Carousel.Item>
+            );
+          }
+          if (index % CALENDAR_INTERVAL === 0 && index % 2 === 0) {
+            return (
+              <Carousel.Item key={index} interval={INTERVAL * 2}>
+                <IndustryInsights content={coffeeMeetings} getEmployeePhoto={getEmployeePhoto} />
+              </Carousel.Item>
+            );
           }
           return (
             <Carousel.Item key={index} autoFocus interval={INTERVAL}>
