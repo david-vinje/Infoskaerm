@@ -63,7 +63,7 @@ const Title = () => (
 const Infobox = () => (
   <div className="row bg-blue mb-5 text-light p-5">
     <p className="display-3 mb-3"> Industry Insights</p>
-    <p className="text-description text-ellipsis-6">
+    <p className="text-description text-ellipsis">
       <img width="75px" src={coffee}/> Kaffeaftalen skal handle om at skabe en nye leads og/eller nye kunde relationer. <br/>
       <img width="75px" src={tw}/> Kaffemøder kan være mange ting, men vi vil helst sidde tilbage med en mulighed for at pitche TRUSTWORKS til en konkret opgave.<br/>
       <img width="75px" src={homer}/> Så spørg nysgerrigt ind til hvilket ansvar, projekter og evt. udfordringer din kaffeaftale sidder med.<br/>
@@ -208,10 +208,10 @@ const Styling = styled.div`
     border: 1px solid transparent;
     background-color: transparent;
   }
-  .text-ellipsis-6 {
+  .text-ellipsis {
     display: -webkit-box;
     -webkit-box-orient: vertical;
-    -webkit-line-clamp: 6; /* Adjust the number of lines to show */
+    -webkit-line-clamp: 12; /* Adjust the number of lines to show */
     overflow: hidden;
     text-overflow: ellipsis;
   }
