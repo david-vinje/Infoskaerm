@@ -8,11 +8,12 @@ import Public from "../Icons/Public"
 import Champagne from "../Icons/Champagne"
 import Coffee from "../Icons/Coffee";
 import TWIcon from "../Icons/TWIcon";
-import nigel from '../img/nigel.png'
 import august from '../img/august.png'
-import brinkmann from '../img/brinkmann.png'
-import nej from '../img/nej.png'
 import jeppe from '../img/jeppe.jpg'
+import homer from '../img/homer.png'
+import clap from '../img/clap.png'
+import tw from '../img/tw.png'
+import coffee from '../img/coffee.png'
 
 const SECTOR_ICON_SIZE = "8em"
 const COFFEE_ICON_SIZE = "1em"
@@ -53,23 +54,20 @@ const Title = () => (
     <div className="col-10">
       <h1 className="display-1">PROP PR. KOP</h1>
     </div>
-    <div className="col-2 position-relative" >
-      <img
-        className="nej"
-        src={nej}
-      />
-      <img
-        className="brinkmann-photo border border-secondary"
-        src={brinkmann}
-      />
+    <div className="col-2" >
+    <Champagne height={"10px"} width={"15px"} fill={BLUE} />
     </div>
   </div>
 )
 
 const Infobox = () => (
   <div className="row bg-blue mb-5 text-light p-5">
-    <p className="display-3"> Industry Insight</p>
-    <p className="text-description text-ellipsis-6">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius voluptatibus beatae officiis molestiae dolorum obcaecati repudiandae odio iure laborum voluptatem doloremque neque facere unde, rem sequi est! Consequuntur, corporis cupiditate voluptates quisquam libero repudiandae tempora laboriosam accusantium esse maxime amet hic architecto voluptas sunt quam minus eius! Ea, commodi maiores temporibus natus laboriosam, et aspernatur harum deleniti quibusdam inventore consequuntur iusto voluptate ipsam aliquam dolorum ipsum rem, architecto id quidem in iure. Temporibus, veritatis ipsum officia nisi suscipit deserunt mollitia doloribus excepturi itaque animi voluptas qui consequatur fugiat assumenda optio reiciendis molestiae maiores architecto, sapiente natus voluptatum dignissimos. Maxime, mollitia?</p>
+    <p className="display-3 mb-3"> Industry Insights</p>
+    <p className="text-description text-ellipsis">
+      <img width="75px" src={coffee}/> Kaffeaftalen skal handle om at skabe en nye leads og/eller nye kunderelationer. <br/>
+      <img width="75px" src={tw}/> Kaffemøder kan være mange ting, men vi vil helst have muligheden for at pitche Trustworkers til en konkret opgave. <br/>
+      <img width="75px" src={homer}/> Så spørg nysgerrigt ind til hvilket ansvar, projekter og udfordringer kunden sidder med. 
+    </p>
   </div>
 )
 
@@ -114,7 +112,7 @@ const Consultants = ({ sectorIndex, consultants, getEmployeePhoto }) => {
   )
 }
 
-const EmployeePhoto = ({uuid, getEmployeePhoto}) => {
+const EmployeePhoto = ({ uuid, getEmployeePhoto }) => {
   if (uuid === '86ffcaa4-5587-47f6-b0a5-3ce56cadcabc')
     return <img
       className="employeephoto"
@@ -123,7 +121,7 @@ const EmployeePhoto = ({uuid, getEmployeePhoto}) => {
   if (uuid === '91f0b20d-66ab-4f17-93e8-d3907b1a5a63')
     return <img
       className="employeephoto"
-      src={nigel}
+      src={august}
     />
   return <img
     className="employeephoto"
@@ -209,10 +207,10 @@ const Styling = styled.div`
     border: 1px solid transparent;
     background-color: transparent;
   }
-  .text-ellipsis-6 {
+  .text-ellipsis {
     display: -webkit-box;
     -webkit-box-orient: vertical;
-    -webkit-line-clamp: 6; /* Adjust the number of lines to show */
+    -webkit-line-clamp: 12; /* Adjust the number of lines to show */
     overflow: hidden;
     text-overflow: ellipsis;
   }
