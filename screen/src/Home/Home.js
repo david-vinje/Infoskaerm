@@ -37,6 +37,7 @@ const Home = () => {
   window.addEventListener("resize", () =>
     setOrientation(window.matchMedia("(orientation: portrait)").matches)
   );
+  
 
   useEffect(() => {
     getProjects(setProjects);
