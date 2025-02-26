@@ -85,6 +85,11 @@ const Home = () => {
     }
   }, [projects, consultants, events]);
 
+  useEffect(() => {
+    if (employees.length > 0)
+    getCoffeeMeetings(setCoffeeMeetings)
+  }, [employees])
+
   // Update employee list based on active consultants
   useEffect(() => {
     if (consultants.length > 0) {
@@ -103,7 +108,6 @@ const Home = () => {
         });
         const newEmployeeList = (await Promise.all(photoPromises)).filter(Boolean);
         setEmployeeList(newEmployeeList);
-        getCoffeeMeetings(setCoffeeMeetings)
       };
       fetchPhotosForActiveConsultants();
     }
@@ -132,7 +136,7 @@ const Home = () => {
       fetchClientPhotos();
     }
   }, [activeProjects]);
-
+  
   //Function to get the employee photo
   function getEmployeePhoto(id) {
     const employee = employees.find(employee => employee.id === id);
@@ -162,23 +166,23 @@ const Home = () => {
   }
 
   let flyerCounter = 0
-
+  
   return (
     <Wrapper className="body::before">
       <Carousel onKeyDown={keyDown} id="carousel" data-wrap pause={false}>
-        {activeProjects.map((project, index) => {
+        {activeProjects && activeProjects.map((project, index) => {
           if (index % CALENDAR_INTERVAL === 0) {
             if (index % 2 === 1) {
               return (
                 <Carousel.Item key={index} interval={INTERVAL * 2}>
-                  <Calendar events={events} headcount={headcount} />
+                  {events && headcount && <Calendar events={events} headcount={headcount} />}
                 </Carousel.Item>
               );
             } else {
               if (flyerCounter++ % 2 === 0) {
                 return (
                   <Carousel.Item key={index} interval={INTERVAL * 2}>
-                    <IndustryInsights content={coffeeMeetings} getEmployeePhoto={getEmployeePhoto} />
+                    {coffeeMeetings && <IndustryInsights content={coffeeMeetings} getEmployeePhoto={getEmployeePhoto} />}
                   </Carousel.Item>
                 );
               } else {
@@ -192,13 +196,13 @@ const Home = () => {
           }
           return (
             <Carousel.Item key={index} autoFocus interval={INTERVAL}>
-              <HomeCard
+              {project && <HomeCard
                 project={project}
                 onToolButtonClick={handleToolButtonClick}
                 getClientLogo={getClientLogo}
                 getEmployeePhoto={getEmployeePhoto}
                 isPortrait={isPortrait}
-              />
+              />}
             </Carousel.Item>
           );
         })}
