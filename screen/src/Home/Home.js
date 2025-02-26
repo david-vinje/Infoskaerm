@@ -86,33 +86,27 @@ const Home = () => {
 
   // Update employee list based on active consultants
   useEffect(() => {
-    if (activeProjects.length > 0) {
+    if (consultants.length > 0) {
       const fetchPhotosForActiveConsultants = async () => {
-        const photoPromises = activeProjects.flatMap((project) =>
-          project.projectDescriptionUserList.map(async (user) => {
-            try {
-              const photo = await getEmployeePhotoUuid(user.useruuid);
-              return { id: user.useruuid, file: photo };
-            } catch (error) {
-              console.error(
-                `Error fetching photo for user ${user.useruuid}:`,
-                error
-              );
-              return null;
-            }
-          })
-        );
-
-        const newEmployeeList = (await Promise.all(photoPromises)).filter(
-          Boolean
-        );
+        const photoPromises = consultants.flatMap(async consultant => {
+          try {
+            const photo = await getEmployeePhotoUuid(consultant.uuid);
+            return { id: consultant.uuid, file: photo };
+          } catch (error) {
+            console.error(
+              `Error fetching photo for user ${consultant.useruuid}:`,
+              error
+            );
+            return null;
+          }
+        });
+        const newEmployeeList = (await Promise.all(photoPromises)).filter(Boolean);
         setEmployeeList(newEmployeeList);
         getCoffeeMeetings(setCoffeeMeetings)
       };
-
       fetchPhotosForActiveConsultants();
     }
-  }, [activeProjects]);
+  }, [consultants]);
 
   // Making list of clients consisting of id and photo file
   useEffect(() => {
@@ -137,7 +131,7 @@ const Home = () => {
       fetchClientPhotos();
     }
   }, [activeProjects]);
-  
+
   //Function to get the employee photo
   function getEmployeePhoto(id) {
     const employee = employees.find(employee => employee.id === id);
@@ -167,7 +161,7 @@ const Home = () => {
   }
 
   let flyerCounter = 0
-  
+
   return (
     <Wrapper className="body::before">
       <Carousel onKeyDown={keyDown} id="carousel" data-wrap pause={false}>

@@ -113,16 +113,6 @@ const Consultants = ({ sectorIndex, consultants, getEmployeePhoto }) => {
 }
 
 const EmployeePhoto = ({ uuid, getEmployeePhoto }) => {
-  if (uuid === '86ffcaa4-5587-47f6-b0a5-3ce56cadcabc')
-    return <img
-      className="employeephoto"
-      src={jeppe}
-    />
-  if (uuid === '91f0b20d-66ab-4f17-93e8-d3907b1a5a63')
-    return <img
-      className="employeephoto"
-      src={august}
-    />
   return <img
     className="employeephoto"
     src={`data:image/jpeg;base64,${getEmployeePhoto(uuid)}`}

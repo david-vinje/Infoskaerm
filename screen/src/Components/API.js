@@ -119,8 +119,6 @@ export async function getConsultants(setConsultants) {
     }
 
     const data = await response.json();
-    console.log('data', data)
-    console.log(data.firstName, data.lastName)
 
     // Filter the consultants to include only active consultants
     const activeConsultants = data.filter(consultant =>
