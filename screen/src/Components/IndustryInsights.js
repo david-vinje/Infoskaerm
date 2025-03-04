@@ -14,6 +14,7 @@ import homer from '../img/homer.png'
 import clap from '../img/clap.png'
 import tw from '../img/tw.png'
 import coffee from '../img/coffee.png'
+import coffeeCup from '../img/coffeeCup.png'
 
 const SECTOR_ICON_SIZE = "8em"
 const COFFEE_ICON_SIZE = "1em"
@@ -64,7 +65,7 @@ const Infobox = () => (
   <div className="row bg-blue mb-5 text-light p-5">
     <p className="display-3 mb-3"> Industry Insights</p>
     <p className="text-description text-ellipsis">
-      <img width="75px" src={coffee}/> Kaffeaftalen skal handle om at skabe en nye leads og/eller nye kunderelationer. <br/>
+      <img width="90px" src={coffeeCup}/> Kaffeaftalen skal handle om at skabe en nye leads og/eller nye kunderelationer. <br/>
       <img width="75px" src={tw}/> Kaffemøder kan være mange ting, men vi vil helst have muligheden for at pitche Trustworkers til en konkret opgave. <br/>
       <img width="75px" src={homer}/> Så spørg nysgerrigt ind til hvilket ansvar, projekter og udfordringer kunden sidder med. 
     </p>
