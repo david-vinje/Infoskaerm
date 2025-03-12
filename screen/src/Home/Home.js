@@ -131,6 +131,7 @@ const Home = () => {
         const newClientList = (await Promise.all(clientPhotoPromises)).filter(
           Boolean
         );
+        console.log('newClientList',newClientList, newClientList.length)
         setClientList(newClientList);
       };
       fetchClientPhotos();
