@@ -3,19 +3,7 @@ import styled from "styled-components"
 
 export const Wrapper = styled.div`
 
-@media screen and (orientation: portrait) {
-    .card-body > .row {
-        height: auto;
-    }
 
-    .card-img {
-        width: 66%;
-    }
-
-    .row {
-        ${'' /* height: 33vh;  */}
-    }
-}
 
 * {
     margin-top: 0;

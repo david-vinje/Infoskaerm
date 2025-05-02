@@ -43,7 +43,7 @@ const Home = () => {
   window.addEventListener("resize", () =>
     setOrientation(window.matchMedia("(orientation: portrait)").matches)
   );
-  
+
 
   useEffect(() => {
     getProjects(setProjects);
@@ -87,30 +87,29 @@ const Home = () => {
 
   useEffect(() => {
     if (employees.length > 0)
-    getCoffeeMeetings(setCoffeeMeetings)
+      getCoffeeMeetings(setCoffeeMeetings)
   }, [employees])
 
   // Update employee list based on active consultants
   useEffect(() => {
-    if (consultants.length > 0) {
-      const fetchPhotosForActiveConsultants = async () => {
-        const photoPromises = consultants.flatMap(async consultant => {
-          try {
-            const photo = await getEmployeePhotoUuid(consultant.uuid);
-            return { id: consultant.uuid, file: photo };
-          } catch (error) {
-            console.error(
-              `Error fetching photo for user ${consultant.useruuid}:`,
-              error
-            );
-            return null;
-          }
-        });
-        const newEmployeeList = (await Promise.all(photoPromises)).filter(Boolean);
-        setEmployeeList(newEmployeeList);
-      };
-      fetchPhotosForActiveConsultants();
+    const fetchPhotosForActiveConsultants = async () => {
+      const photoPromises = consultants.flatMap(async consultant => {
+        try {
+          const photo = await getEmployeePhotoUuid(consultant.uuid);
+          return { id: consultant.uuid, file: photo };
+        } catch (error) {
+          console.error(
+            `Error fetching photo for user ${consultant.useruuid}:`,
+            error
+          );
+          return null;
+        }
+      });
+      const newEmployeeList = await Promise.all(photoPromises);
+      console.log('newEmployeeList', newEmployeeList)
+      setEmployeeList(newEmployeeList);
     }
+    fetchPhotosForActiveConsultants()
   }, [consultants]);
 
   // Making list of clients consisting of id and photo file
@@ -131,13 +130,13 @@ const Home = () => {
         const newClientList = (await Promise.all(clientPhotoPromises)).filter(
           Boolean
         );
-        console.log('newClientList',newClientList, newClientList.length)
+        console.log('newClientList', newClientList, newClientList.length)
         setClientList(newClientList);
       };
       fetchClientPhotos();
     }
   }, [activeProjects]);
-  
+
   //Function to get the employee photo
   function getEmployeePhoto(id) {
     const employee = employees.find(employee => employee.id === id);
@@ -167,7 +166,7 @@ const Home = () => {
   }
 
   let flyerCounter = 0
-  
+
   return (
     <Wrapper className="body::before">
       <Carousel onKeyDown={keyDown} id="carousel" data-wrap pause={false}>

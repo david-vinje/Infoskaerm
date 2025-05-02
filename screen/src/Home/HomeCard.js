@@ -11,7 +11,7 @@ const HomeCard = ({
   getEmployeePhoto,
 }) => (
   <div className="container-fluid d-flex flex-column"> {/*container-fluid = which is width: 100% at all breakpoints, d-flex = display flex container, flex-colum = set a vertical direction */}
-    <div className="row row-1 mx-auto w-75 clientlogoborder clientLogo rounded"> {/* mb-5  */}
+    <div className="row row-1 mx-auto clientlogoborder clientLogo rounded"> {/* mb-5  */}
       <img
         className=" rounded p-0"
         src={`data:image/jpeg;base64,${getClientLogo(project.clientuuid)}`}
