@@ -197,11 +197,11 @@ const Home = () => {
           return (
             <Carousel.Item key={index} autoFocus interval={INTERVAL}>
               {project && <HomeCard
+                isPortait={isPortrait}
                 project={project}
                 onToolButtonClick={handleToolButtonClick}
                 getClientLogo={getClientLogo}
                 getEmployeePhoto={getEmployeePhoto}
-                isPortrait={isPortrait}
               />}
             </Carousel.Item>
           );
