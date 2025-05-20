@@ -16,7 +16,6 @@ import HomeCard from "./HomeCard";
 import Calendar from "../Components/Calendar";
 import IndustryInsights from "../Components/IndustryInsights";
 import Flyer from "../Components/Flyer"
-import ENPS from "../img/ENPS.png"
 import ENPS1 from "../img/ENPS1.png"
 import ENPS2 from "../img/ENPS2.png"
 import ENPS3 from "../img/ENPS3.png"
@@ -45,16 +44,15 @@ const Home = () => {
     setOrientation(window.matchMedia("(orientation: portrait)").matches)
   );
 
-
   useEffect(() => {
-    getProjects(setProjects);
     getConsultants(setConsultants);
+    getProjects(setProjects);
     getEvents(setEvents);
     getHeadcount(setHeadcount);
   }, []);
 
   useEffect(() => {
-    if (projects.length > 0 && consultants.length > 0 && events.length > 0) {
+    if (projects.length > 0 && employees.length > 0 && events.length > 0) {
       // Create a Set of active consultant IDs
       const activeConsultantIds = new Set(
         consultants.map(consultant => consultant.uuid)
@@ -84,11 +82,10 @@ const Home = () => {
 
       setActiveProjects(projectsActiveLastYear);
     }
-  }, [projects, consultants, events]);
+  }, [projects, employees, events]);
 
   useEffect(() => {
-    if (employees.length > 0)
-      getCoffeeMeetings(setCoffeeMeetings)
+    getCoffeeMeetings(setCoffeeMeetings)
   }, [employees])
 
   // Update employee list based on active consultants
@@ -131,7 +128,6 @@ const Home = () => {
         const newClientList = (await Promise.all(clientPhotoPromises)).filter(
           Boolean
         );
-        console.log('newClientList', newClientList, newClientList.length)
         setClientList(newClientList);
       };
       fetchClientPhotos();
