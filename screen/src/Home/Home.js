@@ -21,6 +21,7 @@ import ENPS1 from "../img/ENPS1.png"
 import ENPS2 from "../img/ENPS2.png"
 import ENPS3 from "../img/ENPS3.png"
 import ENPS4 from "../img/ENPS4.png"
+import Sommerfest from "../img/sommerfest.png"
 
 const INTERVAL = 1000 * 30; // 30 seconds
 const CALENDAR_INTERVAL = 5; // every 5 slides
@@ -188,7 +189,7 @@ const Home = () => {
               } else {
                 return (
                   <Carousel.Item key={index} interval={INTERVAL * 2}>
-                    <Flyer content={[ENPS1, ENPS2, ENPS3, ENPS4]} />
+                    <Flyer content={[Sommerfest]} />
                   </Carousel.Item>
                 );
               }
