@@ -9,7 +9,7 @@ const Flyer = ({ content }) => {
             <img
                 key={index}
                 style={{boxShadow: "0px 0px 20px 5px rgba(75, 61, 61, 0.3)"}}
-                className="rounded my-2 h-100 "
+                className="rounded my-2 h-75 w-75"
                 src={flyer}
             />
             ))}
