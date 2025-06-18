@@ -20,7 +20,7 @@ import ENPS1 from "../img/ENPS1.png"
 import ENPS2 from "../img/ENPS2.png"
 import ENPS3 from "../img/ENPS3.png"
 import ENPS4 from "../img/ENPS4.png"
-import somfest from "../img/somfest.png";
+import udlandsturBilled from "../img/udlandsturBilled.png"
 
 
 const INTERVAL = 1000 * 30; // 30 seconds
@@ -186,7 +186,7 @@ const Home = () => {
               } else {
                 return (
                   <Carousel.Item key={index} interval={INTERVAL * 2}>
-                    <Flyer content={[somfest]} />
+                    <Flyer content={[udlandsturBilled]} />
                   </Carousel.Item>
                 );
               }
