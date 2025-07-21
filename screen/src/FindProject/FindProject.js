@@ -443,7 +443,7 @@ const FindProject = () => {
                         onSelect={(index) => setActiveSlide(index)} // Update the active index  
                     >
                         {projectChunks.map((chunk, chunkIndex) => (
-                            <Carousel.Item key={chunkIndex} interval={5000} >
+                            <Carousel.Item key={chunkIndex} interval={5_000_000} >
                                 <div className="carousel-content">
                                     <div className="row">
                                         {chunk.map((project, projectIndex) => (

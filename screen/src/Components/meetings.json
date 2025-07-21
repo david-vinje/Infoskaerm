@@ -1,0 +1,72 @@
+[
+  {
+    "sectorName": "pharma",
+    "consultants": [
+      {
+        "count": 1,
+        "firstName": "Birger",
+        "lastName": "Püschl",
+        "uuid": "1762ea0d-e368-4598-8161-cc0773512b7a"
+      }
+    ]
+  },
+  {
+    "sectorName": "offentlig",
+    "consultants": [
+      {
+        "count": 1,
+        "firstName": "August",
+        "lastName": "Semrau Andersen",
+        "uuid": "91f0b20d-66ab-4f17-93e8-d3907b1a5a63"
+      },
+      {
+        "firstName": "Signe Stoholm",
+        "lastName": "Sørensen",
+        "type": "CONSULTANT",
+        "uuid": "ec152c5b-6b9b-49be-ac84-27a0ffc1c0b2",
+        "count": 1
+      }
+    ]
+  },
+  {
+    "sectorName": "energi",
+    "consultants": [
+      
+    ]
+  },
+  {
+    "sectorName": "finans",
+    "consultants": [
+    ]
+  },
+  {
+    "sectorName": "andet",
+    "consultants": [
+      {
+        "count": 5,
+        "firstName": "Lars ",
+        "lastName": "Østergaard",
+        "type": "CONSULTANT",
+        "uuid": "e706c588-ecd3-4c93-9937-565c3f35f304"
+      },
+      {
+        "firstName": "Jeppe",
+        "lastName": "Nikolajsen",
+        "uuid": "86ffcaa4-5587-47f6-b0a5-3ce56cadcabc",
+        "count": 1
+      },
+      {
+        "firstName": "Deni",
+        "lastName": "Klinac",
+        "uuid": "ab4ebf52-2203-4be6-a621-e0b4af847d88",
+        "count": 1
+      },
+      {
+        "firstName": "Lukas",
+        "lastName": "Højland",
+        "uuid": "ecf198c6-a3cf-479a-b595-7a994db01883",
+        "count": 1
+      }
+    ]
+  }
+]

@@ -1,0 +1,225 @@
+import React from "react";
+import styled from "styled-components";
+
+import Pharma from "../Icons/Pharma"
+import Finance from "../Icons/Finance"
+import Energy from "../Icons/Energy"
+import Public from "../Icons/Public"
+import Champagne from "../Icons/Champagne"
+import Coffee from "../Icons/Coffee";
+import TWIcon from "../Icons/TWIcon";
+import august from '../img/august.png'
+import jeppe from '../img/jeppe.jpg'
+import homer from '../img/homer.png'
+import clap from '../img/clap.png'
+import tw from '../img/tw.png'
+import coffee from '../img/coffee.png'
+import coffeeCup from '../img/coffeeCup.png'
+
+const SECTOR_ICON_SIZE = "8em"
+const COFFEE_ICON_SIZE = "1em"
+const BLUE = "#5c6a83"
+
+const icons = {
+  "finans": <Finance />,
+  "offentlig": <Public />,
+  "pharma": <Pharma />,
+  "energi": <Energy />,
+  "andet": <TWIcon height={SECTOR_ICON_SIZE} width={SECTOR_ICON_SIZE} fill={"none"} stroke="black" strokeWidth="8px" />,
+}
+
+const names = {
+  "finans": "Finans",
+  "offentlig": "Offentlig Digitalisering",
+  "pharma": "Pharma",
+  "energi": "Grøn Omstilling",
+  "andet": "Andre Industrier",
+}
+
+const IndustryInsights = ({ content, getEmployeePhoto }) => {
+  if (content.length > 0) {
+    return (
+      <Styling className="body::before">
+        <div className="container-fluid overflow-auto">
+          <Title />
+          <Infobox />
+          <Sectors sectors={content} getEmployeePhoto={getEmployeePhoto} />
+        </div>
+      </Styling>
+    )
+  }
+}
+
+const Title = () => (
+  <div className="row center">
+    <div className="col-10">
+      <h1 className="display-1">PROP PR. KOP</h1>
+    </div>
+    <div className="col-2" >
+    <Champagne height={"10px"} width={"15px"} fill={BLUE} />
+    </div>
+  </div>
+)
+
+const Infobox = () => (
+  <div className="row bg-blue mb-5 text-light p-5">
+    <p className="display-3 mb-3"> Industry Insights</p>
+    <p className="text-description text-ellipsis">
+      <img width="90px" src={coffeeCup}/> Kaffeaftalen skal handle om at skabe en nye leads og/eller nye kunderelationer. <br/>
+      <img width="75px" src={tw}/> Kaffemøder kan være mange ting, men vi vil helst have muligheden for at pitche Trustworkers til en konkret opgave. <br/>
+      <img width="75px" src={homer}/> Så spørg nysgerrigt ind til hvilket ansvar, projekter og udfordringer kunden sidder med. 
+    </p>
+  </div>
+)
+
+const Sectors = ({ sectors, getEmployeePhoto }) => {
+  return (
+    <div className="justify-content-between">
+      {sectors.map((sector, index) => (
+        <div key={index} className="row center mb-5 py-3 sector">
+          <SectorTitle sectorName={sector.sectorName} />
+          <Consultants sectorIndex={index} consultants={sector.consultants} getEmployeePhoto={getEmployeePhoto} />
+        </div>
+      ))}
+    </div>
+  )
+}
+
+const SectorTitle = ({ sectorName }) => (
+  <div className="col-2 mx-0 px-0 d-flex align-items-center flex-column">
+    <div className="">{icons[sectorName]}</div>
+    <h1 className="text-center">{names[sectorName]}</h1>
+  </div>
+)
+
+const Consultants = ({ sectorIndex, consultants, getEmployeePhoto }) => {
+  const BLUE = '#596a84'
+  const GREEN = '#5f6e37'
+  const ORANGE = '#fe8e34'
+  const GREY = '#696969'
+  const PINK = '#f24663'
+  const fill = [ORANGE, GREEN, GREY, PINK, BLUE]
+  return (
+    <div className="row col-10 justify-content-start mx-0 px-0">
+      {consultants.map((consultant, index) => {
+        return (
+          <div key={index} className="position-relative col-3 mx-0 px-0  d-flex">
+            <EmployeePhoto uuid={consultant.uuid} getEmployeePhoto={getEmployeePhoto} />
+            <CoffeeCup count={consultant.count} fill={fill[sectorIndex]} />
+          </div>
+        )
+      })}
+    </div>
+  )
+}
+
+const EmployeePhoto = ({ uuid, getEmployeePhoto }) => {
+  return <img
+    className="employeephoto"
+    src={`data:image/jpeg;base64,${getEmployeePhoto(uuid)}`}
+  />
+}
+
+const CoffeeCup = ({ count, fill }) => (
+  <div className="coffee-cup">
+    <span className="text-light number">{count}</span>
+    <Coffee fill={fill} />
+  </div>
+)
+
+const Styling = styled.div`
+  .brinkmann-photo {
+      object-fit: cover;
+      height: 15em;
+      width: 15em;
+      border-radius: 50%;
+  }
+  .nej {
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    transform: rotate(0deg);
+    object-fit: cover;
+    height: 15em;
+    width: 15em;
+    border-radius: 50%;
+  }
+  .coffee-cup {
+    position: absolute;
+    bottom: -0%;
+    left: -0%;
+  }
+  .number {
+    position: absolute;
+    top: 43%;
+    left: 33%;
+    font-weight: bold;
+    font-size: 1.75em;
+  }
+  .today {
+    color: #f09449;
+  }
+  h1, p {
+    margin: 0;
+    color:;
+  }
+  .border-green {
+    border: 2px solid #778256;
+  }
+  .border-blue {
+    border: 2px solid #5c6983;
+  }
+  .border-orange {
+    border: 2px solid #f09449;
+  }
+  .bg-blue {
+    background-color: #5c6983;
+  }
+  .bg-grey {
+    background-color: #e4e6e9;
+  }
+  .card-footer {
+    background-color: #374b05;
+    color: #eee; 
+  }
+  .bg-orange {
+    background-color:#ff7300;
+  }
+  .text-description {
+    font-size: 2.5em;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1; /* Adjust the number of lines to show */
+    overflow: hidden;
+    text-overflow: ellipsis;
+    text-align: justify;
+  }
+  .info-section {
+    border: 1px solid transparent;
+    background-color: transparent;
+  }
+  .text-ellipsis {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 12; /* Adjust the number of lines to show */
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .event-text {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2; /* Adjust the number of lines to show */
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  span {
+    margin-left: auto; 
+  }
+  .sector {
+    background-color: #d2cbbc;
+    border-radius: 10px;
+    box-shadow: 0px 0px 30px 15px rgba(75, 61, 61, 0.3);
+  }
+`
+
+export default IndustryInsights

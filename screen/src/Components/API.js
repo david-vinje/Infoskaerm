@@ -1,10 +1,17 @@
 const token = process.env.REACT_APP_TOKEN
 
-export const config = { headers: { Authorization: `Bearer ${token}` } };
+console.log('token', token)
+
+export const config = {
+  headers: {
+    'accept': 'application/json',
+    'Authorization': `Bearer ${token}`
+  }
+}
 
 async function fetchHeadcount(date) {
   try {
-    const response = await fetch('https://api.trustworks.dk/public/stats/employees/headcount/' + date, config);
+    const response = await fetch('/public/stats/employees/headcount/' + date, config);
     if (!response.ok) {
       throw new Error(`HTTP error! Status: ${response.status}`);
     }
@@ -50,16 +57,24 @@ export const sortedEvents = events => {
 
 export async function getEvents(setEvents) {
   try {
-    const response = await fetch('https://api.trustworks.dk/public/news/office_display', config);
+    const response = await fetch('/public/news/office_display', {
+      method: 'GET',
+      headers: {
+        'Accept': 'application/json',
+        'Authorization': `Bearer ${process.env.REACT_APP_TOKEN}`
+      }
+    })
+    
+    console.log('res', response)
     if (!response.ok) {
       throw new Error(`HTTP error! Status: ${response.status}`);
     }
     const events = await response.json()
-    
+
     // const events = require('./events.json');
 
     setEvents(sortedEvents(events))
-    
+
   } catch (error) {
     console.error('Error fetching events:', error.message);
     throw error;
@@ -68,7 +83,7 @@ export async function getEvents(setEvents) {
 
 export async function getProjects(setProjects) {
   try {
-    const response = await fetch('https://api.trustworks.dk/public/knowledge/projects', config);
+    const response = await fetch(' /public/knowledge/projects/', config);
     if (!response.ok) {
       throw new Error(`HTTP error! Status: ${response.status}`);
     }
@@ -95,7 +110,7 @@ export async function getProjects(setProjects) {
 
 export async function getEmployeePhotoUuid(useruuid) {
   try {
-    const response = await fetch(`https://api.trustworks.dk/public/users/${useruuid}/photo`, config);
+    const response = await fetch(`/public/users/${useruuid}/photo/`, config);
 
     if (!response.ok) {
       throw new Error(`HTTP error! Status: ${response.status}`);
@@ -112,7 +127,7 @@ export async function getEmployeePhotoUuid(useruuid) {
 
 export async function getConsultants(setConsultants) {
   try {
-    const response = await fetch('https://api.trustworks.dk/public/users', config);
+    const response = await fetch('/public/users/', config);
 
     if (!response.ok) {
       throw new Error(`HTTP error! Status: ${response.status}`);
@@ -152,7 +167,7 @@ export function getActiveConsultants(consultants) {
 
 export async function getClients(setClients) {
   try {
-    const response = await fetch('https://api.trustworks.dk/public/clients', config);
+    const response = await fetch('/public/clients/', config);
 
     if (!response.ok) {
       throw new Error(`HTTP error! Status: ${response.status}`);
@@ -171,7 +186,7 @@ export async function getClients(setClients) {
 
 export async function getClientLogoUudid(clientuuid) {
   try {
-    const response = await fetch(`https://api.trustworks.dk/public/files/photos/${clientuuid}`, config);
+    const response = await fetch(`/public/files/photos/${clientuuid}/`, config);
 
     if (!response.ok) {
       throw new Error(`HTTP error! Status: ${response.status}`);
@@ -194,7 +209,7 @@ export async function updateClientListWithIdPhoto(projects, setClients) {
     await Promise.all(
       projects?.map(async (project) => {
         const response = await fetch(
-          `https://api.trustworks.dk/public/files/photos/${project.clientuuid}`,
+          `/public/files/photos/${project.clientuuid}`,
           config
         );
 
@@ -216,4 +231,25 @@ export async function updateClientListWithIdPhoto(projects, setClients) {
   }
 }
 
+export const getCoffeeMeetings = async (setCoffeeMeetings) => {
+  // try {
+  //   const response = await fetch(' /public/foo/bar/coffeemeetings/' + date, config);
+  //   if (!response.ok) {
+  //     throw new Error(`HTTP error! Status: ${response.status}`);
+  //   }
+  //   const meetings = await response.json()
+  //   setCoffeeMeetings(meetings)
+  // } catch (error) {
+  //   console.error('Error fetching headcount:', error.message);
+  //   throw error;
+  // }
+  const data = require('./meetings.json').map(sector => {
+    return {
+      ...sector,
+      consultants: sector.consultants.sort((a, b) => b.count - a.count)
+    }
+  })
+  setCoffeeMeetings(data)
+
+}
 

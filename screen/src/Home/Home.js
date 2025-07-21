@@ -10,18 +10,18 @@ import {
   getConsultants,
   getEvents,
   getHeadcount,
+  getCoffeeMeetings
 } from "../Components/API";
 import HomeCard from "./HomeCard";
 import Calendar from "../Components/Calendar";
-import Flyer from "../Components/Flyer";
-import IndustryInsight from '../FlyerImg/IndInsTest.png';
-// import ChristmasSweater from '../img/CS.png';
+import IndustryInsights from "../Components/IndustryInsights";
+import Flyer from "../Components/Flyer"
+import ENPS1 from "../img/ENPS1.png"
+import ENPS2 from "../img/ENPS2.png"
+import ENPS3 from "../img/ENPS3.png"
+import ENPS4 from "../img/ENPS4.png"
+import udlandsturBilled from "../img/udlandsturBilled.png"
 
-let counter = 0
-const flyers = [
-  IndustryInsight,
-  // ChristmasSweater
-]
 
 const INTERVAL = 1000 * 30; // 30 seconds
 const CALENDAR_INTERVAL = 5; // every 5 slides
@@ -35,6 +35,7 @@ const Home = () => {
   const [consultants, setConsultants] = useState([]);
   const [clientList, setClientList] = useState([]);
   const [events, setEvents] = useState([]);
+  const [coffeeMeetings, setCoffeeMeetings] = useState([]);
   const [headcount, setHeadcount] = useState([]);
   const [isPortrait, setOrientation] = useState(
     window.matchMedia("(orientation: portrait)").matches
@@ -45,14 +46,14 @@ const Home = () => {
   );
 
   useEffect(() => {
-    getProjects(setProjects);
     getConsultants(setConsultants);
+    getProjects(setProjects);
     getEvents(setEvents);
     getHeadcount(setHeadcount);
   }, []);
 
   useEffect(() => {
-    if (projects.length > 0 && consultants.length > 0 && events.length > 0) {
+    if (projects.length > 0 && employees.length > 0 && events.length > 0) {
       // Create a Set of active consultant IDs
       const activeConsultantIds = new Set(
         consultants.map(consultant => consultant.uuid)
@@ -60,7 +61,6 @@ const Home = () => {
       events.forEach(event => {
         activeConsultantIds.add(event.createdBy);
       });
-
 
       // Filter projects to only include active consultants in projectDescriptionUserList
       const filteredProjects = projects.map((project) => ({
@@ -83,43 +83,33 @@ const Home = () => {
 
       setActiveProjects(projectsActiveLastYear);
     }
-  }, [projects, consultants, events]);
+  }, [projects, employees, events]);
+
+  useEffect(() => {
+    getCoffeeMeetings(setCoffeeMeetings)
+  }, [employees])
 
   // Update employee list based on active consultants
   useEffect(() => {
-    if (activeProjects.length > 0) {
-      const fetchPhotosForActiveConsultants = async () => {
-        const photoPromises = activeProjects.flatMap((project) =>
-          project.projectDescriptionUserList.map(async (user) => {
-            try {
-              const photo = await getEmployeePhotoUuid(user.useruuid);
-              return { id: user.useruuid, file: photo };
-            } catch (error) {
-              console.error(
-                `Error fetching photo for user ${user.useruuid}:`,
-                error
-              );
-              return null;
-            }
-          })
-        );
-
-        const newEmployeeList = (await Promise.all(photoPromises)).filter(
-          Boolean
-        );
-        setEmployeeList(newEmployeeList);
-      };
-
-      fetchPhotosForActiveConsultants();
+    const fetchPhotosForActiveConsultants = async () => {
+      const photoPromises = consultants.flatMap(async consultant => {
+        try {
+          const photo = await getEmployeePhotoUuid(consultant.uuid);
+          return { id: consultant.uuid, file: photo };
+        } catch (error) {
+          console.error(
+            `Error fetching photo for user ${consultant.useruuid}:`,
+            error
+          );
+          return null;
+        }
+      });
+      const newEmployeeList = await Promise.all(photoPromises);
+      console.log('newEmployeeList', newEmployeeList)
+      setEmployeeList(newEmployeeList);
     }
-  }, [activeProjects]);
-
-  //Function to get the employee photo
-  function getEmployeePhoto(props) {
-    const foundItem = employees.find((item) => item.id === props);
-    const photo = foundItem ? foundItem.file : null;
-    return photo;
-  }
+    fetchPhotosForActiveConsultants()
+  }, [consultants]);
 
   // Making list of clients consisting of id and photo file
   useEffect(() => {
@@ -145,6 +135,13 @@ const Home = () => {
     }
   }, [activeProjects]);
 
+  //Function to get the employee photo
+  function getEmployeePhoto(id) {
+    const employee = employees.find(employee => employee.id === id);
+    const photo = employee ? employee.file : null;
+    return photo;
+  }
+
   // Function to get the client logo
   function getClientLogo(props) {
     const foundItem = clientList.find((item) => item.id === props);
@@ -156,22 +153,7 @@ const Home = () => {
     setSelectedTool(tool);
   };
 
-  const ProjectsSlice = ({}) => {
-    activeProjects.map((project, index) => (
-      <Carousel.Item key={index} interval={INTERVAL}>
-        <HomeCard
-          project={project}
-          onToolButtonClick={handleToolButtonClick}
-          getClientLogo={getClientLogo}
-          getEmployeePhoto={getEmployeePhoto}
-          isPortrait={isPortrait}
-        />
-      </Carousel.Item>
-    ));
-  };
-
   const keyDown = evt => {
-    console.log(evt.key)
     if (evt.key === 'PageDown') {
       const elem = document.getElementsByClassName('carousel-control-next')[0]
       elem.click()
@@ -180,36 +162,45 @@ const Home = () => {
       elem.click()
     }
   }
-  
+
+  let flyerCounter = 0
+
   return (
     <Wrapper className="body::before">
       <Carousel onKeyDown={keyDown} id="carousel" data-wrap pause={false}>
-        {activeProjects.map((project, index) => {
-          if (index % CALENDAR_INTERVAL === 0 && index % 2 === 0) {
-            return (
-              <Carousel.Item key={index} interval={INTERVAL * 2}>
-                <Calendar events={events} headcount={headcount} />
-              </Carousel.Item>
-            );
+        {activeProjects && activeProjects.map((project, index) => {
+          if (index % CALENDAR_INTERVAL === 0) {
+            if (index % 2 === 1) {
+              return (
+                <Carousel.Item key={index} interval={INTERVAL * 2}>
+                  {events && headcount && <Calendar events={events} headcount={headcount} />}
+                </Carousel.Item>
+              );
+            } else {
+              if (flyerCounter++ % 2 === 0) {
+                return (
+                  <Carousel.Item key={index} interval={INTERVAL * 2}>
+                    {coffeeMeetings && <IndustryInsights content={coffeeMeetings} getEmployeePhoto={getEmployeePhoto} />}
+                  </Carousel.Item>
+                );
+              } else {
+                return (
+                  <Carousel.Item key={index} interval={INTERVAL * 2}>
+                    <Flyer content={[udlandsturBilled]} />
+                  </Carousel.Item>
+                );
+              }
+            }
           }
-          {/* if (index % CALENDAR_INTERVAL === 0 && index % 2 === 1) {
-            const flyerIndex = counter++ % flyers.length
-            const flyer = flyers[flyerIndex]
-            return (
-              <Carousel.Item key={index} interval={INTERVAL * 2}>
-                <Flyer content={flyer} />
-              </Carousel.Item>
-            );
-          } */}
           return (
             <Carousel.Item key={index} autoFocus interval={INTERVAL}>
-              <HomeCard
+              {project && <HomeCard
+                isPortait={isPortrait}
                 project={project}
                 onToolButtonClick={handleToolButtonClick}
                 getClientLogo={getClientLogo}
                 getEmployeePhoto={getEmployeePhoto}
-                isPortrait={isPortrait}
-              />
+              />}
             </Carousel.Item>
           );
         })}
