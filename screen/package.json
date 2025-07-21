@@ -25,6 +25,7 @@
       "react-app/jest"
     ]
   },
+  "proxy": "https://api.trustworks.dk",
   "browserslist": {
     "production": [
       ">0.2%",
