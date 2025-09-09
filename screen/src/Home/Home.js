@@ -163,34 +163,17 @@ const Home = () => {
     }
   }
 
-  let flyerCounter = 0
-
   return (
     <Wrapper className="body::before">
       <Carousel onKeyDown={keyDown} id="carousel" data-wrap pause={false}>
         {activeProjects && activeProjects.map((project, index) => {
+          // Hvert femte slide er en kalender (eller flyer)
           if (index % CALENDAR_INTERVAL === 0) {
-            if (index % 2 === 1) {
-              return (
-                <Carousel.Item key={index} interval={INTERVAL * 2}>
-                  {events && headcount && <Calendar events={events} headcount={headcount} />}
-                </Carousel.Item>
-              );
-            } else {
-              if (flyerCounter++ % 2 === 0) {
-                return (
-                  <Carousel.Item key={index} interval={INTERVAL * 2}>
-                    {coffeeMeetings && <IndustryInsights content={coffeeMeetings} getEmployeePhoto={getEmployeePhoto} />}
-                  </Carousel.Item>
-                );
-              } else {
-                return (
-                  <Carousel.Item key={index} interval={INTERVAL * 2}>
-                    <Flyer content={[udlandsturBilled]} />
-                  </Carousel.Item>
-                );
-              }
-            }
+            return (
+              <Carousel.Item key={index} interval={INTERVAL * 2}>
+                {events && headcount && <Calendar events={events} headcount={headcount} />}
+              </Carousel.Item>
+            );
           }
           return (
             <Carousel.Item key={index} autoFocus interval={INTERVAL}>
