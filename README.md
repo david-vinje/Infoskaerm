@@ -30,7 +30,7 @@ To get the token, SSH into the Raspi and `echo $REACT_APP_TOKEN`
 4. Choose one of the pools, e.g. Default
 5. Click "New Agent" and follow the guide - the following steps of downloading, creating, and configuring the agent should be done on the on the Raspi itself
   
-### – Common errors –
+### Common errors
 #### Try reboot first:
 SSSH in and `sudo reboot now`
 
