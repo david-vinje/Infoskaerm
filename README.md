@@ -22,6 +22,13 @@ To get the token, SSH into the Raspi and `echo $REACT_APP_TOKEN`
 2. Rotate screen: `~/rotate-screen.sh`  
 3. Screen resolution: `~/screen-resolution.sh` 
 4. (Doesn't currently work) Tab to "tab into" the screen so the clicker works: `~/tab.sh`
+
+### How to add a new pipeline agent
+1. Go to Project settings
+2. Go to Pipelines -> Agent pools
+3. Optional: Click "Add pool" to create new agent pool if needed
+4. Choose one of the pools, e.g. Default
+5. Click "New Agent" and follow the guide - the following steps of downloading, creating, and configuring the agent should be done on the on the Raspi itself
   
 ### – Common errors –
 #### Try reboot first:
