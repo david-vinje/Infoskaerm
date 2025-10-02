@@ -7,10 +7,11 @@
 
 ### To run locally:
   1. Get the `REACT_APP_TOKEN` variable and put in a `.env` file in the `/screen` folder
-  To get the token, SSH into the Raspi and `echo $REACT_APP_TOKEN`
   2. Then `cd screen` + `npm install` + `npm start`
 
-### This project uses the Intranet API:
+To get the token, SSH into the Raspi and `echo $REACT_APP_TOKEN`
+
+### This project uses the Intranet API: 
 [TW intranet API](https://api.trustworks.dk/q/swagger-ui/)
 
 ### Dot "." is mapped to "Tab" because of clicker
@@ -22,7 +23,11 @@
 3. Screen resolution: `~/screen-resolution.sh` 
 4. (Doesn't currently work) Tab to "tab into" the screen so the clicker works: `~/tab.sh`
   
-In case resolution on screen is bad: 
+### – Common errors –
+#### Try reboot first:
+SSSH in and `sudo reboot now`
+
+#### In case resolution on screen gets bad: 
   1. Go to raspi-config file `sudo raspi-config`
   2. Select `Advanced Options`
   3. Select `Wayland`
@@ -30,7 +35,7 @@ In case resolution on screen is bad:
   5. Reboot raspi
   6. See also script for screen-resolution in screenResolutionScript.txt
 
-In case of error code `Bash exited with code '1'` or `Got permission denied while trying to connect to the Docker daemon socket at unix:///var/run/docker.sock` when building docker:
+#### In case of error code `Bash exited with code '1'` or `Got permission denied while trying to connect to the Docker daemon socket at unix:///var/run/docker.sock` when building docker:
   1. Check user rights in Docker: `ls -l /var/run/docker.sock`. Expected output: `srwxrwxrwx`
   2. If user rights are not right then
       a. Create docker group if not exist : `sudo groupadd docker`
