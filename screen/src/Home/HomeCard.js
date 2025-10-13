@@ -24,9 +24,9 @@ const HomeCard = ({
           <h1 className="project-name pt-5 display-1">{project.name}</h1>
           <ProjectStatus project={project}></ProjectStatus>
           <div className="col-8 right-border lh-lg project-description">
-            <h1 className="display-5">Formål</h1>
+            <h1 className="display-5">Situation</h1>
             <p className="mb-3">{project.purpose}</p>
-            <h1 className="display-5">Trustworks' rolle</h1>
+            <h1 className="display-5">Løsning</h1>
             <p className="mb-3">{project.role}</p>
             <Learnings learnings={project.learnings}></Learnings>
           </div>
@@ -111,9 +111,9 @@ const HomeCard = ({
             <h1 className="project-name pt-5 display-1 d-flex">{project.name}</h1>
             <ProjectStatus project={project}></ProjectStatus>
             <div className="col-10 lh-lg project-description">
-              <h1 className="display-5">Formål</h1>
+              <h1 className="display-5">Situation</h1>
               <p className="mb-5">{project.purpose}</p>
-              <h1 className="display-5">Trustworks' rolle</h1>
+              <h1 className="display-5">Løsning</h1>
               <p className="mb-5">{project.role}</p>
               <Learnings learnings={project.learnings}></Learnings>
             </div>
@@ -158,11 +158,11 @@ const Counter = ({ project }) => {
 };
 
 const Learnings = ({ learnings }) => {
-  if (learnings != null) {
+  // if (learnings != null) {
     return (
-      <><h1 className="display-5">Vores læringer</h1><p>{learnings}</p></>
+      <><h1 className="display-5">Værdi</h1><p>{learnings}</p></>
     );
-  }
+  // }
 };
 
 

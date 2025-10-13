@@ -15,6 +15,7 @@ import Beach from "../Icons/Vacation";
 import Construction from "../Icons/Construction";
 import giphy from '../img/michael.webp'
 import { dateOnly } from "../Components/API";
+import QR from "../img/QR.png"
 
 const SMALL_ICON = "60px"
 const BIG_ICON = "100px"
@@ -59,7 +60,7 @@ const Heading = ({ text }) => (
     <div className="col-10">
       <h1 className="display-1 pt-5" style={{ color: "black" }}>{text}</h1>
     </div>
-    <div className="col-2 text-center " >
+    <div className="col text-center " >
       <TWIcon height={"150px"} width={"150px"} fill={BLUE} />
     </div>
   </div>
@@ -115,7 +116,8 @@ const Infocards = ({ events, headcount }) => (
       <Countdown events={events} />
     </div>
     <div className="col">
-      <GoodPeople headcount={headcount} />
+      {/* <GoodPeople headcount={headcount} /> */}
+      <TrustME />
     </div>
   </div>
 )
@@ -181,6 +183,20 @@ const GoodPeople = ({ headcount }) => (
     </Card.Body>
   </Card>
 )
+
+const TrustME = ({ }) => (
+  <Card className="h-100 border border-secondary">
+    <Card.Body className="row p-3">
+      <div className="col-8 d-flex justify-content-evenly flex-column ">
+        <p className="display-5">Trust ME!</p>
+        <p className="text-description">... scan this QR code ➡️</p>
+      </div>
+      <div className="col align-self-end text-end">
+        <img src={QR} />
+      </div>
+    </Card.Body>
+  </Card>
+  )
 
 const GoodPeopleStatus = ({ headcount }) => {
   return (

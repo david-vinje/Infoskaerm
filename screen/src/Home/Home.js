@@ -1,30 +1,24 @@
-import React, { useEffect, useState } from "react";
-import { Wrapper } from "./Home.styles";
-import { useNavigate } from "react-router-dom";
-import { useToolContext } from "../Contexts/ToolContext";
+import { useEffect, useState } from "react";
 import { Carousel } from "react-bootstrap";
+import { useNavigate } from "react-router-dom";
 import {
-  getProjects,
   getClientLogoUudid,
-  getEmployeePhotoUuid,
+  getCoffeeMeetings,
   getConsultants,
+  getEmployeePhotoUuid,
   getEvents,
   getHeadcount,
-  getCoffeeMeetings
+  getProjects
 } from "../Components/API";
-import HomeCard from "./HomeCard";
 import Calendar from "../Components/Calendar";
-import IndustryInsights from "../Components/IndustryInsights";
+import { useToolContext } from "../Contexts/ToolContext";
+import TrustME from "../img/Trust ME.png";
+import { Wrapper } from "./Home.styles";
+import HomeCard from "./HomeCard";
 import Flyer from "../Components/Flyer"
-import ENPS1 from "../img/ENPS1.png"
-import ENPS2 from "../img/ENPS2.png"
-import ENPS3 from "../img/ENPS3.png"
-import ENPS4 from "../img/ENPS4.png"
-import udlandsturBilled from "../img/udlandsturBilled.png"
-
 
 const INTERVAL = 1000 * 30; // 30 seconds
-const CALENDAR_INTERVAL = 5; // every 5 slides
+const CALENDAR_INTERVAL = 4; // every 5 slides
 
 const Home = () => {
   const navigate = useNavigate();
@@ -163,15 +157,24 @@ const Home = () => {
     }
   }
 
+  let count = 0
+
   return (
     <Wrapper className="body::before">
       <Carousel onKeyDown={keyDown} id="carousel" data-wrap pause={false}>
         {activeProjects && activeProjects.map((project, index) => {
           // Hvert femte slide er en kalender (eller flyer)
           if (index % CALENDAR_INTERVAL === 0) {
+            if (count++ % 2 === 0) {
+              return (
+                <Carousel.Item key={index} interval={INTERVAL * 2}>
+                  {events && headcount && <Calendar events={events} headcount={headcount} />}
+                </Carousel.Item>
+              );
+            } 
             return (
               <Carousel.Item key={index} interval={INTERVAL * 2}>
-                {events && headcount && <Calendar events={events} headcount={headcount} />}
+                <Flyer content={[TrustME]} />
               </Carousel.Item>
             );
           }

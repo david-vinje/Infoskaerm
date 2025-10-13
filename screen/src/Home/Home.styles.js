@@ -1,9 +1,6 @@
 import styled from "styled-components"
 
-
 export const Wrapper = styled.div`
-
-
 
 * {
     margin-top: 0;
@@ -12,6 +9,7 @@ export const Wrapper = styled.div`
     padding-bottom: 0;
     ${'' /* line-height: 1.75; */}
 }
+
 .container, .container-fluid {
     height: 98vh;
     padding: 5rem;
