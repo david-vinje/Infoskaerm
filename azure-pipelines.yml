@@ -14,25 +14,29 @@ pr:
     include:
       - screen/src/**
 
+pool:
+  name: ScreenAgent
+
 jobs:
-- job: DockerBuildRun
-  pool:
-    name: ScreenAgent
+- job: Stop
   steps:
-  - checkout: self
-
-  - script: docker stop screen || true
-    displayName: Stop Docker container
-
-  - script: docker system prune -a -f
-    displayName: Prune Docker system
+  - script: docker rm -f screen || true
+    displayName: Stop and remove existing container
 
   - script: killall chromium-browser || true
     displayName: Kill Chromium process
 
+- job: Build
+  dependsOn: Stop
+  steps:
+  - checkout: self
+
   - script: docker build --build-arg REACT_APP_TOKEN=$(REACT_APP_TOKEN) -t screen -f screen/Dockerfile .
     displayName: Docker Build
 
+- job: Run
+  dependsOn: Build
+  steps:
   - script: docker run -e REACT_APP_TOKEN=$(REACT_APP_TOKEN) -d --restart=always --name screen -p 3000:3000 screen
     displayName: Docker Run
 
