@@ -18,7 +18,7 @@ import HomeCard from "./HomeCard";
 import Flyer from "../Components/Flyer"
 
 const INTERVAL = 1000 * 30; // 30 seconds
-const CALENDAR_INTERVAL = 4; // every 5 slides
+const CALENDAR_INTERVAL = 4; // every x slides
 
 const Home = () => {
   const navigate = useNavigate();
@@ -163,7 +163,7 @@ const Home = () => {
     <Wrapper className="body::before">
       <Carousel onKeyDown={keyDown} id="carousel" data-wrap pause={false}>
         {activeProjects && activeProjects.map((project, index) => {
-          // Hvert femte slide er en kalender (eller flyer)
+          // Hvert CALENDAR_INTERVAL slide er en kalender eller flyer
           if (index % CALENDAR_INTERVAL === 0) {
             if (count++ % 2 === 0) {
               return (
