@@ -174,16 +174,13 @@ const Home = () => {
             }
             return (
               <Carousel.Item key={index} interval={INTERVAL * 2}>
-                {/* <Flyer content={[TrustME]} />  */}
-
-                {/* <div className="flex h-25 w-25 items-center justify-center border border-primary"> */}
                 <div style={{
                   display: "flex",
                   justifyContent: "center",
                   alignItems: "center",
                   height: "98vh"
                 }}>
-                  <iframe style={{ height: "92vh", width: "75vw", overflow: "hidden", borderRadius: "15px" }} scrolling="no" src="http://192.168.1.123" frameborder="0"></iframe>
+                  <iframe style={{ height: "100vh", width: "75vw", overflow: "hidden", borderRadius: "15px" }} scrolling="no" src="http://192.168.1.123" frameborder="0"></iframe>
                   
                 </div>
               </Carousel.Item>
