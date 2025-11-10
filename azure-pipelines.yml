@@ -15,7 +15,7 @@ pr:
       - screen/src/**
 
 pool:
-  name: ScreenAgent
+  name: Service Desk
 
 # jobs:
 # - job: Stop
