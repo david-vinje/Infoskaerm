@@ -4,6 +4,8 @@ FROM node:18-alpine
 # Set the working directory in the container
 WORKDIR /screen
 
+#ENV REACT_APP_TOKEN=$(REACT_APP_TOKEN)
+
 # Copy package.json and package-lock.json to the container
 COPY screen/package*.json ./
 

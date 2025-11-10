@@ -160,7 +160,7 @@ const Home = () => {
   let count = 0
 
   return (
-    <Wrapper className="body::before">
+    <Wrapper className="body::before ">
       <Carousel onKeyDown={keyDown} id="carousel" data-wrap pause={false}>
         {activeProjects && activeProjects.map((project, index) => {
           // Hvert CALENDAR_INTERVAL slide er en kalender eller flyer
@@ -171,10 +171,21 @@ const Home = () => {
                   {events && headcount && <Calendar events={events} headcount={headcount} />}
                 </Carousel.Item>
               );
-            } 
+            }
             return (
               <Carousel.Item key={index} interval={INTERVAL * 2}>
-                <Flyer content={[TrustME]} />
+                {/* <Flyer content={[TrustME]} />  */}
+
+                {/* <div className="flex h-25 w-25 items-center justify-center border border-primary"> */}
+                <div style={{
+                  display: "flex",
+                  justifyContent: "center",
+                  alignItems: "center",
+                  height: "98vh"
+                }}>
+                  <iframe style={{ height: "92vh", width: "75vw", overflow: "hidden", borderRadius: "15px" }} scrolling="no" src="http://192.168.1.123" frameborder="0"></iframe>
+                  
+                </div>
               </Carousel.Item>
             );
           }
@@ -191,7 +202,7 @@ const Home = () => {
           );
         })}
       </Carousel>
-    </Wrapper>
+    </Wrapper >
   );
 };
 
