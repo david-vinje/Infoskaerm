@@ -45,8 +45,6 @@ pool:
 
 jobs:
 - job: DockerCompose
-  pool:
-    name: ScreenAgent
   steps:
   - checkout: self
 
