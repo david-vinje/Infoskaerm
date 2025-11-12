@@ -12,7 +12,7 @@ import {
 } from "../Components/API";
 import Calendar from "../Components/Calendar";
 import { useToolContext } from "../Contexts/ToolContext";
-import TrustME from "../img/Trust ME.png";
+import GÅ_HJEM from "../img/GÅ-HJEM.png";
 import { Wrapper } from "./Home.styles";
 import HomeCard from "./HomeCard";
 import Flyer from "../Components/Flyer"
@@ -174,15 +174,15 @@ const Home = () => {
             }
             return (
               <Carousel.Item key={index} interval={INTERVAL * 2}>
-                <div style={{
+                {/* <div style={{
                   display: "flex",
                   justifyContent: "center",
                   alignItems: "center",
                   height: "98vh"
                 }}>
                   <iframe style={{ height: "100vh", width: "75vw", overflow: "hidden", borderRadius: "15px" }} scrolling="no" src="http://192.168.1.123" frameborder="0"></iframe>
-                  
-                </div>
+                </div> */}
+                <Flyer content={[GÅ_HJEM]} />
               </Carousel.Item>
             );
           }
