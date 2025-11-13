@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Carousel } from "react-bootstrap";
+import { Carousel, CarouselItem } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 import {
   getClientLogoUudid,
@@ -162,7 +162,8 @@ const Home = () => {
   return (
     <Wrapper className="body::before ">
       <Carousel onKeyDown={keyDown} id="carousel" data-wrap pause={false}>
-        {activeProjects && activeProjects.map((project, index) => {
+          <Flyer content={[GÅ_HJEM]} />
+        {/* {activeProjects && activeProjects.map((project, index) => {
           // Hvert CALENDAR_INTERVAL slide er en kalender eller flyer
           if (index % CALENDAR_INTERVAL === 0) {
             if (count++ % 2 === 0) {
@@ -174,15 +175,14 @@ const Home = () => {
             }
             return (
               <Carousel.Item key={index} interval={INTERVAL * 2}>
-                {/* <div style={{
+                 <div style={{
                   display: "flex",
                   justifyContent: "center",
                   alignItems: "center",
                   height: "98vh"
                 }}>
                   <iframe style={{ height: "100vh", width: "75vw", overflow: "hidden", borderRadius: "15px" }} scrolling="no" src="http://192.168.1.123" frameborder="0"></iframe>
-                </div> */}
-                <Flyer content={[GÅ_HJEM]} />
+                </div> 
               </Carousel.Item>
             );
           }
@@ -197,7 +197,7 @@ const Home = () => {
               />}
             </Carousel.Item>
           );
-        })}
+        })} */}
       </Carousel>
     </Wrapper >
   );
