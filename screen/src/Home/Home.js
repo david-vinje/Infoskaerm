@@ -131,8 +131,8 @@ const Home = () => {
 
   //Function to get the employee photo
   function getEmployeePhoto(id) {
-    const employee = employees.find(employee => employee.id === id);
-    const photo = employee ? employee.file : null;
+    const employee = employees.find(employee => employee?.id === id);
+    const photo = employee ? employee?.file : null;
     return photo;
   }
 

@@ -1,7 +1,5 @@
 const token = process.env.REACT_APP_TOKEN
 
-console.log('token', token)
-
 export const config = {
   headers: {
     'accept': 'application/json',
@@ -187,6 +185,7 @@ export async function getClients(setClients) {
 export async function getClientLogoUudid(clientuuid) {
   try {
     const response = await fetch(`/public/files/photos/${clientuuid}/`, config);
+    debugger
 
     if (!response.ok) {
       throw new Error(`HTTP error! Status: ${response.status}`);

@@ -94,7 +94,7 @@ const FindProject = () => {
 
             //Update projectDescriptionUserList with Consultant name
             const updatedProjectDescriptionUserList = project.projectDescriptionUserList.map((employee) => {
-                const consultant = consultants.find((user) => user.uuid === employee.useruuid);
+                const consultant = consultants.find((user) => user.uuid === employee?.useruuid);
                 const consultantFirstName = consultant ? (consultant.firstName) : 'Konsulent fornavn ukendt';
                 const consultantLastName = consultant ? (consultant.lastName) : 'Konsulent efternavn ukendt';
                 return { ...employee, firstName: consultantFirstName, lastName: consultantLastName };
