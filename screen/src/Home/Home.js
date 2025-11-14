@@ -162,11 +162,10 @@ const Home = () => {
   return (
     <Wrapper className="body::before ">
       <Carousel onKeyDown={keyDown} id="carousel" data-wrap pause={false}>
-          <Flyer content={[GÅ_HJEM]} />
-        {/* {activeProjects && activeProjects.map((project, index) => {
+        {activeProjects && activeProjects.map((project, index) => {
           // Hvert CALENDAR_INTERVAL slide er en kalender eller flyer
           if (index % CALENDAR_INTERVAL === 0) {
-            if (count++ % 2 === 0) {
+            if (count++ % 2 === 1) {
               return (
                 <Carousel.Item key={index} interval={INTERVAL * 2}>
                   {events && headcount && <Calendar events={events} headcount={headcount} />}
@@ -181,7 +180,7 @@ const Home = () => {
                   alignItems: "center",
                   height: "98vh"
                 }}>
-                  <iframe style={{ height: "100vh", width: "75vw", overflow: "hidden", borderRadius: "15px" }} scrolling="no" src="http://192.168.1.123" frameborder="0"></iframe>
+                  <iframe style={{ height: "95vh", width: "75vw", overflow: "hidden", borderRadius: "15px" }} scrolling="no" src="http://192.168.1.123" frameborder="0"></iframe>
                 </div> 
               </Carousel.Item>
             );
@@ -197,7 +196,7 @@ const Home = () => {
               />}
             </Carousel.Item>
           );
-        })} */}
+        })}
       </Carousel>
     </Wrapper >
   );
