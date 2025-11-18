@@ -180,7 +180,7 @@ const Home = () => {
                   alignItems: "center",
                   height: "98vh"
                 }}>
-                  <iframe style={{ height: "95vh", width: "75vw", overflow: "hidden", borderRadius: "15px" }} scrolling="no" src="http://192.168.1.123" frameborder="0"></iframe>
+                  <iframe style={{ height: "90vh", width: "75vw", overflow: "hidden", borderRadius: "15px" }} scrolling="no" src="http://192.168.1.123" frameborder="0"></iframe>
                 </div> 
               </Carousel.Item>
             );
