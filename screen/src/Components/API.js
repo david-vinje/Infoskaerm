@@ -9,7 +9,6 @@ export const config = {
 
 async function fetchHeadcount(date) {
   try {
-    debugger
     const response = await fetch('/public/stats/employees/headcount/' + date, config);
     if (!response.ok) {
       throw new Error(`HTTP error! Status: ${response.status}`);
@@ -87,7 +86,6 @@ export async function getProjects(setProjects) {
       throw new Error(`HTTP error! Status: ${response.status}`);
     }
     const data = await response.json()
-    debugger
 
     // const data = require('./projects.json');
 
