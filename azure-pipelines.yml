@@ -15,7 +15,7 @@ pr:
       - screen/src/**
 
 pool:
-  name: Service Desk
+  name: Project Screen
 
 jobs:
 - job: Stop
