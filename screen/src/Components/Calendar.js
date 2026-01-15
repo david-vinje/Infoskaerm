@@ -36,6 +36,12 @@ const getIcon = {
   "OTHER": <Rocket height={BIG_ICON} width={BIG_ICON} stroke={BLUE} />
 }
 
+const stripHTML = content => {
+  const html = document.createElement("div")
+  html.innerHTML = content
+  return html.textContent ?? html.innerText ?? ""
+}
+
 const Calendar = ({ events, headcount }) => {
   const infoboxes = getInfoboxes(events)
 
@@ -92,15 +98,15 @@ const Infoboxes = ({ infoboxes }) => (
   An infobox is not allowed have more than six lines of text
 */
 const Infobox = ({ infobox }) => (
-  <div className="row infobox bg-blue border border-secondary mt-5 w-100 mh-25 mx-auto p-4">
+  <div className="row infobox bg-blue border border-secondary mt-5 w-100 mh-25 mx-auto p-4" >
     <div className="col-1 align-self-center text-center ps-0">
       <div className="text-light">
         {getIcon[infobox.newsType]}
       </div>
     </div>
     <div className="col-11 text-light px-3">
-      <p className="display-5"> {infobox.description}</p>
-      <p className="text-description text-ellipsis-6">{infobox.text}</p>
+      {/* <p className="display-5"> {infobox.description}</p>
+        <p className="text-description text-ellipsis-6">{infobox.text}</p> */}
     </div>
   </div>
 )
@@ -132,13 +138,36 @@ const Countdown = ({ events }) => {
   })
   const event = relevantEvents[0]
   const countdown = getCountdown(event)
+  const text = stripHTML(event.text)
+  return (
+    <Card className="h-100 border-secondary">
+      <Card.Body className="p-3">
+        <div className="row">
+          <div className="col">
+            <p className="display-5">Nedtælling</p>
+          </div>
+          <div className="col text-end">
+            {
+              countdown === 0
+                ? <p className="display-1 ">I dag</p>
+                : <p className="display-1 ">{`${countdown} ${countdown === 1 ? "dag" : "dage"} til`}</p>
+            }
+          </div>
+        </div>
+        <div className="row mt-4">
+          <p className="display-6 event-text">{text}</p>
+        </div>
+      </Card.Body>
+    </Card>
+  )
+
   return (
     <Card className="h-100 border-secondary">
       <Card.Body className="row p-3">
         <p className="display-5">Nedtælling</p>
         <div className="col-3 pe-0 d-flex flex-column">
           {countdown === 0
-            ? <img src={giphy} alt="" width={"175px"} height={"150px"}/>
+            ? <img src={giphy} alt="" width={"175px"} height={"150px"} />
             : <></>
           }
         </div>
@@ -174,7 +203,7 @@ const GoodPeople = ({ headcount }) => (
       <div className="col d-flex flex-column ">
         <p className="display-5">Trustworkers</p>
         <p className="text-description">siden d.d. sidste år</p>
-        <GoodPeopleStatus headcount={headcount[1]}/>
+        <GoodPeopleStatus headcount={headcount[1]} />
       </div>
       <div className="col align-self-end text-end">
         <p className="display-1">{headcount[0]}</p>
@@ -196,13 +225,13 @@ const TrustME = ({ }) => (
       </div>
     </Card.Body>
   </Card>
-  )
+)
 
 const GoodPeopleStatus = ({ headcount }) => {
   return (
     <div className={'border center w-50 py-3 rounded ' + (headcount < 0 ? 'bg-red' : 'bg-green')} >
-        <UpArrowIcon className={headcount < 0 ? 'down-turned' : ''} height="32px" width="32px" />
-        <p className="display-6 ms-1">{headcount} %</p>
+      <UpArrowIcon className={headcount < 0 ? 'down-turned' : ''} height="32px" width="32px" />
+      <p className="display-6 ms-1">{headcount} %</p>
     </div>
   )
 }
@@ -226,6 +255,7 @@ const Events = ({ events }) => (
 const Event = ({ event }) => {
   const [day, month] = formatDate(event.eventDate)
   const isToday = getCountdown(event) === 0
+  const text = stripHTML(event.text)
   if (event.newsType !== "INFO") {
     return (
       <div className="list-group-item py-3 ps-0 pe-3 my-2 d-flex align-items-center border border-secondary">
@@ -242,7 +272,7 @@ const Event = ({ event }) => {
         </div>
         <div className="col-10">
           <div>
-            <p className="event-text display-6">{event.text}</p>
+            <p className="event-text display-6">{text}</p>
           </div>
         </div>
         <div className="col-1 text-end">
