@@ -105,8 +105,8 @@ const Infobox = ({ infobox }) => (
       </div>
     </div>
     <div className="col-11 text-light px-3">
-      {/* <p className="display-5"> {infobox.description}</p>
-        <p className="text-description text-ellipsis-6">{infobox.text}</p> */}
+      <p className="display-5"> {infobox.description}</p>
+      <p className="text-description text-ellipsis-6">{infobox.text}</p>
     </div>
   </div>
 )
@@ -116,13 +116,12 @@ const Infobox = ({ infobox }) => (
   being the countdown to the next conference or internal event
   and the increased number of "good people" over the last year
 */
-const Infocards = ({ events, headcount }) => (
+const Infocards = ({ events }) => (
   <div className="row pt-5">
     <div className="col">
       <Countdown events={events} />
     </div>
     <div className="col">
-      {/* <GoodPeople headcount={headcount} /> */}
       <TrustME />
     </div>
   </div>
@@ -141,21 +140,21 @@ const Countdown = ({ events }) => {
   const text = stripHTML(event.text)
   return (
     <Card className="h-100 border-secondary">
-      <Card.Body className="p-3">
+      <Card.Body className="p-4">
         <div className="row">
           <div className="col">
-            <p className="display-5">Nedtælling</p>
+            <h5 className="display-4">Nedtælling</h5>
           </div>
           <div className="col text-end">
             {
               countdown === 0
-                ? <p className="display-1 ">I dag</p>
+                ? <img src={giphy} alt="" width={"175px"} height={"150px"} />
                 : <p className="display-1 ">{`${countdown} ${countdown === 1 ? "dag" : "dage"} til`}</p>
             }
           </div>
         </div>
         <div className="row mt-4">
-          <p className="display-6 event-text">{text}</p>
+            <p className="display-6 event-text">{text}</p>
         </div>
       </Card.Body>
     </Card>
