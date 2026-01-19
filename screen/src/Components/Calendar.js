@@ -137,7 +137,7 @@ const Countdown = ({ events }) => {
   })
   const event = relevantEvents[0]
   const countdown = getCountdown(event)
-  const text = stripHTML(event.text)
+  const text = stripHTML(event?.text ?? "")
   return (
     <Card className="h-100 border-secondary">
       <Card.Body className="p-4">
@@ -146,43 +146,14 @@ const Countdown = ({ events }) => {
             <h5 className="display-4">Nedtælling</h5>
           </div>
           <div className="col text-end">
-            {
-              countdown === 0
-                ? <img src={giphy} alt="" width={"175px"} height={"150px"} />
-                : <p className="display-1 ">{`${countdown} ${countdown === 1 ? "dag" : "dage"} til`}</p>
-            }
+            {countdown ? (countdown === 0
+              ? <img src={giphy} alt="" width={"175px"} height={"150px"} />
+              : <p className="display-1 ">{`${countdown} ${countdown === 1 ? "dag" : "dage"} til`}</p>)
+              : <p className="display-6">Ingen kommende begivenheder</p>}
           </div>
         </div>
         <div className="row mt-4">
-            <p className="display-6 event-text">{text}</p>
-        </div>
-      </Card.Body>
-    </Card>
-  )
-
-  return (
-    <Card className="h-100 border-secondary">
-      <Card.Body className="row p-3">
-        <p className="display-5">Nedtælling</p>
-        <div className="col-3 pe-0 d-flex flex-column">
-          {countdown === 0
-            ? <img src={giphy} alt="" width={"175px"} height={"150px"} />
-            : <></>
-          }
-        </div>
-        <div className="col-9 ps-0 text-end">
-          {
-            event?.text
-              ? <div>
-                {
-                  countdown === 0
-                    ? <p className="display-1 mt-auto">I dag</p>
-                    : <p className="display-1 mt-auto">{`${countdown} ${countdown === 1 ? "dag" : "dage"} til`}</p>
-                }
-                <p className="text-description">{event.text}</p>
-              </div>
-              : <p className="display-5">{countdown}</p>
-          }
+          <p className="display-6 event-text">{text}</p>
         </div>
       </Card.Body>
     </Card>
@@ -190,7 +161,7 @@ const Countdown = ({ events }) => {
 }
 
 const getCountdown = event => {
-  if (!event) return "Ingen begivenhed"
+  if (!event) return null
   const today = new Date(new Date().toDateString())
   const eventDate = new Date(event.eventDate)
   return Math.round((eventDate - today) / (24 * 60 * 60 * 1000))
