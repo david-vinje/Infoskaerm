@@ -13,6 +13,10 @@ import {
 import Calendar from "../Components/Calendar";
 import { useToolContext } from "../Contexts/ToolContext";
 import GÅ_HJEM from "../img/GÅ-HJEM.png";
+import HACKER_EVENT from "../img/HackerEventFlyer.png";
+import TRUST_ME from "../img/TrustME.png";
+import NIGEL from "../img/nigel.png";
+import BRINKMANN from "../img/brinkmann.png";
 import { Wrapper } from "./Home.styles";
 import HomeCard from "./HomeCard";
 import Flyer from "../Components/Flyer"
@@ -31,6 +35,7 @@ const Home = () => {
   const [events, setEvents] = useState([]);
   const [coffeeMeetings, setCoffeeMeetings] = useState([]);
   const [headcount, setHeadcount] = useState([]);
+  const [flyerContent, setFlyerContent] = useState([]);
   const [isPortrait, setOrientation] = useState(
     window.matchMedia("(orientation: portrait)").matches
   );
@@ -44,6 +49,8 @@ const Home = () => {
     getProjects(setProjects);
     getEvents(setEvents);
     getHeadcount(setHeadcount);
+    // getFlyerContent(setFlyerContent);
+    setFlyerContent([BRINKMANN, NIGEL, GÅ_HJEM, HACKER_EVENT, TRUST_ME]);
   }, []);
 
   useEffect(() => {
@@ -158,30 +165,39 @@ const Home = () => {
   }
 
   let count = 0
+  let flyerIndex = 0;
 
   return (
     <Wrapper className="body::before ">
       <Carousel onKeyDown={keyDown} id="carousel" data-wrap pause={false}>
         {activeProjects && activeProjects.map((project, index) => {
           // Hvert CALENDAR_INTERVAL slide er en kalender eller flyer
+          count += 1
           if (index % CALENDAR_INTERVAL === 0) {
-            if (count++ % 2 === 1) {
+            if (count % 3 === 0) {
               return (
                 <Carousel.Item key={index} interval={INTERVAL * 2}>
                   {events && headcount && <Calendar events={events} headcount={headcount} />}
                 </Carousel.Item>
               );
+            } 
+            if (count % 3 === 1) {
+              return (
+                <Carousel.Item key={index} interval={INTERVAL * 2}>
+                  <Flyer content={flyerContent[flyerIndex++ % flyerContent.length]} />
+                </Carousel.Item>
+              )
             }
             return (
               <Carousel.Item key={index} interval={INTERVAL * 2}>
-                 <div style={{
+                <div style={{
                   display: "flex",
                   justifyContent: "center",
                   alignItems: "center",
                   height: "98vh"
                 }}>
                   <iframe style={{ height: "86vh", width: "100vw", overflow: "hidden", borderRadius: "15px" }} scrolling="no" src="http://192.168.1.123" frameborder="0"></iframe>
-                </div> 
+                </div>
               </Carousel.Item>
             );
           }

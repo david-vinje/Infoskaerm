@@ -31,6 +31,21 @@ const yearsAgo = years => {
   return dateOnly(new Date(newYear + '-' + month + '-' + day))
 }
 
+export const getFlyerContent = async setContent => {
+  try {
+    const url = "api.cockpit.screen.se/public/files/flyers/"
+    const response = await fetch(url);
+    if (!response.ok) {
+      throw new Error(`HTTP error! Status: ${response.status}`);
+    }
+    const data = await response.json()
+    const flyerUrls = data.map(flyer => flyer.file);
+  } catch (error) {
+    console.error('Error fetching flyer content:', error.message);
+    throw error;
+  }
+}
+
 export const getHeadcount = async setEvents => {
   const A = await fetchHeadcount(yearsAgo(0))
   const B = await fetchHeadcount(yearsAgo(1))
