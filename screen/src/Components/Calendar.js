@@ -85,17 +85,6 @@ const getInfoboxes = events => {
     const isRelevant = event.eventDate >= today && getCountdown(event) <= 30
     return event.newsType === "INFO" && isRelevant;
   });
-  return [
-    {
-      text: "Husk at booke frokost!",
-    },
-    {
-      text: "Husk at booke frokost IGEN!",
-    },
-    {
-      text: "Husk at booke frokost FOR TREJDE GANG!",
-    }
-  ].slice(0, maximumNumberOfBoxesShown)
   return infoboxes.slice(0, maximumNumberOfBoxesShown)
 }
 
