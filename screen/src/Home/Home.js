@@ -20,7 +20,9 @@ import BRINKMANN from "../img/brinkmann.png";
 import { Wrapper } from "./Home.styles";
 import HomeCard from "./HomeCard";
 import Flyer from "../Components/Flyer"
+import Video from "../Components/Video"
 import Letty_test from "../img/letty_test.png"
+import TWVideo from "../videos/TWVideo.mp4"
 
 const INTERVAL = 1000 * 30; // 30 seconds
 const CALENDAR_INTERVAL = 4; // every x slides
@@ -144,6 +146,12 @@ const Home = () => {
     return photo;
   }
 
+  function onEnded() {
+    console.log('video ended')
+    const elem = document.getElementsByClassName('carousel-control-next')[0]
+    elem.click()
+  }
+
   // Function to get the client logo
   function getClientLogo(props) {
     const foundItem = clientList.find((item) => item.id === props);
@@ -175,7 +183,7 @@ const Home = () => {
           // Hvert CALENDAR_INTERVAL slide er en kalender eller flyer
           if (index % CALENDAR_INTERVAL === 0) {
             count += 1
-            if (count % 2 === 0) {
+            if (count % 3 === 0) {
               return (
                 <Carousel.Item key={index} interval={INTERVAL * 2}>
                   {events && headcount && <Calendar events={events} headcount={headcount} />}
@@ -189,6 +197,16 @@ const Home = () => {
             //     </Carousel.Item>
             //   )
             // }
+             
+            if (count % 3 === 1) {
+              
+              return (
+                <Carousel.Item key={index} interval={INTERVAL * 10}>
+                  <Video onEnded={onEnded} content={TWVideo} />
+                </Carousel.Item>
+              )
+            }
+
             return (
               <Carousel.Item key={index} interval={INTERVAL * 2}>
                 <div style={{

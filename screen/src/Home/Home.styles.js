@@ -11,8 +11,8 @@ export const Wrapper = styled.div`
 }
 
 .container, .container-fluid {
-    height: 98vh;
-    padding: 5rem;
+    height: 99vh;
+    padding: 2.5rem;
 }
 
 
