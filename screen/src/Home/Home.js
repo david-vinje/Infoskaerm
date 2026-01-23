@@ -173,22 +173,22 @@ const Home = () => {
       <Carousel onKeyDown={keyDown} id="carousel" data-wrap pause={false}>
         {activeProjects && activeProjects.map((project, index) => {
           // Hvert CALENDAR_INTERVAL slide er en kalender eller flyer
-          count += 1
           if (index % CALENDAR_INTERVAL === 0) {
-            if (count % 3 === 0) {
+            count += 1
+            if (count % 2 === 0) {
               return (
                 <Carousel.Item key={index} interval={INTERVAL * 2}>
                   {events && headcount && <Calendar events={events} headcount={headcount} />}
                 </Carousel.Item>
               );
             } 
-            if (count % 3 === 1) {
-              return (
-                <Carousel.Item key={index} interval={INTERVAL * 2}>
-                  <Flyer content={flyerContent[flyerIndex++ % flyerContent.length]} />
-                </Carousel.Item>
-              )
-            }
+            // if (count % 3 === 1) {
+            //   return (
+            //     <Carousel.Item key={index} interval={INTERVAL * 2}>
+            //       <Flyer content={flyerContent[flyerIndex++ % flyerContent.length]} />
+            //     </Carousel.Item>
+            //   )
+            // }
             return (
               <Carousel.Item key={index} interval={INTERVAL * 2}>
                 <div style={{
