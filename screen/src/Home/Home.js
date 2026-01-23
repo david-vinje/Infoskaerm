@@ -20,6 +20,7 @@ import BRINKMANN from "../img/brinkmann.png";
 import { Wrapper } from "./Home.styles";
 import HomeCard from "./HomeCard";
 import Flyer from "../Components/Flyer"
+import Letty_test from "../img/letty_test.png"
 
 const INTERVAL = 1000 * 30; // 30 seconds
 const CALENDAR_INTERVAL = 4; // every x slides
@@ -50,7 +51,7 @@ const Home = () => {
     getEvents(setEvents);
     getHeadcount(setHeadcount);
     // getFlyerContent(setFlyerContent);
-    setFlyerContent([BRINKMANN, NIGEL, GÅ_HJEM, HACKER_EVENT, TRUST_ME]);
+    setFlyerContent([Letty_test]);
   }, []);
 
   useEffect(() => {
