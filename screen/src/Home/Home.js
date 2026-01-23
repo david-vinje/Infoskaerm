@@ -146,10 +146,11 @@ const Home = () => {
     return photo;
   }
 
-  function onEnded() {
-    console.log('video ended')
+  function onEnded(evt) {
     const elem = document.getElementsByClassName('carousel-control-next')[0]
     elem.click()
+    evt.target.currentTime = 0
+    evt.target.play()
   }
 
   // Function to get the client logo
@@ -197,11 +198,10 @@ const Home = () => {
             //     </Carousel.Item>
             //   )
             // }
-             
+
             if (count % 3 === 1) {
-              
               return (
-                <Carousel.Item key={index} interval={INTERVAL * 10}>
+                <Carousel.Item on key={index} interval={INTERVAL * 2}>
                   <Video onEnded={onEnded} content={TWVideo} />
                 </Carousel.Item>
               )
@@ -215,7 +215,7 @@ const Home = () => {
                   alignItems: "center",
                   height: "98vh"
                 }}>
-                  <iframe style={{ height: "86vh", width: "100vw", overflow: "hidden", borderRadius: "15px" }} scrolling="no" src="http://192.168.1.123" frameborder="0"></iframe>
+                  <iframe style={{ height: "86vh", width: "100vw", overflow: "hidden", borderRadius: "15px" }} src="http://192.168.1.123" />
                 </div>
               </Carousel.Item>
             );

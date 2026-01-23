@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 
 const Video = ({ onEnded, content }) => {
     return (
@@ -9,9 +9,9 @@ const Video = ({ onEnded, content }) => {
                 src={content}
                 autoPlay
                 muted
+                loop
                 onEnded={onEnded}
-                >
-            </video>
+            />
         </div>
 
     )
