@@ -213,9 +213,9 @@ const Home = () => {
                   display: "flex",
                   justifyContent: "center",
                   alignItems: "center",
-                  height: "98vh"
+                  height: "99vh"
                 }}>
-                  <iframe style={{ height: "86vh", width: "100vw", overflow: "hidden", borderRadius: "15px" }} src="http://192.168.1.123" />
+                  <iframe style={{ height: "100vh", width: "100vw", borderRadius: "15px" }} src="http://192.168.1.123" />
                 </div>
               </Carousel.Item>
             );

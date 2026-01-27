@@ -17,8 +17,8 @@ import giphy from '../img/michael.webp'
 import { dateOnly } from "../Components/API";
 import QR from "../img/QR.png"
 
-const SMALL_ICON = "60px"
-const BIG_ICON = "100px"
+const SMALL_ICON = "40px"
+const BIG_ICON = "50px"
 const BLUE = "#5c6a83"
 
 const getIcon = {
@@ -62,12 +62,12 @@ const Calendar = ({ events, headcount }) => {
   The "heading is the title of the page with a TW logo next to it
 */
 const Heading = ({ text }) => (
-  <div className="row">
+  <div className="row align-items-center">
     <div className="col-10">
-      <h1 className="display-1 pt-5" style={{ color: "black" }}>{text}</h1>
+      <h1 style={{ color: "black" }}>{text}</h1>
     </div>
-    <div className="col text-center " >
-      <TWIcon height={"150px"} width={"150px"} fill={BLUE} />
+    <div className="col text-center" >
+      <TWIcon height={75} width={75} fill={BLUE} />
     </div>
   </div>
 
@@ -105,7 +105,7 @@ const Infobox = ({ infobox }) => (
       </div>
     </div>
     <div className="col-11 text-light px-3">
-      <p className="display-5"> {infobox.description}</p>
+      <p className=""> {infobox.description}</p>
       <p className="text-description text-ellipsis-6">{infobox.text}</p>
     </div>
   </div>
@@ -143,17 +143,17 @@ const Countdown = ({ events }) => {
       <Card.Body className="p-4">
         <div className="row">
           <div className="col">
-            <h5 className="display-4">Nedtælling</h5>
+            <h5 className="">Nedtælling</h5>
           </div>
           <div className="col text-end">
             {countdown ? (countdown === 0
-              ? <img src={giphy} alt="" width={"175px"} height={"150px"} />
-              : <p className="display-1 ">{`${countdown} ${countdown === 1 ? "dag" : "dage"} til`}</p>)
-              : <p className="display-6">Ingen kommende begivenheder</p>}
+              ? <img src={giphy} alt="" width={100} height={100} />
+              : <p className=" ">{`${countdown} ${countdown === 1 ? "dag" : "dage"} til`}</p>)
+              : <p className="">Ingen kommende begivenheder</p>}
           </div>
         </div>
         <div className="row mt-4">
-          <p className="display-6 event-text">{text}</p>
+          <p className="event-text">{text}</p>
         </div>
       </Card.Body>
     </Card>
@@ -167,48 +167,23 @@ const getCountdown = event => {
   return Math.round((eventDate - today) / (24 * 60 * 60 * 1000))
 }
 
-const GoodPeople = ({ headcount }) => (
-  <Card className="h-100 border border-secondary">
-    <Card.Body className="row p-3">
-      <div className="col d-flex flex-column ">
-        <p className="display-5">Trustworkers</p>
-        <p className="text-description">siden d.d. sidste år</p>
-        <GoodPeopleStatus headcount={headcount[1]} />
-      </div>
-      <div className="col align-self-end text-end">
-        <p className="display-1">{headcount[0]}</p>
-        <p className="text-description">Good People</p>
-      </div>
-    </Card.Body>
-  </Card>
-)
-
 const TrustME = ({ }) => (
   <Card className="h-100 border border-secondary">
     <Card.Body className="row p-3">
       <div className="col-8 d-flex justify-content-evenly flex-column ">
-        <p className="display-5">Trust ME!</p>
+        <p className="">Trust ME!</p>
         <p className="text-description">... scan this QR code ➡️</p>
       </div>
       <div className="col align-self-end text-end">
-        <img src={QR} />
+        <img height={100} width={100} src={QR} />
       </div>
     </Card.Body>
   </Card>
 )
 
-const GoodPeopleStatus = ({ headcount }) => {
-  return (
-    <div className={'border center w-50 py-3 rounded ' + (headcount < 0 ? 'bg-red' : 'bg-green')} >
-      <UpArrowIcon className={headcount < 0 ? 'down-turned' : ''} height="32px" width="32px" />
-      <p className="display-6 ms-1">{headcount} %</p>
-    </div>
-  )
-}
-
 const Subheading = ({ text }) => (
   <div className="pt-5">
-    <h2 className="display-4">
+    <h2 className="">
       {text}
     </h2>
   </div>
@@ -235,14 +210,14 @@ const Event = ({ event }) => {
               <p className="h3 text-center fw-bold today">TODAY</p>
               :
               <div>
-                <p className="display-5 text-center">{day}</p>
-                <p className="h4 text-center">{month}</p>
+                <p className="h6 text-center">{day}</p>
+                <p className="h6 text-center">{month}</p>
               </div>
           }
         </div>
         <div className="col-10">
           <div>
-            <p className="event-text display-6">{text}</p>
+            <p className="event-text ">{text}</p>
           </div>
         </div>
         <div className="col-1 text-end">
@@ -296,7 +271,6 @@ const Styling = styled.div`
     color: #eee; 
   }
   .text-description {
-    font-size: 2.5em;
     display: -webkit-box;
     -webkit-box-orient: vertical;
     -webkit-line-clamp: 1; /* Adjust the number of lines to show */
