@@ -85,8 +85,8 @@ export const Wrapper = styled.div`
 
 .employeephoto {
     object-fit: cover;
-    height: 5em;
-    width: 5em;
+    height: 7.5em;
+    width: 7.5em;
     border-radius: 50%;
 }
 
