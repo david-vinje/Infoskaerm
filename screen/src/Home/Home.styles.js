@@ -18,7 +18,7 @@ export const Wrapper = styled.div`
 
 .list-group-item, .card, .infobox {
     border-radius: 10px; 
-}
+}1
 
 .right-border {
     border-right: 0.5em solid lightgray;
@@ -29,9 +29,6 @@ export const Wrapper = styled.div`
     border-left: 0.5em solid lightgray;
 }
 
-h1 {
-    font-weight: 500;
-}
 
 .project-description {
     display: -webkit-box;
@@ -40,7 +37,6 @@ h1 {
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: normal;
-    font-size: 2em;
 }
 
 .project-name {
@@ -61,7 +57,6 @@ h1 {
     ${'' /* border-radius: 1em; */}
     border: 1px solid lightgray;
     margin-top: 1em;
-    font-size: 2em;
     font-weight: 300;
 }
 
@@ -90,8 +85,8 @@ h1 {
 
 .employeephoto {
     object-fit: cover;
-    height: 12.5em;
-    width: 12.5em;
+    height: 5em;
+    width: 5em;
     border-radius: 50%;
 }
 

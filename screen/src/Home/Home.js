@@ -24,7 +24,7 @@ import Video from "../Components/Video"
 import Letty_test from "../img/letty_test.png"
 import TWVideo from "../videos/TWVideo.mp4"
 
-const INTERVAL = 1000 * 30; // 30 seconds
+const INTERVAL = 100000 * 30; // 30 seconds
 const CALENDAR_INTERVAL = 4; // every x slides
 
 const Home = () => {

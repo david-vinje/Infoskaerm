@@ -14,24 +14,24 @@ const HomeCard = ({
   if (isPortait)
     return (
       <div className="container-fluid d-flex flex-column"> {/*container-fluid = which is width: 100% at all breakpoints, d-flex = display flex container, flex-colum = set a vertical direction */}
-        <div className="row mx-auto clientlogoborder clientLogo rounded"> {/* mb-5  */}
+        <div className="row w-50 border align-self-center border-secondary rounded"> {/* mb-5  */}
           <img
-            className=" rounded p-0"
+            className="rounded p-0"
             src={`data:image/jpeg;base64,${getClientLogo(project.clientuuid)}`}
           />
         </div>
         <div className="row row-2 pt-5 mh-50 overflow-hidden">
-          <h1 className="project-name pt-5 display-1">{project.name}</h1>
+          <h4 className="project-name pt-5 ">{project.name}</h4>
           <ProjectStatus project={project}></ProjectStatus>
           <div className="col-8 right-border lh-lg project-description">
-            <h1 className="display-5">Situation</h1>
+            <h4 className="">Situation</h4>
             <p className="mb-3">{project.purpose}</p>
-            <h1 className="display-5">Løsning</h1>
+            <h4 className="">Løsning</h4>
             <p className="mb-3">{project.role}</p>
             <Learnings learnings={project.learnings}></Learnings>
           </div>
           <div className="col-4 ps-4">
-            <h1 className="display-5">Roller</h1>
+            <h4 className="">Roller</h4>
             {project.rolesList.slice(0, ROLES_TOOLS_LIMIT).map((role, index) => (
 
               <button
@@ -42,7 +42,7 @@ const HomeCard = ({
               </button>
             ))}
             <div className="pt-5">
-              <h1 className="display-5">Tilgang</h1>
+              <h4 className="">Tilgang</h4>
               {project.methodsList.slice(0, ROLES_TOOLS_LIMIT).map((method, index) => (
                 <button
                   key={index}
@@ -82,7 +82,7 @@ const HomeCard = ({
 
           </div>
           <div className="mt-5">
-            <h1 className="display-5 col-12">Roller</h1>
+            <h4 className=" col-12">Roller</h4>
             {project.rolesList.slice(0, ROLES_TOOLS_LIMIT).map((role, index) => (
               <button
                 key={index}
@@ -93,7 +93,7 @@ const HomeCard = ({
             ))}
           </div>
           <div className="mt-5">
-            <h1 className="display-5">Tilgang</h1>
+            <h4 className="">Tilgang</h4>
             {project.methodsList.slice(0, ROLES_TOOLS_LIMIT).map((method, index) => (
               <button
                 key={index}
@@ -108,12 +108,12 @@ const HomeCard = ({
         <div className="col ps-5 d-flex flex-coloumn">
           <div className="row">
           <div className="col">
-            <h1 className="project-name pt-5 display-1 d-flex">{project.name}</h1>
+            <h4 className="project-name pt-5  d-flex">{project.name}</h4>
             <ProjectStatus project={project}></ProjectStatus>
             <div className="col-10 lh-lg project-description">
-              <h1 className="display-5">Situation</h1>
+              <h4 className="">Situation</h4>
               <p className="mb-5">{project.purpose}</p>
-              <h1 className="display-5">Løsning</h1>
+              <h4 className="">Løsning</h4>
               <p className="mb-5">{project.role}</p>
               <Learnings learnings={project.learnings}></Learnings>
             </div>
@@ -140,9 +140,9 @@ const HomeCard = ({
 const ProjectStatus = ({ project }) => {
   const today = dateOnly(new Date());
   if (project.toDate > today || project.toDate == null) {
-    return <h2 className="lh-lg mb-5 display-4">Aktivt</h2>;
+    return <h5 className="lh-lg mb-5 ">Aktivt</h5>;
   }
-  return <h2 className="lh-lg mb-5 display-4">Afsluttet</h2>;
+  return <h5 className="lh-lg mb-5 ">Afsluttet</h5>;
 };
 
 const Counter = ({ project }) => {
@@ -150,7 +150,7 @@ const Counter = ({ project }) => {
     return (
       <div className="col-2 my-2">
         <div className="counter employeephoto border rounded-circle bg-light">
-          <h1>+{project.projectDescriptionUserList.length - PEOPLE_LIMIT}</h1>
+          <h4>+{project.projectDescriptionUserList.length - PEOPLE_LIMIT}</h4>
         </div>
       </div>
     );
@@ -160,7 +160,7 @@ const Counter = ({ project }) => {
 const Learnings = ({ learnings }) => {
   // if (learnings != null) {
     return (
-      <><h1 className="display-5">Værdi</h1><p>{learnings}</p></>
+      <><h4 className="">Værdi</h4><p>{learnings}</p></>
     );
   // }
 };
