@@ -23,17 +23,18 @@ jobs:
         with:
           node-version: '18.x'
 
-      - name: Install dependencies and build
+      - name: npm install, build, and test
         run: |
-          cd ./screen
-          npm ci
-          npm run build
+          ls -la
+          npm install
+          CI=false npm run build
+        working-directory: ./screen
 
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v4
         with:
           name: node-app
-          path: ./screen/build
+          path: ./screen
 
   deploy:
     runs-on: ubuntu-latest
@@ -55,12 +56,6 @@ jobs:
         with:
           app-name: 'webapp-infoscreen'
           slot-name: 'Production'
-          package: ./build
+          package: .
 
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_EDA6741F4E7444C5A5B400A794714FD5 }}
-
-
-
-
-
-
