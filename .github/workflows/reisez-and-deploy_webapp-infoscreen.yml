@@ -27,7 +27,7 @@ jobs:
         run: |
           ls -la
           npm install
-          npm run build --if-present
+          CI=false npm run build
         working-directory: ./screen
 
       - name: Upload artifact for deployment job
@@ -55,5 +55,6 @@ jobs:
           package: .
 
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_EDA6741F4E7444C5A5B400A794714FD5 }}
+
 
 
